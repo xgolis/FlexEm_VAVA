@@ -1,4 +1,4 @@
-package com.example.flexem.controller;
+package sk.stu.fiit.flexem.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

@@ -6,7 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5faf0dbd-3c76-4062-823a-49238a32fa03" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flexem/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/stu/fiit/flexem/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flexem/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/flexem/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/flexem/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sk/stu/fiit/flexem/controller/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/flexem/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sk/stu/fiit/flexem/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flexem/HelloController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/flexem/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/flexem/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +38,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.flexem" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.flexem.HelloApplication" />
+      <option name="MAIN_CLASS_NAME" value="sk.stu.fiit.flexem.HelloApplication" />
       <module name="flexem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.flexem.*" />
+          <option name="PATTERN" value="com.example.flexem.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,5 +84,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

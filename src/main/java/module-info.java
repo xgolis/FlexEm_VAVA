@@ -3,8 +3,8 @@ module com.example.flexem {
     requires javafx.fxml;
 
 
-    opens com.example.flexem to javafx.fxml;
-    exports com.example.flexem;
-    exports com.example.flexem.controller;
-    opens com.example.flexem.controller to javafx.fxml;
+    opens sk.stu.fiit.flexem to javafx.fxml;
+    exports sk.stu.fiit.flexem;
+    exports sk.stu.fiit.flexem.controller;
+    opens sk.stu.fiit.flexem.controller to javafx.fxml;
 }

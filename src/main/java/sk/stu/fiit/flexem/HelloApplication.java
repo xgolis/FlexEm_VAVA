@@ -1,4 +1,4 @@
-package com.example.flexem;
+package sk.stu.fiit.flexem;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
