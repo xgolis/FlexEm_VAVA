@@ -7,13 +7,13 @@ import sk.stu.fiit.flexemvavaprojekt.Main;
 
 import java.io.IOException;
 
-public class CvinecView extends View {
+public class CvicenecPlanView extends View {
     private final Stage window;
 
-    public CvinecView() throws IOException {
+    public CvicenecPlanView() throws IOException {
 
         this.window = Main.window;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("treningovy_plan_cvicenec.fxml"));
         this.scene = new Scene(fxmlLoader.load(), 820, 440);
         this.window.setTitle("FlexEM");
         this.window.setScene(this.scene);

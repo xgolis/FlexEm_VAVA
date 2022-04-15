@@ -1,9 +1,7 @@
 package sk.stu.fiit.flexemvavaprojekt.router;
 
 import javafx.stage.Stage;
-import sk.stu.fiit.flexemvavaprojekt.view.CvinecView;
-import sk.stu.fiit.flexemvavaprojekt.view.LoginView;
-import sk.stu.fiit.flexemvavaprojekt.view.View;
+import sk.stu.fiit.flexemvavaprojekt.view.*;
 
 
 import java.io.IOException;
@@ -17,8 +15,14 @@ public class Router {
         if (routerEnum == RouterEnum.LOGINVIEW ) {
             view = new LoginView();
         }
-        else if (routerEnum == RouterEnum.CVICENECVIEW ) {
-            view = new CvinecView();
+        else if (routerEnum == RouterEnum.CVICENECPLANVIEW ) {
+            view = new CvicenecPlanView();
+        }
+        else if (routerEnum == RouterEnum.CVICENECRECENZIAVIEW){
+            view = new CvicenecRecenziaView();
+        }
+        else if (routerEnum == RouterEnum.CVICENECPROFILVIEW){
+            view = new CvicenecProfilView();
         }
         if (view != null)
             view.render();

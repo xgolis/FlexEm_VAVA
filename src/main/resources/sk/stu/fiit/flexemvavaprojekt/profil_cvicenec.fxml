@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.CvicenecController">
+   <children>
+      <VBox layoutY="56.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#plan" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Tréningový plán" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Miestnosti" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Recenzia" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Profil" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+         </children>
+      </VBox>
+      <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
+         <children>
+            <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
+            <Label prefHeight="58.0" prefWidth="142.0" text="FlexEm" textFill="#dcdbd9">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <Button layoutX="429.0" layoutY="378.0" mnemonicParsing="false" text="Zmenit heslo" />
+      <Label layoutX="335.0" layoutY="99.0" text="Meno" />
+      <TextField editable="false" layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" />
+      <Label layoutX="335.0" layoutY="143.0" text="Priezvisko" />
+      <TextField editable="false" layoutX="333.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" />
+      <Label layoutX="335.0" layoutY="187.0" text="Email" />
+      <TextField editable="false" layoutX="333.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" />
+      <Label layoutX="335.0" layoutY="231.0" text="Telefon" />
+      <TextField editable="false" layoutX="333.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" />
+      <Label layoutX="335.0" layoutY="277.0" text="Heslo" />
+      <Label layoutX="335.0" layoutY="319.0" text="Nove heslo" />
+      <PasswordField layoutX="333.0" layoutY="294.0" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField layoutX="333.0" layoutY="336.0" prefHeight="25.0" prefWidth="276.0" />
+   </children>
+</Pane>

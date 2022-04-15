@@ -14,7 +14,7 @@ public class MainController {
     protected void login() {
 
         try {
-            Router.goTo(RouterEnum.CVICENECVIEW);
+            Router.goTo(RouterEnum.CVICENECPLANVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
