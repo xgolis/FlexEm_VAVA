@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.CvicenecController">
+   <children>
+      <VBox layoutY="56.0" prefHeight="385.0" prefWidth="142.0" style="-fx-background-color: #123360;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#plan" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Tréningový plán" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Miestnosti" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Recenzia" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Profil" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+         </children>
+      </VBox>
+      <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
+         <children>
+            <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
+            <Label prefHeight="58.0" prefWidth="142.0" text="FlexEm" textFill="#dcdbd9">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <TableView layoutX="520.0" layoutY="92.0" prefHeight="333.0" prefWidth="275.0" style="-fx-background-color: #dcdbd9;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Miestnosť" />
+          <TableColumn prefWidth="75.0" text="Tréner" />
+            <TableColumn prefWidth="121.5999755859375" text="Šport" />
+        </columns>
+      </TableView>
+      <TextField editable="false" layoutX="159.0" layoutY="86.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
+      <Label layoutX="159.0" layoutY="68.0" text="Miestnosť" />
+      <TextField editable="false" layoutX="159.0" layoutY="130.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
+      <Label layoutX="160.0" layoutY="112.0" text="Tréner" />
+      <TextField editable="false" layoutX="159.0" layoutY="176.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
+      <Label layoutX="159.0" layoutY="156.0" text="Šport" />
+      <Label layoutX="162.0" layoutY="249.0" text="Recenzia" />
+      <TextArea layoutX="159.0" layoutY="274.0" prefHeight="107.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
+      <Button layoutX="287.0" layoutY="391.0" mnemonicParsing="false" text="Uverejniť" />
+      <Label layoutX="520.0" layoutY="69.0" text="Absolvované cvičenia">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField layoutX="159.0" layoutY="222.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
+      <Label layoutX="159.0" layoutY="202.0" text="Počet hviezdičie(max 10)" />
+   </children>
+</Pane>
