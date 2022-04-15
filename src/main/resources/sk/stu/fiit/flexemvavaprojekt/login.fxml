@@ -47,7 +47,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="123.0" layoutY="207.0" prefHeight="26.0" prefWidth="255.0" />
+            <TextField fx:id="menofield" layoutX="123.0" layoutY="207.0" prefHeight="26.0" prefWidth="255.0" />
             <PasswordField layoutX="123.0" layoutY="259.0" prefHeight="26.0" prefWidth="254.0" />
             <Button fx:id="loginbutton" layoutX="202.0" layoutY="322.0" mnemonicParsing="false" onAction="#login" text="Prihlásiť sa">
                <font>

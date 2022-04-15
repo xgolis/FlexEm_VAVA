@@ -24,6 +24,18 @@ public class Router {
         else if (routerEnum == RouterEnum.CVICENECPROFILVIEW){
             view = new CvicenecProfilView();
         }
+        else if (routerEnum == RouterEnum.RECEPCNAEVIDENCIAVIEW){
+            view = new RecepcnaEvidenciaView();
+        }
+        else if (routerEnum == RouterEnum.RECEPCNAPROFILVIEW){
+            view = new RecepcnaProfilView();
+        }
+        else if (routerEnum == RouterEnum.RECEPCNARECENZIAVIEW){
+            view = new RecepcnaRecenziaView();
+        }
+        else if (routerEnum == RouterEnum.RECEPCNANOVYCLENVIEW){
+            view = new RecepcnaNovyClenView();
+        }
         if (view != null)
             view.render();
 
