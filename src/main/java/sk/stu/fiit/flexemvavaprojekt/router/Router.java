@@ -36,6 +36,9 @@ public class Router {
         else if (routerEnum == RouterEnum.RECEPCNANOVYCLENVIEW){
             view = new RecepcnaNovyClenView();
         }
+        else if (routerEnum == RouterEnum.RECEPCNANOVYTRENERVIEW){
+            view = new RecepcnaNovyTrenerView();
+        }
         if (view != null)
             view.render();
 

@@ -63,6 +63,17 @@ public class RecepcnaController {
 
     }
 
+    @FXML
+    protected void novyTrener() {
+
+        try {
+            Router.goTo(RouterEnum.RECEPCNANOVYTRENERVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
 
 }
