@@ -26,6 +26,13 @@ public class MainController {
             }
 
         }
+        else if (meno.equals("trener")){
+            try {
+                Router.goTo(RouterEnum.TRENERPLANVIEW);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
         else {
             try {
                 Router.goTo(RouterEnum.CVICENECPLANVIEW);
