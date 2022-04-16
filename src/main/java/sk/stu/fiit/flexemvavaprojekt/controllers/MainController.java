@@ -16,7 +16,7 @@ public class MainController {
     @FXML
     protected void login() {
 
-        String meno = new String(menofield.getText());
+        String meno = menofield.getText();
 
         if (meno.equals("recepcna")){
             try {
