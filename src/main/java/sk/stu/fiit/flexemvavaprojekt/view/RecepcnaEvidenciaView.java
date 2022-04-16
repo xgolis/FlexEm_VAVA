@@ -9,21 +9,9 @@ import java.io.IOException;
 
 public class RecepcnaEvidenciaView  extends  View{
 
-    private final Stage window;
-
     public RecepcnaEvidenciaView() throws IOException {
 
-        this.window = Main.window;
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("evidencia_vstupu_recepcna.fxml"));
-        this.scene = new Scene(fxmlLoader.load(), 820, 440);
-        this.window.setTitle("FlexEM");
-        this.window.setScene(this.scene);
+        super("evidencia_vstupu_recepcna.fxml");
     }
 
-    @Override
-    public void render() throws IOException {
-        this.window.show();
-
-
-    }
 }

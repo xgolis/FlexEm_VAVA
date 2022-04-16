@@ -1,17 +1,33 @@
 package sk.stu.fiit.flexemvavaprojekt.view;
 
+
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public abstract class View  {
+public class View  {
     protected Stage window;
     protected Scene scene;
 
 
-    public abstract void render() throws IOException;
+    public View(String fxml) throws IOException {
+        this.window = Main.window;
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
+        Locale l = new Locale("SK");
+        fxmlLoader.setResources(ResourceBundle.getBundle("bundle",l));
+        this.scene = new Scene(fxmlLoader.load(), 820, 440);
+        this.window.setTitle("FlexEM");
+        this.window.setScene(this.scene);
+    }
+
+    public void render(){
+        this.window.show();
+    };
 
 }
+
