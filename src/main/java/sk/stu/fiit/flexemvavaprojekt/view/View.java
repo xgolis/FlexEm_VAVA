@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import sk.stu.fiit.flexemvavaprojekt.Main;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -18,8 +19,7 @@ public class View  {
     public View(String fxml) throws IOException {
         this.window = Main.window;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
-        Locale l = new Locale("SK");
-        fxmlLoader.setResources(ResourceBundle.getBundle("bundle",l));
+        fxmlLoader.setResources(ResourceBundle.getBundle("bundle", Jazyk.getInstance().getAktualnyJazyk()));
         this.scene = new Scene(fxmlLoader.load(), 820, 440);
         this.window.setTitle("FlexEM");
         this.window.setScene(this.scene);
