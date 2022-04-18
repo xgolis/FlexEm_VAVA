@@ -16,12 +16,12 @@
    <children>
       <VBox layoutY="56.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Evidencia vstupov" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Nový člen" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Miestnosti" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Recenzia" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Profil" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%newmember.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
          </children>
       </VBox>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
@@ -34,31 +34,31 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="263.0" layoutY="332.0" mnemonicParsing="false" text="Pridať člena" />
-      <Label layoutX="167.0" layoutY="99.0" text="Meno" />
+      <Button layoutX="263.0" layoutY="332.0" mnemonicParsing="false" text="%addmember.key" />
+      <Label layoutX="167.0" layoutY="99.0" text="%name.key" />
       <TextField layoutX="165.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" />
-      <Label layoutX="167.0" layoutY="143.0" text="Priezvisko" />
+      <Label layoutX="167.0" layoutY="143.0" text="%surname.key" />
       <TextField layoutX="165.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" />
       <Label layoutX="167.0" layoutY="187.0" text="Email" />
       <TextField layoutX="165.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" />
-      <Label layoutX="167.0" layoutY="231.0" text="Telefon" />
+      <Label layoutX="167.0" layoutY="231.0" text="%phonenumber.key" />
       <TextField layoutX="165.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" />
       <TableView layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Meno" />
-          <TableColumn prefWidth="75.0" text="Priezvisko" />
+          <TableColumn prefWidth="75.0" text="%name.key" />
+          <TableColumn prefWidth="75.0" text="%surname.key" />
             <TableColumn prefWidth="105.59991455078125" text="Email" />
-            <TableColumn prefWidth="89.199951171875" text="Telefón" />
+            <TableColumn prefWidth="89.199951171875" text="%phonenumber.key" />
         </columns>
       </TableView>
-      <Button layoutX="167.0" layoutY="67.0" mnemonicParsing="false" onAction="#novyTrener" text="Tréner" />
-      <Button layoutX="229.0" layoutY="67.0" mnemonicParsing="false" text="Cvičenec" />
-      <Label layoutX="459.0" layoutY="91.0" text="Zoznam členov">
+      <Button layoutX="167.0" layoutY="67.0" mnemonicParsing="false" onAction="#novyTrener" text="%coach.key" />
+      <Button layoutX="229.0" layoutY="67.0" mnemonicParsing="false" text="%trainee.key" />
+      <Label layoutX="459.0" layoutY="91.0" text="%listmembers.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="167.0" layoutY="275.0" text="Tréner" />
+      <Label layoutX="167.0" layoutY="275.0" text="%coach.key" />
       <ChoiceBox layoutX="165.0" layoutY="292.0" prefHeight="25.0" prefWidth="276.0" />
    </children>
 </Pane>
