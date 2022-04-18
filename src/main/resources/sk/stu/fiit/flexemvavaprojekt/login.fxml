@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -25,12 +26,12 @@
                   <Font name="System Bold Italic" size="44.0" />
                </font>
             </Label>
-            <Label layoutX="40.0" layoutY="7.0" text="%language.key" textFill="WHITE">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="jazykChoiceBox" onAction="#zmenaJazyka" layoutX="47.0" layoutY="42.0" prefWidth="150.0" />
+            <MenuButton fx:id="menu" layoutX="47.0" layoutY="36.0" mnemonicParsing="false" text="%language.key">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#nastavEN" text="EN" />
+                <MenuItem mnemonicParsing="false" onAction="#nastavSK" text="SK" />
+              </items>
+            </MenuButton>
          </children>
       </AnchorPane>
    </left>
