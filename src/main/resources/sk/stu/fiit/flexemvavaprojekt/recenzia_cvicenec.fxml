@@ -16,11 +16,11 @@
    <children>
       <VBox layoutY="56.0" prefHeight="385.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" onAction="#plan" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Tréningový plán" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Miestnosti" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Recenzia" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Profil" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#plan" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%trainingplan.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%review.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
          </children>
       </VBox>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
@@ -35,25 +35,25 @@
       </HBox>
       <TableView layoutX="520.0" layoutY="92.0" prefHeight="333.0" prefWidth="275.0" style="-fx-background-color: #dcdbd9;">
         <columns>
-          <TableColumn prefWidth="75.0" text="Miestnosť" />
-          <TableColumn prefWidth="75.0" text="Tréner" />
-            <TableColumn prefWidth="121.5999755859375" text="Šport" />
+          <TableColumn prefWidth="75.0" text="%room.key" />
+          <TableColumn prefWidth="75.0" text="%coach.key" />
+            <TableColumn prefWidth="121.5999755859375" text="%sport.key" />
         </columns>
       </TableView>
       <TextField editable="false" layoutX="159.0" layoutY="86.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="159.0" layoutY="68.0" text="Miestnosť" />
+      <Label layoutX="159.0" layoutY="68.0" text="%room.key" />
       <TextField editable="false" layoutX="159.0" layoutY="130.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="160.0" layoutY="112.0" text="Tréner" />
+      <Label layoutX="160.0" layoutY="112.0" text="%coach.key" />
       <TextField editable="false" layoutX="159.0" layoutY="176.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="159.0" layoutY="156.0" text="Šport" />
-      <Label layoutX="162.0" layoutY="249.0" text="Recenzia" />
+      <Label layoutX="159.0" layoutY="156.0" text="%sport.key" />
+      <Label layoutX="162.0" layoutY="249.0" text="%review.key" />
       <TextArea layoutX="159.0" layoutY="274.0" prefHeight="107.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
-      <Button layoutX="287.0" layoutY="391.0" mnemonicParsing="false" text="Uverejniť" />
-      <Label layoutX="520.0" layoutY="69.0" text="Absolvované cvičenia">
+      <Button layoutX="287.0" layoutY="391.0" mnemonicParsing="false" text="%publish.key" />
+      <Label layoutX="520.0" layoutY="69.0" text="%completedexercises.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <TextField layoutX="159.0" layoutY="222.0" prefHeight="26.0" prefWidth="322.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="159.0" layoutY="202.0" text="Počet hviezdičie(max 10)" />
+      <Label layoutX="159.0" layoutY="202.0" text="%numberofstars.key" />
    </children>
 </Pane>

@@ -16,10 +16,10 @@
    <children>
       <VBox layoutY="56.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Môj rozvrh" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Tréningový plán" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Profil" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
          </children>
       </VBox>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
@@ -34,27 +34,27 @@
       </HBox>
       <TableView layoutX="442.0" layoutY="101.0" prefHeight="323.0" prefWidth="366.0">
         <columns>
-          <TableColumn prefWidth="195.99996948242188" text="Meno" />
-          <TableColumn prefWidth="168.800048828125" text="Priezvisko" />
+          <TableColumn prefWidth="195.99996948242188" text="%name.key" />
+          <TableColumn prefWidth="168.800048828125" text="%surname.key" />
         </columns>
       </TableView>
-      <Label layoutX="442.0" layoutY="71.0" text="Moji členovia">
+      <Label layoutX="442.0" layoutY="71.0" text="%mymembers.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="156.0" layoutY="101.0" text="Cvik 1" />
+      <Label layoutX="156.0" layoutY="101.0" text="%exercise1.key" />
       <TextField layoutX="156.0" layoutY="118.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="143.0" text="Cvik 2" />
+      <Label layoutX="156.0" layoutY="143.0" text="%exercise2.key" />
       <TextField layoutX="156.0" layoutY="160.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="185.0" text="Cvik 3" />
+      <Label layoutX="156.0" layoutY="185.0" text="%exercise3.key" />
       <TextField layoutX="156.0" layoutY="202.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="227.0" text="Cvik 4" />
+      <Label layoutX="156.0" layoutY="227.0" text="%exercise4.key" />
       <TextField layoutX="156.0" layoutY="244.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="269.0" text="Dátum" />
+      <Label layoutX="156.0" layoutY="269.0" text="%date.key" />
       <DatePicker layoutX="156.0" layoutY="286.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="311.0" text="Popis" />
+      <Label layoutX="156.0" layoutY="311.0" text="%desc.key" />
       <TextField layoutX="156.0" layoutY="328.0" prefHeight="25.0" prefWidth="260.0" />
-      <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="Pridať tréning" />
+      <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="%addtraining.key" />
    </children>
 </Pane>

@@ -22,27 +22,27 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="439.0" layoutY="388.0" mnemonicParsing="false" text="Zmenit heslo" />
-      <Label layoutX="345.0" layoutY="109.0" text="Meno" />
+      <Button layoutX="439.0" layoutY="388.0" mnemonicParsing="false" text="%changepsw.key" />
+      <Label layoutX="345.0" layoutY="109.0" text="%name.key" />
       <TextField editable="false" layoutX="343.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="345.0" layoutY="153.0" text="Priezvisko" />
+      <Label layoutX="345.0" layoutY="153.0" text="%surname.key" />
       <TextField editable="false" layoutX="343.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="197.0" text="Email" />
       <TextField editable="false" layoutX="343.0" layoutY="216.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="345.0" layoutY="241.0" text="Telefon" />
+      <Label layoutX="345.0" layoutY="241.0" text="%phonenumber.key" />
       <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="345.0" layoutY="287.0" text="Heslo" />
-      <Label layoutX="345.0" layoutY="329.0" text="Nove heslo" />
+      <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
+      <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
       <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Evidencia vstupov" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Nový člen" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Miestnosti" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Recenzia" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="Profil" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="Odhlásiť sa" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%profil.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
          </children>
       </VBox>
    </children>
