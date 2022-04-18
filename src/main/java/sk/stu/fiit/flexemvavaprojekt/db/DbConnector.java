@@ -6,8 +6,8 @@ public class DbConnector {
         Connection con = null;
 
         try {
-            String url = "jdbc:postgresql://147.175.150.216:5432/dota2";
-            con = DriverManager.getConnection(url, "xberezny", "Qsefthuko0Az09");
+            String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/pmsvldav";
+            con = DriverManager.getConnection(url, "pmsvldav", "Q3U0h9PdA4B6wfNa_37PmTonvYVe2bMH");
             if (con != null)
                 System.out.println("Connected");
 
