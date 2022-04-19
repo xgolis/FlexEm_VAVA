@@ -20,7 +20,7 @@ public class TrenerController {
     }
 
     @FXML
-    protected void profil() {
+    protected void zobraz_profil() {
 
         try {
             Router.goTo(RouterEnum.TRENERPROFILVIEW);
@@ -31,7 +31,7 @@ public class TrenerController {
     }
 
     @FXML
-    protected void plan() {
+    protected void zobraz_plan() {
 
         try {
             Router.goTo(RouterEnum.TRENERPLANVIEW);
