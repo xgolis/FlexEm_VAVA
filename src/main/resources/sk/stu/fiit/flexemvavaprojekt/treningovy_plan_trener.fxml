@@ -22,7 +22,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#zobraz_profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
