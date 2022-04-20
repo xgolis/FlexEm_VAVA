@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -15,27 +16,6 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.TrenerController">
    <children>
-      <VBox layoutY="56.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
-         <children>
-            <Button mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#zobrazRecenzie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-         </children>
-      </VBox>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
          <children>
             <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
@@ -57,29 +37,90 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="156.0" layoutY="101.0" text="%exercise1.key" />
-      <TextField layoutX="156.0" layoutY="118.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="143.0" text="%exercise2.key" />
-      <TextField layoutX="156.0" layoutY="160.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="185.0" text="%exercise3.key" />
-      <TextField layoutX="156.0" layoutY="202.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="227.0" text="%exercise4.key" />
-      <TextField layoutX="156.0" layoutY="244.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="269.0" text="%date.key" />
-      <DatePicker layoutX="156.0" layoutY="286.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="311.0" text="%nametraining.key" />
-      <TextField layoutX="156.0" layoutY="328.0" prefHeight="25.0" prefWidth="260.0" />
+      <Label layoutX="194.0" layoutY="101.0" text="%exercise1.key" />
+      <TextField layoutX="193.0" layoutY="118.0" prefHeight="25.0" prefWidth="223.0" />
+      <Label layoutX="194.0" layoutY="143.0" text="%exercise2.key" />
+      <TextField layoutX="193.0" layoutY="160.0" prefHeight="25.0" prefWidth="223.0" />
+      <Label layoutX="194.0" layoutY="185.0" text="%exercise3.key" />
+      <TextField layoutX="193.0" layoutY="202.0" prefHeight="25.0" prefWidth="223.0" />
+      <Label layoutX="194.0" layoutY="227.0" text="%exercise4.key" />
+      <TextField layoutX="193.0" layoutY="244.0" prefHeight="25.0" prefWidth="223.0" />
+      <Label layoutX="194.0" layoutY="269.0" text="%date.key" />
+      <DatePicker layoutX="193.0" layoutY="286.0" prefHeight="25.0" prefWidth="223.0" />
+      <Label layoutX="193.0" layoutY="311.0" text="%nametraining.key" />
+      <TextField layoutX="193.0" layoutY="328.0" prefHeight="25.0" prefWidth="223.0" />
       <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="%addtraining.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="159.0" layoutY="67.0" mnemonicParsing="false" text="%individual.key">
+      <Button layoutX="192.0" layoutY="67.0" mnemonicParsing="false" text="%individual.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="291.0" layoutY="67.0" mnemonicParsing="false" onAction="#zobrazSkupinovyPlan" text="%group.key">
+      <Button layoutX="337.0" layoutY="67.0" mnemonicParsing="false" onAction="#zobrazSkupinovyPlan" text="%group.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
+         <children>
+            <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/time-management.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazIndividualnyPlan" prefHeight="55.0" prefWidth="189.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/target.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRecenzie" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/rating.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="187.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="186.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/turn-off.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
    </children>
 </Pane>
