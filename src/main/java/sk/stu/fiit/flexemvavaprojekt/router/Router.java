@@ -42,9 +42,6 @@ public class Router {
         else if (routerEnum == RouterEnum.TRENERPROFILVIEW){
             view = new TrenerProfilView();
         }
-        else if (routerEnum == RouterEnum.TRENERPLANVIEW){
-            view = new TrenerPlanView();
-        }
         else if (routerEnum == RouterEnum.TRENERRECENZIAVIEW){
             view = new TrenerRecenziaView();
         }

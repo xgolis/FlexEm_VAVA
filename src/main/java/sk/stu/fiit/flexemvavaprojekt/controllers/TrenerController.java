@@ -31,16 +31,6 @@ public class TrenerController {
     }
 
     @FXML
-    protected void zobrazPlan() {
-
-        try {
-            Router.goTo(RouterEnum.TRENERPLANVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-    @FXML
     protected void zobrazRecenzie() {
 
         try {

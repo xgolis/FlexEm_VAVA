@@ -23,16 +23,16 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="174.0" layoutY="208.0" mnemonicParsing="false" text="%showDetails.key">
+      <Button layoutX="174.0" layoutY="208.0" mnemonicParsing="false" text="%showdetails.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <TableView layoutX="284.0" layoutY="116.0" prefHeight="306.0" prefWidth="513.0">
         <columns>
           <TableColumn prefWidth="107.199951171875" text="%room.key" />
-          <TableColumn prefWidth="144.80007934570312" text="%desc.key" />
+          <TableColumn prefWidth="144.80007934570312" text="%nametraining.key" />
             <TableColumn prefWidth="136.7999267578125" text="%sport.key" />
-            <TableColumn prefWidth="124.79998779296875" text="%timeAndDate.key" />
+            <TableColumn prefWidth="124.79998779296875" text="%dateandtime.key" />
         </columns>
       </TableView>
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">

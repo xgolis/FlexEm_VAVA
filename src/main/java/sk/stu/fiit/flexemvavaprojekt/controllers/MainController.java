@@ -55,7 +55,7 @@ public class MainController {
         }
         else if (meno.equals("trener")){
             try {
-                Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
+                Router.goTo(RouterEnum.TRENERROZVRHVIEW);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

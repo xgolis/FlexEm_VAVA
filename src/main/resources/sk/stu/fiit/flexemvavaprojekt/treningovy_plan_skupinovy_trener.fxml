@@ -62,14 +62,14 @@
       <TextField layoutX="175.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" />
       <Label layoutX="177.0" layoutY="153.0" text="%sport.key" />
       <TextField layoutX="175.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" />
-      <Label layoutX="177.0" layoutY="197.0" text="%timeAndDate.key" />
-      <Label layoutX="177.0" layoutY="241.0" text="%desc.key" />
+      <Label layoutX="177.0" layoutY="197.0" text="%dateandtime.key" />
+      <Label layoutX="177.0" layoutY="241.0" text="%name.key" />
       <TextField layoutX="175.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" />
       <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
             <TableColumn prefWidth="75.0" text="%room.key" />
             <TableColumn prefWidth="75.0" text="%coach.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%timeAndDate.key" />
+            <TableColumn prefWidth="105.59991455078125" text="%dateandtime.key" />
             <TableColumn prefWidth="89.199951171875" text="%sport.key" />
          </columns>
       </TableView>
