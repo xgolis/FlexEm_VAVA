@@ -40,4 +40,43 @@ public class TrenerController {
         }
 
     }
+    @FXML
+    protected void zobrazRecenzie() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    protected void zobrazRozvrh() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERROZVRHVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    protected void zobrazIndividualnyPlan() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    protected void zobrazSkupinovyPlan() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERSKUPINOVYVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
