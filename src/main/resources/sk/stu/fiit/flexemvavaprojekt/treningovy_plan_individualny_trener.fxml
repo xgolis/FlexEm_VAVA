@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -16,10 +17,23 @@
    <children>
       <VBox layoutY="56.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#zobrazRecenzie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </VBox>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
@@ -38,7 +52,7 @@
           <TableColumn prefWidth="168.800048828125" text="%surname.key" />
         </columns>
       </TableView>
-      <Label layoutX="442.0" layoutY="71.0" text="%mymembers.key">
+      <Label layoutX="442.0" layoutY="71.0" text="%mytrainees.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -53,8 +67,19 @@
       <TextField layoutX="156.0" layoutY="244.0" prefHeight="25.0" prefWidth="260.0" />
       <Label layoutX="156.0" layoutY="269.0" text="%date.key" />
       <DatePicker layoutX="156.0" layoutY="286.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label layoutX="156.0" layoutY="311.0" text="%desc.key" />
+      <Label layoutX="156.0" layoutY="311.0" text="%nametraining.key" />
       <TextField layoutX="156.0" layoutY="328.0" prefHeight="25.0" prefWidth="260.0" />
-      <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="%addtraining.key" />
+      <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" text="%addtraining.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="159.0" layoutY="67.0" mnemonicParsing="false" text="%individual.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button layoutX="291.0" layoutY="67.0" mnemonicParsing="false" onAction="#zobrazSkupinovyPlan" text="%group.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </Pane>

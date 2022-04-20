@@ -1,7 +1,5 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
@@ -55,7 +53,7 @@ public class MainController {
         }
         else if (meno.equals("trener")){
             try {
-                Router.goTo(RouterEnum.TRENERPLANVIEW);
+                Router.goTo(RouterEnum.TRENERROZVRHVIEW);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

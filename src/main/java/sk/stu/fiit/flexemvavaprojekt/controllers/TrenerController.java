@@ -20,7 +20,7 @@ public class TrenerController {
     }
 
     @FXML
-    protected void profil() {
+    protected void zobrazProfil() {
 
         try {
             Router.goTo(RouterEnum.TRENERPROFILVIEW);
@@ -31,13 +31,42 @@ public class TrenerController {
     }
 
     @FXML
-    protected void plan() {
+    protected void zobrazRecenzie() {
 
         try {
-            Router.goTo(RouterEnum.TRENERPLANVIEW);
+            Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
 
+    @FXML
+    protected void zobrazRozvrh() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERROZVRHVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    protected void zobrazIndividualnyPlan() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    protected void zobrazSkupinovyPlan() {
+
+        try {
+            Router.goTo(RouterEnum.TRENERSKUPINOVYVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

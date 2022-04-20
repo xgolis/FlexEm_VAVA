@@ -42,8 +42,17 @@ public class Router {
         else if (routerEnum == RouterEnum.TRENERPROFILVIEW){
             view = new TrenerProfilView();
         }
-        else if (routerEnum == RouterEnum.TRENERPLANVIEW){
-            view = new TrenerPlanView();
+        else if (routerEnum == RouterEnum.TRENERRECENZIAVIEW){
+            view = new TrenerRecenziaView();
+        }
+        else if (routerEnum == RouterEnum.TRENERROZVRHVIEW){
+            view = new TrenerRozvrhView();
+        }
+        else if (routerEnum == RouterEnum.TRENERINDIVIDUALNYVIEW){
+            view = new TrenerIndividualnyView();
+        }
+        else if (routerEnum == RouterEnum.TRENERSKUPINOVYVIEW){
+            view = new TrenerSkupinovyView();
         }
         if (view != null)
             view.render();

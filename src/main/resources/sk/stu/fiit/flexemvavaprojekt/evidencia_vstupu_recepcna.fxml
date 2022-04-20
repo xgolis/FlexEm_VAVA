@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -26,16 +27,37 @@
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%entryrecords.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9" />
+            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </VBox>
       <Label layoutX="161.0" layoutY="119.0" text="%regid.key" />
-      <TextField layoutX="161.0" layoutY="144.0" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #dcdbd9;" />
-      <Button layoutX="161.0" layoutY="189.0" mnemonicParsing="false" text="%registerentry.key" />
+      <TextField layoutX="161.0" layoutY="144.0" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #dcdbd9;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Button layoutX="161.0" layoutY="189.0" mnemonicParsing="false" text="%registerentry.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <TableView layoutX="484.0" layoutY="116.0" prefHeight="290.0" prefWidth="270.0" style="-fx-background-color: #dcdbd9;">
         <columns>
           <TableColumn prefWidth="75.0" text="%name.key" />
@@ -43,6 +65,9 @@
             <TableColumn prefWidth="109.5999755859375" text="%regid.key" />
         </columns>
       </TableView>
-      <Button layoutX="294.0" layoutY="189.0" mnemonicParsing="false" text="%registerleave.key" />
+      <Button layoutX="294.0" layoutY="189.0" mnemonicParsing="false" text="%registerleave.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </Pane>
