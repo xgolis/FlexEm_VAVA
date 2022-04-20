@@ -37,8 +37,8 @@
       <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
       <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
-      <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
-      <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
          <children>
             <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
