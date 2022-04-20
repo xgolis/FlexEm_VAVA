@@ -64,16 +64,16 @@
       <RadioButton layoutX="457.0" layoutY="99.0" mnemonicParsing="false" text="%completedexercises.key" />
       <RadioButton layoutX="602.0" layoutY="99.0" mnemonicParsing="false" text="%upcomingexercises.key" />
       <Label layoutX="160.0" layoutY="99.0" text="%date.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="160.0" layoutY="143.0" text="%nametraining.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="160.0" layoutY="187.0" text="%exercise1.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="160.0" layoutY="231.0" text="%exercise2.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="160.0" layoutY="275.0" text="%exercise3.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="294.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="294.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="160.0" layoutY="319.0" text="%exercise4.key" />
-      <TextField editable="false" layoutX="158.0" layoutY="338.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField layoutX="158.0" layoutY="338.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
    </children>
 </Pane>

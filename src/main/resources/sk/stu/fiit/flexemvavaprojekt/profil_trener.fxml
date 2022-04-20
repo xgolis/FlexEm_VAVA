@@ -50,13 +50,13 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="345.0" layoutY="109.0" text="%name.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField editable="false" layoutX="343.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="153.0" text="%surname.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField editable="false" layoutX="343.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="197.0" text="Email" />
-      <TextField editable="false" layoutX="343.0" layoutY="216.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField editable="false" layoutX="343.0" layoutY="216.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="241.0" text="%phonenumber.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" />
+      <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
       <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
       <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
