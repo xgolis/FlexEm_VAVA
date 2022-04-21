@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.CvicenecController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec.CvicenecProfilController">
    <children>
       <VBox layoutY="56.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
@@ -85,7 +85,7 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="335.0" layoutY="99.0" text="%name.key" />
-      <TextField editable="false" layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="cvicenecProfilMenoF" editable="false" layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>

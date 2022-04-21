@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.RecepcnaController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.recepcna.RecepcnaNovyTrenerController">
    <children>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
          <children>
@@ -47,7 +47,7 @@
       <TextField layoutX="364.0" layoutY="301.0" prefHeight="25.0" prefWidth="242.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" onAction="#evidenciaVstupov" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>

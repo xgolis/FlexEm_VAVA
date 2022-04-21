@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.TrenerController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.trener.TrenerInvidPlanController">
    <children>
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
          <children>
@@ -32,7 +32,7 @@
           <TableColumn prefWidth="168.800048828125" text="%surname.key" />
         </columns>
       </TableView>
-      <Label layoutX="442.0" layoutY="71.0" text="%mytrainees.key">
+      <Label layoutX="497.0" layoutY="71.0" text="%mytrainees.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
