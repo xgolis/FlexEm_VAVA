@@ -1,6 +1,7 @@
 module sk.stu.fiit.flexemvavaprojekt {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens sk.stu.fiit.flexemvavaprojekt to javafx.fxml;
