@@ -29,6 +29,17 @@ public class CvicenecProfilController implements Initializable{
     }
 
     @FXML
+    protected void miestnosti() {
+
+        try {
+            Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @FXML
     protected void odhlasenie() {
 
         try {

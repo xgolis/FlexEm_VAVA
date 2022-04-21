@@ -54,6 +54,15 @@ public class Router {
         else if (routerEnum == RouterEnum.TRENERSKUPINOVYVIEW){
             view = new TrenerSkupinovyView();
         }
+        else if (routerEnum == RouterEnum.RECEPCNAMIESTNOSTIVIEW){
+            view = new RecepcnaMiestnostiView();
+        }
+        else if (routerEnum == RouterEnum.RECEPCNACLENOVIAVIEW){
+            view = new RecepcnaClenoviaView();
+        }
+        else if (routerEnum == RouterEnum.CVICENECMIESTNOSTIVIEW){
+            view = new CvicenecMiestnostiView();
+        }
         if (view != null)
             view.render();
 
