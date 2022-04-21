@@ -28,15 +28,15 @@
          </children>
       </HBox>
       <Label layoutX="195.0" layoutY="109.0" text="%name.key" />
-      <TextField editable="false" layoutX="194.0" layoutY="128.0" prefHeight="25.0" prefWidth="257.0" />
+      <TextField fx:id="recenziaTMenoField" editable="false" layoutX="194.0" layoutY="128.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="153.0" text="%surname.key" />
-      <TextField editable="false" layoutX="194.0" layoutY="172.0" prefHeight="25.0" prefWidth="257.0" />
+      <TextField fx:id="recenziaTPriezviskoField" editable="false" layoutX="194.0" layoutY="172.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="197.0" text="%sport.key" />
-      <TextField editable="false" layoutX="194.0" layoutY="216.0" prefHeight="25.0" prefWidth="257.0" />
+      <TextField fx:id="recenziaTSportField" editable="false" layoutX="194.0" layoutY="216.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="241.0" text="%numberofstarsrecep.key" />
-      <TextField editable="false" layoutX="194.0" layoutY="260.0" prefHeight="25.0" prefWidth="257.0" />
+      <TextField fx:id="recenziaTHviezdickyField" editable="false" layoutX="194.0" layoutY="260.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="285.0" text="%review.key" />
-      <TextArea editable="false" layoutX="194.0" layoutY="302.0" prefHeight="64.0" prefWidth="257.0" />
+      <TextArea fx:id="recenziaTRecenziaField" editable="false" layoutX="194.0" layoutY="302.0" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
             <TableColumn prefWidth="75.0" text="%name.key" />

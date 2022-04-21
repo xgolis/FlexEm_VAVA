@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -10,6 +11,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecepcnaClenoviaController implements Initializable {
+
+    @FXML
+    private TextField clenoviaRMenoField;
+
+    @FXML
+    private TextField clenoviaRPriezviskoField;
+
+    @FXML
+    private TextField clenoviaRRegIDField;
 
     @FXML
     protected void odhlasenie() {
@@ -81,6 +91,8 @@ public class RecepcnaClenoviaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        clenoviaRMenoField.setText("bum");
+        clenoviaRPriezviskoField.setText("bac");
+        clenoviaRRegIDField.setText("1");
     }
 }

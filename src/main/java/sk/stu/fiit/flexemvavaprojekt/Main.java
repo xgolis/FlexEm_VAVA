@@ -2,7 +2,6 @@ package sk.stu.fiit.flexemvavaprojekt;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import sk.stu.fiit.flexemvavaprojekt.db.DTO.Trener;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.view.LoginView;
 import sk.stu.fiit.flexemvavaprojekt.view.View;

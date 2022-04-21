@@ -27,7 +27,7 @@
                   <Font name="System Bold Italic" size="44.0" />
                </font>
             </Label>
-            <MenuButton fx:id="menu" layoutX="47.0" layoutY="36.0" mnemonicParsing="false" text="%language.key">
+            <MenuButton fx:id="menu" layoutX="47.0" layoutY="36.0" mnemonicParsing="false" onKeyPressed="#onEnterPressed" text="%language.key">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#nastavEN" text="EN" />
                 <MenuItem mnemonicParsing="false" onAction="#nastavSK" text="SK" />
@@ -40,7 +40,7 @@
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="528.0" prefWidth="476.0" BorderPane.alignment="CENTER">
+      <AnchorPane onKeyPressed="#onEnterPressed" prefHeight="528.0" prefWidth="476.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="120.0" fitWidth="165.0" layoutX="190.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -57,9 +57,9 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="menoField" layoutX="123.0" layoutY="207.0" prefHeight="26.0" prefWidth="255.0" />
-            <PasswordField layoutX="123.0" layoutY="259.0" prefHeight="26.0" prefWidth="254.0" />
-            <Button fx:id="loginbutton" layoutX="202.0" layoutY="322.0" mnemonicParsing="false" onAction="#login" text="%login.key">
+            <TextField fx:id="menoField" layoutX="123.0" layoutY="207.0" onKeyPressed="#onEnterPressed" prefHeight="26.0" prefWidth="255.0" />
+            <PasswordField layoutX="123.0" layoutY="259.0" onKeyPressed="#onEnterPressed" prefHeight="26.0" prefWidth="254.0" />
+            <Button fx:id="loginbutton" layoutX="202.0" layoutY="322.0" mnemonicParsing="false" onAction="#login" onKeyPressed="#onEnterPressed" text="%login.key">
                <font>
                   <Font size="16.0" />
                </font>

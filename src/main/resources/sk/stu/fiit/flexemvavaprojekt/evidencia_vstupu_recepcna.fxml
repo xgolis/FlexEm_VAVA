@@ -105,7 +105,7 @@
          </children>
       </VBox>
       <Label layoutX="211.0" layoutY="116.0" text="%regid.key" />
-      <TextField layoutX="211.0" layoutY="141.0" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="evidenciaRRegIDField" layoutX="211.0" layoutY="141.0" prefHeight="26.0" prefWidth="262.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>

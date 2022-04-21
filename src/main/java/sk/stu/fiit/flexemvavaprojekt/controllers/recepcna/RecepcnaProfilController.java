@@ -2,6 +2,8 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -10,6 +12,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecepcnaProfilController implements Initializable {
+
+    @FXML
+    private TextField profilREmailField;
+    @FXML
+    private PasswordField profilRHeslo1Field;
+    @FXML
+    private PasswordField profilRHeslo2Field;
+    @FXML
+    private TextField profilRMenoField;
+    @FXML
+    private TextField profilRPriezviskoField;
+    @FXML
+    private TextField profilRTelefonField;
 
     @FXML
     protected void odhlasenie() {
@@ -81,6 +96,6 @@ public class RecepcnaProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        profilREmailField.setText("toto na heslo treba prerobit");
     }
 }

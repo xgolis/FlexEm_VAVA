@@ -32,13 +32,13 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="197.0" layoutY="99.0" text="%name.key" />
-      <TextField editable="false" layoutX="196.0" layoutY="118.0" prefHeight="25.0" prefWidth="245.0" />
+      <TextField fx:id="recenziaRMenoField" editable="false" layoutX="196.0" layoutY="118.0" prefHeight="25.0" prefWidth="245.0" />
       <Label layoutX="197.0" layoutY="143.0" text="%surname.key" />
-      <TextField editable="false" layoutX="196.0" layoutY="162.0" prefHeight="25.0" prefWidth="245.0" />
+      <TextField fx:id="recenziaRPriezviskoField" editable="false" layoutX="196.0" layoutY="162.0" prefHeight="25.0" prefWidth="245.0" />
       <Label layoutX="197.0" layoutY="187.0" text="%sport.key" />
-      <TextField editable="false" layoutX="196.0" layoutY="206.0" prefHeight="25.0" prefWidth="245.0" />
+      <TextField fx:id="recenziaRSportFIeld" editable="false" layoutX="196.0" layoutY="206.0" prefHeight="25.0" prefWidth="245.0" />
       <Label layoutX="197.0" layoutY="231.0" text="%numberofstarsrecep.key" />
-      <TextField editable="false" layoutX="196.0" layoutY="250.0" prefHeight="25.0" prefWidth="245.0" />
+      <TextField fx:id="recenziaRHviezdyField" editable="false" layoutX="196.0" layoutY="250.0" prefHeight="25.0" prefWidth="245.0" />
       <TableView layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
         <columns>
           <TableColumn prefWidth="75.0" text="%name.key" />
@@ -53,7 +53,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextArea editable="false" layoutX="196.0" layoutY="292.0" prefHeight="64.0" prefWidth="245.0" />
+      <TextArea fx:id="recenziaRRecenziaArea" editable="false" layoutX="196.0" layoutY="292.0" prefHeight="64.0" prefWidth="245.0" />
       <RadioButton layoutX="459.0" layoutY="90.0" mnemonicParsing="false" text="10/10" />
       <RadioButton layoutX="555.0" layoutY="90.0" mnemonicParsing="false" text="5+/10" />
       <RadioButton layoutX="651.0" layoutY="90.0" mnemonicParsing="false" text="5-/10" />

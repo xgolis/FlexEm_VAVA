@@ -1,11 +1,14 @@
 package sk.stu.fiit.flexemvavaprojekt.db;
-import sk.stu.fiit.flexemvavaprojekt.db.DTO.Cvicenec;
-import sk.stu.fiit.flexemvavaprojekt.db.DTO.Recepcna;
-import sk.stu.fiit.flexemvavaprojekt.db.DTO.Trener;
+import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
+import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 
 import java.sql.*;
 
 public class DbConnector {
+
+    private static DbConnector single_instance = null;
     Connection con = null;
     String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/pmsvldav";
 
@@ -28,6 +31,14 @@ public class DbConnector {
         catch (Exception e){
             System.out.println(e);
         }
+    }
+
+    public static DbConnector getInstance()
+    {
+        if (single_instance == null)
+            single_instance = new DbConnector();
+
+        return single_instance;
     }
 
     public Trener getTrener(int id){

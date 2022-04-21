@@ -3,6 +3,8 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -13,9 +15,26 @@ import java.util.ResourceBundle;
 
 public class CvicenecProfilController implements Initializable{
 
-    @FXML
-    private TextField cvicenecProfilMenoF;
 
+    @FXML
+    private TextField profilCEmailField;
+
+    @FXML
+    private TextField profilCMenoField;
+
+    @FXML
+    private TextField profilCPriezivskoField;
+
+    @FXML
+    private TextField profilCTelefonField;
+
+    @FXML
+    private TextField profilCHeslo1Field;
+
+    @FXML
+    private TextField profilCHeslo2Field;
+
+    Cvicenec cvicenec = DbConnector.getInstance().getCvicenec(1);
 
     @FXML
     protected void recenzia() {
@@ -63,7 +82,10 @@ public class CvicenecProfilController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+//        profilCMenoField.setText(cvicenec.getMeno());
+//        profilCPriezivskoField.setText(cvicenec.getPriezvisko());
+//        profilCEmailField.setText(cvicenec.getEmail());
+//        profilCTelefonField.setText(cvicenec.getTelefonneCislo());
     }
 
 

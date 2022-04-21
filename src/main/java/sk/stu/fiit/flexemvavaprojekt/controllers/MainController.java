@@ -2,6 +2,8 @@ package sk.stu.fiit.flexemvavaprojekt.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -37,7 +39,12 @@ public class MainController {
         }
     }
 
-
+    @FXML
+    protected void onEnterPressed(KeyEvent event){
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            login();
+        }
+    }
     @FXML
     protected void login() {
 

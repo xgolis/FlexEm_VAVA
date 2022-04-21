@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -10,6 +11,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecepcnaNovyClenController implements Initializable {
+
+    @FXML
+    private TextField novyclenREmailField;
+    @FXML
+    private TextField novyclenRMenoField;
+    @FXML
+    private TextField novyclenRPriezviskoField;
+    @FXML
+    private TextField novyclenRTelefonField;
 
     @FXML
     protected void odhlasenie() {
