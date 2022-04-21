@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -21,7 +22,7 @@ public class CvicenecRecenziaController implements Initializable {
     @FXML
     private TextField recenziaCTrenerField;
     @FXML
-    private TextField recenziaCRecenziaField;
+    private TextArea recenziaCRecenziaArea;
 
     @FXML
     protected void profil() {
