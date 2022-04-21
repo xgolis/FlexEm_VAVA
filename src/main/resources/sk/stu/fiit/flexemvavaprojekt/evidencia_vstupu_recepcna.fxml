@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -17,44 +18,98 @@
       <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
          <children>
             <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-            <Label prefHeight="58.0" prefWidth="142.0" text="FlexEm" textFill="#dcdbd9">
+            <Label prefHeight="58.0" prefWidth="138.0" text="FlexEm" textFill="#dcdbd9">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
          </children>
       </HBox>
-      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
+      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%entryrecords.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #2a3143;" text="%entryrecords.key" textFill="#dcdbd9">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/log-in.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: #123360;" text="%members.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/male-customer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/new.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/weightlifting.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/rating.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="192.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="197.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/turn-off.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
       </VBox>
-      <Label layoutX="161.0" layoutY="119.0" text="%regid.key" />
-      <TextField layoutX="161.0" layoutY="144.0" prefHeight="26.0" prefWidth="262.0">
+      <Label layoutX="211.0" layoutY="116.0" text="%regid.key" />
+      <TextField layoutX="211.0" layoutY="141.0" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <Button layoutX="161.0" layoutY="189.0" mnemonicParsing="false" text="%registerentry.key">
+      <Button layoutX="211.0" layoutY="186.0" mnemonicParsing="false" text="%registerentry.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -65,7 +120,7 @@
             <TableColumn prefWidth="109.5999755859375" text="%regid.key" />
         </columns>
       </TableView>
-      <Button layoutX="294.0" layoutY="189.0" mnemonicParsing="false" text="%registerleave.key">
+      <Button layoutX="344.0" layoutY="186.0" mnemonicParsing="false" text="%registerleave.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

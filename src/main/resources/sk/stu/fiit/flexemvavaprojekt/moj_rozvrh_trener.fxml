@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -23,11 +24,11 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="174.0" layoutY="208.0" mnemonicParsing="false" text="%showdetails.key">
+      <Button layoutX="184.0" layoutY="208.0" mnemonicParsing="false" text="%showdetails.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TableView layoutX="284.0" layoutY="116.0" prefHeight="306.0" prefWidth="513.0">
+      <TableView layoutX="301.0" layoutY="96.0" prefHeight="306.0" prefWidth="513.0">
         <columns>
           <TableColumn prefWidth="107.199951171875" text="%room.key" />
           <TableColumn prefWidth="144.80007934570312" text="%nametraining.key" />
@@ -35,26 +36,61 @@
             <TableColumn prefWidth="124.79998779296875" text="%dateandtime.key" />
         </columns>
       </TableView>
-      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
+      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
-            <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%myschedule.key" textFill="#dcdbd9" />
-            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazIndividualnyPlan" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%trainingplan.key" textFill="#dcdbd9">
+            <Button lineSpacing="10.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #2a3143;" text="%myschedule.key" textFill="#dcdbd9">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/time-management.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazIndividualnyPlan" prefHeight="55.0" prefWidth="189.0" style="-fx-background-color: #123360;" text="%trainingplan.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/target.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
-            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRecenzie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRecenzie" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/rating.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazProfil" prefHeight="55.0" prefWidth="187.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="186.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/turn-off.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children>
       </VBox>
