@@ -13,9 +13,6 @@ import java.util.ResourceBundle;
 
 public class CvicenecMiestnostiController implements Initializable{
 
-    @FXML
-    private TextField cvicenecProfilMenoF;
-
 
     @FXML
     protected void recenzia() {

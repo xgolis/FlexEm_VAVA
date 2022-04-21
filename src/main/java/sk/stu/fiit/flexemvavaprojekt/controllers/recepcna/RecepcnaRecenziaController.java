@@ -12,14 +12,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecepcnaRecenziaController implements Initializable {
+
     @FXML
     private TextField recenziaRHviezdyField;
+
     @FXML
     private TextField recenziaRMenoField;
+
     @FXML
     private TextField recenziaRPriezviskoField;
+
     @FXML
     private TextArea recenziaRRecenziaArea;
+
     @FXML
     private TextField recenziaRSportFIeld;
 
