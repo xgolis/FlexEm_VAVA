@@ -1,12 +1,15 @@
-package sk.stu.fiit.flexemvavaprojekt.controllers;
+package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class TrenerController {
+public class RecepcnaNovyClenController implements Initializable {
 
     @FXML
     protected void odhlasenie() {
@@ -19,11 +22,12 @@ public class TrenerController {
 
     }
 
+
     @FXML
-    protected void zobrazProfil() {
+    protected void recenzia() {
 
         try {
-            Router.goTo(RouterEnum.TRENERPROFILVIEW);
+            Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -31,42 +35,41 @@ public class TrenerController {
     }
 
     @FXML
-    protected void zobrazRecenzie() {
+    protected void profil() {
 
         try {
-            Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
+            Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @FXML
-    protected void zobrazRozvrh() {
+    protected void evidenciaVstupu() {
 
         try {
-            Router.goTo(RouterEnum.TRENERROZVRHVIEW);
+            Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     @FXML
-    protected void zobrazIndividualnyPlan() {
+    protected void novyTrener() {
 
         try {
-            Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
+            Router.goTo(RouterEnum.RECEPCNANOVYTRENERVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 
-    @FXML
-    protected void zobrazSkupinovyPlan() {
 
-        try {
-            Router.goTo(RouterEnum.TRENERSKUPINOVYVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 }

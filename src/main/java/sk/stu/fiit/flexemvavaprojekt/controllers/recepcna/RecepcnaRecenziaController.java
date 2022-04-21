@@ -1,12 +1,15 @@
-package sk.stu.fiit.flexemvavaprojekt.controllers;
+package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class RecepcnaController {
+public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void odhlasenie() {
@@ -30,16 +33,6 @@ public class RecepcnaController {
 
     }
 
-    @FXML
-    protected void recenzia() {
-
-        try {
-            Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
 
     @FXML
     protected void profil() {
@@ -63,17 +56,9 @@ public class RecepcnaController {
 
     }
 
-    @FXML
-    protected void novyTrener() {
 
-        try {
-            Router.goTo(RouterEnum.RECEPCNANOVYTRENERVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
-
-
 }
