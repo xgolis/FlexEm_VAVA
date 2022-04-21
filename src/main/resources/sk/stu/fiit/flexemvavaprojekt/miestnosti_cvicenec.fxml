@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -66,32 +67,47 @@
          <children>
             <Button mnemonicParsing="false" onAction="#plan" prefHeight="55.0" prefWidth="213.0" style="-fx-background-color: #123360;" text="%trainingplan.key" textFill="#dcdbd9">
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/target.png" />
+                     </image></ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="203.0" style="-fx-background-color: #2a3143;" text="%rooms.key" textFill="#dcdbd9">
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/weightlifting.png" />
+                     </image></ImageView>
                </graphic></Button>
             <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="218.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
                <graphic>
-                  <ImageView fx:id="recenzia" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="recenzia" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/rating.png" />
+                     </image></ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Button mnemonicParsing="false" onAction="#profil" prefHeight="55.0" prefWidth="194.0" style="-fx-background-color: #123360;" text="%profil.key" textFill="#dcdbd9">
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/resume.png" />
+                     </image></ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
             <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="206.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
                <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/turn-off.png" />
+                     </image></ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
