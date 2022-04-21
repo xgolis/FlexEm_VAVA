@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RecepcnaProfilController implements Initializable {
+public class RecepcnaClenoviaController implements Initializable {
 
     @FXML
     protected void odhlasenie() {
@@ -21,6 +21,29 @@ public class RecepcnaProfilController implements Initializable {
         }
 
     }
+
+    @FXML
+    protected void evidenciaVstupu() {
+
+        try {
+            Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    protected void miestnosti() {
+
+        try {
+            Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 
     @FXML
     protected void novyClen() {
@@ -45,38 +68,15 @@ public class RecepcnaProfilController implements Initializable {
     }
 
     @FXML
-    protected void clenovia() {
+    protected void profil() {
 
         try {
-            Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
+            Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
     }
-
-    @FXML
-    protected void miestnosti() {
-
-        try {
-            Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
-    protected void evidenciaVstupu() {
-
-        try {
-            Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
 
 
     @Override

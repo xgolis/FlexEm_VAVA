@@ -22,6 +22,27 @@ public class RecepcnaNovyClenController implements Initializable {
 
     }
 
+    @FXML
+    protected void clenovia() {
+
+        try {
+            Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    protected void miestnosti() {
+
+        try {
+            Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     @FXML
     protected void recenzia() {
