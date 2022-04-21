@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -11,7 +12,16 @@ import java.util.ResourceBundle;
 
 public class CvicenecRecenziaController implements Initializable {
 
-
+    @FXML
+    private TextField recenziaCHviezdyField;
+    @FXML
+    private TextField recenziaCIzbaField;
+    @FXML
+    private TextField recenziaCSportField;
+    @FXML
+    private TextField recenziaCTrenerField;
+    @FXML
+    private TextField recenziaCRecenziaField;
 
     @FXML
     protected void profil() {
@@ -22,6 +32,16 @@ public class CvicenecRecenziaController implements Initializable {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @FXML
+    protected void miestnosti() {
+
+        try {
+            Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -49,6 +69,9 @@ public class CvicenecRecenziaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        recenziaCIzbaField.setText("uz");
+        recenziaCTrenerField.setText("by");
+        recenziaCSportField.setText("fakt");
+        recenziaCHviezdyField.setText("trebalo");
     }
 }

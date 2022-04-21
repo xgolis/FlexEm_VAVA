@@ -27,7 +27,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" onAction="#miestnosti" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -85,32 +85,32 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="335.0" layoutY="99.0" text="%name.key" />
-      <TextField fx:id="cvicenecProfilMenoF" editable="false" layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="profilCMenoField" editable="false" layoutX="333.0" layoutY="118.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <Label layoutX="335.0" layoutY="143.0" text="%surname.key" />
-      <TextField editable="false" layoutX="333.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="profilCPriezivskoField" editable="false" layoutX="333.0" layoutY="162.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <Label layoutX="335.0" layoutY="187.0" text="Email" />
-      <TextField editable="false" layoutX="333.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="profilCEmailField" editable="false" layoutX="333.0" layoutY="206.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <Label layoutX="335.0" layoutY="231.0" text="%phonenumber.key" />
-      <TextField editable="false" layoutX="333.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
+      <TextField fx:id="profilCTelefonField" editable="false" layoutX="333.0" layoutY="250.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <Label layoutX="335.0" layoutY="277.0" text="%password.key" />
       <Label layoutX="335.0" layoutY="319.0" text="%newpsw.key" />
-      <PasswordField layoutX="333.0" layoutY="294.0" prefHeight="25.0" prefWidth="276.0">
+      <PasswordField fx:id="profilCHeslo1Field" layoutX="333.0" layoutY="294.0" prefHeight="25.0" prefWidth="276.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
-      <PasswordField layoutX="333.0" layoutY="336.0" prefHeight="25.0" prefWidth="276.0">
+      <PasswordField fx:id="profilCHeslo2Field" layoutX="333.0" layoutY="336.0" prefHeight="25.0" prefWidth="276.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>

@@ -29,17 +29,17 @@
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="345.0" layoutY="109.0" text="%name.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <TextField fx:id="profilTMenoField" editable="false" layoutX="343.0" layoutY="128.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="153.0" text="%surname.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <TextField fx:id="profilTPriezviskoField" editable="false" layoutX="343.0" layoutY="172.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="197.0" text="Email" />
-      <TextField editable="false" layoutX="343.0" layoutY="216.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <TextField fx:id="profilTEmailField" editable="false" layoutX="343.0" layoutY="216.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="241.0" text="%phonenumber.key" />
-      <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <TextField fx:id="profilTTelefonField" editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
       <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
-      <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
-      <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField fx:id="profilTHeslo1Field" layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField fx:id="profilTHeslo2Field" layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">

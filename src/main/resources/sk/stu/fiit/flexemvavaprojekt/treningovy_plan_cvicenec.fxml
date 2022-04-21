@@ -44,17 +44,17 @@
       <RadioButton layoutX="457.0" layoutY="99.0" mnemonicParsing="false" text="%completedexercises.key" />
       <RadioButton layoutX="602.0" layoutY="99.0" mnemonicParsing="false" text="%upcomingexercises.key" />
       <Label layoutX="205.0" layoutY="99.0" text="%date.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="118.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCDatumField" editable="false" layoutX="204.0" layoutY="118.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="205.0" layoutY="143.0" text="%nametraining.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="162.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCNazovField" editable="false" layoutX="204.0" layoutY="162.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="205.0" layoutY="187.0" text="%exercise1.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="206.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCCvik1Field" editable="false" layoutX="204.0" layoutY="206.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="205.0" layoutY="231.0" text="%exercise2.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="250.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCCvik2Field" editable="false" layoutX="204.0" layoutY="250.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="205.0" layoutY="275.0" text="%exercise3.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="294.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCCvik3Field" editable="false" layoutX="204.0" layoutY="294.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="205.0" layoutY="319.0" text="%exercise4.key" />
-      <TextField editable="false" layoutX="204.0" layoutY="338.0" prefHeight="25.0" prefWidth="230.0" />
+      <TextField fx:id="trainplanCCvik4Field" editable="false" layoutX="204.0" layoutY="338.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #dcdbd9;" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #2a3143;" text="%trainingplan.key" textFill="#dcdbd9">
@@ -66,7 +66,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" onAction="#miestnosti" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

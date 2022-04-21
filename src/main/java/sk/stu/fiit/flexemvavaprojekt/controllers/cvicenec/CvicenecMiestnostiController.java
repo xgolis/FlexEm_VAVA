@@ -10,31 +10,42 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CvicenecPlanController implements Initializable {
+
+public class CvicenecMiestnostiController implements Initializable{
 
     @FXML
-    private TextField trainplanCCvik1Field;
+    private TextField cvicenecProfilMenoF;
 
-    @FXML
-    private TextField trainplanCCvik2Field;
-
-    @FXML
-    private TextField trainplanCCvik3Field;
-
-    @FXML
-    private TextField trainplanCCvik4Field;
-
-    @FXML
-    private TextField trainplanCDatumField;
-
-    @FXML
-    private TextField trainplanCNazovField;
 
     @FXML
     protected void recenzia() {
 
         try {
             Router.goTo(RouterEnum.CVICENECRECENZIAVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+
+    @FXML
+    protected void odhlasenie() {
+
+        try {
+            Router.goTo(RouterEnum.LOGINVIEW);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    protected void plan() {
+
+        try {
+            Router.goTo(RouterEnum.CVICENECPLANVIEW);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -52,33 +63,12 @@ public class CvicenecPlanController implements Initializable {
 
     }
 
-    @FXML
-    protected void miestnosti() {
-
-        try {
-            Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    protected void odhlasenie() {
-
-        try {
-            Router.goTo(RouterEnum.LOGINVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        trainplanCDatumField.setText("dorobitdokelu");
-        trainplanCNazovField.setText("tudatabazu");
-        trainplanCCvik1Field.setText("pls");
-        trainplanCCvik2Field.setText("srozumomhlavne");
+
     }
+
+
+
+
 }

@@ -1,8 +1,7 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-public class Zamestnanec extends Pouzivatel{
-
-    public Zamestnanec(String email, String meno, String priezvisko, String telefonneCislo) {
-        super(email, meno, priezvisko, telefonneCislo);
+public abstract class Zamestnanec extends Pouzivatel{
+    public Zamestnanec(int id, String meno, String priezvisko, String email, String telefon, String heslo, String odbor) {
+        super(id, meno, priezvisko, email, telefon, heslo, odbor);
     }
 }

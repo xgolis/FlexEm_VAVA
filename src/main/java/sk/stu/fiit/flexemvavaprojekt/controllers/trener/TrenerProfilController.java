@@ -2,6 +2,9 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -12,6 +15,26 @@ import java.util.ResourceBundle;
 public class TrenerProfilController implements Initializable {
 
     @FXML
+    private TextField profilTEmailField;
+
+    @FXML
+    private TextField profilTHeslo1Field;
+
+    @FXML
+    private TextField profilTHeslo2Field;
+
+    @FXML
+    private TextField profilTMenoField;
+
+    @FXML
+    private TextField profilTPriezviskoField;
+
+    @FXML
+    private TextField profilTTelefonField;
+
+    Trener trener = DbConnector.getInstance().getTrener(1);
+
+    @FXML
     protected void odhlasenie() {
 
         try {
@@ -19,9 +42,7 @@ public class TrenerProfilController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
-
 
     @FXML
     protected void zobrazRecenzie() {
@@ -56,6 +77,9 @@ public class TrenerProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        profilTMenoField.setText(trener.getMeno());
+        profilTPriezviskoField.setText(trener.getPriezvisko());
+        profilTEmailField.setText(trener.getEmail());
+        profilTTelefonField.setText(trener.getTelefonneCislo());
     }
 }
