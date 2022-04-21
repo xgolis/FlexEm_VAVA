@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -37,31 +38,91 @@
       <TextField editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
       <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
-      <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
-      <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" />
-      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="142.0" style="-fx-background-color: #123360;">
+      <PasswordField layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <PasswordField layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
+      <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
-            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
+            <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/log-in.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9">
+               </cursor>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: #123360;" text="%members.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/male-customer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#novyClen" prefHeight="55.0" prefWidth="180.0" style="-fx-background-color: #123360;" text="%newmember.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/new.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%rooms.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #2a3143;" text="%profil.key" textFill="#dcdbd9" />
-            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/weightlifting.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#recenzia" prefHeight="55.0" prefWidth="182.0" style="-fx-background-color: #123360;" text="%review.key" textFill="#dcdbd9">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/rating.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="192.0" style="-fx-background-color: #2a3143;" text="%profil.key" textFill="#dcdbd9">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/resume.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#odhlasenie" prefHeight="55.0" prefWidth="197.0" style="-fx-background-color: #123360;" text="%logout.key" textFill="#dcdbd9">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/turn-off.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </VBox>
    </children>
