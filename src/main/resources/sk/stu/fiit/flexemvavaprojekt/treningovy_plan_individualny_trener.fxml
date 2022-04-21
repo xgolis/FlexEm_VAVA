@@ -16,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="440.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.stu.fiit.flexemvavaprojekt.controllers.trener.TrenerInvidPlanController">
    <children>
-      <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #2a3143;">
+      <HBox prefHeight="57.0" prefWidth="820.0" style="-fx-background-color: #232542;">
          <children>
             <ImageView fitHeight="55.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
             <Label prefHeight="58.0" prefWidth="142.0" text="FlexEm" textFill="#dcdbd9">
