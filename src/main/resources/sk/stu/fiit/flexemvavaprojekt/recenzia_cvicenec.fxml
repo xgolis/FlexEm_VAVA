@@ -52,7 +52,7 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="recenziaCHviezdyField" layoutX="199.0" layoutY="222.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #dcdbd9;" />
+      <TextField fx:id="recenziaCHviezdyField" layoutX="199.0" layoutY="222.0" prefHeight="26.0" prefWidth="282.0" />
       <Label layoutX="200.0" layoutY="202.0" text="%numberofstars.key" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
