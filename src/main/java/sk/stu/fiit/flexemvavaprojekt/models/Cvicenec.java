@@ -1,5 +1,8 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 public class Cvicenec extends Pouzivatel{
 
     private int skupinovyPlanId;

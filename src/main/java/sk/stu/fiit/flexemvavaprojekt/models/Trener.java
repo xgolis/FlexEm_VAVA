@@ -1,5 +1,6 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+
 public class Trener extends Pouzivatel {
 
     private String odbor;

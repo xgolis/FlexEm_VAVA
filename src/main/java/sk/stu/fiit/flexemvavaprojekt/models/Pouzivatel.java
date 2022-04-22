@@ -1,5 +1,6 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+
 public abstract class Pouzivatel {
 
     protected final int id;
@@ -20,7 +21,6 @@ public abstract class Pouzivatel {
         this.heslo = heslo;
     }
 
-    //heslo dat ako char[] a nie String
 
     public String getEmail() {
         return email;
@@ -43,7 +43,11 @@ public abstract class Pouzivatel {
     }
 
     public int getId() {
-        return id;
+        return this.id;
+    }
+
+    public String idToString(){
+        return Integer.toString(this.id);
     }
 
     public String getHeslo() {

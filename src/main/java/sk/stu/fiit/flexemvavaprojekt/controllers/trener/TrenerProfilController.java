@@ -77,9 +77,9 @@ public class TrenerProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        profilTMenoField.setText(trener.getMeno());
-        profilTPriezviskoField.setText(trener.getPriezvisko());
-        profilTEmailField.setText(trener.getEmail());
-        profilTTelefonField.setText(trener.getTelefonneCislo());
+//        profilTMenoField.setText(trener.getMeno());
+//        profilTPriezviskoField.setText(trener.getPriezvisko());
+//        profilTEmailField.setText(trener.getEmail());
+//        profilTTelefonField.setText(trener.getTelefonneCislo());
     }
 }
