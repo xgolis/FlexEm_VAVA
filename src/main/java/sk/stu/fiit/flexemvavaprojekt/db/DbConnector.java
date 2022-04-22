@@ -68,6 +68,34 @@ public class DbConnector {
         }
     }
 
+    public boolean createTrener(Trener trener){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("INSERT INTO treners (meno, priezvisko, email, telefon, heslo, odbor)\n" +
+                    "VALUES ("+
+                    trener.getMeno()
+                    +", "+
+                    trener.getPriezvisko()
+                    +", "+
+                    trener.getEmail()
+                    +", "+
+                    trener.getTelefonneCislo()
+                    +", "+
+                    trener.getHeslo()
+                    +", "+
+                    trener.getOdbor()
+                    +");");
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public Recepcna getRecepcna(int id){
         try {
             Statement st = con.createStatement();
@@ -94,10 +122,36 @@ public class DbConnector {
         }
     }
 
+    public boolean createRecepcna(Recepcna recepcna){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("INSERT INTO recepnas (meno, priezvisko, email, telefon, heslo)\n" +
+                    "VALUES ("+
+                    recepcna.getMeno()
+                    +", "+
+                    recepcna.getPriezvisko()
+                    +", "+
+                    recepcna.getEmail()
+                    +", "+
+                    recepcna.getTelefonneCislo()
+                    +", "+
+                    recepcna.getHeslo()
+                    +");");
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
     public Cvicenec getCvicenec(int id){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM recepnas where id = "+id);
+            ResultSet rs = st.executeQuery("SELECT * FROM cvicenecs where id = "+id);
             Cvicenec cvicenec = null;
             while (rs.next())
             {
@@ -119,6 +173,34 @@ public class DbConnector {
         catch (Exception e){
             System.out.println(e);
             return null;
+        }
+    }
+
+    public boolean createCvicenec(Cvicenec cvicenec){
+        try {
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("INSERT INTO cvicenecs (meno, priezvisko, email, telefon, skupinovy_plan_id)\n" +
+                    "VALUES ("+
+                    cvicenec.getMeno()
+                    +", "+
+                    cvicenec.getPriezvisko()
+                    +", "+
+                    cvicenec.getEmail()
+                    +", "+
+                    cvicenec.getTelefonneCislo()
+                    +", "+
+                    cvicenec.getHeslo()
+                    +", "+
+                    cvicenec.getSkupinovyPlanId()
+                    +");");
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
         }
     }
 
