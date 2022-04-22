@@ -23,7 +23,7 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="433.0" layoutY="338.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="%addtrainer.key">
+      <Button layoutX="434.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="%addtrainer.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
