@@ -1,15 +1,13 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 
 public class Cvicenec extends Pouzivatel{
 
     private int skupinovyPlanId;
     private int individualnyPlanId;
 
-    public Cvicenec(int id, String meno, String priezvisko, String email, String telefon, String heslo, int skupinovyPlanId, int individualnyPlanId) {
-        super(id, meno, priezvisko, email, telefon, heslo);
+    public Cvicenec(int id, String meno, String priezvisko, String email, String telefon,byte[] salt, byte[] hash,int skupinovyPlanId, int individualnyPlanId) {
+        super(id, meno, priezvisko, email, telefon, salt, hash);
         this.skupinovyPlanId = skupinovyPlanId;
         this.individualnyPlanId = individualnyPlanId;
     }
