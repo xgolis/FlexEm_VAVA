@@ -32,6 +32,15 @@ public abstract class Pouzivatel {
         this.skupinovyPlanId = skupinovyPlanId;
     }
 
+    public Pouzivatel(int id, String meno, String priezvisko, String email, String telefon, String heslo) {
+        this.id = id;
+        this.meno = meno;
+        this.priezvisko = priezvisko;
+        this.email = email;
+        this.telefonneCislo = telefon;
+        this.heslo = heslo;
+    }
+
     //heslo dat ako char[] a nie String
 
     public String getEmail() {
