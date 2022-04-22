@@ -1,11 +1,12 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+
 public class Trener extends Pouzivatel {
 
     private String odbor;
 
-    public Trener(int id, String meno, String priezvisko, String email, String telefon, String heslo, String odbor) {
-        super(id, meno, priezvisko, email, telefon, heslo);
+    public Trener(int id, String meno, String priezvisko, String email, String telefon, byte[] salt, byte[] hash, String odbor) {
+        super(id, meno, priezvisko, email, telefon, salt, hash);
         this.odbor = odbor;
     }
 
