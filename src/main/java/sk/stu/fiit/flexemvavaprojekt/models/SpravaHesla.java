@@ -3,7 +3,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Random;
 
-public class spravaHesla {
+public class SpravaHesla {
 
 
     public static byte[] salt() {
