@@ -30,3 +30,4 @@ public class Cvicenec extends Pouzivatel{
         this.individualnyPlanId = individualnyPlanId;
     }
 }
+
