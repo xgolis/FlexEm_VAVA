@@ -24,7 +24,7 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="184.0" layoutY="208.0" mnemonicParsing="false" text="%showdetails.key">
+      <Button layoutX="184.0" layoutY="208.0" mnemonicParsing="false" text="%export.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

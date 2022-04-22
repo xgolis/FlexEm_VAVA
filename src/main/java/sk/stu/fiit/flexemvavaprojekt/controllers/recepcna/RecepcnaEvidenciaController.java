@@ -7,12 +7,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.models.SpravaHesla;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -24,6 +24,7 @@ public class RecepcnaEvidenciaController implements Initializable {
 
     @FXML
     private TextField evidenciaRRegIDField;
+
 
     @FXML
     private TableView<Pouzivatel> evidenciaRTabulka;
@@ -37,6 +38,27 @@ public class RecepcnaEvidenciaController implements Initializable {
     @FXML
     private TableColumn<Pouzivatel, String> evidenciaRPriezviskoStlpec;
 
+
+
+
+    @FXML
+    protected void zaevidovanieOdchodu(){
+        if (evidenciaRRegIDField.getText().isEmpty()) {
+            evidenciaRTabulka.getItems().remove(evidenciaRTabulka.getSelectionModel().getSelectedItem());
+
+        }
+        else {
+            for (int i = 0; i <evidenciaRTabulka.getItems().size(); i++) {
+                if (evidenciaRTabulka.getItems().get(i).getId() == Integer.parseInt(evidenciaRRegIDField.getText()))   {
+                    evidenciaRTabulka.getItems().remove(i);
+                    break;
+                }
+            }
+        }
+    }
+
+
+
     @FXML
     protected void odhlasenie() {
 
@@ -47,6 +69,8 @@ public class RecepcnaEvidenciaController implements Initializable {
         }
 
     }
+
+
 
     @FXML
     protected void novyClen() {
@@ -107,18 +131,19 @@ public class RecepcnaEvidenciaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Pouzivatel cvicenec = new Cvicenec(2,"fero","nehe","asd","989","tajne",2,3);
-        Pouzivatel cvicenec2 = new Cvicenec(3,"iny fero","nehe","asd","989","tajne",2,3);
+        Pouzivatel cvicenec = new Cvicenec(2,"fero","nehe","asd","49", SpravaHesla.salt(),SpravaHesla.salt(),3,2);
+        Pouzivatel cvicenec2 = new Cvicenec(3,"iny fero","nehe","asd","9129", SpravaHesla.salt(),SpravaHesla.salt(),3,2);
+        Pouzivatel cvicenec3 = new Cvicenec(1,"zase iny fero","nehe","asd","989", SpravaHesla.salt(),SpravaHesla.salt(),3,2);
+
         ObservableList<Pouzivatel> lanes=FXCollections.observableArrayList();
         lanes.add(cvicenec);
         lanes.add(cvicenec2);
+        lanes.add(cvicenec3);
 
         evidenciaRIdStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().idToString()));
         evidenciaRPriezviskoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
         evidenciaRMenoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
-
         evidenciaRTabulka.setItems(lanes);
 
-        evidenciaRRegIDField.setText("id = regid?");
     }
 }
