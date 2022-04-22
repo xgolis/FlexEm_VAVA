@@ -14,7 +14,10 @@ public class MainController {
 
 
     @FXML
-    private TextField menoField;
+    private TextField loginMenoField;
+
+    @FXML
+    private TextField loginHesloField;
 
 
     @FXML
@@ -48,7 +51,7 @@ public class MainController {
     @FXML
     protected void login() {
 
-        String meno = menoField.getText();
+        String meno = loginMenoField.getText();
 
         if (meno.equals("recepcna")){
             try {
