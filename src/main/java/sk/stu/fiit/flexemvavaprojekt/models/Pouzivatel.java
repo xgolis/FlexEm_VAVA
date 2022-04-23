@@ -13,6 +13,7 @@ public abstract class Pouzivatel {
     protected final String meno;
     protected final String priezvisko;
     protected final String telefonneCislo;
+    protected boolean inside;
 
 
 
@@ -70,5 +71,13 @@ public abstract class Pouzivatel {
 
     public void setHash(byte[] hash) {
         this.hash = hash;
+    }
+
+    public boolean isInside() {
+        return inside;
+    }
+
+    public void setInside(boolean inside) {
+        this.inside = inside;
     }
 }
