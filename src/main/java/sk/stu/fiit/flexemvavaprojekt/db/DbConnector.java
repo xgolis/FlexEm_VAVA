@@ -44,8 +44,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6),
-                        rs.getString(7)
+                        rs.getBytes(6),
+                        rs.getBytes(7),
+                        rs.getString(8)
                 );
             }
             rs.close();
@@ -103,7 +104,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6)
+                        rs.getBytes(6),
+                        rs.getBytes(7)
+
                 );
             }
             rs.close();
@@ -159,9 +162,10 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getInt(8)
+                        rs.getBytes(6),
+                        rs.getBytes(7),
+                        rs.getInt(8),
+                        rs.getInt(9)
                 );
             }
             rs.close();

@@ -2,6 +2,10 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.models.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -10,6 +14,24 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class RecepcnaMiestnostiController implements Initializable {
+
+    @FXML
+    private DatePicker miestnostiRDateTimePicker;
+
+    @FXML
+    private TextField miestnostiRIzbaField;
+
+    @FXML
+    private TextField miestnostiRPopisField;
+
+    @FXML
+    private TextField miestnostiRSportField;
+
+    @FXML
+    private ChoiceBox<String> miestnostiRTrenerChoiceB;
+
+    @FXML
+    private ChoiceBox<String> miestnostiRCasChoiceB;
 
     @FXML
     protected void odhlasenie() {
@@ -32,8 +54,6 @@ public class RecepcnaMiestnostiController implements Initializable {
         }
 
     }
-
-
 
 
     @FXML
@@ -83,6 +103,7 @@ public class RecepcnaMiestnostiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        miestnostiRTrenerChoiceB.getItems().add("bumbac");
+        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
     }
 }

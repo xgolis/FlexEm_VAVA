@@ -15,6 +15,22 @@ public class CvicenecMiestnostiController implements Initializable{
 
 
     @FXML
+    private TextField miestnostiCDateTimeField;
+
+    @FXML
+    private TextField miestnostiCIzbaField;
+
+    @FXML
+    private TextField miestnostiCPopisField;
+
+    @FXML
+    private TextField miestnostiCSportField;
+
+    @FXML
+    private TextField miestnostiCTrenerField;
+
+
+    @FXML
     protected void recenzia() {
 
         try {

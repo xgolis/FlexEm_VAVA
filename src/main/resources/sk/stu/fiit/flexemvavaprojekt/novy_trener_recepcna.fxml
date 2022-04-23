@@ -23,28 +23,12 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="434.0" layoutY="335.0" mnemonicParsing="false" text="%addtrainer.key">
+      <Button layoutX="434.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="%addtrainer.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="365.0" layoutY="106.0" text="%name.key" />
-      <TextField fx:id="novytrenerRMenoField" layoutX="364.0" layoutY="125.0" prefHeight="25.0" prefWidth="242.0" />
-      <Label layoutX="366.0" layoutY="150.0" text="%surname.key" />
-      <TextField fx:id="novytrenerRPriezviskoField" layoutX="364.0" layoutY="169.0" prefHeight="25.0" prefWidth="242.0" />
-      <Label layoutX="366.0" layoutY="194.0" text="Email" />
-      <TextField fx:id="novytrenerREmailField" layoutX="364.0" layoutY="213.0" prefHeight="25.0" prefWidth="242.0" />
-      <Label layoutX="365.0" layoutY="238.0" text="%phonenumber.key" />
-      <TextField fx:id="novytrenerRTelefonField" layoutX="364.0" layoutY="257.0" prefHeight="25.0" prefWidth="242.0" />
-      <Button layoutX="365.0" layoutY="67.0" mnemonicParsing="false" text="%coach.key">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Button layoutX="522.0" layoutY="67.0" mnemonicParsing="false" onAction="#novyClen" text="%trainee.key">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <Label layoutX="365.0" layoutY="282.0" text="%sport.key" />
-      <TextField fx:id="novytrenerRSportField" layoutX="364.0" layoutY="301.0" prefHeight="25.0" prefWidth="242.0" />
+      <Label layoutX="369.0" layoutY="288.0" text="%sport.key" />
+      <TextField fx:id="novytrenerRSportField" layoutX="368.0" layoutY="307.0" prefHeight="25.0" prefWidth="242.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
@@ -130,5 +114,23 @@
             </Button>
          </children>
       </VBox>
+      <Label layoutX="368.0" layoutY="110.0" text="%name.key" />
+      <TextField fx:id="novyclenRMenoField" layoutX="368.0" layoutY="128.0" prefHeight="25.0" prefWidth="243.0" />
+      <Label layoutX="369.0" layoutY="153.0" text="%surname.key" />
+      <TextField fx:id="novyclenRPriezviskoField" layoutX="368.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0" />
+      <Label layoutX="371.0" layoutY="197.0" text="Email" />
+      <TextField fx:id="novyclenREmailField" layoutX="368.0" layoutY="216.0" prefHeight="25.0" prefWidth="243.0" />
+      <Label layoutX="369.0" layoutY="242.0" text="%phonenumber.key" />
+      <TextField fx:id="novyclenRTelefonField" layoutX="368.0" layoutY="261.0" prefHeight="25.0" prefWidth="243.0" />
+      <Button layoutX="368.0" layoutY="77.0" mnemonicParsing="false" text="%coach.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="527.0" layoutY="77.0" mnemonicParsing="false" onAction="#novyClen" text="%trainee.key">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </Pane>
