@@ -61,7 +61,7 @@ public class MainController {
 
         }
         else if (meno.equals("trener")){
-            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Trener(8, "pivo", "je", "super", "0java0", SpravaHesla.salt(), SpravaHesla.salt(), "superman"));
+            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Trener(8, "pivo", "je", "super", "0java0", "superman", SpravaHesla.salt(),SpravaHesla.salt()));
 
             try {
                 Router.goTo(RouterEnum.TRENERROZVRHVIEW);
