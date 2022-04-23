@@ -48,10 +48,10 @@
       <TextField fx:id="skupTMenoField" layoutX="192.0" layoutY="260.0" prefHeight="25.0" prefWidth="259.0" />
       <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="%room.key" />
-            <TableColumn prefWidth="75.0" text="%coach.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%dateandtime.key" />
-            <TableColumn prefWidth="89.199951171875" text="%sport.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%room.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
+            <TableColumn editable="false" prefWidth="89.199951171875" text="%sport.key" />
          </columns>
       </TableView>
       <Label layoutX="495.0" layoutY="101.0" text="%listtrainings.key">

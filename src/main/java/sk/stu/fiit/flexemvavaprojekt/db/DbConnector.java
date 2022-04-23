@@ -168,6 +168,7 @@ public class DbConnector {
         }
     }
 
+
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
             Integer ind = cvicenec.getIndividualnyPlanId();
@@ -245,6 +246,33 @@ public class DbConnector {
         }
     }
 
+    public ArrayList<Pouzivatel> getRegexedQuery(String query){
+        try {
+            ArrayList<Pouzivatel> list = new ArrayList<>();
+            PreparedStatement st = con.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                Pouzivatel pouzivatel = new Recepcna(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        SpravaHesla.salt(),
+                        SpravaHesla.salt()
+                );
+                list.add(pouzivatel);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
     public ArrayList<Pouzivatel> getClenovia(){
         try {
             ArrayList<Pouzivatel> list = new ArrayList<>();
@@ -291,6 +319,7 @@ public class DbConnector {
             return null;
         }
     }
+
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
