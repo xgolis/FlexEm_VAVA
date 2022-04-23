@@ -51,15 +51,13 @@ public class Jazyk {
     public String cas(String cas){
 
         LocalTime casCas = LocalTime.parse(cas);
-        LocalTime t;
 
         if (aktualnyJazyk  == lokal.get("EN")) {
             return (casCas.format(DateTimeFormatter.ofPattern("hh:mm a")));
         }
         else {
-            return (casCas.format(DateTimeFormatter.ofPattern("hh:mm")));
+            return (cas);
         }
-
 
     }
 
