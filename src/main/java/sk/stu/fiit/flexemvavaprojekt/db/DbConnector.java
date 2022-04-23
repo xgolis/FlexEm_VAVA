@@ -1,10 +1,11 @@
 package sk.stu.fiit.flexemvavaprojekt.db;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
 import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DbConnector {
 
@@ -195,6 +196,54 @@ public class DbConnector {
         catch (Exception e){
             System.out.println(e);
             return false;
+        }
+    }
+
+    public boolean setInside(int name){
+        try {
+            String sql = "UPDATE cvicenecs SET inside = ? WHERE name = "+name;
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public ArrayList<Cvicenec> getInside(){
+        try {
+            ArrayList<Cvicenec> list = new ArrayList<>();
+            String sql = "select * from cvicenecs where inside = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()){
+                Cvicenec cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getBytes(6),
+                        rs.getBytes(7),
+                        rs.getInt(8),
+                        rs.getInt(9)
+                );
+                list.add(cvicenec);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
         }
     }
 
