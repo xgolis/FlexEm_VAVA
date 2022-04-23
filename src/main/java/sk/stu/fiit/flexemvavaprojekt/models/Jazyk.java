@@ -43,12 +43,12 @@ public class Jazyk {
         return single_instance;
     }
 
-    public String prelozeneSlovo(String kluc) {
-        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
-        return (resourceBundle.getString(kluc));
-    }
+//    public String prelozeneSlovo(String kluc) {
+//        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
+//        return (resourceBundle.getString(kluc));
+//    }
 
-    public String cas(String cas){
+    public String naformatujCas(String cas){
 
         LocalTime casCas = LocalTime.parse(cas);
 
@@ -58,6 +58,13 @@ public class Jazyk {
         else {
             return (cas);
         }
+
+    }
+
+    public String naformatujTelefon(String telCislo) {
+        String cisloBezMedzier;
+        cisloBezMedzier = telCislo.replaceAll(" ", "");
+        return cisloBezMedzier.replaceFirst("(\\d{3})(\\d{3})(\\d{3})(\\d+)", "$1 $2 $3 $4");
 
     }
 

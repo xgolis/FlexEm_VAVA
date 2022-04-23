@@ -15,14 +15,14 @@ import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 public class Inicializator {
 
     public static void inicializujCasChoiceBox(ChoiceBox<String> choiceBox) {
-        choiceBox.setValue(Jazyk.getInstance().cas("06:00"));
+        choiceBox.setValue(Jazyk.getInstance().naformatujCas("06:00"));
 
         for (int i = 0; i < 24;i++){
             if (i >=10) {
-                choiceBox.getItems().add(Jazyk.getInstance().cas(i + ":00"));
+                choiceBox.getItems().add(Jazyk.getInstance().naformatujCas(i + ":00"));
             }
             else {
-                choiceBox.getItems().add(Jazyk.getInstance().cas("0" + i + ":00"));
+                choiceBox.getItems().add(Jazyk.getInstance().naformatujCas("0" + i + ":00"));
             }
         }
 
