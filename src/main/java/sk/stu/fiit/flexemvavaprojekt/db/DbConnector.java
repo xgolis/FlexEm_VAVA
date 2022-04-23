@@ -17,16 +17,6 @@ public class DbConnector {
             con = DriverManager.getConnection(url, "pmsvldav", "Q3U0h9PdA4B6wfNa_37PmTonvYVe2bMH");
             if (con != null)
                 System.out.println("Connected");
-
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM treners");
-            while (rs.next())
-            {
-                System.out.print("Column 1 returned ");
-                System.out.println(rs.getString(2));
-            }
-            rs.close();
-            st.close();
         }
         catch (Exception e){
             System.out.println(e);
@@ -71,21 +61,25 @@ public class DbConnector {
     public boolean createTrener(Trener trener){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("INSERT INTO treners (meno, priezvisko, email, telefon, heslo, odbor)\n" +
-                    "VALUES ("+
+            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, heslo, odbor)\n" +
+                    "VALUES ('"+
                     trener.getMeno()
-                    +", "+
+                    +"', '"+
                     trener.getPriezvisko()
-                    +", "+
+                    +"', '"+
                     trener.getEmail()
-                    +", "+
+                    +"', '"+
                     trener.getTelefonneCislo()
-                    +", "+
+                    +"', '"+
                     trener.getHeslo()
-                    +", "+
+                    +"', '"+
                     trener.getOdbor()
-                    +");");
-            if (rs.next()){}
+                    +"');";
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()){
+                System.out.println("created?");
+            }
+            System.out.println("creauvidime");
             rs.close();
             st.close();
             return true;
@@ -99,7 +93,7 @@ public class DbConnector {
     public Recepcna getRecepcna(int id){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM recepnas where id = "+id);
+            ResultSet rs = st.executeQuery("SELECT * FROM recepcnas where id = "+id);
             Recepcna recepcna = null;
             while (rs.next())
             {
@@ -125,19 +119,23 @@ public class DbConnector {
     public boolean createRecepcna(Recepcna recepcna){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("INSERT INTO recepnas (meno, priezvisko, email, telefon, heslo)\n" +
-                    "VALUES ("+
+            String sql = "INSERT INTO recepcnas (meno, prizvisko, email, telefon, heslo)\n" +
+                    "VALUES ('"+
                     recepcna.getMeno()
-                    +", "+
+                    +"', '"+
                     recepcna.getPriezvisko()
-                    +", "+
+                    +"', '"+
                     recepcna.getEmail()
-                    +", "+
+                    +"', '"+
                     recepcna.getTelefonneCislo()
-                    +", "+
+                    +"', '"+
                     recepcna.getHeslo()
-                    +");");
-            if (rs.next()){}
+                    +"');";
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()){
+                System.out.println("created?");
+            }
+            System.out.println("creauvidime");
             rs.close();
             st.close();
             return true;
@@ -179,20 +177,27 @@ public class DbConnector {
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("INSERT INTO cvicenecs (meno, priezvisko, email, telefon, skupinovy_plan_id)\n" +
-                    "VALUES ("+
+            Integer ind = cvicenec.getIndividualnyPlanId();
+            Integer skup = cvicenec.getSkupinovyPlanId();
+            if (cvicenec.getIndividualnyPlanId() == 0) ind = null;
+            if (cvicenec.getSkupinovyPlanId() == 0) skup = null;
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, heslo, skupinovy_plan_id, individualny_plan_id)\n" +
+                    "VALUES ('"+
                     cvicenec.getMeno()
-                    +", "+
+                    +"', '"+
                     cvicenec.getPriezvisko()
-                    +", "+
+                    +"', '"+
                     cvicenec.getEmail()
-                    +", "+
+                    +"', '"+
                     cvicenec.getTelefonneCislo()
-                    +", "+
+                    +"', '"+
                     cvicenec.getHeslo()
+                    +"', "+
+                    skup
                     +", "+
-                    cvicenec.getSkupinovyPlanId()
-                    +");");
+                    ind
+                    +");";
+            ResultSet rs = st.executeQuery(sql);
             if (rs.next()){}
             rs.close();
             st.close();
