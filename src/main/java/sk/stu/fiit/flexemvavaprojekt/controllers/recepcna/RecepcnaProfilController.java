@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -97,5 +98,6 @@ public class RecepcnaProfilController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         profilREmailField.setText("toto na heslo treba prerobit");
+        profilRMenoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getMeno());
     }
 }

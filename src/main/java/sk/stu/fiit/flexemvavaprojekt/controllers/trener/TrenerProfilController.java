@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -77,7 +78,7 @@ public class TrenerProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        profilTMenoField.setText(trener.getMeno());
+          profilTMenoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getMeno());
 //        profilTPriezviskoField.setText(trener.getPriezvisko());
 //        profilTEmailField.setText(trener.getEmail());
 //        profilTTelefonField.setText(trener.getTelefonneCislo());
