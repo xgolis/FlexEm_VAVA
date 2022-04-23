@@ -105,11 +105,11 @@
          </children>
       </VBox>
       <Label layoutX="211.0" layoutY="116.0" text="%regid.key" />
-      <TextField fx:id="evidenciaRRegIDField" layoutX="211.0" layoutY="141.0" prefHeight="26.0" prefWidth="262.0">
+      <TextField fx:id="evidenciaRRegIDField" layoutX="211.0" layoutY="141.0" onKeyTyped="#validateRegId" prefHeight="26.0" prefWidth="262.0">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
-      <Button layoutX="211.0" layoutY="186.0" mnemonicParsing="false" text="%registerentry.key">
+      <Button layoutX="211.0" layoutY="186.0" mnemonicParsing="false" onAction="#zaevidovaniePrichodu" text="%registerentry.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -120,6 +120,7 @@
             <TableColumn fx:id="evidenciaRIdStlpec" prefWidth="109.5999755859375" text="%regid.key" />
          </columns>
       </TableView>
+      <Label layoutX="211.0" layoutY="220.0" prefHeight="17.0" prefWidth="262.0" />
       <Button layoutX="344.0" layoutY="186.0" mnemonicParsing="false" onAction="#zaevidovanieOdchodu" text="%registerleave.key">
          <cursor>
             <Cursor fx:constant="HAND" />

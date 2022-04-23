@@ -4,12 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
@@ -28,6 +26,9 @@ public class CvicenecRecenziaController implements Initializable {
     private TextField recenziaCTrenerField;
     @FXML
     private TextArea recenziaCRecenziaArea;
+
+    @FXML
+    private Label actionLabel;
 
     @FXML
     private TableColumn recenziaCIzbaStlpec;
@@ -93,4 +94,40 @@ public class CvicenecRecenziaController implements Initializable {
         recenziaCSportField.setText("fakt");
         recenziaCHviezdyField.setText("trebalo");
     }
+
+    @FXML
+    protected boolean validateStars(){
+        String stars = recenziaCHviezdyField.getText();
+        if(!InputValidation.validateStars(stars) || !InputValidation.isSqlInjectionSafe(stars)){
+            recenziaCHviezdyField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            recenziaCHviezdyField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateReview(){
+        String review = recenziaCRecenziaArea.getText();
+        if(!InputValidation.validateReview(review) || !InputValidation.isSqlInjectionSafe(review)){
+            recenziaCRecenziaArea.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            recenziaCRecenziaArea.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected void publish(){
+        if(!validateStars() || !validateReview()){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        actionLabel.setText("Review published");
+    }
+
 }

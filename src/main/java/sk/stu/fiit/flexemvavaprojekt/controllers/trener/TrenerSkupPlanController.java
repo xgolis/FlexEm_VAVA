@@ -4,10 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.controllers.MainController;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -31,6 +33,9 @@ public class TrenerSkupPlanController implements Initializable {
 
     @FXML
     private TextField skupTSportField;
+
+    @FXML
+    private Label actionLabel;
 
     @FXML
     protected void odhlasenie() {
@@ -89,5 +94,69 @@ public class TrenerSkupPlanController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCasChoiceBox(skupTCasChoiceB);
 
+    }
+
+    @FXML
+    protected boolean validateRoom(){
+        String room = skupTIzbaField.getText();
+        if(!InputValidation.validateReview(room) || !InputValidation.isSqlInjectionSafe(room)){
+            skupTIzbaField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+
+        }
+        else {
+            skupTIzbaField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateSport(){
+        String sport = skupTSportField.getText();
+        if(!InputValidation.validateName(sport) || !InputValidation.isSqlInjectionSafe(sport)){
+            skupTSportField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+
+        }
+        else {
+            skupTSportField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateDate(){
+        String localDate = skupTDatumPicker.getValue().toString();
+        if(!InputValidation.validateDate(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
+            skupTDatumPicker.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+
+        }
+        else {
+            skupTDatumPicker.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateName(){
+        String name = skupTMenoField.getText();
+        if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
+            skupTMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            skupTMenoField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected void addTraining(){
+        if(!validateRoom() || !validateSport() || !validateDate() ||  !validateName() || skupTCasChoiceB.getValue() == null){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        actionLabel.setText("Trainer added");
     }
 }
