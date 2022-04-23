@@ -1,9 +1,15 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-import java.util.ArrayList;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Jazyk {
 
@@ -36,4 +42,26 @@ public class Jazyk {
 
         return single_instance;
     }
+
+    public String prelozeneSlovo(String kluc) {
+        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
+        return (resourceBundle.getString(kluc));
+    }
+
+    public String cas(String cas){
+
+        LocalTime casCas = LocalTime.parse(cas);
+        LocalTime t;
+
+        if (aktualnyJazyk  == lokal.get("EN")) {
+            return (casCas.format(DateTimeFormatter.ofPattern("hh:mm a")));
+        }
+        else {
+            return (casCas.format(DateTimeFormatter.ofPattern("hh:mm")));
+        }
+
+
+    }
+
+
 }
