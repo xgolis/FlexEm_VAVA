@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.models;
 
 public class Recenzia {
 
+    private int id;
     private final String miestnost;
     private final String sport;
     private final Integer pocetHviezd;
@@ -34,4 +35,11 @@ public class Recenzia {
     }
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
