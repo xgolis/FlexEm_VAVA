@@ -29,8 +29,8 @@
       </HBox>
       <TableView fx:id="indivTTabulka" layoutX="442.0" layoutY="101.0" prefHeight="323.0" prefWidth="366.0">
         <columns>
-          <TableColumn fx:id="indivTMenoCollum" prefWidth="195.99996948242188" text="%name.key" />
-          <TableColumn fx:id="indivTPriezviskoCollum" prefWidth="168.800048828125" text="%surname.key" />
+          <TableColumn fx:id="indivTMenoCollum" editable="false" prefWidth="195.99996948242188" text="%name.key" />
+          <TableColumn fx:id="indivTPriezviskoCollum" editable="false" prefWidth="168.800048828125" text="%surname.key" />
         </columns>
       </TableView>
       <Label layoutX="497.0" layoutY="71.0" text="%mytrainees.key">

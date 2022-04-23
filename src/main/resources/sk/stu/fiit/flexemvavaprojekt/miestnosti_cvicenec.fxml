@@ -35,10 +35,10 @@
       <TextField fx:id="miestnostiCPopisField" editable="false" layoutX="202.0" layoutY="250.0" prefHeight="25.0" prefWidth="239.0" style="-fx-background-color: #dcdbd9;" />
       <TableView layoutX="459.0" layoutY="118.0" prefHeight="112.0" prefWidth="346.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="%room.key" />
-          <TableColumn prefWidth="75.0" text="%coach.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%dateandtime.key" />
-            <TableColumn prefWidth="89.199951171875" text="%sport.key" />
+          <TableColumn editable="false" prefWidth="75.0" text="%room.key" />
+          <TableColumn editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
+            <TableColumn editable="false" prefWidth="89.199951171875" text="%sport.key" />
         </columns>
       </TableView>
       <Label layoutX="459.0" layoutY="91.0" text="%listtrainings.key">
@@ -49,10 +49,10 @@
       <Label layoutX="204.0" layoutY="275.0" text="%coach.key" />
       <TableView layoutX="459.0" layoutY="275.0" prefHeight="112.0" prefWidth="346.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="%room.key" />
-            <TableColumn prefWidth="75.0" text="%coach.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%dateandtime.key" />
-            <TableColumn prefWidth="89.199951171875" text="%sport.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%room.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
+            <TableColumn editable="false" prefWidth="89.199951171875" text="%sport.key" />
          </columns>
       </TableView>
       <Label layoutX="459.0" layoutY="248.0" text="%mytrainings.key">

@@ -60,3 +60,5 @@ public class Inicializator {
         tabulka.setItems(lanes);
     }
 }
+
+

@@ -3,7 +3,11 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.models.Regex;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -17,17 +21,28 @@ public class RecepcnaClenoviaController implements Initializable {
     private TextField clenoviaRMenoField;
 
     @FXML
-    private CheckBox clenoviaRTreneriCheckBox;
-
-
-    @FXML
-    private CheckBox clenoviaRCvicenciCheckBox;
-
-    @FXML
     private TextField clenoviaRPriezviskoField;
 
     @FXML
     private TextField clenoviaRRegIDField;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> clenoviaRRegIDStlpec;
+
+    @FXML
+    private TableView<Pouzivatel> clenoviaRTabulka;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> clenoviaRTelefonStlpec;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> clenoviaRPriezviskoStlpec;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> clenoviaRMenoStlpec;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> clenoviaREmailStlpec;
 
     @FXML
     protected void odhlasenie() {
@@ -96,13 +111,23 @@ public class RecepcnaClenoviaController implements Initializable {
 
     }
 
+    @FXML
+    protected void filtruj(){
+        String query = Regex.vytvorQuery(clenoviaRMenoField, clenoviaRPriezviskoField, clenoviaRRegIDField);
+        Regex.regexuj(query, clenoviaRTabulka, clenoviaRMenoStlpec, clenoviaRPriezviskoStlpec, clenoviaREmailStlpec, clenoviaRTelefonStlpec, clenoviaRRegIDStlpec);
+    }
+
+    @FXML
+    protected void vynulujHodnoty(){
+        clenoviaRMenoField.setText("");
+        clenoviaRPriezviskoField.setText("");
+        clenoviaRRegIDField.setText("");
+        filtruj();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        clenoviaRCvicenciCheckBox.setSelected(true);
-        clenoviaRTreneriCheckBox.setSelected(true);
-        clenoviaRMenoField.setText("bum");
-        clenoviaRPriezviskoField.setText("bac");
-        clenoviaRRegIDField.setText("1");
+        String query = Regex.vytvorQuery(clenoviaRMenoField, clenoviaRPriezviskoField, clenoviaRRegIDField);
+        Regex.regexuj(query, clenoviaRTabulka, clenoviaRMenoStlpec, clenoviaRPriezviskoStlpec, clenoviaREmailStlpec, clenoviaRTelefonStlpec, clenoviaRRegIDStlpec);
     }
 }
