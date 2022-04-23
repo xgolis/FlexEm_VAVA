@@ -61,22 +61,17 @@ public class DbConnector {
 
     public boolean createTrener(Trener trener){
         try {
-            Statement st = con.createStatement();
-            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, heslo, odbor)\n" +
-                    "VALUES ('"+
-                    trener.getMeno()
-                    +"', '"+
-                    trener.getPriezvisko()
-                    +"', '"+
-                    trener.getEmail()
-                    +"', '"+
-                    trener.getTelefonneCislo()
-                    +"', '"+
-                    trener.getHeslo()
-                    +"', '"+
-                    trener.getOdbor()
-                    +"');";
-            ResultSet rs = st.executeQuery(sql);
+            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, odbor, hash, salt)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?);";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1 ,trener.getMeno());
+            st.setString(2 ,trener.getPriezvisko());
+            st.setString(3 ,trener.getEmail());
+            st.setString(4 ,trener.getTelefonneCislo());
+            st.setString(5 ,trener.getOdbor());
+            st.setBytes(6 ,trener.getHash());
+            st.setBytes(7 ,trener.getSalt());
+            ResultSet rs = st.executeQuery();
             if (rs.next()){
                 System.out.println("created?");
             }
@@ -121,19 +116,15 @@ public class DbConnector {
 
     public boolean createRecepcna(Recepcna recepcna){
         try {
-            Statement st = con.createStatement();
-            String sql = "INSERT INTO recepcnas (meno, prizvisko, email, telefon, heslo)\n" +
-                    "VALUES ('"+
-                    recepcna.getMeno()
-                    +"', '"+
-                    recepcna.getPriezvisko()
-                    +"', '"+
-                    recepcna.getEmail()
-                    +"', '"+
-                    recepcna.getTelefonneCislo()
-                    +"', '"+
-                    recepcna.getHeslo()
-                    +"');";
+            String sql = "INSERT INTO treners (meno, prizvisko, email, telefon, hash, salt)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?);";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1 ,recepcna.getMeno());
+            st.setString(2 ,recepcna.getPriezvisko());
+            st.setString(3 ,recepcna.getEmail());
+            st.setString(4 ,recepcna.getTelefonneCislo());
+            st.setBytes(5 ,recepcna.getHash());
+            st.setBytes(6 ,recepcna.getSalt());
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()){
                 System.out.println("created?");
@@ -180,27 +171,21 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            Statement st = con.createStatement();
             Integer ind = cvicenec.getIndividualnyPlanId();
             Integer skup = cvicenec.getSkupinovyPlanId();
             if (cvicenec.getIndividualnyPlanId() == 0) ind = null;
             if (cvicenec.getSkupinovyPlanId() == 0) skup = null;
-            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, heslo, skupinovy_plan_id, individualny_plan_id)\n" +
-                    "VALUES ('"+
-                    cvicenec.getMeno()
-                    +"', '"+
-                    cvicenec.getPriezvisko()
-                    +"', '"+
-                    cvicenec.getEmail()
-                    +"', '"+
-                    cvicenec.getTelefonneCislo()
-                    +"', '"+
-                    cvicenec.getHeslo()
-                    +"', "+
-                    skup
-                    +", "+
-                    ind
-                    +");";
+            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, individualny_plan_id, skupinovy_plan_id, hash, salt)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1 ,cvicenec.getMeno());
+            st.setString(2 ,cvicenec.getPriezvisko());
+            st.setString(3 ,cvicenec.getEmail());
+            st.setString(4 ,cvicenec.getTelefonneCislo());
+            st.setInt(5 ,cvicenec.getIndividualnyPlanId());
+            st.setInt(6 ,cvicenec.getSkupinovyPlanId());
+            st.setBytes(7 ,cvicenec.getHash());
+            st.setBytes(7 ,cvicenec.getSalt());
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()){}
             rs.close();
