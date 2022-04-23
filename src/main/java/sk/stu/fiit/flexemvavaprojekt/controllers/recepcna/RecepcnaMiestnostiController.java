@@ -5,7 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import sk.stu.fiit.flexemvavaprojekt.models.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -103,7 +103,7 @@ public class RecepcnaMiestnostiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        miestnostiRTrenerChoiceB.getItems().add("bumbac");
         Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
+        Inicializator.inicializujTrenerovChoiceBox(miestnostiRTrenerChoiceB);
     }
 }

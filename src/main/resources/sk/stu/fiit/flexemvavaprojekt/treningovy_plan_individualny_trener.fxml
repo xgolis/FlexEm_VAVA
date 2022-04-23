@@ -27,10 +27,10 @@
             </Label>
          </children>
       </HBox>
-      <TableView layoutX="442.0" layoutY="101.0" prefHeight="323.0" prefWidth="366.0">
+      <TableView fx:id="indivTTabulka" layoutX="442.0" layoutY="101.0" prefHeight="323.0" prefWidth="366.0">
         <columns>
-          <TableColumn prefWidth="195.99996948242188" text="%name.key" />
-          <TableColumn prefWidth="168.800048828125" text="%surname.key" />
+          <TableColumn fx:id="indivTMenoCollum" prefWidth="195.99996948242188" text="%name.key" />
+          <TableColumn fx:id="indivTPriezviskoCollum" prefWidth="168.800048828125" text="%surname.key" />
         </columns>
       </TableView>
       <Label layoutX="497.0" layoutY="71.0" text="%mytrainees.key">
@@ -43,7 +43,7 @@
       <Label layoutX="194.0" layoutY="143.0" text="%exercise2.key" />
       <TextField fx:id="indivTCvik2Field" layoutX="193.0" layoutY="160.0" prefHeight="25.0" prefWidth="223.0" />
       <Label layoutX="194.0" layoutY="185.0" text="%exercise3.key" />
-      <TextField fx:id="indivTCvik2Field" layoutX="193.0" layoutY="202.0" prefHeight="25.0" prefWidth="223.0" />
+      <TextField fx:id="indivTCvik3Field" layoutX="193.0" layoutY="202.0" prefHeight="25.0" prefWidth="223.0" />
       <Label layoutX="194.0" layoutY="227.0" text="%exercise4.key" />
       <TextField fx:id="indivTCvik4Field" layoutX="193.0" layoutY="244.0" prefHeight="25.0" prefWidth="223.0" />
       <Label layoutX="194.0" layoutY="269.0" text="%dateandtime.key" />
