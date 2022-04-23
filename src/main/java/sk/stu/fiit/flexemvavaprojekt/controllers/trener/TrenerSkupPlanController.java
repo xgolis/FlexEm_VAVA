@@ -5,7 +5,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import sk.stu.fiit.flexemvavaprojekt.models.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.Main;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.controllers.MainController;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
