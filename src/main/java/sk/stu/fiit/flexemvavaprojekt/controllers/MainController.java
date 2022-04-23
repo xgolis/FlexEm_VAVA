@@ -50,7 +50,6 @@ public class MainController {
     }
     @FXML
     protected void login() {
-
         String meno = loginMenoField.getText();
 
         if (meno.equals("recepcna")){

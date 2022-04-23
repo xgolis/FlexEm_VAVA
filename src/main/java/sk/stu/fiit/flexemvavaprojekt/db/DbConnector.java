@@ -18,15 +18,15 @@ public class DbConnector {
             if (con != null)
                 System.out.println("Connected");
 
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM treners");
-            while (rs.next())
-            {
-                System.out.print("Column 1 returned ");
-                System.out.println(rs.getString(2));
-            }
-            rs.close();
-            st.close();
+//            Statement st = con.createStatement();
+//            ResultSet rs = st.executeQuery("SELECT * FROM treners");
+//            while (rs.next())
+//            {
+//                System.out.print("Column 1 returned ");
+//                System.out.println(rs.getString(2));
+//            }
+//            rs.close();
+//            st.close();
         }
         catch (Exception e){
             System.out.println(e);
@@ -56,7 +56,8 @@ public class DbConnector {
                         rs.getString(5),
                         rs.getBytes(6),
                         rs.getBytes(7),
-                        rs.getString(8)
+                        "test"
+//                        rs.getString(8)
                 );
             }
             rs.close();
@@ -100,7 +101,7 @@ public class DbConnector {
     public Cvicenec getCvicenec(int id){
         try {
             Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM recepnas where id = "+id);
+            ResultSet rs = st.executeQuery("SELECT * FROM cvicenecs where id = "+id);
             Cvicenec cvicenec = null;
             while (rs.next())
             {

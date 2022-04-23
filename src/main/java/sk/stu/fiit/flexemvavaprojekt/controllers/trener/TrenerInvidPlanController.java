@@ -1,11 +1,12 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
+import javafx.beans.property.ReadOnlyStringWrapper;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
-import sk.stu.fiit.flexemvavaprojekt.models.Inicializator;
+import javafx.scene.control.*;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -26,6 +27,9 @@ public class TrenerInvidPlanController implements Initializable {
     private TextField indivTCvik2Field;
 
     @FXML
+    private TextField indivTCvik3Field;
+
+    @FXML
     private TextField indivTCvik4Field;
 
     @FXML
@@ -33,6 +37,15 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     private TextField indivTMenoField;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> indivTMenoCollum;
+
+    @FXML
+    private TableColumn<Pouzivatel, String> indivTPriezviskoCollum;
+
+    @FXML
+    private TableView<Pouzivatel> indivTTabulka;
 
     @FXML
     protected void odhlasenie() {
@@ -90,6 +103,7 @@ public class TrenerInvidPlanController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
+        Inicializator.inicializujTabulkuTreningovyPlanCvicenci(indivTTabulka, indivTMenoCollum, indivTPriezviskoCollum);
 
     }
 }
