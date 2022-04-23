@@ -2,6 +2,10 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.models.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -10,6 +14,25 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TrenerInvidPlanController implements Initializable {
+
+
+    @FXML
+    private ChoiceBox<String> indivTCasChoiceB;
+
+    @FXML
+    private TextField indivTCvik1Field;
+
+    @FXML
+    private TextField indivTCvik2Field;
+
+    @FXML
+    private TextField indivTCvik4Field;
+
+    @FXML
+    private DatePicker indivTDatumPicker;
+
+    @FXML
+    private TextField indivTMenoField;
 
     @FXML
     protected void odhlasenie() {
@@ -66,6 +89,7 @@ public class TrenerInvidPlanController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
 
     }
 }
