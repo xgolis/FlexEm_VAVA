@@ -52,6 +52,7 @@ public class MainController {
     protected void login() {
 
         String meno = loginMenoField.getText();
+        System.out.println(Jazyk.getInstance().cas("22:00"));
 
         if (meno.equals("recepcna")){
             try {
