@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -184,10 +185,10 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     protected void addTraining(){
-        if(!validateExercise1() || !validateExercise2() || !validateExercise3() ||  !validateExercise4() || indivTCasChoiceB.getValue() == null){
-            actionLabel.setText("Invalid input");
+        if(!validateExercise1() || !validateExercise2() || !validateExercise3() ||  !validateExercise4() || indivTCasChoiceB.getValue() == null || indivTDatumPicker.getValue() == null){
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText("Training added");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
     }
 }

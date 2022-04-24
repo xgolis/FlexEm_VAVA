@@ -10,6 +10,7 @@ import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.controllers.MainController;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -140,10 +141,10 @@ public class TrenerSkupPlanController implements Initializable {
 
     @FXML
     protected void addTraining(){
-        if(!validateRoom() || !validateSport()  ||  !validateName() || skupTCasChoiceB.getValue() == null){
-            actionLabel.setText("Invalid input");
+        if(!validateRoom() || !validateSport()  ||  !validateName() || skupTCasChoiceB.getValue() == null || skupTDatumPicker.getValue() == null){
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText("Trainer added");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
     }
 }

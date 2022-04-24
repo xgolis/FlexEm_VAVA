@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -93,13 +94,13 @@ public class TrenerProfilController implements Initializable {
     @FXML
     protected void changePassword(){
         if(profilTHeslo1Field.getText().equals("") || profilTHeslo2Field.getText().equals("")){
-            actionLabel.setText("Fill all fields !");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("fillallfields.key"));
             return;
         }
         if(profilTHeslo1Field.getText().equals(profilTHeslo2Field.getText())){
-            actionLabel.setText("Cant change to the same password");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("samepassword.key"));
             return;
         }
-        actionLabel.setText("Password changed");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("passwordchanged.key"));
     }
 }
