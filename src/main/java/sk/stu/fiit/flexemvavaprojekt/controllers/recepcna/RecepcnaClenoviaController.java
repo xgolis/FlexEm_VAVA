@@ -119,21 +119,21 @@ public class RecepcnaClenoviaController implements Initializable {
         String regId = clenoviaRRegIDField.getText();
         int checker = 0;
 
-        if(!InputValidation.isSqlInjectionSafe(name)){
+        if(!InputValidation.isSqlInjectionSafe(name) || !InputValidation.validateNameFilter(name)){
             checker = 1;
             clenoviaRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
         }
         else {
             clenoviaRMenoField.setStyle("-fx-border-width: 0px");
         }
-        if(!InputValidation.isSqlInjectionSafe(surname)){
+        if(!InputValidation.isSqlInjectionSafe(surname) || !InputValidation.validateNameFilter(surname)){
             checker = 1;
             clenoviaRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
         }
         else {
             clenoviaRPriezviskoField.setStyle("-fx-border-width: 0px");
         }
-        if(!InputValidation.isSqlInjectionSafe(regId)){
+        if(!InputValidation.isSqlInjectionSafe(regId) || !InputValidation.validateREGIDFilter(regId)){
             checker = 1;
             clenoviaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
         }

@@ -119,7 +119,7 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void sendReview(){
-        Recenzia review = new Recenzia("Telocvicna", "Fitness", 9,"Fakt super, uzil som si to");
+        Recenzia review = new Recenzia("NeskutocnaTelocvicna", "Fitness", 9,"Fakt super, uzil som si to");
 
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();

@@ -122,6 +122,12 @@ public class InputValidation {
 
     private static final Pattern VALID_DATE_REGEX =
             Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
+
+    private static final Pattern VALID_NAME_FILTER_REGEX =
+            Pattern.compile("^[a-zA-Z]*$");
+
+    private static final Pattern VALID_REGID_FILTER_REGEX =
+            Pattern.compile("^[0-9]*$");
     //^(\+0?1\s)?\(?\d{4}\)?[\s.-]\d{3}[\s.-]\d{3}$
 
 //    \+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|
@@ -177,6 +183,16 @@ public class InputValidation {
 
     public static boolean validateDate(String date) {
         Matcher matcher = VALID_DATE_REGEX.matcher(date);
+        return matcher.find();
+    }
+
+    public static boolean validateNameFilter(String name) {
+        Matcher matcher = VALID_NAME_FILTER_REGEX.matcher(name);
+        return matcher.find();
+    }
+
+    public static boolean validateREGIDFilter(String regid) {
+            Matcher matcher = VALID_REGID_FILTER_REGEX.matcher(regid);
         return matcher.find();
     }
 
