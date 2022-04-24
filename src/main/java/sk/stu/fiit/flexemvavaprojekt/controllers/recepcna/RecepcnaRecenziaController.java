@@ -2,12 +2,12 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
+import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -46,6 +46,21 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     private Label actionLabel;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaRSportStlpec;
+
+    @FXML
+    private TableView<Recenzia> recenziaRTabulka;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaRPriezviskoStlpec;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaRMenoStlpec;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaRHvStlpec;
 
 
     @FXML
@@ -163,7 +178,7 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        Inicializator.inicializujTabulkuRecenzii(recenziaRTabulka, recenziaRMenoStlpec, recenziaRPriezviskoStlpec, recenziaRSportStlpec, recenziaRHvStlpec, 0);
     }
 
 }

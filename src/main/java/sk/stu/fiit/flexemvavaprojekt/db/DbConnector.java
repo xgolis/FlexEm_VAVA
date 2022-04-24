@@ -354,17 +354,16 @@ public class DbConnector {
         }
     }
 
-    public ArrayList<Recenzia> getAllRecenzias(){
+    public ArrayList<Recenzia> getAllRecenzias(String dodatocneQuery){
         try {
             ArrayList<Recenzia> list = new ArrayList<>();
             String sql = "select recenzias.id, recenzias.skupinovy_plan_id, skupinovy_plans.sport, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
                     "join cvicenecs on recenzias.cvicenec_id = cvicenecs.id\n" +
                     "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
-                    "join treners on skupinovy_plans.trener_id = treners.id\n" +
-                    "\n";
+                    "join treners on skupinovy_plans.trener_id = treners.id " + dodatocneQuery;
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 Recenzia recenzia = new Recenzia(
                         rs.getInt(2),
                         rs.getString(3),
@@ -394,7 +393,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 Pouzivatel cvicenec = new Cvicenec(
                         rs.getInt(1),
                         rs.getString(2),
@@ -405,7 +404,6 @@ public class DbConnector {
                         rs.getBytes(7),
                         rs.getBytes(8)
                 );
-                System.out.println(cvicenec);
                 list.add(cvicenec);
             }
             rs.close();
