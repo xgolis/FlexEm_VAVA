@@ -28,6 +28,8 @@ import java.util.ResourceBundle;
 
 public class RecepcnaRecenziaController implements Initializable {
 
+    private Recenzia review;
+
     @FXML
     private TextField recenziaRHviezdyField;
 
@@ -164,6 +166,5 @@ public class RecepcnaRecenziaController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 
 }
