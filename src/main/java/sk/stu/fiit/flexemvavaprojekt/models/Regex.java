@@ -32,6 +32,7 @@ public class Regex {
                 }
 
                 list.add("^" + temp + ".*");
+
             }
 
         }
