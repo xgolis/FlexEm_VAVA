@@ -63,6 +63,7 @@ public class RecepcnaEvidenciaController implements Initializable {
                 }
             }
         }
+        actionLabel.setText("Departure registered");
     }
 
     @FXML
@@ -71,6 +72,7 @@ public class RecepcnaEvidenciaController implements Initializable {
             actionLabel.setText("Invalid input");
             return;
         }
+        actionLabel.setText("Arrival registered");
     }
 
 

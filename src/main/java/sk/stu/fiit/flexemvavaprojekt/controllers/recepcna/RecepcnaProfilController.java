@@ -97,36 +97,11 @@ public class RecepcnaProfilController implements Initializable {
 
     }
 
-    @FXML
-    protected boolean validatePassword(){
-        String password = profilRHeslo1Field.getText();
-        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
-            profilRHeslo1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            profilRHeslo1Field.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
-
-    @FXML
-    protected boolean validateNewPassword(){
-        String password = profilRHeslo2Field.getText();
-        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
-            profilRHeslo2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            profilRHeslo2Field.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
 
     @FXML
     protected void changePassword(){
-        if(!validatePassword() || !validateNewPassword()){
-            actionLabel.setText("Invalid input");
+        if(profilRHeslo1Field.getText().equals("") || profilRHeslo2Field.getText().equals("")){
+            actionLabel.setText("Fill all fields !");
             return;
         }
         if(profilRHeslo1Field.getText().equals(profilRHeslo2Field.getText())){
@@ -134,7 +109,7 @@ public class RecepcnaProfilController implements Initializable {
             return;
         }
         actionLabel.setText("Password changed");
-}
+    }
 
 
     @Override

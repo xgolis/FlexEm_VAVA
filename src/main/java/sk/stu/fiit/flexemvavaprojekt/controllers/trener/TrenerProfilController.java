@@ -89,36 +89,11 @@ public class TrenerProfilController implements Initializable {
 //        profilTTelefonField.setText(trener.getTelefonneCislo());
     }
 
-    @FXML
-    protected boolean validatePassword(){
-        String password = profilTHeslo1Field.getText();
-        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
-            profilTHeslo1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            profilTHeslo1Field.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
-
-    @FXML
-    protected boolean validateNewPassword(){
-        String password = profilTHeslo2Field.getText();
-        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
-            profilTHeslo2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            profilTHeslo2Field.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
 
     @FXML
     protected void changePassword(){
-        if(!validatePassword() || !validateNewPassword()){
-            actionLabel.setText("Invalid input");
+        if(profilTHeslo1Field.getText().equals("") || profilTHeslo2Field.getText().equals("")){
+            actionLabel.setText("Fill all fields !");
             return;
         }
         if(profilTHeslo1Field.getText().equals(profilTHeslo2Field.getText())){
