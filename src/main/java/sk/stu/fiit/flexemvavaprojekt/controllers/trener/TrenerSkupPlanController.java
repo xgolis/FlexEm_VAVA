@@ -124,19 +124,6 @@ public class TrenerSkupPlanController implements Initializable {
         }
     }
 
-    @FXML
-    protected boolean validateDate(){
-        String localDate = skupTDatumPicker.getValue().toString();
-        if(!InputValidation.validateDate(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
-            skupTDatumPicker.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-
-        }
-        else {
-            skupTDatumPicker.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
 
     @FXML
     protected boolean validateName(){
@@ -153,7 +140,7 @@ public class TrenerSkupPlanController implements Initializable {
 
     @FXML
     protected void addTraining(){
-        if(!validateRoom() || !validateSport() || !validateDate() ||  !validateName() || skupTCasChoiceB.getValue() == null){
+        if(!validateRoom() || !validateSport()  ||  !validateName() || skupTCasChoiceB.getValue() == null){
             actionLabel.setText("Invalid input");
             return;
         }

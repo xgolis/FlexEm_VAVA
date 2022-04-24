@@ -129,20 +129,7 @@ public class    RecepcnaMiestnostiController implements Initializable {
         }
     }
 
-    @FXML
-    protected boolean validateDate(){
-        String localDate = miestnostiRDateTimePicker.getValue().toString();
-        System.out.println(localDate);
-        if(!InputValidation.validateDate(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
-            miestnostiRDateTimePicker.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
 
-        }
-        else {
-            miestnostiRDateTimePicker.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
 
     @FXML
     protected boolean validateDesc(){
@@ -174,7 +161,7 @@ public class    RecepcnaMiestnostiController implements Initializable {
 
     @FXML
     protected void addTraining(){
-        if(!validateRoom() || !validateSport() || !validateDate() ||  !validateDesc() || miestnostiRTrenerChoiceB.getValue() == null || miestnostiRCasChoiceB.getValue() == null){
+        if(!validateRoom() || !validateSport() || !validateDesc() || miestnostiRTrenerChoiceB.getValue() == null || miestnostiRCasChoiceB.getValue() == null){
             actionLabel.setText("Invalid input");
             return;
         }

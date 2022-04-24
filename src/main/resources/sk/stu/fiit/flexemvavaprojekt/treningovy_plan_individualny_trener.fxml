@@ -47,7 +47,7 @@
       <Label layoutX="194.0" layoutY="227.0" text="%exercise4.key" />
       <TextField fx:id="indivTCvik4Field" layoutX="193.0" layoutY="244.0" onKeyTyped="#validateExercise4" prefHeight="25.0" prefWidth="223.0" />
       <Label layoutX="194.0" layoutY="269.0" text="%dateandtime.key" />
-      <DatePicker fx:id="indivTDatumPicker" layoutX="193.0" layoutY="286.0" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="114.0" />
+      <DatePicker fx:id="indivTDatumPicker" editable="false" layoutX="193.0" layoutY="286.0" prefHeight="25.0" prefWidth="114.0" />
       <Label layoutX="193.0" layoutY="311.0" text="%nametraining.key" />
       <TextField fx:id="indivTMenoField" layoutX="193.0" layoutY="328.0" onKeyTyped="#validateNameTraining" prefHeight="25.0" prefWidth="223.0" />
       <Button layoutX="241.0" layoutY="363.0" mnemonicParsing="false" onAction="#addTraining" text="%addtraining.key">

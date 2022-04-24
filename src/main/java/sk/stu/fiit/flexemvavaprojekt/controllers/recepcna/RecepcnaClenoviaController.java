@@ -114,6 +114,36 @@ public class RecepcnaClenoviaController implements Initializable {
 
     @FXML
     protected void filtruj(){
+        String name = clenoviaRMenoField.getText();
+        String surname = clenoviaRPriezviskoField.getText();
+        String regId = clenoviaRRegIDField.getText();
+        int checker = 0;
+
+        if(!InputValidation.isSqlInjectionSafe(name)){
+            checker = 1;
+            clenoviaRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+        }
+        else {
+            clenoviaRMenoField.setStyle("-fx-border-width: 0px");
+        }
+        if(!InputValidation.isSqlInjectionSafe(surname)){
+            checker = 1;
+            clenoviaRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+        }
+        else {
+            clenoviaRPriezviskoField.setStyle("-fx-border-width: 0px");
+        }
+        if(!InputValidation.isSqlInjectionSafe(regId)){
+            checker = 1;
+            clenoviaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+        }
+        else {
+            clenoviaRRegIDField.setStyle("-fx-border-width: 0px");
+        }
+        if (checker == 1) {
+            return;
+        }
+
         String query = Regex.vytvorQuery(clenoviaRMenoField, clenoviaRPriezviskoField, clenoviaRRegIDField);
         Regex.regexuj(query, clenoviaRTabulka, clenoviaRMenoStlpec, clenoviaRPriezviskoStlpec, clenoviaREmailStlpec, clenoviaRTelefonStlpec, clenoviaRRegIDStlpec);
     }
@@ -132,43 +162,43 @@ public class RecepcnaClenoviaController implements Initializable {
         Regex.regexuj(query, clenoviaRTabulka, clenoviaRMenoStlpec, clenoviaRPriezviskoStlpec, clenoviaREmailStlpec, clenoviaRTelefonStlpec, clenoviaRRegIDStlpec);
     }
 
-
-    @FXML
-    protected boolean validateName(){
-        String name = clenoviaRMenoField.getText();
-        if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
-            clenoviaRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            clenoviaRMenoField.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
-
-    @FXML
-    protected boolean validateSurname(){
-        String surname = clenoviaRPriezviskoField.getText();
-        if(!InputValidation.validateName(surname) || !InputValidation.isSqlInjectionSafe(surname)){
-            clenoviaRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            clenoviaRPriezviskoField.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
-
-    @FXML
-    protected boolean validateRegid(){
-        String regId = clenoviaRRegIDField.getText();
-        if(!InputValidation.validateDigit(regId) || !InputValidation.isSqlInjectionSafe(regId)){
-            clenoviaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-        }
-        else {
-            clenoviaRRegIDField.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
+//
+//    @FXML
+//    protected boolean validateName(){
+//        String name = clenoviaRMenoField.getText();
+//        if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
+//            clenoviaRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+//            return false;
+//        }
+//        else {
+//            clenoviaRMenoField.setStyle("-fx-border-width: 0px");
+//            return true;
+//        }
+//    }
+//
+//    @FXML
+//    protected boolean validateSurname(){
+//        String surname = clenoviaRPriezviskoField.getText();
+//        if(!InputValidation.validateName(surname) || !InputValidation.isSqlInjectionSafe(surname)){
+//            clenoviaRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+//            return false;
+//        }
+//        else {
+//            clenoviaRPriezviskoField.setStyle("-fx-border-width: 0px");
+//            return true;
+//        }
+//    }
+//
+//    @FXML
+//    protected boolean validateRegid(){
+//        String regId = clenoviaRRegIDField.getText();
+//        if(!InputValidation.validateDigit(regId) || !InputValidation.isSqlInjectionSafe(regId)){
+//            clenoviaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+//            return false;
+//        }
+//        else {
+//            clenoviaRRegIDField.setStyle("-fx-border-width: 0px");
+//            return true;
+//        }
+//    }
 }

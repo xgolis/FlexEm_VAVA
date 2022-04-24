@@ -59,7 +59,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <DatePicker fx:id="skupTDatumPicker" layoutX="192.0" layoutY="214.0" onKeyTyped="#validateDate" prefHeight="25.0" prefWidth="142.0" />
+      <DatePicker fx:id="skupTDatumPicker" editable="false" layoutX="192.0" layoutY="214.0" prefHeight="25.0" prefWidth="142.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
