@@ -333,14 +333,15 @@ public class DbConnector {
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
-            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
-                    "VALUES (?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas, done)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 ,skupinovyPlan.getMiestnostId());
             st.setInt(2 , skupinovyPlan.getTrenerId());
             st.setString(3 ,skupinovyPlan.getSport());
             st.setString(4 ,skupinovyPlan.getPopis());
             st.setTimestamp(5 , skupinovyPlan.getCas());
+            st.setBoolean(6, false);
             ResultSet rs = st.executeQuery(sql);
             if (rs.next()){}
             rs.close();
@@ -666,8 +667,8 @@ public class DbConnector {
 
     public boolean createIndivPlan(IndividualnyPlan individualnyPlan){
         try {
-            String sql = "INSERT INTO individualny_plans (cvicenec_id, trener_id, datum_cas, popis, cvik1, cvik2, cvik3, cvik4)\n" +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?);\n";
+            String sql = "INSERT INTO individualny_plans (cvicenec_id, trener_id, datum_cas, popis, cvik1, cvik2, cvik3, cvik4, done)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, individualnyPlan.getCvicenecId());
             st.setInt(2, individualnyPlan.getTrenerId());
@@ -677,6 +678,7 @@ public class DbConnector {
             st.setString(6, individualnyPlan.getCvik2());
             st.setString(7, individualnyPlan.getCvik3());
             st.setString(8, individualnyPlan.getCvik4());
+            st.setBoolean(9, false);
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -760,5 +762,45 @@ public class DbConnector {
             return false;
         }
     }
+
+    public boolean setIndPlanDone(int plan_id){
+        try {
+            String sql = "UPDATE individualny_plans\n" +
+                    "SET done = ? WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            st.setInt(2, plan_id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean setSkupPlanDone(int plan_id){
+        try {
+            String sql = "UPDATE skupinovy_plans\n" +
+                    "SET done = ? WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            st.setInt(2, plan_id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+
 
 }

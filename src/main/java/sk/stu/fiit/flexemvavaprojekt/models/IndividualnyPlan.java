@@ -14,6 +14,7 @@ public class IndividualnyPlan {
     private String cvik2;
     private String cvik3;
     private String cvik4;
+    private boolean done = false;
 
     public IndividualnyPlan(int id, int cvicenecId, int trenerId, Timestamp datumCas, String popis, String cvik1, String cvik2, String cvik3, String cvik4) {
         this.id = id;
@@ -98,5 +99,13 @@ public class IndividualnyPlan {
 
     public void setCvik4(String cvik4) {
         this.cvik4 = cvik4;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }
