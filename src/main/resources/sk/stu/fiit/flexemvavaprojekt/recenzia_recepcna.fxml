@@ -142,6 +142,9 @@
             </Button>
          </children>
       </VBox>
-      <Label fx:id="actionLabel" alignment="CENTER" layoutX="196.0" layoutY="406.0" prefHeight="17.0" prefWidth="245.0" />
+      <Label fx:id="actionLabel" alignment="CENTER" layoutX="196.0" layoutY="406.0" prefHeight="17.0" prefWidth="245.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </Pane>

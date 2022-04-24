@@ -114,8 +114,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     protected boolean validateExercise1(){
-        String localDate = indivTCvik1Field.getText();
-        if(!InputValidation.validateReview(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
+        String exercise = indivTCvik1Field.getText();
+        if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
             return false;
 
@@ -128,8 +128,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     protected boolean validateExercise2(){
-        String localDate = indivTCvik2Field.getText();
-        if(!InputValidation.validateReview(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
+        String exercise = indivTCvik2Field.getText();
+        if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
             return false;
 
@@ -142,8 +142,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     protected boolean validateExercise3(){
-        String localDate = indivTCvik3Field.getText();
-        if(!InputValidation.validateReview(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
+        String exercise = indivTCvik3Field.getText();
+        if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik3Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
             return false;
 
@@ -156,8 +156,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @FXML
     protected boolean validateExercise4(){
-        String localDate = indivTCvik4Field.getText();
-        if(!InputValidation.validateReview(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
+        String exercise = indivTCvik4Field.getText();
+        if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik4Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
             return false;
 
@@ -168,19 +168,6 @@ public class TrenerInvidPlanController implements Initializable {
         }
     }
 
-    @FXML
-    protected boolean validateDate(){
-        String localDate = indivTDatumPicker.getValue().toString();
-        if(!InputValidation.validateDate(localDate) || !InputValidation.isSqlInjectionSafe(localDate)){
-            indivTDatumPicker.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
-            return false;
-
-        }
-        else {
-            indivTDatumPicker.setStyle("-fx-border-width: 0px");
-            return true;
-        }
-    }
 
     @FXML
     protected boolean validateNameTraining(){

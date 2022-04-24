@@ -103,7 +103,7 @@ public class InputValidation {
             Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", Pattern.CASE_INSENSITIVE);
 
     private static final Pattern VALID_NAME_REGEX =
-            Pattern.compile("(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){3,24}$", Pattern.CASE_INSENSITIVE);
+            Pattern.compile("(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){1,24}$", Pattern.CASE_INSENSITIVE);
 
     private static final Pattern VALID_PHONE_REGEX =
             Pattern.compile("\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$", Pattern.CASE_INSENSITIVE);
@@ -115,7 +115,10 @@ public class InputValidation {
             Pattern.compile("\\\\d+");
 
     private static final Pattern VALID_REVIEW_REGEX =
-            Pattern.compile(".{5,60}", Pattern.DOTALL);
+            Pattern.compile(".{1,60}", Pattern.DOTALL);
+
+    private static final Pattern VALID_EXERCISE_REGEX =
+            Pattern.compile(".{2,20}", Pattern.DOTALL);
 
     private static final Pattern VALID_DATE_REGEX =
             Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
@@ -143,6 +146,11 @@ public class InputValidation {
         return matcher.find();
     }
 
+    public static boolean validateExercise(String exercise){
+        Matcher matcher = VALID_EXERCISE_REGEX.matcher(exercise);
+        return matcher.find();
+    }
+
     public static boolean validateName(String firstnameStr) {
         Matcher matcher = VALID_NAME_REGEX.matcher(firstnameStr);
         return matcher.find();
@@ -154,8 +162,12 @@ public class InputValidation {
     }
 
     public static boolean validateStars(String stars) {
-        Matcher matcher = VALID_STAR_REGEX.matcher(stars);
-        return matcher.find();
+        try {
+            int number = Integer.parseInt(stars);
+            return number > 0 && number <= 10;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     public static boolean validateReview(String review) {
@@ -169,8 +181,12 @@ public class InputValidation {
     }
 
     public static boolean validateDigit(String digit) {
-        Matcher matcher = VALID_DIGIT_REGEX.matcher(digit);
-        return matcher.find();
+        try {
+            int number = Integer.parseInt(digit);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
 

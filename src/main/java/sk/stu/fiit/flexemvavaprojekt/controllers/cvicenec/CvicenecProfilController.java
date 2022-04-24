@@ -2,6 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
@@ -33,6 +34,9 @@ public class CvicenecProfilController implements Initializable{
 
     @FXML
     private TextField profilCHeslo2Field;
+
+    @FXML
+    private Label actionLabel;
 
     Cvicenec cvicenec = DbConnector.getInstance().getCvicenec(1);
 
@@ -86,6 +90,19 @@ public class CvicenecProfilController implements Initializable{
 //        profilCPriezivskoField.setText(cvicenec.getPriezvisko());
 //        profilCEmailField.setText(cvicenec.getEmail());
 //        profilCTelefonField.setText(cvicenec.getTelefonneCislo());
+    }
+
+    @FXML
+    protected void changePassword(){
+        if(profilCHeslo1Field.getText().isEmpty() || profilCHeslo2Field.getText().isEmpty()){
+            actionLabel.setText("Fill all fields !");
+            return;
+        }
+        if(profilCHeslo1Field.getText().equals(profilCHeslo2Field.getText())){
+            actionLabel.setText("Cant change to the same password");
+            return;
+        }
+        actionLabel.setText("Password changed");
     }
 
 

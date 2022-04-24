@@ -38,8 +38,8 @@
       <TextField fx:id="profilTTelefonField" editable="false" layoutX="343.0" layoutY="260.0" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="345.0" layoutY="287.0" text="%password.key" />
       <Label layoutX="345.0" layoutY="329.0" text="%newpsw.key" />
-      <PasswordField fx:id="profilTHeslo1Field" layoutX="343.0" layoutY="304.0" onKeyTyped="#validatePassword" prefHeight="25.0" prefWidth="276.0" />
-      <PasswordField fx:id="profilTHeslo2Field" layoutX="343.0" layoutY="346.0" onKeyTyped="#validateNewPassword" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField fx:id="profilTHeslo1Field" layoutX="343.0" layoutY="304.0" prefHeight="25.0" prefWidth="276.0" />
+      <PasswordField fx:id="profilTHeslo2Field" layoutX="343.0" layoutY="346.0" prefHeight="25.0" prefWidth="276.0" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
@@ -101,6 +101,9 @@
             </Button>
          </children>
       </VBox>
-      <Label fx:id="actionLabel" alignment="CENTER" layoutX="386.0" layoutY="409.0" prefHeight="17.0" prefWidth="211.0" />
+      <Label fx:id="actionLabel" alignment="CENTER" layoutX="386.0" layoutY="409.0" prefHeight="17.0" prefWidth="211.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </Pane>

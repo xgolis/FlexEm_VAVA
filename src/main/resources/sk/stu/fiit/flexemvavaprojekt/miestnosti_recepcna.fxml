@@ -129,6 +129,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ChoiceBox>
-      <Label fx:id="actionLabel" alignment="CENTER" layoutX="199.0" layoutY="367.0" prefHeight="17.0" prefWidth="236.0" />
+      <Label fx:id="actionLabel" alignment="CENTER" layoutX="199.0" layoutY="367.0" prefHeight="17.0" prefWidth="236.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
    </children>
 </Pane>

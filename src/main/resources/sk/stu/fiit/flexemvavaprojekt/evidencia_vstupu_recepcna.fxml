@@ -120,7 +120,10 @@
             <TableColumn fx:id="evidenciaRIdStlpec" editable="false" prefWidth="109.5999755859375" text="%regid.key" />
          </columns>
       </TableView>
-      <Label fx:id="actionLabel" layoutX="211.0" layoutY="220.0" prefHeight="17.0" prefWidth="262.0" />
+      <Label fx:id="actionLabel" layoutX="211.0" layoutY="220.0" prefHeight="17.0" prefWidth="262.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Button layoutX="344.0" layoutY="186.0" mnemonicParsing="false" onAction="#zaevidovanieOdchodu" text="%registerleave.key">
          <cursor>
             <Cursor fx:constant="HAND" />
