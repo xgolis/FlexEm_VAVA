@@ -336,7 +336,7 @@ public class DbConnector {
             String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas, done)\n" +
                     "VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
-            st.setInt(1 ,skupinovyPlan.getMiestnostId());
+            st.setString(1 ,skupinovyPlan.getMiestnost());
             st.setInt(2 , skupinovyPlan.getTrenerId());
             st.setString(3 ,skupinovyPlan.getSport());
             st.setString(4 ,skupinovyPlan.getPopis());

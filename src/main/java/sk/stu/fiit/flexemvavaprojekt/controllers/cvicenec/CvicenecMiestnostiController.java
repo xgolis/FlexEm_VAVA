@@ -2,7 +2,11 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -18,6 +22,9 @@ public class CvicenecMiestnostiController implements Initializable{
     private TextField miestnostiCDateTimeField;
 
     @FXML
+    private TableView<SkupinovyPlan> miestnostiCTabulkaZoznamuTreningov;
+
+    @FXML
     private TextField miestnostiCIzbaField;
 
     @FXML
@@ -28,6 +35,18 @@ public class CvicenecMiestnostiController implements Initializable{
 
     @FXML
     private TextField miestnostiCTrenerField;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCStlpecMiestnost;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCStlpecDatumACas;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCStlpecSport;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCStlpecTrener;
 
 
     @FXML
@@ -76,9 +95,16 @@ public class CvicenecMiestnostiController implements Initializable{
 
     }
 
+    @FXML
+    protected void vyberTrening() {
+        SkupinovyPlan sp = miestnostiCTabulkaZoznamuTreningov.getSelectionModel().getSelectedItem();
+        if (sp != null) {
+            Inicializator.nastavHodnotyCMiestnost(miestnostiCIzbaField,miestnostiCSportField,miestnostiCDateTimeField,miestnostiCPopisField,miestnostiCTrenerField,sp);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
 
