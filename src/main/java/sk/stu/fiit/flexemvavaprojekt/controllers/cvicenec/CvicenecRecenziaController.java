@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
@@ -124,10 +125,10 @@ public class CvicenecRecenziaController implements Initializable {
     @FXML
     protected void publish(){
         if(!validateStars() || !validateReview()){
-            actionLabel.setText("Invalid input");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText("Review published");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("reviewpublished.key"));
     }
 
 }

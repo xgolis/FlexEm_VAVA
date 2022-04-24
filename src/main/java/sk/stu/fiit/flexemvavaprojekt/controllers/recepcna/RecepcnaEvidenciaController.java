@@ -10,10 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
-import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
-import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
-import sk.stu.fiit.flexemvavaprojekt.models.SpravaHesla;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -48,7 +45,7 @@ public class RecepcnaEvidenciaController implements Initializable {
     @FXML
     protected void zaevidovanieOdchodu(){
         if(!validateRegId()){
-            actionLabel.setText("Invalid input");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
         if (evidenciaRRegIDField.getText().isEmpty()) {
@@ -63,16 +60,16 @@ public class RecepcnaEvidenciaController implements Initializable {
                 }
             }
         }
-        actionLabel.setText("Departure registered");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("leaveregged.key"));
     }
 
     @FXML
     protected void zaevidovaniePrichodu(){
         if(!validateRegId()){
-            actionLabel.setText("Invalid input");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText("Arrival registered");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("enterregged.key"));
     }
 
 

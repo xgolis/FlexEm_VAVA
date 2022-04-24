@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -168,9 +169,9 @@ public class RecepcnaNovyClenController implements Initializable {
     @FXML
     protected void pridajClena(){
         if(!validateName() || !validateSurname() || !validateEmail() ||  !validatePhoneNumber() || novyclenRTrenerChoiceB.getValue() == null){
-            actionLabel.setText("Invalid input");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText("Member added");
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("member.key"));
     }
 }

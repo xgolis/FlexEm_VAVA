@@ -43,10 +43,10 @@ public class Jazyk {
         return single_instance;
     }
 
-//    public String prelozeneSlovo(String kluc) {
-//        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
-//        return (resourceBundle.getString(kluc));
-//    }
+    public String prelozeneSlovo(String kluc) {
+        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
+        return (resourceBundle.getString(kluc));
+    }
 
     public String naformatujCas(String cas){
 
