@@ -3,6 +3,7 @@ import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DbConnector {
 
@@ -152,9 +153,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
             }
             rs.close();
@@ -170,22 +170,17 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            Integer ind = cvicenec.getIndividualnyPlanId();
-            Integer skup = cvicenec.getSkupinovyPlanId();
-            if (cvicenec.getIndividualnyPlanId() == 0) ind = null;
-            if (cvicenec.getSkupinovyPlanId() == 0) skup = null;
-            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, individualny_plan_id, skupinovy_plan_id, hash, salt)\n" +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,cvicenec.getMeno());
             st.setString(2 ,cvicenec.getPriezvisko());
             st.setString(3 ,cvicenec.getEmail());
             st.setString(4 ,cvicenec.getTelefonneCislo());
-            st.setInt(5 ,cvicenec.getIndividualnyPlanId());
-            st.setInt(6 ,cvicenec.getSkupinovyPlanId());
-            st.setBytes(7 ,cvicenec.getHash());
+            st.setInt(5, cvicenec.getTrener_id());
+            st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
             st.close();
@@ -197,9 +192,27 @@ public class DbConnector {
         }
     }
 
-    public boolean setInside(int name){
+    public boolean setTrener(int trener_id, int cvicenec_id){
         try {
-            String sql = "UPDATE cvicenecs SET inside = ? WHERE name = "+name;
+            String sql = "UPDATE cvicenecs SET trener_id = ? WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, trener_id);
+            st.setInt(2, cvicenec_id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean setInside(int id){
+        try {
+            String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
             ResultSet rs = st.executeQuery(sql);
@@ -229,9 +242,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 list.add(cvicenec);
             }
@@ -303,9 +315,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 list.add(cvicenec);
             }
@@ -322,15 +333,16 @@ public class DbConnector {
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
-            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
-                    "VALUES (?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas, done)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 ,skupinovyPlan.getMiestnostId());
             st.setInt(2 , skupinovyPlan.getTrenerId());
             st.setString(3 ,skupinovyPlan.getSport());
             st.setString(4 ,skupinovyPlan.getPopis());
             st.setTimestamp(5 , skupinovyPlan.getCas());
-            ResultSet rs = st.executeQuery();
+            st.setBoolean(6, false);
+            ResultSet rs = st.executeQuery(sql);
             if (rs.next()){}
             rs.close();
             st.close();
@@ -345,7 +357,7 @@ public class DbConnector {
     public ArrayList<Recenzia> getAllRecenzias(String dodatocneQuery){
         try {
             ArrayList<Recenzia> list = new ArrayList<>();
-            String sql = "select recenzias.id, recenzias.skupinovy_plan_id, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
+            String sql = "select recenzias.id, recenzias.skupinovy_plan_id, skupinovy_plans.sport, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
                     "join cvicenecs on recenzias.cvicenec_id = cvicenecs.id\n" +
                     "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
                     "join treners on skupinovy_plans.trener_id = treners.id " + dodatocneQuery;
@@ -354,14 +366,14 @@ public class DbConnector {
             while (rs.next()){
                 Recenzia recenzia = new Recenzia(
                         rs.getInt(2),
-                        "dorobitboha",
-                        rs.getInt(3),
-                        rs.getString(4),
-                        rs.getString(6),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getString(5),
                         rs.getString(7),
-                        rs.getInt(5),
-                        rs.getInt(8)
-                );
+                        rs.getString(8),
+                        rs.getInt(6),
+                        rs.getInt(9)
+                        );
                 recenzia.setId(rs.getInt(1));
                 list.add(recenzia);
             }
@@ -389,9 +401,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 list.add(cvicenec);
             }
@@ -433,5 +444,361 @@ public class DbConnector {
             return null;
         }
     }
+
+    public Pouzivatel login(String email, String heslo){
+        try {
+            Pouzivatel pouzivatel;
+            pouzivatel = findCvicenec(email);
+            if(pouzivatel != null){
+                byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                if(Arrays.equals(hash_gen, pouzivatel.getHash()))
+                    return pouzivatel;
+                else
+                    return null;
+            }
+            else{
+                pouzivatel = findTrener(email);
+                if(pouzivatel != null){
+                    byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                    if(hash_gen == pouzivatel.getHash())
+                        return pouzivatel;
+                    else
+                        return null;
+                }
+                else{
+                    pouzivatel = findRecepcna(email);
+                    if(pouzivatel != null){
+                        byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                        if(hash_gen == pouzivatel.getHash())
+                            return pouzivatel;
+                        else
+                            return null;
+                    }
+                }
+            }
+            return null;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Cvicenec findCvicenec(String email){
+        try {
+            String sql = "select * from cvicenecs where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            Cvicenec cvicenec = null;
+            if (rs.next()){
+                cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+            }
+            rs.close();
+            st.close();
+            return cvicenec;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Trener findTrener(String email){
+        try {
+            String sql = "select * from treners where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1,email);
+            ResultSet rs = st.executeQuery();
+            Trener trener = null;
+            if (rs.next()){
+                trener = new Trener(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+            }
+            rs.close();
+            st.close();
+            return trener;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Recepcna findRecepcna(String email){
+        try {
+            String sql = "select * from recepcnas where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            Recepcna recepcna = null;
+            if (rs.next()){
+                recepcna = new Recepcna(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
+                );
+            }
+            rs.close();
+            st.close();
+            return recepcna;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+    public ArrayList<Cvicenec> getTrenersCvicenec(int trener_id){
+        try {
+            ArrayList<Cvicenec> list = new ArrayList<>();
+            String sql = "select * from cvicenecs where trener_id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, trener_id);
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                Cvicenec cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+                list.add(cvicenec);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public boolean createSkupPlan(SkupinovyPlan skupinovyPlan){
+        try {
+            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
+                    "VALUES (?, ?, ?, ?, ?);\n";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, skupinovyPlan.getMiestnostId());
+            st.setInt(2, skupinovyPlan.getTrenerId());
+            st.setString(3, skupinovyPlan.getSport());
+            st.setString(4, skupinovyPlan.getPopis());
+            st.setTimestamp(5, skupinovyPlan.getCas());
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean createRecenzia(Recenzia recenzia){
+        try {
+            String sql = "INSERT INTO recenzias (skupinovy_plan_id, hodnotenie, popis, cvicenec_id)\n" +
+                    "VALUES (?, ?, ?, ?, ?);\n";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, recenzia.getSkupinovy_plan_id());
+            st.setInt(2, recenzia.getPocetHviezd());
+            st.setString(3, recenzia.getPopis());
+            st.setInt(4, recenzia.getCvicenec_id());
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean addUserToSkupPlan(int cvicenec_id, int skup_plan){
+        try {
+            String sql = "INSERT INTO cvicenec_skup_plan (cvicenec_id, skup_plan_id)\n" +
+                    "VALUES (?, ?);\n";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, cvicenec_id);
+            st.setInt(2, skup_plan);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean createIndivPlan(IndividualnyPlan individualnyPlan){
+        try {
+            String sql = "INSERT INTO individualny_plans (cvicenec_id, trener_id, datum_cas, popis, cvik1, cvik2, cvik3, cvik4, done)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, individualnyPlan.getCvicenecId());
+            st.setInt(2, individualnyPlan.getTrenerId());
+            st.setTimestamp(3, individualnyPlan.getDatumCas());
+            st.setString(4, individualnyPlan.getPopis());
+            st.setString(5, individualnyPlan.getCvik1());
+            st.setString(6, individualnyPlan.getCvik2());
+            st.setString(7, individualnyPlan.getCvik3());
+            st.setString(8, individualnyPlan.getCvik4());
+            st.setBoolean(9, false);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean updateCvicenec(Cvicenec cvicenec){
+        try {
+            String sql = "UPDATE cvicenecs\n" +
+                    "SET meno = ?, priezvisko = ?, email = ?, telefon = ?, hash = ?, salt = ?\n" +
+                    "WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, cvicenec.getMeno());
+            st.setString(2, cvicenec.getPriezvisko());
+            st.setString(3, cvicenec.getEmail());
+            st.setString(4, cvicenec.getTelefonneCislo());
+            st.setBytes(5, cvicenec.getHash());
+            st.setBytes(6, cvicenec.getSalt());
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean updateTrener(Trener trener){
+        try {
+            String sql = "UPDATE treners\n" +
+                    "SET meno = ?, priezvisko = ?, email = ?, telefon = ?, hash = ?, salt = ?\n" +
+                    "WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, trener.getMeno());
+            st.setString(2, trener.getPriezvisko());
+            st.setString(3, trener.getEmail());
+            st.setString(4, trener.getTelefonneCislo());
+            st.setBytes(5, trener.getHash());
+            st.setBytes(6, trener.getSalt());
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean updateRecepcna(Recepcna recepcna){
+        try {
+            String sql = "UPDATE recepcnas\n" +
+                    "SET meno = ?, prizvisko = ?, email = ?, telefon = ?, hash = ?, salt = ?\n" +
+                    "WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, recepcna.getMeno());
+            st.setString(2, recepcna.getPriezvisko());
+            st.setString(3, recepcna.getEmail());
+            st.setString(4, recepcna.getTelefonneCislo());
+            st.setBytes(5, recepcna.getHash());
+            st.setBytes(6, recepcna.getSalt());
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean setIndPlanDone(int plan_id){
+        try {
+            String sql = "UPDATE individualny_plans\n" +
+                    "SET done = ? WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            st.setInt(2, plan_id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public boolean setSkupPlanDone(int plan_id){
+        try {
+            String sql = "UPDATE skupinovy_plans\n" +
+                    "SET done = ? WHERE id = ?;";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBoolean(1, true);
+            st.setInt(2, plan_id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){}
+            rs.close();
+            st.close();
+            return true;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+
 
 }

@@ -11,6 +11,7 @@ public class SkupinovyPlan {
     private String sport;
     private String popis;
     private Timestamp cas;
+    private boolean done = false;
 
     public SkupinovyPlan(int id, int miestnostId, int trenerId, String sport, String popis, Timestamp cas) {
         this.id = id;
@@ -67,5 +68,13 @@ public class SkupinovyPlan {
 
     public void setCas(Timestamp cas) {
         this.cas = cas;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 }

@@ -3,29 +3,20 @@ package sk.stu.fiit.flexemvavaprojekt.models;
 
 public class Cvicenec extends Pouzivatel{
 
-    private int skupinovyPlanId;
-    private int individualnyPlanId;
+    private Integer trener_id;
 
-    public Cvicenec(int id, String meno, String priezvisko, String email, String telefon,int skupinovyPlanId, int individualnyPlanId, byte[] salt, byte[] hash) {
-        super(id, meno, priezvisko, email, telefon, salt, hash);
-        this.skupinovyPlanId = skupinovyPlanId;
-        this.individualnyPlanId = individualnyPlanId;
+    public Cvicenec(int id, String meno, String priezvisko, String email, String telefon, Integer trener_id, byte[] hash, byte[] salt) {
+        super(id, meno, priezvisko, email, telefon, hash, salt);
+
+        this.trener_id = trener_id;
     }
 
-    public int getSkupinovyPlanId() {
-        return skupinovyPlanId;
+    public Integer getTrener_id() {
+        return trener_id;
     }
 
-    public int getIndividualnyPlanId() {
-        return individualnyPlanId;
-    }
-
-    public void setSkupinovyPlanId(int skupinovyPlanId) {
-        this.skupinovyPlanId = skupinovyPlanId;
-    }
-
-    public void setIndividualnyPlanId(int individualnyPlanId) {
-        this.individualnyPlanId = individualnyPlanId;
+    public void setTrener_id(Integer trener_id) {
+        this.trener_id = trener_id;
     }
 }
 
