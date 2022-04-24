@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -43,12 +44,10 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     private TextField recenziaRSportFIeld;
+
     @FXML
     private Label actionLabel;
 
-    public RecepcnaRecenziaController(Recenzia review) {
-        this.review = review;
-    }
 
     @FXML
     protected void odhlasenie() {
@@ -118,14 +117,10 @@ public class RecepcnaRecenziaController implements Initializable {
 
     }
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
-
     @FXML
     protected void sendReview(){
+        Recenzia review = new Recenzia("Telocvicna", "Fitness", 9,"Fakt super, uzil som si to");
+
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
@@ -146,7 +141,7 @@ public class RecepcnaRecenziaController implements Initializable {
             pocetHviezd.appendChild(doc.createTextNode(String.valueOf(review.getPocetHviezd())));
             recenzia.appendChild(pocetHviezd);
 
-            Element popis = doc.createElement("Popis hodnotenia");
+            Element popis = doc.createElement("PopisHodnotenia");
             popis.appendChild(doc.createTextNode(review.getPopis()));
             recenzia.appendChild(popis);
 
@@ -164,6 +159,12 @@ public class RecepcnaRecenziaController implements Initializable {
         } catch (TransformerException e) {
             e.printStackTrace();
         }
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 
 }
