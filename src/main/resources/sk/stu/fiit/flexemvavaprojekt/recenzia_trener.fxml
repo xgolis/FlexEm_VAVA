@@ -38,12 +38,12 @@
       <TextField fx:id="recenziaTHviezdickyField" editable="false" layoutX="194.0" layoutY="260.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="285.0" text="%review.key" />
       <TextArea fx:id="recenziaTRecenziaField" editable="false" layoutX="194.0" layoutY="302.0" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
-      <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
+      <TableView fx:id="recenziaTTabulka" layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
-            <TableColumn editable="false" prefWidth="75.0" text="%name.key" />
-            <TableColumn editable="false" prefWidth="75.0" text="%surname.key" />
-            <TableColumn editable="false" prefWidth="105.59991455078125" text="%sport.key" />
-            <TableColumn editable="false" prefWidth="89.199951171875" text="%stars.key" />
+            <TableColumn fx:id="recenziaTMenoStlpec" editable="false" prefWidth="75.0" text="%name.key" />
+            <TableColumn fx:id="recenziaTPriezviskoStlpec" editable="false" prefWidth="75.0" text="%surname.key" />
+            <TableColumn fx:id="recenziaTSportStlpec" editable="false" prefWidth="105.59991455078125" text="%sport.key" />
+            <TableColumn fx:id="recenziaTHvStlpec" editable="false" prefWidth="89.199951171875" text="%stars.key" />
          </columns>
       </TableView>
       <Label layoutX="467.0" layoutY="77.0" text="%listreviews.key">

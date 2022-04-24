@@ -47,7 +47,7 @@
                   <Image url="@img/lock.png" />
                </image>
             </ImageView>
-            <Label layoutX="14.0" layoutY="203.0" text="%name.key" textFill="#dcdbd9">
+            <Label layoutX="14.0" layoutY="202.0" text="Email" textFill="#dcdbd9">
                <font>
                   <Font size="24.0" />
                </font>

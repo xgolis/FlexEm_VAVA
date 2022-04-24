@@ -57,22 +57,28 @@ public class Inicializator {
         tabulka.setItems(lanes);
     }
 
-//    public static void inicializujTabulkuRecenzii(TableView<Recenzia> tabulka,
-//                                                  TableColumn<Recenzia, String> menoColumn,
-//                                                  TableColumn<Recenzia, String> priezviskoColumn,
-//                                                  TableColumn<Recenzia, String> sportColumn,
-//                                                  TableColumn<Recenzia, String> hvColumn){
-//
-//        ArrayList<Recenzia> recenzie = DbConnector.getInstance().getAllRecenzias();
-//        ObservableList<Recenzia> lanes = FXCollections.observableArrayList();
-//        lanes.addAll(recenzie);
-//
-//        menoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
-//        priezviskoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
-//
-//        tabulka.setItems(lanes);
-//
-//    }
+    public static void inicializujTabulkuRecenzii(TableView<Recenzia> tabulka,
+                                                  TableColumn<Recenzia, String> menoColumn,
+                                                  TableColumn<Recenzia, String> priezviskoColumn,
+                                                  TableColumn<Recenzia, String> sportColumn,
+                                                  TableColumn<Recenzia, String> hvColumn, int trenerId){
+        String dodatocneQuery = "";
+        if (trenerId !=0) {
+            dodatocneQuery = dodatocneQuery + "WHERE treners.id = " + trenerId;
+        }
+
+        ArrayList<Recenzia> recenzie = DbConnector.getInstance().getAllRecenzias(dodatocneQuery);
+        ObservableList<Recenzia> lanes = FXCollections.observableArrayList();
+        lanes.addAll(recenzie);
+
+        menoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
+        priezviskoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
+        sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        hvColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().pocetHviezdToString()));
+
+        tabulka.setItems(lanes);
+
+    }
 }
 
 

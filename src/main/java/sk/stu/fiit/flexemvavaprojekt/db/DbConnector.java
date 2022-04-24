@@ -330,7 +330,7 @@ public class DbConnector {
             st.setString(3 ,skupinovyPlan.getSport());
             st.setString(4 ,skupinovyPlan.getPopis());
             st.setTimestamp(5 , skupinovyPlan.getCas());
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
             st.close();
@@ -342,26 +342,26 @@ public class DbConnector {
         }
     }
 
-    public ArrayList<Recenzia> getAllRecenzias(){
+    public ArrayList<Recenzia> getAllRecenzias(String dodatocneQuery){
         try {
             ArrayList<Recenzia> list = new ArrayList<>();
             String sql = "select recenzias.id, recenzias.skupinovy_plan_id, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
                     "join cvicenecs on recenzias.cvicenec_id = cvicenecs.id\n" +
                     "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
-                    "join treners on skupinovy_plans.trener_id = treners.id";
+                    "join treners on skupinovy_plans.trener_id = treners.id " + dodatocneQuery;
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 Recenzia recenzia = new Recenzia(
                         rs.getInt(2),
-                        rs.getString(3),
-                        rs.getInt(4),
-                        rs.getString(5),
+                        "dorobitboha",
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(6),
                         rs.getString(7),
-                        rs.getString(8),
-                        rs.getInt(6),
-                        rs.getInt(9)
-                        );
+                        rs.getInt(5),
+                        rs.getInt(8)
+                );
                 recenzia.setId(rs.getInt(1));
                 list.add(recenzia);
             }
@@ -381,7 +381,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 Pouzivatel cvicenec = new Cvicenec(
                         rs.getInt(1),
                         rs.getString(2),
@@ -393,7 +393,6 @@ public class DbConnector {
                         rs.getBytes(8),
                         rs.getBytes(9)
                 );
-                System.out.println(cvicenec);
                 list.add(cvicenec);
             }
             rs.close();
