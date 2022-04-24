@@ -2,8 +2,13 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -26,6 +31,21 @@ public class TrenerRecenziaController implements Initializable {
 
     @FXML
     private TextField recenziaTSportField;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaTHvStlpec;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaTMenoStlpec;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaTPriezviskoStlpec;
+
+    @FXML
+    private TableColumn<Recenzia, String> recenziaTSportStlpec;
+
+    @FXML
+    private TableView<Recenzia> recenziaTTabulka;
 
     @FXML
     protected void odhlasenie() {
@@ -74,6 +94,10 @@ public class TrenerRecenziaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        Inicializator.inicializujTabulkuRecenzii(recenziaTTabulka, recenziaTMenoStlpec, recenziaTPriezviskoStlpec,
+//                                                 recenziaTSportStlpec, recenziaTHvStlpec, PrihlasenyPouzivatel.getInstance().getPouzivatel().getId());
+        Inicializator.inicializujTabulkuRecenzii(recenziaTTabulka, recenziaTMenoStlpec, recenziaTPriezviskoStlpec,
+                                                 recenziaTSportStlpec, recenziaTHvStlpec, 3);
 
     }
 }

@@ -42,6 +42,9 @@ public class Recenzia {
         return skupinovy_plan_id;
     }
 
+    public String pocetHviezdToString() {
+        return Integer.toString(this.id);
+    }
 
     public int getId() {
         return id;
