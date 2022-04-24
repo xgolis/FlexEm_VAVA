@@ -3,8 +3,10 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -24,6 +26,8 @@ public class RecepcnaNovyClenController implements Initializable {
     private TextField novyclenRTelefonField;
     @FXML
     private ChoiceBox<String> novyclenRTrenerChoiceB;
+    @FXML
+    private Label actionLabel;
 
     @FXML
     protected void odhlasenie() {
@@ -105,6 +109,68 @@ public class RecepcnaNovyClenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujTrenerovChoiceBox(novyclenRTrenerChoiceB);
+        //Inicializator.inicializujTrenerovChoiceBox(novyclenRTrenerChoiceB);
+    }
+
+    @FXML
+    protected boolean validateName(){
+        String name = novyclenRMenoField.getText();
+        if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
+            novyclenRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            novyclenRMenoField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateSurname(){
+        String surname = novyclenRPriezviskoField.getText();
+        if(!InputValidation.validateName(surname) || !InputValidation.isSqlInjectionSafe(surname)){
+            novyclenRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            novyclenRPriezviskoField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateEmail(){
+        String email = novyclenREmailField.getText();
+        if(!InputValidation.validateEmail(email) || !InputValidation.isSqlInjectionSafe(email)){
+            novyclenREmailField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            novyclenREmailField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validatePhoneNumber(){
+        String phoneNumber = novyclenRTelefonField.getText();
+        if(!InputValidation.validatePhone(phoneNumber) || !InputValidation.isSqlInjectionSafe(phoneNumber)){
+            novyclenRTelefonField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+
+        }
+        else {
+            novyclenRTelefonField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected void pridajClena(){
+        if(!validateName() || !validateSurname() || !validateEmail() ||  !validatePhoneNumber() || novyclenRTrenerChoiceB.getValue() == null){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        actionLabel.setText("Member added");
     }
 }

@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.SpravaHesla;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -38,11 +39,18 @@ public class RecepcnaEvidenciaController implements Initializable {
     @FXML
     private TableColumn<Pouzivatel, String> evidenciaRPriezviskoStlpec;
 
+    @FXML
+    private Label actionLabel;
+
 
 
 
     @FXML
     protected void zaevidovanieOdchodu(){
+        if(!validateRegId()){
+            actionLabel.setText("Invalid input");
+            return;
+        }
         if (evidenciaRRegIDField.getText().isEmpty()) {
             evidenciaRTabulka.getItems().remove(evidenciaRTabulka.getSelectionModel().getSelectedItem());
 
@@ -54,6 +62,14 @@ public class RecepcnaEvidenciaController implements Initializable {
                     break;
                 }
             }
+        }
+    }
+
+    @FXML
+    protected void zaevidovaniePrichodu(){
+        if(!validateRegId()){
+            actionLabel.setText("Invalid input");
+            return;
         }
     }
 
@@ -146,5 +162,18 @@ public class RecepcnaEvidenciaController implements Initializable {
         evidenciaRMenoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
         evidenciaRTabulka.setItems(lanes);
 
+    }
+
+    @FXML
+    protected boolean validateRegId(){
+        String regId = evidenciaRRegIDField.getText();
+        if(!InputValidation.validateDigit(regId) || !InputValidation.isSqlInjectionSafe(regId)){
+            evidenciaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            evidenciaRRegIDField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
     }
 }

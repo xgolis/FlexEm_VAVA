@@ -24,18 +24,18 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="434.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="111.0" text="%addmember.key">
+      <Button layoutX="434.0" layoutY="347.0" mnemonicParsing="false" onAction="#pridajClena" prefHeight="25.0" prefWidth="111.0" text="%addmember.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Label layoutX="368.0" layoutY="110.0" text="%name.key" />
-      <TextField fx:id="novyclenRMenoField" layoutX="368.0" layoutY="128.0" prefHeight="25.0" prefWidth="243.0" />
+      <TextField fx:id="novyclenRMenoField" layoutX="368.0" layoutY="128.0" onKeyTyped="#validateName" prefHeight="25.0" prefWidth="243.0" />
       <Label layoutX="369.0" layoutY="153.0" text="%surname.key" />
-      <TextField fx:id="novyclenRPriezviskoField" layoutX="368.0" layoutY="172.0" prefHeight="25.0" prefWidth="243.0" />
+      <TextField fx:id="novyclenRPriezviskoField" layoutX="368.0" layoutY="172.0" onKeyTyped="#validateSurname" prefHeight="25.0" prefWidth="243.0" />
       <Label layoutX="371.0" layoutY="197.0" text="Email" />
-      <TextField fx:id="novyclenREmailField" layoutX="368.0" layoutY="216.0" prefHeight="25.0" prefWidth="243.0" />
+      <TextField fx:id="novyclenREmailField" layoutX="368.0" layoutY="216.0" onKeyTyped="#validateEmail" prefHeight="25.0" prefWidth="243.0" />
       <Label layoutX="369.0" layoutY="242.0" text="%phonenumber.key" />
-      <TextField fx:id="novyclenRTelefonField" layoutX="368.0" layoutY="261.0" prefHeight="25.0" prefWidth="243.0" />
+      <TextField fx:id="novyclenRTelefonField" layoutX="368.0" layoutY="261.0" onKeyTyped="#validatePhoneNumber" prefHeight="25.0" prefWidth="243.0" />
       <Button layoutX="368.0" layoutY="77.0" mnemonicParsing="false" onAction="#novyTrener" text="%coach.key">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -134,5 +134,6 @@
             </Button>
          </children>
       </VBox>
+      <Label fx:id="actionLabel" alignment="CENTER" layoutX="407.0" layoutY="381.0" prefHeight="17.0" prefWidth="166.0" />
    </children>
 </Pane>

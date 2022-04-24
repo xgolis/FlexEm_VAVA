@@ -2,8 +2,10 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.Trener;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -32,6 +34,9 @@ public class TrenerProfilController implements Initializable {
 
     @FXML
     private TextField profilTTelefonField;
+
+    @FXML
+    private Label actionLabel;
 
     Trener trener = DbConnector.getInstance().getTrener(1);
 
@@ -82,5 +87,44 @@ public class TrenerProfilController implements Initializable {
 //        profilTPriezviskoField.setText(trener.getPriezvisko());
 //        profilTEmailField.setText(trener.getEmail());
 //        profilTTelefonField.setText(trener.getTelefonneCislo());
+    }
+
+    @FXML
+    protected boolean validatePassword(){
+        String password = profilTHeslo1Field.getText();
+        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
+            profilTHeslo1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            profilTHeslo1Field.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateNewPassword(){
+        String password = profilTHeslo2Field.getText();
+        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
+            profilTHeslo2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            profilTHeslo2Field.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected void changePassword(){
+        if(!validatePassword() || !validateNewPassword()){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        if(profilTHeslo1Field.getText().equals(profilTHeslo2Field.getText())){
+            actionLabel.setText("Cant change to the same password");
+            return;
+        }
+        actionLabel.setText("Password changed");
     }
 }

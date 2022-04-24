@@ -2,8 +2,10 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -26,6 +28,8 @@ public class RecepcnaProfilController implements Initializable {
     private TextField profilRPriezviskoField;
     @FXML
     private TextField profilRTelefonField;
+    @FXML
+    private Label actionLabel;
 
     @FXML
     protected void odhlasenie() {
@@ -93,6 +97,44 @@ public class RecepcnaProfilController implements Initializable {
 
     }
 
+    @FXML
+    protected boolean validatePassword(){
+        String password = profilRHeslo1Field.getText();
+        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
+            profilRHeslo1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            profilRHeslo1Field.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected boolean validateNewPassword(){
+        String password = profilRHeslo2Field.getText();
+        if(!InputValidation.validatePassword(password) || !InputValidation.isSqlInjectionSafe(password)){
+            profilRHeslo2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            profilRHeslo2Field.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
+
+    @FXML
+    protected void changePassword(){
+        if(!validatePassword() || !validateNewPassword()){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        if(profilRHeslo1Field.getText().equals(profilRHeslo2Field.getText())){
+            actionLabel.setText("Cant change to the same password");
+            return;
+        }
+        actionLabel.setText("Password changed");
+}
 
 
     @Override
