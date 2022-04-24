@@ -74,6 +74,6 @@ public class TrenerRecenziaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        recenziaTMenoField.setText("dorobit recenziu z databazy");
+
     }
 }

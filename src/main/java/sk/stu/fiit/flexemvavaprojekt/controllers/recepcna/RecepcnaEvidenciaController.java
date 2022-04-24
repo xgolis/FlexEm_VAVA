@@ -56,11 +56,11 @@ public class RecepcnaEvidenciaController implements Initializable {
             for (int i = 0; i <evidenciaRTabulka.getItems().size(); i++) {
                 if (evidenciaRTabulka.getItems().get(i).getId() == Integer.parseInt(evidenciaRRegIDField.getText()))   {
                     evidenciaRTabulka.getItems().remove(i);
+                    actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("leaveregged.key"));
                     break;
                 }
             }
         }
-        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("leaveregged.key"));
     }
 
     @FXML
@@ -166,7 +166,7 @@ public class RecepcnaEvidenciaController implements Initializable {
     @FXML
     protected boolean validateRegId(){
         String regId = evidenciaRRegIDField.getText();
-        if(!InputValidation.validateDigit(regId) || !InputValidation.isSqlInjectionSafe(regId)){
+        if(!InputValidation.validateREGIDFilter(regId) || !InputValidation.isSqlInjectionSafe(regId)){
             evidenciaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
             return false;
         }

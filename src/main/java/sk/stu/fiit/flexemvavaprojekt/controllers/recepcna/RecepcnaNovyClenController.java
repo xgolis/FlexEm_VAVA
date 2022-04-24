@@ -110,7 +110,7 @@ public class RecepcnaNovyClenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Inicializator.inicializujTrenerovChoiceBox(novyclenRTrenerChoiceB);
+        Inicializator.inicializujTrenerovChoiceBox(novyclenRTrenerChoiceB);
     }
 
     @FXML

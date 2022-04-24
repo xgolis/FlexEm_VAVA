@@ -348,7 +348,7 @@ public class DbConnector {
             ArrayList<Recenzia> list = new ArrayList<>();
             String sql = "select * from recenzias";
             PreparedStatement st = con.prepareStatement(sql);
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             if (rs.next()){
                 Recenzia recenzia = new Recenzia(
                         null,
@@ -358,6 +358,66 @@ public class DbConnector {
                 );
                 recenzia.setId(rs.getInt(1));
                 list.add(recenzia);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public ArrayList<Pouzivatel> getAllCvicenecs(){
+        try {
+            ArrayList<Pouzivatel> list = new ArrayList<>();
+            String sql = "select * from cvicenecs";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){
+                Pouzivatel cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getBytes(8),
+                        rs.getBytes(9)
+                );
+                System.out.println(cvicenec);
+                list.add(cvicenec);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public ArrayList<Pouzivatel> getAllTreners(){
+        try {
+            ArrayList<Pouzivatel> list = new ArrayList<>();
+            String sql = "select * from treners";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()){
+                Pouzivatel trener = new Trener(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBytes(8),
+                        rs.getBytes(9)
+                );
+                list.add(trener);
             }
             rs.close();
             st.close();
