@@ -14,11 +14,11 @@ public class Regex {
 
     public static ArrayList<String> vytvorMozneRegexy(String text){
         ArrayList<String> list = new ArrayList<>();
-        list.add(".*" + text + ".*");
+        list.add(text + ".*");
         int dlzka = text.length();
 
         if (text.length() == 1) {
-            list.add(".*" + text + ".*");
+            list.add(text + ".*");
         }
         else {
 
@@ -31,7 +31,7 @@ public class Regex {
                     temp = temp.substring(0, i - 1) + '.' + temp.substring(i);
                 }
 
-                list.add(".*" + temp + ".*");
+                list.add(temp + ".*");
             }
 
         }
