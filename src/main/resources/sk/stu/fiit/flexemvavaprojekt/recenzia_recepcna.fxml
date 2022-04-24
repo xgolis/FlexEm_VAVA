@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -54,9 +55,12 @@
          </font>
       </Label>
       <TextArea fx:id="recenziaRRecenziaArea" editable="false" layoutX="196.0" layoutY="292.0" prefHeight="64.0" prefWidth="245.0" />
-      <RadioButton layoutX="459.0" layoutY="90.0" mnemonicParsing="false" text="10/10" />
-      <RadioButton layoutX="555.0" layoutY="90.0" mnemonicParsing="false" text="5+/10" />
-      <RadioButton layoutX="651.0" layoutY="90.0" mnemonicParsing="false" text="5-/10" />
+      <RadioButton layoutX="459.0" layoutY="90.0" mnemonicParsing="false" text="10/10">
+         <toggleGroup>
+            <ToggleGroup fx:id="Rodinka" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="555.0" layoutY="90.0" mnemonicParsing="false" text="5+/10" toggleGroup="$Rodinka" />
+      <RadioButton layoutX="651.0" layoutY="90.0" mnemonicParsing="false" text="5-/10" toggleGroup="$Rodinka" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button mnemonicParsing="false" onAction="#evidenciaVstupu" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%entryrecords.key" textFill="#dcdbd9">
