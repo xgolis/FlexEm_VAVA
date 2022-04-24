@@ -8,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -50,9 +51,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <RadioButton layoutX="469.0" layoutY="100.0" mnemonicParsing="false" text="10/10" />
-      <RadioButton layoutX="565.0" layoutY="100.0" mnemonicParsing="false" text="5+/10" />
-      <RadioButton layoutX="661.0" layoutY="100.0" mnemonicParsing="false" text="5-/10" />
+      <RadioButton layoutX="469.0" layoutY="100.0" mnemonicParsing="false" text="10/10">
+         <toggleGroup>
+            <ToggleGroup fx:id="Rodinka" />
+         </toggleGroup></RadioButton>
+      <RadioButton layoutX="565.0" layoutY="100.0" mnemonicParsing="false" text="5+/10" toggleGroup="$Rodinka" />
+      <RadioButton layoutX="661.0" layoutY="100.0" mnemonicParsing="false" text="5-/10" toggleGroup="$Rodinka" />
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>
             <Button lineSpacing="10.0" mnemonicParsing="false" onAction="#zobrazRozvrh" prefHeight="55.0" prefWidth="178.0" style="-fx-background-color: #123360;" text="%myschedule.key" textFill="#dcdbd9">
