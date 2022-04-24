@@ -39,10 +39,10 @@
       <TextArea fx:id="recenziaTRecenziaField" editable="false" layoutX="194.0" layoutY="302.0" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="%name.key" />
-            <TableColumn prefWidth="75.0" text="%surname.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%sport.key" />
-            <TableColumn prefWidth="89.199951171875" text="%stars.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%name.key" />
+            <TableColumn editable="false" prefWidth="75.0" text="%surname.key" />
+            <TableColumn editable="false" prefWidth="105.59991455078125" text="%sport.key" />
+            <TableColumn editable="false" prefWidth="89.199951171875" text="%stars.key" />
          </columns>
       </TableView>
       <Label layoutX="467.0" layoutY="77.0" text="%listreviews.key">

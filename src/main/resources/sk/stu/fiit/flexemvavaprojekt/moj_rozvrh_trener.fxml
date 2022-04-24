@@ -30,10 +30,10 @@
          </cursor></Button>
       <TableView layoutX="301.0" layoutY="96.0" prefHeight="306.0" prefWidth="513.0">
         <columns>
-          <TableColumn prefWidth="107.199951171875" text="%room.key" />
-          <TableColumn prefWidth="144.80007934570312" text="%nametraining.key" />
-            <TableColumn prefWidth="136.7999267578125" text="%sport.key" />
-            <TableColumn prefWidth="124.79998779296875" text="%dateandtime.key" />
+          <TableColumn editable="false" prefWidth="107.199951171875" text="%room.key" />
+          <TableColumn editable="false" prefWidth="144.80007934570312" text="%nametraining.key" />
+            <TableColumn editable="false" prefWidth="136.7999267578125" text="%sport.key" />
+            <TableColumn editable="false" prefWidth="124.79998779296875" text="%dateandtime.key" />
         </columns>
       </TableView>
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">

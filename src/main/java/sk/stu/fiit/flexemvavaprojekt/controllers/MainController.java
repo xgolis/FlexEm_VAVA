@@ -49,6 +49,7 @@ public class MainController {
     }
     @FXML
     protected void login() {
+        Regex.vytvorMozneRegexy("superjava");
         String meno = loginMenoField.getText();
 
         if (meno.equals("recepcna")){

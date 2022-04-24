@@ -115,9 +115,9 @@
          </cursor></Button>
       <TableView fx:id="evidenciaRTabulka" layoutX="484.0" layoutY="116.0" prefHeight="290.0" prefWidth="270.0" style="-fx-background-color: #dcdbd9;">
          <columns>
-            <TableColumn fx:id="evidenciaRMenoStlpec" prefWidth="75.0" text="%name.key" />
-            <TableColumn fx:id="evidenciaRPriezviskoStlpec" prefWidth="75.0" text="%surname.key" />
-            <TableColumn fx:id="evidenciaRIdStlpec" prefWidth="109.5999755859375" text="%regid.key" />
+            <TableColumn fx:id="evidenciaRMenoStlpec" editable="false" prefWidth="75.0" text="%name.key" />
+            <TableColumn fx:id="evidenciaRPriezviskoStlpec" editable="false" prefWidth="75.0" text="%surname.key" />
+            <TableColumn fx:id="evidenciaRIdStlpec" editable="false" prefWidth="109.5999755859375" text="%regid.key" />
          </columns>
       </TableView>
       <Label layoutX="211.0" layoutY="220.0" prefHeight="17.0" prefWidth="262.0" />

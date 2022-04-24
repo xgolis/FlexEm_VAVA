@@ -28,9 +28,9 @@
       </HBox>
       <TableView fx:id="recenziaCTabulka" layoutX="520.0" layoutY="92.0" prefHeight="333.0" prefWidth="275.0" style="-fx-background-color: #dcdbd9;">
         <columns>
-          <TableColumn fx:id="recenziaCIzbaStlpec" prefWidth="75.0" text="%room.key" />
-          <TableColumn fx:id="recenziaCTrenerStlpec" prefWidth="75.0" text="%coach.key" />
-            <TableColumn fx:id="recenziaCIzbaSport" prefWidth="121.5999755859375" text="%sport.key" />
+          <TableColumn fx:id="recenziaCIzbaStlpec" editable="false" prefWidth="75.0" text="%room.key" />
+          <TableColumn fx:id="recenziaCTrenerStlpec" editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn fx:id="recenziaCIzbaSport" editable="false" prefWidth="121.5999755859375" text="%sport.key" />
         </columns>
       </TableView>
       <TextField fx:id="recenziaCIzbaField" editable="false" layoutX="199.0" layoutY="86.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #dcdbd9;" />

@@ -41,10 +41,10 @@
       <TextField fx:id="recenziaRHviezdyField" editable="false" layoutX="196.0" layoutY="250.0" prefHeight="25.0" prefWidth="245.0" />
       <TableView layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="%name.key" />
-          <TableColumn prefWidth="75.0" text="%surname.key" />
-            <TableColumn prefWidth="105.59991455078125" text="%sport.key" />
-            <TableColumn prefWidth="89.199951171875" text="%stars.key" />
+          <TableColumn editable="false" prefWidth="75.0" text="%name.key" />
+          <TableColumn editable="false" prefWidth="75.0" text="%surname.key" />
+            <TableColumn editable="false" prefWidth="105.59991455078125" text="%sport.key" />
+            <TableColumn editable="false" prefWidth="89.199951171875" text="%stars.key" />
         </columns>
       </TableView>
       <Label layoutX="196.0" layoutY="275.0" text="%review.key" />
