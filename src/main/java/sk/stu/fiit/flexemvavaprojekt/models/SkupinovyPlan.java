@@ -1,20 +1,18 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 public class SkupinovyPlan {
     private int id;
-    private int miestnostId;
+    private String miestnost;
     private int trenerId;
     private String sport;
     private String popis;
     private Timestamp cas;
 
-    public SkupinovyPlan(int id, int miestnostId, int trenerId, String sport, String popis, Timestamp cas) {
+    public SkupinovyPlan(int id, String miestnost, int trenerId, String sport, String popis, Timestamp cas) {
         this.id = id;
-        this.miestnostId = miestnostId;
+        this.miestnost = miestnost;
         this.trenerId = trenerId;
         this.sport = sport;
         this.popis = popis;
@@ -29,12 +27,12 @@ public class SkupinovyPlan {
         this.id = id;
     }
 
-    public int getMiestnostId() {
-        return miestnostId;
+    public String getMiestnost() {
+        return miestnost;
     }
 
-    public void setMiestnostId(int miestnostId) {
-        this.miestnostId = miestnostId;
+    public void setMiestnostId(String miestnostId) {
+        this.miestnost = miestnostId;
     }
 
     public int getTrenerId() {

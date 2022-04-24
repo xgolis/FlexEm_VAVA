@@ -3,17 +3,12 @@ package sk.stu.fiit.flexemvavaprojekt.controllers;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import org.w3c.dom.ls.LSOutput;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
-import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
-import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
-import sk.stu.fiit.flexemvavaprojekt.models.Trener;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class Inicializator {
@@ -79,6 +74,26 @@ public class Inicializator {
         tabulka.setItems(lanes);
 
     }
+
+    public static void inicializujTabulkuTreningov(TableView<SkupinovyPlan> tabulka,
+                                                  TableColumn<SkupinovyPlan, String> miestnostColumn,
+                                                  TableColumn<SkupinovyPlan, String> trenerColumn,
+                                                  TableColumn<SkupinovyPlan, String> datumACasColumn,
+                                                  TableColumn<SkupinovyPlan, String> Sport){
+
+
+    }
+
+    public static void nastavHodnotyCMiestnost(TextField izba, TextField sport, TextField cas, TextField popis, TextField trener, SkupinovyPlan sp){
+        izba.setText(sp.getMiestnost());
+        sport.setText(sp.getSport());
+        cas.setText(sp.getCas().toString());
+        popis.setText(sp.getPopis());
+        trener.setText(Integer.toString(sp.getTrenerId()));
+
+    }
+
+
 }
 
 
