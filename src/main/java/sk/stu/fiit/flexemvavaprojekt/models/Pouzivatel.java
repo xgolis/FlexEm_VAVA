@@ -25,7 +25,6 @@ public abstract class Pouzivatel {
         this.telefonneCislo = telefon;
         this.salt = salt;
         this.hash = hash;
-
     }
 
 

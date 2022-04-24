@@ -3,6 +3,7 @@ import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DbConnector {
 
@@ -152,9 +153,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
             }
             rs.close();
@@ -170,22 +170,19 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            Integer ind = cvicenec.getIndividualnyPlanId();
             Integer skup = cvicenec.getSkupinovyPlanId();
-            if (cvicenec.getIndividualnyPlanId() == 0) ind = null;
             if (cvicenec.getSkupinovyPlanId() == 0) skup = null;
-            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, individualny_plan_id, skupinovy_plan_id, hash, salt)\n" +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, skupinovy_plan_id, hash, salt)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,cvicenec.getMeno());
             st.setString(2 ,cvicenec.getPriezvisko());
             st.setString(3 ,cvicenec.getEmail());
             st.setString(4 ,cvicenec.getTelefonneCislo());
-            st.setInt(5 ,cvicenec.getIndividualnyPlanId());
-            st.setInt(6 ,cvicenec.getSkupinovyPlanId());
-            st.setBytes(7 ,cvicenec.getHash());
+            st.setInt(5 ,cvicenec.getSkupinovyPlanId());
+            st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
             st.close();
@@ -229,9 +226,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 list.add(cvicenec);
             }
@@ -303,9 +299,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 list.add(cvicenec);
             }
@@ -345,10 +340,11 @@ public class DbConnector {
     public ArrayList<Recenzia> getAllRecenzias(){
         try {
             ArrayList<Recenzia> list = new ArrayList<>();
-            String sql = "select recenzias.id, recenzias.skupinovy_plan_id, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
+            String sql = "select recenzias.id, recenzias.skupinovy_plan_id, skupinovy_plans.sport, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
                     "join cvicenecs on recenzias.cvicenec_id = cvicenecs.id\n" +
                     "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
-                    "join treners on skupinovy_plans.trener_id = treners.id";
+                    "join treners on skupinovy_plans.trener_id = treners.id\n" +
+                    "\n";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             if (rs.next()){
@@ -389,9 +385,8 @@ public class DbConnector {
                         rs.getString(4),
                         rs.getString(5),
                         rs.getInt(6),
-                        rs.getInt(7),
-                        rs.getBytes(8),
-                        rs.getBytes(9)
+                        rs.getBytes(7),
+                        rs.getBytes(8)
                 );
                 System.out.println(cvicenec);
                 list.add(cvicenec);
@@ -428,6 +423,131 @@ public class DbConnector {
             rs.close();
             st.close();
             return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    public Pouzivatel login(String email, String heslo){
+        try {
+            Pouzivatel pouzivatel;
+            pouzivatel = findCvicenec(email);
+            if(pouzivatel != null){
+                byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                if(Arrays.equals(hash_gen, pouzivatel.getHash()))
+                    return pouzivatel;
+                else
+                    return null;
+            }
+            else{
+                pouzivatel = findTrener(email);
+                if(pouzivatel != null){
+                    byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                    if(hash_gen == pouzivatel.getHash())
+                        return pouzivatel;
+                    else
+                        return null;
+                }
+                else{
+                    pouzivatel = findRecepcna(email);
+                    if(pouzivatel != null){
+                        byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
+                        if(hash_gen == pouzivatel.getHash())
+                            return pouzivatel;
+                        else
+                            return null;
+                    }
+                }
+            }
+            return null;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Cvicenec findCvicenec(String email){
+        try {
+            String sql = "select * from cvicenecs where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            Cvicenec cvicenec = null;
+            if (rs.next()){
+                cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+            }
+            rs.close();
+            st.close();
+            return cvicenec;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Trener findTrener(String email){
+        try {
+            String sql = "select * from treners where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1,email);
+            ResultSet rs = st.executeQuery();
+            Trener trener = null;
+            if (rs.next()){
+                trener = new Trener(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+            }
+            rs.close();
+            st.close();
+            return trener;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    private Recepcna findRecepcna(String email){
+        try {
+            String sql = "select * from recepcnas where email = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            Recepcna recepcna = null;
+            if (rs.next()){
+                recepcna = new Recepcna(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
+                );
+            }
+            rs.close();
+            st.close();
+            return recepcna;
         }
         catch (Exception e){
             System.out.println(e);
