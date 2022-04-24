@@ -8,16 +8,19 @@ public class SkupinovyPlan {
     private int trenerId;
     private String sport;
     private String popis;
+    private String trener;
     private Timestamp cas;
-    private boolean done = false;
+    private Boolean done;
 
-    public SkupinovyPlan(int id, String miestnost, int trenerId, String sport, String popis, Timestamp cas) {
+    public SkupinovyPlan(int id, String miestnost, int trenerId,String trener ,String sport, String popis, Timestamp cas, Boolean done) {
         this.id = id;
         this.miestnost = miestnost;
         this.trenerId = trenerId;
         this.sport = sport;
+        this.trener = trener;
         this.popis = popis;
         this.cas = cas;
+        this.done = done;
     }
 
     public int getId() {
@@ -28,13 +31,6 @@ public class SkupinovyPlan {
         this.id = id;
     }
 
-    public String getMiestnost() {
-        return miestnost;
-    }
-
-    public void setMiestnostId(String miestnostId) {
-        this.miestnost = miestnostId;
-    }
 
     public int getTrenerId() {
         return trenerId;
@@ -74,5 +70,21 @@ public class SkupinovyPlan {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    public void setMiestnost(String miestnost) {
+        this.miestnost = miestnost;
+    }
+
+    public String getTrener() {
+        return trener;
+    }
+
+    public void setTrener(String trener) {
+        this.trener = trener;
+    }
+
+    public String getMiestnost() {
+        return miestnost;
     }
 }

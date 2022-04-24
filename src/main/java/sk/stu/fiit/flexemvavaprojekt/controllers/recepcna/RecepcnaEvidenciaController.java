@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -25,16 +26,16 @@ public class RecepcnaEvidenciaController implements Initializable {
 
 
     @FXML
-    private TableView<Pouzivatel> evidenciaRTabulka;
+    private TableView<Cvicenec> evidenciaRTabulka;
 
     @FXML
-    private TableColumn<Pouzivatel, String> evidenciaRIdStlpec;
+    private TableColumn<Cvicenec, String> evidenciaRIdStlpec;
 
     @FXML
-    private TableColumn<Pouzivatel, String> evidenciaRMenoStlpec;
+    private TableColumn<Cvicenec, String> evidenciaRMenoStlpec;
 
     @FXML
-    private TableColumn<Pouzivatel, String> evidenciaRPriezviskoStlpec;
+    private TableColumn<Cvicenec, String> evidenciaRPriezviskoStlpec;
 
     @FXML
     private Label actionLabel;
@@ -146,20 +147,8 @@ public class RecepcnaEvidenciaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Pouzivatel cvicenec = new Cvicenec(2,"fero","nehe","asd","49", null,SpravaHesla.salt(),SpravaHesla.salt());
-        Pouzivatel cvicenec2 =  new Cvicenec(2,"iny fero","nehe","asd","49", null,SpravaHesla.salt(),SpravaHesla.salt());
-        Pouzivatel cvicenec3 =  new Cvicenec(2,"zase iny fero","nehe","asd","49", null,SpravaHesla.salt(),SpravaHesla.salt());
-
-
-        ObservableList<Pouzivatel> lanes=FXCollections.observableArrayList();
-        lanes.add(cvicenec);
-        lanes.add(cvicenec2);
-        lanes.add(cvicenec3);
-
-        evidenciaRIdStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().idToString()));
-        evidenciaRPriezviskoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
-        evidenciaRMenoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
-        evidenciaRTabulka.setItems(lanes);
+        Inicializator.inicializujCviacichCvicencov(evidenciaRTabulka,evidenciaRMenoStlpec,evidenciaRPriezviskoStlpec,
+                                                    evidenciaRIdStlpec);
 
     }
 

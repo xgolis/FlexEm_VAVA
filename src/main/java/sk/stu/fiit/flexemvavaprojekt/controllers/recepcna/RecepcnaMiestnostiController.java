@@ -2,13 +2,11 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -21,6 +19,21 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class    RecepcnaMiestnostiController implements Initializable {
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> datumRStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostRStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> sportRStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> trenerRStlpec;
+
+    @FXML
+    private TableView<SkupinovyPlan> miestnostiRTabulka;
 
     @FXML
     private DatePicker miestnostiRDateTimePicker;
@@ -114,6 +127,8 @@ public class    RecepcnaMiestnostiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
         Inicializator.inicializujTrenerovChoiceBox(miestnostiRTrenerChoiceB);
+        Inicializator.inicializujSkupinoveTreningy(miestnostiRTabulka, miestnostRStlpec, trenerRStlpec, datumRStlpec,
+                                                        sportRStlpec);
     }
 
     @FXML

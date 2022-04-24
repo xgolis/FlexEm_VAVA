@@ -94,6 +94,55 @@ public class Inicializator {
     }
 
 
+    public static void inicializujCviacichCvicencov(TableView<Cvicenec> tableView, TableColumn<Cvicenec,String> menoColumn,
+                                                    TableColumn<Cvicenec,String> priezviskoColumn,TableColumn<Cvicenec,String> regIDColumn) {
+
+        ArrayList<Cvicenec> cvicenec = DbConnector.getInstance().getInside();
+        ObservableList<Cvicenec> lanes = FXCollections.observableArrayList();
+        lanes.addAll(cvicenec);
+
+        regIDColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().idToString()));
+        priezviskoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
+        menoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
+        tableView.setItems(lanes);
+
+
+    }
+
+    public static void inicializujSkupinoveTreningy(TableView<SkupinovyPlan> tableView, TableColumn<SkupinovyPlan,String> miestnostColumn,
+                                                    TableColumn<SkupinovyPlan,String> trenerColumn,TableColumn<SkupinovyPlan,String> casColumn,
+                                                    TableColumn<SkupinovyPlan,String> sportColumn) {
+
+        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getUpcomingSkupPlans();
+        ObservableList<SkupinovyPlan> lanes = FXCollections.observableArrayList();
+        lanes.addAll(skupinovyPlans);
+
+        miestnostColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
+        trenerColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
+        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        tableView.setItems(lanes);
+
+
+    }
+
+    public static void inicializujMojeSkupinoveTreningy(TableView<SkupinovyPlan> tableView, TableColumn<SkupinovyPlan,String> miestnostColumn,
+                                                    TableColumn<SkupinovyPlan,String> trenerColumn,TableColumn<SkupinovyPlan,String> casColumn,
+                                                    TableColumn<SkupinovyPlan,String> sportColumn) {
+
+        int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
+        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getMyUpcomingSkupPlans(id);
+        ObservableList<SkupinovyPlan> lanes = FXCollections.observableArrayList();
+        lanes.addAll(skupinovyPlans);
+
+        miestnostColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
+        trenerColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
+        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        tableView.setItems(lanes);
+
+
+    }
 }
 
 

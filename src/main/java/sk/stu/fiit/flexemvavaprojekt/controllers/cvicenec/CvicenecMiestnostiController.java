@@ -19,6 +19,21 @@ public class CvicenecMiestnostiController implements Initializable{
 
 
     @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCMSlpecSport;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCMStlpecCas;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCMStlpecMmiestnost;
+
+    @FXML
+    private TableColumn<SkupinovyPlan, String> miestnostiCMStlpecTrener;
+
+    @FXML
+    private TableView<SkupinovyPlan> miestnostiCMTabulka;
+
+    @FXML
     private TextField miestnostiCDateTimeField;
 
     @FXML
@@ -105,6 +120,11 @@ public class CvicenecMiestnostiController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Inicializator.inicializujSkupinoveTreningy(miestnostiCTabulkaZoznamuTreningov, miestnostiCStlpecMiestnost,
+                                                    miestnostiCStlpecTrener, miestnostiCStlpecDatumACas,
+                                                    miestnostiCStlpecSport);
+        Inicializator.inicializujMojeSkupinoveTreningy(miestnostiCMTabulka, miestnostiCMStlpecMmiestnost,
+                                                        miestnostiCMStlpecTrener, miestnostiCMStlpecCas, miestnostiCMSlpecSport);
     }
 
 
