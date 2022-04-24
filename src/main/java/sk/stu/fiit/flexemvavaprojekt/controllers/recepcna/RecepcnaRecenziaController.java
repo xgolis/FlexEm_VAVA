@@ -7,7 +7,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -119,7 +118,7 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void sendReview(){
-        Recenzia review = new Recenzia("NeskutocnaTelocvicna", "Fitness", 9,"Fakt super, uzil som si to");
+        Recenzia review = new Recenzia(1, "Fitness", 9,"Fakt super, uzil som si to", "david", "priezvisko", 1, 1);
 
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -130,7 +129,7 @@ public class RecepcnaRecenziaController implements Initializable {
             doc.appendChild(recenzia);
 
             Element miestnost = doc.createElement("Miestnost");
-            miestnost.appendChild(doc.createTextNode(review.getMiestnost()));
+            miestnost.appendChild(doc.createTextNode(Integer.toString(review.getSkupinovy_plan_id())));
             recenzia.appendChild(miestnost);
 
             Element sport = doc.createElement("Sport");

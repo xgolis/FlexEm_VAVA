@@ -3,7 +3,6 @@ import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DbConnector {
 
@@ -346,16 +345,23 @@ public class DbConnector {
     public ArrayList<Recenzia> getAllRecenzias(){
         try {
             ArrayList<Recenzia> list = new ArrayList<>();
-            String sql = "select * from recenzias";
+            String sql = "select recenzias.id, recenzias.skupinovy_plan_id, hodnotenie, recenzias.popis, cvicenec_id, cvicenecs.meno, cvicenecs.priezvisko, treners.id from recenzias \n" +
+                    "join cvicenecs on recenzias.cvicenec_id = cvicenecs.id\n" +
+                    "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
+                    "join treners on skupinovy_plans.trener_id = treners.id";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             if (rs.next()){
                 Recenzia recenzia = new Recenzia(
-                        null,
-                        rs.getString(2),
-                        rs.getInt(3),
-                        rs.getString(4)
-                );
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getString(5),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(6),
+                        rs.getInt(9)
+                        );
                 recenzia.setId(rs.getInt(1));
                 list.add(recenzia);
             }
@@ -406,7 +412,7 @@ public class DbConnector {
             String sql = "select * from treners";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if (rs.next()){
+            while (rs.next()){
                 Pouzivatel trener = new Trener(
                         rs.getInt(1),
                         rs.getString(2),
