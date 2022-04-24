@@ -146,9 +146,9 @@ public class RecepcnaEvidenciaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Pouzivatel cvicenec = new Cvicenec(2,"fero","nehe","asd","49", 3,SpravaHesla.salt(),SpravaHesla.salt());
-        Pouzivatel cvicenec2 =  new Cvicenec(2,"iny fero","nehe","asd","49",3,SpravaHesla.salt(),SpravaHesla.salt());
-        Pouzivatel cvicenec3 =  new Cvicenec(2,"zase iny fero","nehe","asd","49",3,SpravaHesla.salt(),SpravaHesla.salt());
+        Pouzivatel cvicenec = new Cvicenec(2,"fero","nehe","asd","49",SpravaHesla.salt(),SpravaHesla.salt());
+        Pouzivatel cvicenec2 =  new Cvicenec(2,"iny fero","nehe","asd","49",SpravaHesla.salt(),SpravaHesla.salt());
+        Pouzivatel cvicenec3 =  new Cvicenec(2,"zase iny fero","nehe","asd","49",SpravaHesla.salt(),SpravaHesla.salt());
 
 
         ObservableList<Pouzivatel> lanes=FXCollections.observableArrayList();

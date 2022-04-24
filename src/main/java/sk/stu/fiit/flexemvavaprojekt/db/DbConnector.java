@@ -170,16 +170,14 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            Integer skup = cvicenec.getSkupinovyPlanId();
-            if (cvicenec.getSkupinovyPlanId() == 0) skup = null;
-            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, skupinovy_plan_id, hash, salt)\n" +
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt)\n" +
                     "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,cvicenec.getMeno());
             st.setString(2 ,cvicenec.getPriezvisko());
             st.setString(3 ,cvicenec.getEmail());
             st.setString(4 ,cvicenec.getTelefonneCislo());
-            st.setInt(5 ,cvicenec.getSkupinovyPlanId());
+            st.setInt(5, cvicenec.getTrener_id());
             st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
             ResultSet rs = st.executeQuery();
@@ -548,6 +546,37 @@ public class DbConnector {
             rs.close();
             st.close();
             return recepcna;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
+
+    public ArrayList<Cvicenec> getTrenersCvicenec(int trener_id){
+        try {
+            ArrayList<Cvicenec> list = new ArrayList<>();
+            String sql = "select * from cvicenecs where trener_id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, trener_id);
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()){
+                Cvicenec cvicenec = new Cvicenec(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getBytes(7),
+                        rs.getBytes(8)
+                );
+                list.add(cvicenec);
+            }
+            rs.close();
+            st.close();
+            return list;
         }
         catch (Exception e){
             System.out.println(e);
