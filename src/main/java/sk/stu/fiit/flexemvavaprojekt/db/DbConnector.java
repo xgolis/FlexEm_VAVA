@@ -248,10 +248,11 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getInt(9),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
                 );
+                cvicenec.setInside(rs.getBoolean(8));
                 list.add(cvicenec);
             }
             rs.close();
@@ -340,7 +341,11 @@ public class DbConnector {
     public ArrayList<Plan> getMySchedule(int id){
         try {
             ArrayList<Plan> list = new ArrayList<>();
-            String sql = "select * from skupinovy_plans where trener.id = ?";
+            String sql = "select sk.id, miestnosts.miestnost, sk.trener_id, sk.sport, sk.popis, sk.datum_cas, sk.done, sk.nazov, treners.meno \n" +
+                    "from skupinovy_plans as sk\n" +
+                    "join treners on sk.trener_id = treners.id\n" +
+                    "join miestnosts on sk.miestnost_id = miestnosts.id\n" +
+                    "where trener_id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
@@ -349,11 +354,12 @@ public class DbConnector {
                         rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
+                        rs.getString(9),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6),
-                        rs.getTimestamp(7),
-                        rs.getBoolean(8)
+                        rs.getTimestamp(6),
+                        rs.getBoolean(7),
+                        rs.getString(8)
                 );
                 list.add(plan);
             }
@@ -373,7 +379,8 @@ public class DbConnector {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
-                        rs.getBoolean(10)
+                        rs.getBoolean(10),
+                        rs.getString(11)
                 );
                 list.add(plan);
             }
@@ -446,10 +453,10 @@ public class DbConnector {
     public ArrayList<SkupinovyPlan> getUpcomingSkupPlans(){
         try {
             ArrayList<SkupinovyPlan> list = new ArrayList<>();
-            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done FROM skupinovy_plans sp " +
-                    "JOIN miestnosts m on m.id = sp.miestnost_id " +
-                    "JOIN treners t on t.id = sp.trener_id " +
-                    "WHERE sp.done = false";
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov FROM skupinovy_plans sp \n" +
+                    "JOIN miestnosts m on m.id = sp.miestnost_id\n" +
+                    "JOIN treners t on t.id = sp.trener_id \n" +
+                    "WHERE sp.done is not true";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()){
@@ -461,7 +468,8 @@ public class DbConnector {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getTimestamp(7),
-                        rs.getBoolean(8)
+                        rs.getBoolean(8),
+                        rs.getString(9)
                 );
                 list.add(skupinovyPlan);
             }
@@ -479,12 +487,13 @@ public class DbConnector {
     public ArrayList<SkupinovyPlan> getMyUpcomingSkupPlans(int cvicenecId){
         try {
             ArrayList<SkupinovyPlan> list = new ArrayList<>();
-            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done FROM skupinovy_plans sp " +
-                    "    JOIN miestnosts m on m.id = sp.miestnost_id " +
-                    "    JOIN treners t on t.id = sp.trener_id " +
-                    "    JOIN cvicenec_skup_plan csp on sp.id = csp.skup_plan_id " +
-                    "    JOIN cvicenecs c on c.id = csp.cvicenec_id " +
-                    "    WHERE sp.done = false AND c.id = ?";
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov \n" +
+                    "FROM skupinovy_plans sp\n" +
+                    "JOIN miestnosts m on m.id = sp.miestnost_id\n" +
+                    "JOIN treners t on t.id = sp.trener_id\n" +
+                    "JOIN cvicenec_skup_plan csp on sp.id = csp.skup_plan_id\n" +
+                    "JOIN cvicenecs c on c.id = csp.cvicenec_id\n" +
+                    "WHERE sp.done is not false AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();
@@ -497,7 +506,8 @@ public class DbConnector {
                         rs.getString(5),
                         rs.getString(6),
                         rs.getTimestamp(7),
-                        rs.getBoolean(8)
+                        rs.getBoolean(8),
+                        rs.getString(9)
                 );
                 list.add(skupinovyPlan);
             }
@@ -594,7 +604,8 @@ public class DbConnector {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
-                        rs.getBoolean(10)
+                        rs.getBoolean(10),
+                        rs.getString(11)
                 );
                 list.add(individualnyPlan);
             }

@@ -18,7 +18,9 @@ public abstract class Plan implements Comparable<Plan>{
 
     private final String sport;
 
-    public Plan(int id, int trenerId, String popis, Timestamp cas, Boolean done, String miestnost, String sport) {
+    private String nazov;
+
+    public Plan(int id, int trenerId, String popis, Timestamp cas, Boolean done, String miestnost, String sport, String nazov) {
         this.id = id;
         this.trenerId = trenerId;
         this.popis = popis;
@@ -26,6 +28,7 @@ public abstract class Plan implements Comparable<Plan>{
         this.done = done;
         this.sport = sport;
         this.miestnost = miestnost;
+        this.nazov = nazov;
     }
 
     @Override
@@ -81,5 +84,13 @@ public abstract class Plan implements Comparable<Plan>{
 
     public String getSport() {
         return sport;
+    }
+
+    public String getNazov() {
+        return nazov;
+    }
+
+    public void setNazov(String nazov) {
+        this.nazov = nazov;
     }
 }

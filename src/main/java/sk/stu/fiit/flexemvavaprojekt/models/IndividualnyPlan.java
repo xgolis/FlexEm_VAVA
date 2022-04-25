@@ -11,8 +11,8 @@ public class IndividualnyPlan extends Plan {
     private String cvik3;
     private String cvik4;
 
-    public IndividualnyPlan(int id, int cvicenecId, int trenerId, Timestamp cas, String popis, String cvik1, String cvik2, String cvik3, String cvik4, Boolean done) {
-        super(id, trenerId, popis, cas, done, Jazyk.getInstance().prelozeneSlovo("gym.key"), Jazyk.getInstance().prelozeneSlovo("fitness.key"));
+    public IndividualnyPlan(int id, int cvicenecId, int trenerId, Timestamp cas, String popis, String cvik1, String cvik2, String cvik3, String cvik4, Boolean done, String nazov) {
+        super(id, trenerId, popis, cas, done, Jazyk.getInstance().prelozeneSlovo("gym.key"), Jazyk.getInstance().prelozeneSlovo("fitness.key"), nazov);
         this.cvicenecId = cvicenecId;
         this.cvik1 = cvik1;
         this.cvik2 = cvik2;
