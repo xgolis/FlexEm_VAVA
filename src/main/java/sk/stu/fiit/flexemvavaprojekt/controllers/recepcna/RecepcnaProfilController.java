@@ -117,6 +117,6 @@ public class RecepcnaProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujProfil(profilRMenoField, profilRPriezviskoField, profilREmailField, profilRTelefonField);
+//        Inicializator.inicializujProfil(profilRMenoField, profilRPriezviskoField, profilREmailField, profilRTelefonField);
     }
 }
