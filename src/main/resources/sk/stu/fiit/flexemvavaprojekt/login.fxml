@@ -59,6 +59,11 @@
             </Label>
             <TextField fx:id="loginMenoField" layoutX="123.0" layoutY="207.0" onKeyPressed="#onEnterPressed" prefHeight="26.0" prefWidth="255.0" />
             <PasswordField fx:id="loginHesloField" layoutX="123.0" layoutY="259.0" onKeyPressed="#onEnterPressed" prefHeight="26.0" prefWidth="254.0" />
+            <Label fx:id="actionLabel" alignment="CENTER" layoutX="159.0" layoutY="369.0" prefHeight="18.0" prefWidth="182.0" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
             <Button fx:id="loginbutton" layoutX="202.0" layoutY="322.0" mnemonicParsing="false" onAction="#login" onKeyPressed="#onEnterPressed" text="%login.key">
                <font>
                   <Font size="16.0" />

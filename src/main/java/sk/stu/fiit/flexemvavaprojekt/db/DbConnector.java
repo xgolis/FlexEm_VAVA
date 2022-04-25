@@ -60,7 +60,7 @@ public class DbConnector {
 
     public boolean createTrener(Trener trener){
         try {
-            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, odbor, hash, salt)\n" +
+            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, odbor, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,trener.getMeno());
@@ -70,12 +70,7 @@ public class DbConnector {
             st.setString(5 ,trener.getOdbor());
             st.setBytes(6 ,trener.getHash());
             st.setBytes(7 ,trener.getSalt());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){
-                System.out.println("created?");
-            }
-            System.out.println("creauvidime");
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
@@ -203,12 +198,13 @@ public class DbConnector {
         }
     }
 
-    public boolean setInside(int id){
+    public boolean setInside(int id, boolean inside){
         try {
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
-            st.setBoolean(1, true);
+            st.setBoolean(1, inside);
             st.executeUpdate();
+
             st.close();
             return true;
         }
@@ -352,6 +348,7 @@ public class DbConnector {
             while (rs.next()){
                 Plan plan = new SkupinovyPlan(
                         rs.getInt(1),
+                        0,
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(9),
@@ -396,16 +393,17 @@ public class DbConnector {
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
-            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas, done)\n" +
-                    "VALUES (?, ?, ?, ?, ?, ?);";
+            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas, done, nazov)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
-            st.setString(1 ,skupinovyPlan.getMiestnost());
+            st.setInt(1 ,skupinovyPlan.getMiestnost_id());
             st.setInt(2 , skupinovyPlan.getTrenerId());
             st.setString(3 ,skupinovyPlan.getSport());
             st.setString(4 ,skupinovyPlan.getPopis());
             st.setTimestamp(5 , skupinovyPlan.getCas());
             st.setBoolean(6, false);
-            ResultSet rs = st.executeQuery(sql);
+            st.setString(7, skupinovyPlan.getNazov());
+            ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
             st.close();
@@ -453,15 +451,17 @@ public class DbConnector {
     public ArrayList<SkupinovyPlan> getUpcomingSkupPlans(){
         try {
             ArrayList<SkupinovyPlan> list = new ArrayList<>();
-            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov FROM skupinovy_plans sp \n" +
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov\n" +
+                    "FROM skupinovy_plans sp\n" +
                     "JOIN miestnosts m on m.id = sp.miestnost_id\n" +
-                    "JOIN treners t on t.id = sp.trener_id \n" +
+                    "JOIN treners t on t.id = sp.trener_id\n" +
                     "WHERE sp.done is not true";
             PreparedStatement st = con.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
                         rs.getInt(1),
+                        0,
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4),
@@ -484,22 +484,28 @@ public class DbConnector {
 
     }
 
-    public ArrayList<SkupinovyPlan> getMyUpcomingSkupPlans(int cvicenecId){
+    public ArrayList<SkupinovyPlan> getMySkupPlans(int cvicenecId, boolean done){
         try {
+            String not_query = "";
+            if(done)
+                not_query = "";
+            else
+                not_query = "not";
             ArrayList<SkupinovyPlan> list = new ArrayList<>();
-            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov \n" +
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov\n" +
                     "FROM skupinovy_plans sp\n" +
                     "JOIN miestnosts m on m.id = sp.miestnost_id\n" +
                     "JOIN treners t on t.id = sp.trener_id\n" +
                     "JOIN cvicenec_skup_plan csp on sp.id = csp.skup_plan_id\n" +
                     "JOIN cvicenecs c on c.id = csp.cvicenec_id\n" +
-                    "WHERE sp.done is not false AND c.id = ?";
+                    "WHERE sp.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
                         rs.getInt(1),
+                        0,
                         rs.getString(2),
                         rs.getInt(3),
                         rs.getString(4),
@@ -580,16 +586,19 @@ public class DbConnector {
         }
     }
 
-    public ArrayList<IndividualnyPlan> getMyPlanCvicenec(int cvicenecId) {
-
+    public ArrayList<IndividualnyPlan> getMyPlanCvicenec(int cvicenecId, boolean done) {
         try {
+            String not_query = "";
+            if(done)
+                not_query = "";
+            else
+                not_query = "not";
             ArrayList<IndividualnyPlan> list = new ArrayList<>();
-            String sql = "SELECT ip.id, c.id, t.id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4" +
-                    "  FROM individualny_plans ip " +
-                    "    JOIN treners t on t.id = ip.trener_id " +
-                    "    JOIN cvicenec_ind_plan cip on ip.id = cip.ind_plan_id " +
-                    "    JOIN cvicenecs c on c.id = cip.cvicenec_id " +
-                    "    WHERE ip.done = false AND c.id = ?";
+            String sql = "SELECT ip.id, ip.cvicenec_id, ip.trener_id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4, ip.nazov\n" +
+                    "FROM individualny_plans ip\n" +
+                    "JOIN treners t on t.id = ip.trener_id\n" +
+                    "JOIN cvicenecs c on c.id = ip.cvicenec_id\n" +
+                    "WHERE ip.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();
@@ -604,8 +613,8 @@ public class DbConnector {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
-                        rs.getBoolean(10),
-                        rs.getString(11)
+                        done,
+                        rs.getString(10)
                 );
                 list.add(individualnyPlan);
             }
@@ -637,7 +646,7 @@ public class DbConnector {
                 pouzivatel = findTrener(email);
                 if(pouzivatel != null){
                     byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                    if(hash_gen == pouzivatel.getHash())
+                    if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                         return pouzivatel;
                     else
                         return null;
@@ -646,7 +655,7 @@ public class DbConnector {
                     pouzivatel = findRecepcna(email);
                     if(pouzivatel != null){
                         byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                        if(hash_gen == pouzivatel.getHash())
+                        if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                             return pouzivatel;
                         else
                             return null;
@@ -804,7 +813,7 @@ public class DbConnector {
     public boolean createRecenzia(Recenzia recenzia){
         try {
             String sql = "INSERT INTO recenzias (skupinovy_plan_id, hodnotenie, popis, cvicenec_id)\n" +
-                    "VALUES (?, ?, ?, ?, ?);\n";
+                    "VALUES (?, ?, ?, ?);\n";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, recenzia.getSkupinovy_plan_id());
             st.setInt(2, recenzia.getPocetHviezd());

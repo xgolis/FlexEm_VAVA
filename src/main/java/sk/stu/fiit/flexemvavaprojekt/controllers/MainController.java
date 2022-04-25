@@ -18,6 +18,8 @@ public class MainController {
 
     @FXML
     private TextField loginHesloField;
+    @FXML
+    private Label actionLabel;
 
 
     @FXML
@@ -53,6 +55,13 @@ public class MainController {
         String email = loginMenoField.getText();
         String heslo = loginHesloField.getText();
 
+        if(!validateEmail() || !validatePassword()){
+            actionLabel.setText("Invalid input");
+            return;
+        }
+        actionLabel.setText("");
+
+
         Pouzivatel pouzivatel = DbConnector.getInstance().loginOverenie(email,heslo);
         if (pouzivatel != null) {
             PrihlasenyPouzivatel.getInstance().setPouzivatel(pouzivatel);
@@ -87,7 +96,31 @@ public class MainController {
 //        }
 
     }
+  
+    @FXML
+    protected boolean validateEmail(){
+        String email = loginMenoField.getText();
+        if(!InputValidation.validateEmail(email) || !InputValidation.isSqlInjectionSafe(email)){
+            loginMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            loginMenoField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
 
-
+    @FXML
+    protected boolean validatePassword(){
+        String password = loginHesloField.getText();
+        if(loginHesloField.getText().isEmpty() || !InputValidation.isSqlInjectionSafe(password)){
+            loginHesloField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            return false;
+        }
+        else {
+            loginHesloField.setStyle("-fx-border-width: 0px");
+            return true;
+        }
+    }
 
 }
