@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -175,6 +176,15 @@ public class RecepcnaRecenziaController implements Initializable {
         }
     }
 
+
+    @FXML
+    protected void nastavHodnotyZTabulky() {
+        Recenzia recenzia = recenziaRTabulka.getSelectionModel().getSelectedItem();
+        if (recenzia != null) {
+            Inicializator.nastavRRecenzie(recenziaRMenoField,recenziaRPriezviskoField,recenziaRSportFIeld,recenziaRHviezdyField,
+                                          recenziaRRecenziaArea,recenzia);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

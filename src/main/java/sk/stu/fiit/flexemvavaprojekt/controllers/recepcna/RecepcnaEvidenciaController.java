@@ -144,11 +144,22 @@ public class RecepcnaEvidenciaController implements Initializable {
 
     }
 
+    @FXML
+    protected void nastavHodnotuZTabulky() {
+        Cvicenec cvicenec = evidenciaRTabulka.getSelectionModel().getSelectedItem();
+        if (cvicenec != null) {
+            Inicializator.nastavRegID(evidenciaRRegIDField,cvicenec);
+        }
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCviacichCvicencov(evidenciaRTabulka,evidenciaRMenoStlpec,evidenciaRPriezviskoStlpec,
                                                     evidenciaRIdStlpec);
+
+
 
     }
 
