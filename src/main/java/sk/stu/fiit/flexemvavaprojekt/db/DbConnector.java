@@ -590,7 +590,8 @@ public class DbConnector {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
-                        rs.getBoolean(10)
+                        rs.getBoolean(10),
+                        rs.getString(11)
                 );
                 list.add(individualnyPlan);
             }
