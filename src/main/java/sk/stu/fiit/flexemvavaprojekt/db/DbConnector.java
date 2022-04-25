@@ -233,7 +233,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where inside = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Cvicenec cvicenec = new Cvicenec(
                         rs.getInt(1),
@@ -329,6 +329,56 @@ public class DbConnector {
 //            return null;
 //        }
 //    }
+//
+    public ArrayList<Plan> getMySchedule(int id){
+        try {
+            ArrayList<Plan> list = new ArrayList<>();
+            String sql = "select * from skupinovy_plans where trener.id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                Plan plan = new SkupinovyPlan(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getTimestamp(7),
+                        rs.getBoolean(8)
+                );
+                list.add(plan);
+            }
+
+            sql = "select * from indivudualny_plans where trener.id = ?";
+            st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            rs = st.executeQuery();
+            while (rs.next()){
+                Plan plan = new IndividualnyPlan(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getTimestamp(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)
+                );
+                list.add(plan);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
@@ -738,7 +788,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, individualnyPlan.getCvicenecId());
             st.setInt(2, individualnyPlan.getTrenerId());
-            st.setTimestamp(3, individualnyPlan.getDatumCas());
+            st.setTimestamp(3, individualnyPlan.getCas());
             st.setString(4, individualnyPlan.getPopis());
             st.setString(5, individualnyPlan.getCvik1());
             st.setString(6, individualnyPlan.getCvik2());

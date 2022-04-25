@@ -10,6 +10,7 @@ import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Inicializator {
 
@@ -142,6 +143,34 @@ public class Inicializator {
         tableView.setItems(lanes);
 
 
+    }
+
+    public static void inicializujMojRozvrh(TableView<Plan> tabulka, TableColumn<Plan, String> izbaColumn,
+                                            TableColumn<Plan, String> nazovColumn, TableColumn<Plan, String> sportColumn,
+                                            TableColumn<Plan, String> datumColumn) {
+
+        int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
+        ArrayList<Plan> plany = DbConnector.getInstance().getMySchedule(id);
+        ObservableList<Plan> lanes = FXCollections.observableArrayList();
+        lanes.addAll(plany);
+
+        Collections.sort(plany);
+
+        izbaColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
+//        nazovColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        datumColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        tabulka.setItems(lanes);
+
+    }
+
+    public static void inicializujProfil(TextField menoField, TextField priezviskoField, TextField emailField,
+                                         TextField telefonField) {
+
+        menoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getMeno());
+        priezviskoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getPriezvisko());
+        emailField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getEmail());
+        telefonField.setText(Jazyk.getInstance().naformatujTelefon(PrihlasenyPouzivatel.getInstance().getPouzivatel().getTelefonneCislo()));
     }
 }
 

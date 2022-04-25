@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
@@ -39,7 +40,6 @@ public class TrenerProfilController implements Initializable {
     @FXML
     private Label actionLabel;
 
-    Trener trener = DbConnector.getInstance().getTrener(1);
 
     @FXML
     protected void odhlasenie() {
@@ -84,10 +84,7 @@ public class TrenerProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-          profilTMenoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getMeno());
-//        profilTPriezviskoField.setText(trener.getPriezvisko());
-//        profilTEmailField.setText(trener.getEmail());
-//        profilTTelefonField.setText(trener.getTelefonneCislo());
+//        Inicializator.inicializujProfil(profilTMenoField, profilTPriezviskoField, profilTEmailField, profilTTelefonField);
     }
 
 

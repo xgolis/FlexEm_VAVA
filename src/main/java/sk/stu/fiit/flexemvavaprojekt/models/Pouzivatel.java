@@ -10,6 +10,7 @@ public abstract class Pouzivatel {
     protected byte[] hash;
 
     protected String email;
+
     protected final String meno;
     protected final String priezvisko;
     protected final String telefonneCislo;
