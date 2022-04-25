@@ -466,8 +466,13 @@ public class DbConnector {
 
     }
 
-    public ArrayList<SkupinovyPlan> getMyUpcomingSkupPlans(int cvicenecId){
+    public ArrayList<SkupinovyPlan> getMySkupPlans(int cvicenecId, boolean done){
         try {
+            String not_query = "";
+            if(done)
+                not_query = "";
+            else
+                not_query = "not";
             ArrayList<SkupinovyPlan> list = new ArrayList<>();
             String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done, sp.nazov\n" +
                     "FROM skupinovy_plans sp\n" +
@@ -475,7 +480,7 @@ public class DbConnector {
                     "JOIN treners t on t.id = sp.trener_id\n" +
                     "JOIN cvicenec_skup_plan csp on sp.id = csp.skup_plan_id\n" +
                     "JOIN cvicenecs c on c.id = csp.cvicenec_id\n" +
-                    "WHERE sp.done is not true AND c.id = ?";
+                    "WHERE sp.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();

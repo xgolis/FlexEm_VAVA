@@ -180,7 +180,7 @@ public class Inicializator {
                                                     TableColumn<SkupinovyPlan,String> sportColumn) {
 
         int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
-        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getMyUpcomingSkupPlans(id);
+        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getMySkupPlans(id, false);
         ObservableList<SkupinovyPlan> lanes = FXCollections.observableArrayList();
         lanes.addAll(skupinovyPlans);
 
