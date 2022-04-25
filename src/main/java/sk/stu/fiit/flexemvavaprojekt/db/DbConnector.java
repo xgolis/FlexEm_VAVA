@@ -565,7 +565,7 @@ public class DbConnector {
                     "    JOIN treners t on t.id = ip.trener_id " +
                     "    JOIN cvicenec_ind_plan cip on ip.id = cip.ind_plan_id " +
                     "    JOIN cvicenecs c on c.id = cip.cvicenec_id " +
-                    "    WHERE sp.done = false AND c.id = ?";
+                    "    WHERE ip.done = false AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();
@@ -643,6 +643,7 @@ public class DbConnector {
             st.setString(1, email);
             ResultSet rs = st.executeQuery();
             Cvicenec cvicenec = null;
+//            dorobit ak nič nenajde
             if (rs.next()){
                 cvicenec = new Cvicenec(
                         rs.getInt(1),
@@ -650,9 +651,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getInt(9),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
                 );
             }
             rs.close();

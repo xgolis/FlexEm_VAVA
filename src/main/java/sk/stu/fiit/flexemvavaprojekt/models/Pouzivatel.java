@@ -18,7 +18,7 @@ public abstract class Pouzivatel {
 
 
 
-    public Pouzivatel(int id, String meno, String priezvisko, String email, String telefon, byte[] salt, byte[] hash) {
+    public Pouzivatel(int id, String meno, String priezvisko, String email, String telefon, byte[] hash, byte[] salt) {
         this.id = id;
         this.meno = meno;
         this.priezvisko = priezvisko;

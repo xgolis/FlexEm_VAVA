@@ -121,7 +121,7 @@ public class    RecepcnaMiestnostiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
+        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
 //        Inicializator.inicializujTrenerovComboBox(miestnostiRTrenerChoiceB);
         Inicializator.inicializujSkupinoveTreningy(miestnostiRTabulka, miestnostRStlpec, trenerRStlpec, datumRStlpec,
                                                         sportRStlpec);
