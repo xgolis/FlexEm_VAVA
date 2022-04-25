@@ -574,11 +574,11 @@ public class DbConnector {
             else
                 not_query = "not";
             ArrayList<IndividualnyPlan> list = new ArrayList<>();
-            String sql = "SELECT ip.id, c.id, t.id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4\n" +
+            String sql = "SELECT ip.id, ip.cvicenec_id, ip.trener_id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4, ip.nazov\n" +
                     "FROM individualny_plans ip\n" +
                     "JOIN treners t on t.id = ip.trener_id\n" +
                     "JOIN cvicenecs c on c.id = ip.cvicenec_id\n" +
-                    "WHERE ip.done is "+not_query+" true AND c.id = 3\n";
+                    "WHERE ip.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();
@@ -593,8 +593,8 @@ public class DbConnector {
                         rs.getString(7),
                         rs.getString(8),
                         rs.getString(9),
-                        rs.getBoolean(10),
-                        rs.getString(11)
+                        done,
+                        rs.getString(10)
                 );
                 list.add(individualnyPlan);
             }
