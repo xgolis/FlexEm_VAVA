@@ -35,9 +35,6 @@ public class CvicenecPlanController implements Initializable {
     private TextField trainplanCCvik2Field;
 
     @FXML
-    private RadioButton planCRButtonCompleted;
-
-    @FXML
     private RadioButton planCRButtonUpcoming;
 
     @FXML
@@ -117,6 +114,10 @@ public class CvicenecPlanController implements Initializable {
     @FXML
     protected  void hotovo(){
         IndividualnyPlan ip =  planCTabulka.getSelectionModel().getSelectedItem();
+        if (ip.getDone()){
+            return;
+        }
+
         planCTabulka.getItems().remove(ip);
         DbConnector.getInstance().setIndPlanDone(ip.getId());
     }
