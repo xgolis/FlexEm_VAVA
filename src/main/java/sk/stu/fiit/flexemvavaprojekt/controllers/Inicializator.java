@@ -94,6 +94,44 @@ public class Inicializator {
 
     }
 
+    public static void nastavHodnotyCPlan(TextField datum, TextField nazov, TextField cvik1, TextField cvik2,
+                                          TextField cvik3, TextField cvik4, IndividualnyPlan ip){
+        datum.setText(ip.getCas().toString());
+        nazov.setText(ip.getPopis());
+        cvik1.setText(ip.getCvik1());
+        cvik2.setText(ip.getCvik2());
+        cvik3.setText(ip.getCvik3());
+        cvik4.setText(ip.getCvik4());
+
+
+    }
+
+    public static void nastavRegID(TextField regID,Cvicenec cvicenec) {
+        regID.setText(Integer.toString(cvicenec.getId()));
+    }
+
+    public  static void nastavRRecenzie(TextField meno, TextField priezvisko, TextField sport, TextField hviezdy, TextArea popis,
+                                        Recenzia recenzia) {
+        meno.setText(recenzia.getMeno());
+        priezvisko.setText(recenzia.getPriezvisko());
+        sport.setText(recenzia.getSport());
+        hviezdy.setText(recenzia.pocetHviezdToString());
+        popis.setText(recenzia.getPopis());
+    };
+
+    public static void inicializujCCvicenia(TableView<IndividualnyPlan> tableView,TableColumn<IndividualnyPlan, String> datum,
+                                            TableColumn<IndividualnyPlan, String> nazovTreningu){
+
+        int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
+        ArrayList<IndividualnyPlan> individualnyPlans = DbConnector.getInstance().getMyPlanCvicenec(id);
+        ObservableList<IndividualnyPlan> lanes = FXCollections.observableArrayList();
+        lanes.addAll(individualnyPlans);
+
+        datum.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        nazovTreningu.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPopis()));
+        tableView.setItems(lanes);
+
+    }
 
     public static void inicializujCviacichCvicencov(TableView<Cvicenec> tableView, TableColumn<Cvicenec,String> menoColumn,
                                                     TableColumn<Cvicenec,String> priezviskoColumn,TableColumn<Cvicenec,String> regIDColumn) {

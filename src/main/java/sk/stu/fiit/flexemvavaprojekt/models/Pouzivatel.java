@@ -28,6 +28,7 @@ public abstract class Pouzivatel {
         this.hash = hash;
     }
 
+    public abstract void prihlaseniePouzivatela();
 
     public String getEmail() {
         return email;
