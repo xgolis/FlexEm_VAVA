@@ -53,6 +53,7 @@ public class MainController {
         String email = loginMenoField.getText();
         String heslo = loginHesloField.getText();
 
+
         Pouzivatel pouzivatel = DbConnector.getInstance().loginOverenie(email,heslo);
         if (pouzivatel != null) {
             PrihlasenyPouzivatel.getInstance().setPouzivatel(pouzivatel);
