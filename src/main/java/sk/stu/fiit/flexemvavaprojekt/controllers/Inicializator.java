@@ -11,6 +11,14 @@ import sk.stu.fiit.flexemvavaprojekt.models.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Trieda slúži na inicializáciu všetkych potrebných objektov z FXML. (Tabuľky, ChoiseBoxy, ComboBoxy, Fieldy...)
+ *
+ * Väčšina inicializácií prebieha vybraním objektov (Recepcna, Cvicenec, Trener, Skupinovy plan, Individualny plan ...)
+ * z databázy a zapísaním požadovaných informácií do Tabuliek, TextFieldov...
+ *
+ * @author Tomáš Golis
+ */
 public class Inicializator {
 
     public static void inicializujCasChoiceBox(ChoiceBox<String> choiceBox) {
@@ -26,7 +34,6 @@ public class Inicializator {
         }
 
     }
-
 
     public static void inicializujTrenerovComboBox(ComboBox<Pouzivatel> comboBox){
 
@@ -50,6 +57,11 @@ public class Inicializator {
         comboBox.getSelectionModel().select(1);
     }
 
+    /**
+     * Z datábazy sa uložia informácie o cvičencoch do ArrayListu objektov Cvičenca.
+     * Vytvorí sa Observablelist, do sa pridajú a následne vypíšu v Tabulke.
+     *
+     */
     public static void inicializujTabulkuTreningovyPlanCvicenci(TableView<Pouzivatel> tabulka,
                                                                 TableColumn<Pouzivatel, String> indivTMenoColumn,
                                                                 TableColumn<Pouzivatel, String> indivTPriezviskoColumn){
@@ -105,6 +117,11 @@ public class Inicializator {
 
     }
 
+    /**
+     *
+     * V metóde sa potrebné hodnoty z objektu IndividualnyPlan ip vypíšu v TextFieldoch.
+     *
+     */
     public static void nastavHodnotyCPlan(TextField datum, TextField nazov, TextField cvik1, TextField cvik2,
                                           TextField cvik3, TextField cvik4, IndividualnyPlan ip){
         datum.setText(ip.getCas().toString());
@@ -203,13 +220,14 @@ public class Inicializator {
         ObservableList<Plan> lanes = FXCollections.observableArrayList();
         lanes.addAll(plany);
 
-        Collections.sort(plany);
 
         izbaColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
         nazovColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getNazov()));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         datumColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
         tabulka.setItems(lanes);
+
+        tabulka.getSortOrder().add(datumColumn);
 
     }
 

@@ -26,9 +26,9 @@
       </HBox>
       <TableView fx:id="rozvrhTTabulka" layoutX="181.0" layoutY="96.0" prefHeight="306.0" prefWidth="633.0">
         <columns>
-          <TableColumn fx:id="rozvrhTIzbaStlpec" editable="false" prefWidth="163.199951171875" text="%room.key" />
-          <TableColumn fx:id="rozvrhTNazovStlpec" editable="false" prefWidth="179.20004272460938" text="%nametraining.key" />
-            <TableColumn fx:id="rozvrhTSportStlpec" editable="false" prefWidth="137.5999755859375" text="%sport.key" />
+          <TableColumn fx:id="rozvrhTIzbaStlpec" editable="false" prefWidth="163.199951171875" sortable="false" text="%room.key" />
+          <TableColumn fx:id="rozvrhTNazovStlpec" editable="false" prefWidth="179.20004272460938" sortable="false" text="%nametraining.key" />
+            <TableColumn fx:id="rozvrhTSportStlpec" editable="false" prefWidth="137.5999755859375" sortable="false" text="%sport.key" />
             <TableColumn fx:id="rozvrhTDatumStlpec" editable="false" prefWidth="151.20001220703125" text="%dateandtime.key" />
         </columns>
       </TableView>

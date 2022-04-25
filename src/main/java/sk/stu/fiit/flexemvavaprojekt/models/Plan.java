@@ -2,7 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.models;
 
 import java.sql.Timestamp;
 
-public abstract class Plan implements Comparable<Plan>{
+public abstract class Plan{
 
     private String popis;
 
@@ -30,12 +30,6 @@ public abstract class Plan implements Comparable<Plan>{
         this.miestnost = miestnost;
         this.nazov = nazov;
     }
-
-    @Override
-    public int compareTo(Plan plan) {
-        return getCas().compareTo(plan.getCas());
-    }
-
 
 
     public String getPopis() {

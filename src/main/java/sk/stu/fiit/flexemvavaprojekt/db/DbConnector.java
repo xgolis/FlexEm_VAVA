@@ -427,9 +427,7 @@ public class DbConnector {
             st.setTimestamp(5 , skupinovyPlan.getCas());
             st.setBoolean(6, false);
             st.setString(7, skupinovyPlan.getNazov());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Skupinovy plan created");
             return true;
