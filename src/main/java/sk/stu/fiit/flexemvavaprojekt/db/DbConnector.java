@@ -198,11 +198,11 @@ public class DbConnector {
         }
     }
 
-    public boolean setInside(int id){
+    public boolean setInside(int id, boolean inside){
         try {
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
-            st.setBoolean(1, true);
+            st.setBoolean(1, inside);
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -622,7 +622,7 @@ public class DbConnector {
                 pouzivatel = findTrener(email);
                 if(pouzivatel != null){
                     byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                    if(hash_gen == pouzivatel.getHash())
+                    if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                         return pouzivatel;
                     else
                         return null;
@@ -631,7 +631,7 @@ public class DbConnector {
                     pouzivatel = findRecepcna(email);
                     if(pouzivatel != null){
                         byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                        if(hash_gen == pouzivatel.getHash())
+                        if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                             return pouzivatel;
                         else
                             return null;
