@@ -179,7 +179,7 @@ public class RecepcnaNovyTrenerController implements Initializable {
     }
 
     @FXML
-    protected void addTrainer(){
+    protected void pridajTrenera(){
         if(!validateName() || !validateSurname() || !validateEmail() ||  !validatePhoneNumber() || !validateSport()){
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;

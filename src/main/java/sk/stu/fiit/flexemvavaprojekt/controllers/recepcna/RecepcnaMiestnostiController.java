@@ -12,10 +12,6 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class    RecepcnaMiestnostiController implements Initializable {
@@ -125,8 +121,8 @@ public class    RecepcnaMiestnostiController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
-        Inicializator.inicializujTrenerovChoiceBox(miestnostiRTrenerChoiceB);
+//        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
+//        Inicializator.inicializujTrenerovComboBox(miestnostiRTrenerChoiceB);
         Inicializator.inicializujSkupinoveTreningy(miestnostiRTabulka, miestnostRStlpec, trenerRStlpec, datumRStlpec,
                                                         sportRStlpec);
     }

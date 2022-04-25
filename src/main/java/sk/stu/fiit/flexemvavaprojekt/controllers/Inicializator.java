@@ -4,11 +4,10 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
-import org.w3c.dom.ls.LSOutput;
+import javafx.util.Callback;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -30,14 +29,27 @@ public class Inicializator {
 
     }
 
-    public static void inicializujTrenerovChoiceBox(ChoiceBox<String> choiceBox){
-        ArrayList<Pouzivatel> treners = DbConnector.getInstance().getAllTreners();
-        System.out.println(treners);
-        choiceBox.setValue(treners.get(0).getMeno() + " " + treners.get(0).getPriezvisko());
 
-        for (Pouzivatel trener: treners){
-            choiceBox.getItems().add(trener.getMeno() + " " + trener.getPriezvisko());
-        }
+    public static void inicializujTrenerovComboBox(ComboBox<Pouzivatel> comboBox){
+
+        Callback<ListView<Pouzivatel>, ListCell<Pouzivatel>> cellFactory = lv -> new ListCell<Pouzivatel>() {
+            @Override
+            protected void updateItem(Pouzivatel item, boolean empty) {
+                super.updateItem(item, empty);
+                setText(empty ? "" : (item.getMeno() + " " + item.getPriezvisko()));
+            }
+        };
+
+
+        comboBox.setCellFactory(cellFactory);
+        comboBox.setButtonCell(cellFactory.call(null));
+
+        ArrayList<Pouzivatel> treneri = DbConnector.getInstance().getAllTreners();
+        ObservableList<Pouzivatel> list = FXCollections.observableArrayList();
+        list.addAll(treneri);
+
+        comboBox.getItems().addAll(list);
+        comboBox.getSelectionModel().select(1);
     }
 
     public static void inicializujTabulkuTreningovyPlanCvicenci(TableView<Pouzivatel> tabulka,
