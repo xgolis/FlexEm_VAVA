@@ -203,13 +203,28 @@ public class DbConnector {
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, inside);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeUpdate();
+
             st.close();
             return true;
         }
         catch (Exception e){
+            System.out.println(e);
+            return false;
+        }
+    }
+
+    public Boolean setNewPassword(int id) {
+
+        try {
+            String sql = "UPDATE cvicenecs SET hash = ?, salt = ? WHERE id = "+id;
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setBytes(1,PrihlasenyPouzivatel.getInstance().getPouzivatel().getHash());
+            st.setBytes(2,PrihlasenyPouzivatel.getInstance().getPouzivatel().getSalt());
+            st.executeUpdate();
+            st.close();
+            return true;
+        } catch (Exception e) {
             System.out.println(e);
             return false;
         }
