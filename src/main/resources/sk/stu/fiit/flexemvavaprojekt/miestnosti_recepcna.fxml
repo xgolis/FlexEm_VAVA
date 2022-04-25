@@ -108,12 +108,12 @@
       <Label layoutX="197.0" layoutY="187.0" text="%dateandtime.key" />
       <Label layoutX="198.0" layoutY="231.0" text="%desc.key" />
       <TextField fx:id="miestnostiRPopisField" layoutX="197.0" layoutY="250.0" onKeyTyped="#validateDesc" prefHeight="25.0" prefWidth="244.0" />
-      <TableView layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
+      <TableView fx:id="miestnostiRTabulka" layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
         <columns>
-          <TableColumn editable="false" prefWidth="75.0" text="%room.key" />
-          <TableColumn editable="false" prefWidth="75.0" text="%coach.key" />
-            <TableColumn editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
-            <TableColumn editable="false" prefWidth="89.199951171875" text="%sport.key" />
+          <TableColumn fx:id="miestnostRStlpec" editable="false" prefWidth="75.0" text="%room.key" />
+          <TableColumn fx:id="trenerRStlpec" editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn fx:id="datumRStlpec" editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
+            <TableColumn fx:id="sportRStlpec" editable="false" prefWidth="89.199951171875" text="%sport.key" />
         </columns>
       </TableView>
       <Label layoutX="459.0" layoutY="91.0" text="%listtrainings.key">

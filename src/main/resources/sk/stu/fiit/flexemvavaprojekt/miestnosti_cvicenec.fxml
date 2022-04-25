@@ -47,12 +47,12 @@
          </font>
       </Label>
       <Label layoutX="204.0" layoutY="275.0" text="%coach.key" />
-      <TableView layoutX="459.0" layoutY="254.0" prefHeight="112.0" prefWidth="346.0">
+      <TableView fx:id="miestnostiCMTabulka" layoutX="459.0" layoutY="254.0" prefHeight="112.0" prefWidth="346.0">
          <columns>
-            <TableColumn editable="false" prefWidth="75.0" text="%room.key" />
-            <TableColumn editable="false" prefWidth="75.0" text="%coach.key" />
-            <TableColumn editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
-            <TableColumn editable="false" prefWidth="89.199951171875" text="%sport.key" />
+            <TableColumn fx:id="miestnostiCMStlpecMmiestnost" editable="false" prefWidth="75.0" text="%room.key" />
+            <TableColumn fx:id="miestnostiCMStlpecTrener" editable="false" prefWidth="75.0" text="%coach.key" />
+            <TableColumn fx:id="miestnostiCMStlpecCas" editable="false" prefWidth="105.59991455078125" text="%dateandtime.key" />
+            <TableColumn fx:id="miestnostiCMSlpecSport" editable="false" prefWidth="89.199951171875" text="%sport.key" />
          </columns>
       </TableView>
       <Label layoutX="459.0" layoutY="235.0" text="%mytrainings.key">

@@ -21,7 +21,7 @@ public class View  {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
         fxmlLoader.setResources(ResourceBundle.getBundle("bundle", Jazyk.getInstance().getAktualnyJazyk()));
         this.scene = new Scene(fxmlLoader.load(), 820, 440);
-        scene.getRoot().setStyle("-fx-font-family: 'serif'");
+//        scene.getRoot().setStyle("-fx-font-family: 'serif'");
         this.window.setTitle("FlexEm");
         Image icon = new Image(getClass().getResourceAsStream("/sk/stu/fiit/flexemvavaprojekt/img/logo_bicak.png"));
         this.window.getIcons().add(icon) ;

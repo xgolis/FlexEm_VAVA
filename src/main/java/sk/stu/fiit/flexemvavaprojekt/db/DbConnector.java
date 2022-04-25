@@ -233,7 +233,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where inside = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Cvicenec cvicenec = new Cvicenec(
                         rs.getInt(1),
@@ -284,41 +284,91 @@ public class DbConnector {
         }
     }
 
-    public ArrayList<Pouzivatel> getClenovia(){
+//    public ArrayList<Pouzivatel> getClenovia(){
+//        try {
+//            ArrayList<Pouzivatel> list = new ArrayList<>();
+//            String sql = "select * from treners";
+//            PreparedStatement st = con.prepareStatement(sql);
+//            ResultSet rs = st.executeQuery(sql);
+//            while (rs.next()){
+//                Trener trener = new Trener(
+//                        rs.getInt(1),
+//                        rs.getString(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getString(6),
+//                        rs.getBytes(7),
+//                        rs.getBytes(8)
+//                );
+//                list.add(trener);
+//            }
+//
+//            String sql2 = "select * from cvicenecs";
+//            st = con.prepareStatement(sql2);
+//            rs = st.executeQuery(sql);
+//            while (rs.next()){
+//                Cvicenec cvicenec = new Cvicenec(
+//                        rs.getInt(1),
+//                        rs.getString(2),
+//                        rs.getString(3),
+//                        rs.getString(4),
+//                        rs.getString(5),
+//                        rs.getInt(6),
+//                        rs.getBytes(7),
+//                        rs.getBytes(8)
+//                );
+//                list.add(cvicenec);
+//            }
+//            rs.close();
+//            st.close();
+//            return list;
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//            return null;
+//        }
+//    }
+//
+    public ArrayList<Plan> getMySchedule(int id){
         try {
-            ArrayList<Pouzivatel> list = new ArrayList<>();
-            String sql = "select * from treners";
+            ArrayList<Plan> list = new ArrayList<>();
+            String sql = "select * from skupinovy_plans where trener.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
-            ResultSet rs = st.executeQuery(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
             while (rs.next()){
-                Trener trener = new Trener(
+                Plan plan = new SkupinovyPlan(
                         rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),
+                        rs.getInt(3),
                         rs.getString(4),
                         rs.getString(5),
                         rs.getString(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getTimestamp(7),
+                        rs.getBoolean(8)
                 );
-                list.add(trener);
+                list.add(plan);
             }
 
-            String sql2 = "select * from cvicenecs";
-            st = con.prepareStatement(sql2);
-            rs = st.executeQuery(sql);
+            sql = "select * from indivudualny_plans where trener.id = ?";
+            st = con.prepareStatement(sql);
+            st.setInt(1, id);
+            rs = st.executeQuery();
             while (rs.next()){
-                Cvicenec cvicenec = new Cvicenec(
+                Plan plan = new IndividualnyPlan(
                         rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getTimestamp(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)
                 );
-                list.add(cvicenec);
+                list.add(plan);
             }
             rs.close();
             st.close();
@@ -329,7 +379,6 @@ public class DbConnector {
             return null;
         }
     }
-
 
     public boolean createSkupinovyPlan(SkupinovyPlan skupinovyPlan){
         try {
@@ -385,6 +434,75 @@ public class DbConnector {
             System.out.println(e);
             return null;
         }
+    }
+
+    public ArrayList<SkupinovyPlan> getUpcomingSkupPlans(){
+        try {
+            ArrayList<SkupinovyPlan> list = new ArrayList<>();
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done FROM skupinovy_plans sp " +
+                    "JOIN miestnosts m on m.id = sp.miestnost_id " +
+                    "JOIN treners t on t.id = sp.trener_id " +
+                    "WHERE sp.done = false";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getTimestamp(7),
+                        rs.getBoolean(8)
+                );
+                list.add(skupinovyPlan);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
+    }
+
+    public ArrayList<SkupinovyPlan> getMyUpcomingSkupPlans(int cvicenecId){
+        try {
+            ArrayList<SkupinovyPlan> list = new ArrayList<>();
+            String sql = "SELECT sp.id, m.miestnost, t.id, t.meno, sp.sport, sp.popis, sp.datum_cas, sp.done FROM skupinovy_plans sp " +
+                    "    JOIN miestnosts m on m.id = sp.miestnost_id " +
+                    "    JOIN treners t on t.id = sp.trener_id " +
+                    "    JOIN cvicenec_skup_plan csp on sp.id = csp.skup_plan_id " +
+                    "    JOIN cvicenecs c on c.id = csp.cvicenec_id " +
+                    "    WHERE sp.done = false AND c.id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1 , cvicenecId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getTimestamp(7),
+                        rs.getBoolean(8)
+                );
+                list.add(skupinovyPlan);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
     }
 
     public ArrayList<Pouzivatel> getAllCvicenecs(){
@@ -601,27 +719,27 @@ public class DbConnector {
         }
     }
 
-    public boolean createSkupPlan(SkupinovyPlan skupinovyPlan){
-        try {
-            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
-                    "VALUES (?, ?, ?, ?, ?);\n";
-            PreparedStatement st = con.prepareStatement(sql);
-            st.setInt(1, skupinovyPlan.getMiestnostId());
-            st.setInt(2, skupinovyPlan.getTrenerId());
-            st.setString(3, skupinovyPlan.getSport());
-            st.setString(4, skupinovyPlan.getPopis());
-            st.setTimestamp(5, skupinovyPlan.getCas());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
-            st.close();
-            return true;
-        }
-        catch (Exception e){
-            System.out.println(e);
-            return false;
-        }
-    }
+//    public boolean createSkupPlan(SkupinovyPlan skupinovyPlan){
+//        try {
+//            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
+//                    "VALUES (?, ?, ?, ?, ?);\n";
+//            PreparedStatement st = con.prepareStatement(sql);
+//            st.setString(1, skupinovyPlan.getMiestnost());
+//            st.setInt(2, skupinovyPlan.getTrenerId());
+//            st.setString(3, skupinovyPlan.getSport());
+//            st.setString(4, skupinovyPlan.getPopis());
+//            st.setTimestamp(5, skupinovyPlan.getCas());
+//            ResultSet rs = st.executeQuery();
+//            if (rs.next()){}
+//            rs.close();
+//            st.close();
+//            return true;
+//        }
+//        catch (Exception e){
+//            System.out.println(e);
+//            return false;
+//        }
+//    }
 
     public boolean createRecenzia(Recenzia recenzia){
         try {
@@ -670,7 +788,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, individualnyPlan.getCvicenecId());
             st.setInt(2, individualnyPlan.getTrenerId());
-            st.setTimestamp(3, individualnyPlan.getDatumCas());
+            st.setTimestamp(3, individualnyPlan.getCas());
             st.setString(4, individualnyPlan.getPopis());
             st.setString(5, individualnyPlan.getCvik1());
             st.setString(6, individualnyPlan.getCvik2());

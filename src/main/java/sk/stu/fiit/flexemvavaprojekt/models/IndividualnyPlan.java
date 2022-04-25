@@ -4,24 +4,16 @@ import java.sql.Time;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-public class IndividualnyPlan {
-    private int id;
+public class IndividualnyPlan extends Plan {
     private int cvicenecId;
-    private int trenerId;
-    private Timestamp datumCas;
-    private String popis;
     private String cvik1;
     private String cvik2;
     private String cvik3;
     private String cvik4;
-    private boolean done = false;
 
-    public IndividualnyPlan(int id, int cvicenecId, int trenerId, Timestamp datumCas, String popis, String cvik1, String cvik2, String cvik3, String cvik4) {
-        this.id = id;
+    public IndividualnyPlan(int id, int cvicenecId, int trenerId, Timestamp cas, String popis, String cvik1, String cvik2, String cvik3, String cvik4, Boolean done) {
+        super(id, trenerId, popis, cas, done, Jazyk.getInstance().prelozeneSlovo("gym.key"), Jazyk.getInstance().prelozeneSlovo("fitness.key"));
         this.cvicenecId = cvicenecId;
-        this.trenerId = trenerId;
-        this.datumCas = datumCas;
-        this.popis = popis;
         this.cvik1 = cvik1;
         this.cvik2 = cvik2;
         this.cvik3 = cvik3;
@@ -29,44 +21,12 @@ public class IndividualnyPlan {
     }
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getCvicenecId() {
         return cvicenecId;
     }
 
     public void setCvicenecId(int cvicenecId) {
         this.cvicenecId = cvicenecId;
-    }
-
-    public int getTrenerId() {
-        return trenerId;
-    }
-
-    public void setTrenerId(int trenerId) {
-        this.trenerId = trenerId;
-    }
-
-    public Timestamp getDatumCas() {
-        return datumCas;
-    }
-
-    public void setDatumCas(Timestamp datumCas) {
-        this.datumCas = datumCas;
-    }
-
-    public String getPopis() {
-        return popis;
-    }
-
-    public void setPopis(String popis) {
-        this.popis = popis;
     }
 
     public String getCvik1() {
@@ -101,11 +61,4 @@ public class IndividualnyPlan {
         this.cvik4 = cvik4;
     }
 
-    public boolean isDone() {
-        return done;
-    }
-
-    public void setDone(boolean done) {
-        this.done = done;
-    }
 }

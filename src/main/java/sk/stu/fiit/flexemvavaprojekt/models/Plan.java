@@ -1,0 +1,85 @@
+package sk.stu.fiit.flexemvavaprojekt.models;
+
+import java.sql.Timestamp;
+
+public abstract class Plan implements Comparable<Plan>{
+
+    private String popis;
+
+    private int trenerId;
+
+    private Timestamp cas;
+
+    private Boolean done;
+
+    private int id;
+
+    private final String miestnost;
+
+    private final String sport;
+
+    public Plan(int id, int trenerId, String popis, Timestamp cas, Boolean done, String miestnost, String sport) {
+        this.id = id;
+        this.trenerId = trenerId;
+        this.popis = popis;
+        this.cas = cas;
+        this.done = done;
+        this.sport = sport;
+        this.miestnost = miestnost;
+    }
+
+    @Override
+    public int compareTo(Plan plan) {
+        return getCas().compareTo(plan.getCas());
+    }
+
+
+
+    public String getPopis() {
+        return popis;
+    }
+
+    public void setPopis(String popis) {
+        this.popis = popis;
+    }
+
+    public int getTrenerId() {
+        return trenerId;
+    }
+
+    public void setTrenerId(int trenerId) {
+        this.trenerId = trenerId;
+    }
+
+    public Timestamp getCas() {
+        return cas;
+    }
+
+    public void setCas(Timestamp cas) {
+        this.cas = cas;
+    }
+
+    public Boolean getDone() {
+        return done;
+    }
+
+    public void setDone(Boolean done) {
+        this.done = done;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMiestnost() {
+        return miestnost;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+}

@@ -24,16 +24,12 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="184.0" layoutY="208.0" mnemonicParsing="false" text="%export.key">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-      <TableView layoutX="301.0" layoutY="96.0" prefHeight="306.0" prefWidth="513.0">
+      <TableView fx:id="rozvrhTTabulka" layoutX="181.0" layoutY="96.0" prefHeight="306.0" prefWidth="633.0">
         <columns>
-          <TableColumn editable="false" prefWidth="107.199951171875" text="%room.key" />
-          <TableColumn editable="false" prefWidth="144.80007934570312" text="%nametraining.key" />
-            <TableColumn editable="false" prefWidth="136.7999267578125" text="%sport.key" />
-            <TableColumn editable="false" prefWidth="124.79998779296875" text="%dateandtime.key" />
+          <TableColumn fx:id="rozvrhTIzbaStlpec" editable="false" prefWidth="163.199951171875" text="%room.key" />
+          <TableColumn fx:id="rozvrhTNazovStlpec" editable="false" prefWidth="179.20004272460938" text="%nametraining.key" />
+            <TableColumn fx:id="rozvrhTSportStlpec" editable="false" prefWidth="137.5999755859375" text="%sport.key" />
+            <TableColumn fx:id="rozvrhTDatumStlpec" editable="false" prefWidth="151.20001220703125" text="%dateandtime.key" />
         </columns>
       </TableView>
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">

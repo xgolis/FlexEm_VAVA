@@ -107,8 +107,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
-        Inicializator.inicializujTabulkuTreningovyPlanCvicenci(indivTTabulka, indivTMenoCollum, indivTPriezviskoCollum);
+//        Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
+//        Inicializator.inicializujTabulkuTreningovyPlanCvicenci(indivTTabulka, indivTMenoCollum, indivTPriezviskoCollum);
 
     }
 

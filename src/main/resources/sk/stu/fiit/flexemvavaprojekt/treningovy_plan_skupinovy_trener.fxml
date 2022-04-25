@@ -44,7 +44,7 @@
       <Label layoutX="193.0" layoutY="153.0" text="%sport.key" />
       <TextField fx:id="skupTSportField" layoutX="192.0" layoutY="172.0" onKeyTyped="#validateSport" prefHeight="25.0" prefWidth="259.0" />
       <Label layoutX="193.0" layoutY="197.0" text="%dateandtime.key" />
-      <Label layoutX="193.0" layoutY="241.0" text="%name.key" />
+      <Label layoutX="193.0" layoutY="241.0" text="%nametraining.key" />
       <TextField fx:id="skupTMenoField" layoutX="192.0" layoutY="260.0" onKeyTyped="#validateName" prefHeight="25.0" prefWidth="259.0" />
       <TableView layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
          <columns>
