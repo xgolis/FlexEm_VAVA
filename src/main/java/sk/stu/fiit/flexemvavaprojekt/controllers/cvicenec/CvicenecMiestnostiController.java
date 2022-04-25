@@ -2,10 +2,14 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -63,6 +67,8 @@ public class CvicenecMiestnostiController implements Initializable{
     @FXML
     private TableColumn<SkupinovyPlan, String> miestnostiCStlpecTrener;
 
+    @FXML
+    private Label labelMiestnosti;
 
     @FXML
     protected void recenzia() {
@@ -108,6 +114,23 @@ public class CvicenecMiestnostiController implements Initializable{
             throw new RuntimeException(e);
         }
 
+    }
+
+    @FXML
+    protected  void rezervacia(){
+        SkupinovyPlan sp = miestnostiCTabulkaZoznamuTreningov.getSelectionModel().getSelectedItem();
+        if (sp != null) {
+            for (int i = 0; i <miestnostiCMTabulka.getItems().size(); i++) {
+                if (miestnostiCMTabulka.getItems().get(i).getId() == sp.getId()) {
+                    labelMiestnosti.setVisible(true);
+                    return;
+                }
+            }
+            labelMiestnosti.setVisible(false);
+            DbConnector.getInstance().addUserToSkupPlan(PrihlasenyPouzivatel.getInstance().getPouzivatel().getId(),sp.getId());
+            Inicializator.inicializujMojeSkupinoveTreningy(miestnostiCMTabulka,miestnostiCMStlpecMmiestnost,miestnostiCMStlpecTrener,
+                                                            miestnostiCMStlpecCas,miestnostiCMSlpecSport);
+        }
     }
 
     @FXML
