@@ -986,6 +986,31 @@ public class DbConnector {
         }
     }
 
+    public ArrayList<Miestnost> getMiestnosts(){
+        try {
+            ArrayList<Miestnost> list = new ArrayList<>();
+            String sql = "select * from miestnosts;";
+            PreparedStatement st = con.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                Miestnost miestnost = new Miestnost(
+                        rs.getInt(1),
+                        rs.getString(3),
+                        rs.getString(2),
+                        rs.getString(4)
+                );
+                list.add(miestnost);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+    }
+
 
 
 }
