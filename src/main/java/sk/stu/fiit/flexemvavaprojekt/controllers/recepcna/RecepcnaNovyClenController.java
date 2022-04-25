@@ -141,6 +141,13 @@ public class RecepcnaNovyClenController implements Initializable {
         }
     }
 
+    /**
+     * Vzorová funkcia na validáciu TextFieldu volaná onKeyTyped
+     * Nastaví border field na červenú ak vstup nie je validný
+     * Ak je vstup validný červený border odstráni.
+     * @return 'true' ak validný vstup, 'false' ak ivalidný vstup.
+     */
+
     @FXML
     protected boolean validateEmail(){
         String email = novyclenREmailField.getText();
