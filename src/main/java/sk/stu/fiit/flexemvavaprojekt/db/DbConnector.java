@@ -566,16 +566,19 @@ public class DbConnector {
         }
     }
 
-    public ArrayList<IndividualnyPlan> getMyPlanCvicenec(int cvicenecId) {
-
+    public ArrayList<IndividualnyPlan> getMyPlanCvicenec(int cvicenecId, boolean done) {
         try {
+            String not_query = "";
+            if(done)
+                not_query = "";
+            else
+                not_query = "not";
             ArrayList<IndividualnyPlan> list = new ArrayList<>();
-            String sql = "SELECT ip.id, c.id, t.id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4" +
-                    "  FROM individualny_plans ip " +
-                    "    JOIN treners t on t.id = ip.trener_id " +
-                    "    JOIN cvicenec_ind_plan cip on ip.id = cip.ind_plan_id " +
-                    "    JOIN cvicenecs c on c.id = cip.cvicenec_id " +
-                    "    WHERE ip.done = false AND c.id = ?";
+            String sql = "SELECT ip.id, c.id, t.id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4\n" +
+                    "FROM individualny_plans ip\n" +
+                    "JOIN treners t on t.id = ip.trener_id\n" +
+                    "JOIN cvicenecs c on c.id = ip.cvicenec_id\n" +
+                    "WHERE ip.done is "+not_query+" true AND c.id = 3\n";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
             ResultSet rs = st.executeQuery();

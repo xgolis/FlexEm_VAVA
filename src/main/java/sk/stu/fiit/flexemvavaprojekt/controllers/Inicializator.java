@@ -135,7 +135,7 @@ public class Inicializator {
                                             TableColumn<IndividualnyPlan, String> nazovTreningu){
 
         int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
-        ArrayList<IndividualnyPlan> individualnyPlans = DbConnector.getInstance().getMyPlanCvicenec(id);
+        ArrayList<IndividualnyPlan> individualnyPlans = DbConnector.getInstance().getMyPlanCvicenec(id, false);
         ObservableList<IndividualnyPlan> lanes = FXCollections.observableArrayList();
         lanes.addAll(individualnyPlans);
 
