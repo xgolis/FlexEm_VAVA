@@ -794,7 +794,7 @@ public class DbConnector {
     public boolean createRecenzia(Recenzia recenzia){
         try {
             String sql = "INSERT INTO recenzias (skupinovy_plan_id, hodnotenie, popis, cvicenec_id)\n" +
-                    "VALUES (?, ?, ?, ?, ?);\n";
+                    "VALUES (?, ?, ?, ?);\n";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, recenzia.getSkupinovy_plan_id());
             st.setInt(2, recenzia.getPocetHviezd());
