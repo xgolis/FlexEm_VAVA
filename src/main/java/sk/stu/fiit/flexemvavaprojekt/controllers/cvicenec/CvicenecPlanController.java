@@ -115,7 +115,7 @@ public class CvicenecPlanController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        planCRButtonUpcoming.isSelected();
+        planCRButtonUpcoming.setSelected(true);
         Inicializator.inicializujCCvicenia(planCTabulka,planCDenStlpec,planCNazovStlpec,false);
     }
 }
