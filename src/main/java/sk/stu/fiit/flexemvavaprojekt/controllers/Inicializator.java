@@ -227,9 +227,9 @@ public class Inicializator {
                                                     TableColumn<Miestnost, String> kapacitaStlpec,
                                                     TableColumn<Miestnost, String> sportStlpec) {
 
-//        ArrayList<Miestnost> miestnosts = DbConnector.getInstance().getMiestnosts();
+        ArrayList<Miestnost> miestnosts = DbConnector.getInstance().getMiestnosts();
         ObservableList<Miestnost> lanes = FXCollections.observableArrayList();
-//        lanes.addAll(miestnosts);
+        lanes.addAll(miestnosts);
 
         menoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getNazov()));
         kapacitaStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getKapacita()));

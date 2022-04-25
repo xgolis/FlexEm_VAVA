@@ -129,7 +129,7 @@ public class TrenerSkupPlanController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCasChoiceBox(skupTCasChoiceB);
         Inicializator.inicializujSkupinoveTreningy(tabulkaTrenerSkup,izbaPlanStlpec,trenerPlanStlpec,datumPlanStlpec,sportPlanStlpec);
-
+        Inicializator.inicializujTabulkuMiestnosti(tabulkaTrenerIzby, izbaPlanStlpec2, kapacitaTStlpec, sportPlanStlpec2);
     }
 
     @FXML
@@ -185,13 +185,13 @@ public class TrenerSkupPlanController implements Initializable {
 
         int trener_id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
         String trener_meno = PrihlasenyPouzivatel.getInstance().getPouzivatel().getMeno();
+        Miestnost miestnost = tabulkaTrenerIzby.getSelectionModel().getSelectedItem();
 
-//        SkupinovyPlan plan = new SkupinovyPlan(0, tabulkaTrenerIzby.getValue().getId(),
-//                                                tabulkaTrenerIzby.getValue().getNazov(), trener_id, trener_meno,
-//                                                skupTSportField.getText(),null, time, false,
-//                                                skupTMenoField.getText());
+        SkupinovyPlan plan = new SkupinovyPlan(0, miestnost.getId(), miestnost.getNazov(), trener_id, trener_meno,
+                                                skupTSportField.getText(),null, time, false,
+                                                skupTMenoField.getText());
 
-//        DbConnector.getInstance().createSkupinovyPlan(plan);
+        DbConnector.getInstance().createSkupinovyPlan(plan);
 
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
     }
