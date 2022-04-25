@@ -8,11 +8,14 @@ import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.models.SpravaHesla;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 
@@ -91,7 +94,7 @@ public class CvicenecProfilController implements Initializable{
     }
 
     @FXML
-    protected void changePassword(){
+    protected void changePassword() throws NoSuchAlgorithmException {
         if(profilCHeslo1Field.getText().isEmpty() || profilCHeslo2Field.getText().isEmpty()){
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("fillallfields.key"));
             return;
@@ -100,6 +103,11 @@ public class CvicenecProfilController implements Initializable{
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("samepassword.key"));
             return;
         }
+        byte[] salt = SpravaHesla.salt();
+        String heslo = profilCHeslo2Field.getText();
+        PrihlasenyPouzivatel.getInstance().getPouzivatel().setSalt(salt);
+        PrihlasenyPouzivatel.getInstance().getPouzivatel().setHash(SpravaHesla.hash(heslo,salt));
+        DbConnector.getInstance().setNewPassword(PrihlasenyPouzivatel.getInstance().getPouzivatel().getId());
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("passwordchanged.key"));
     }
 
