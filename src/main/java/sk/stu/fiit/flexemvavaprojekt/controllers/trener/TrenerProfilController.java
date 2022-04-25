@@ -84,7 +84,7 @@ public class TrenerProfilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujProfil(profilTMenoField, profilTPriezviskoField, profilTEmailField, profilTTelefonField);
+        Inicializator.inicializujProfil(profilTMenoField, profilTPriezviskoField, profilTEmailField, profilTTelefonField);
     }
 
 

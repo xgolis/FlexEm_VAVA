@@ -191,7 +191,7 @@ public class RecepcnaNovyClenController implements Initializable {
 
             Cvicenec novyClen = new Cvicenec(0, novyclenRMenoField.getText(), novyclenRPriezviskoField.getText(),
                     novyclenREmailField.getText(), novyclenRTelefonField.getText(), novyclenRTrenerComboB.getValue().getId(),
-                    salt, clenovHash);
+                    clenovHash, salt);
 
             DbConnector.getInstance().createCvicenec(novyClen);
             System.out.println(novyClen);

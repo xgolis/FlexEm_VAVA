@@ -195,7 +195,7 @@ public class RecepcnaNovyTrenerController implements Initializable {
 
             Trener novyClen = new Trener(0, novytrenerRMenoField.getText(), novytrenerRPriezviskoField.getText(),
                     novytrenerREmailField.getText(), novytrenerRTelefonField.getText(), novytrenerRSportField.getText(),
-                    salt, clenovHash);
+                    clenovHash, salt);
 
             DbConnector.getInstance().createTrener(novyClen);
             System.out.println(novyClen);
