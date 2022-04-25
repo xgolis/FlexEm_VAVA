@@ -16,10 +16,14 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main extends Application {
 
     public static Stage window;
+    public final static Logger logger = Logger.getLogger("MojLogger");
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -31,8 +35,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args){
+        logger.log(Level.INFO, "funguje?");
+        logger.log(Level.WARNING, "davaj bacha");
         DbConnector db = new DbConnector();
-
         launch();
     }
 }

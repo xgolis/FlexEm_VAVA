@@ -1,9 +1,12 @@
 package sk.stu.fiit.flexemvavaprojekt.db;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DbConnector {
 
@@ -11,14 +14,20 @@ public class DbConnector {
     Connection con = null;
     String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/pmsvldav";
 
+    Logger logger = Main.logger;
+
     public DbConnector() {
         try {
+            logger.log(Level.INFO, "DBConnector initialized");
             con = DriverManager.getConnection(url, "pmsvldav", "Q3U0h9PdA4B6wfNa_37PmTonvYVe2bMH");
-            if (con != null)
+            if (con != null) {
                 System.out.println("Connected");
+                logger.log(Level.INFO, "Database connected to application");
+            }
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.INFO, "Database not connected to application", e);
         }
     }
 
@@ -72,10 +81,12 @@ public class DbConnector {
             st.setBytes(7 ,trener.getSalt());
             st.executeUpdate();
             st.close();
+            logger.log(Level.INFO, "Trener created");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Trener not created", e);
             return false;
         }
     }
@@ -95,7 +106,6 @@ public class DbConnector {
                         rs.getString(5),
                         rs.getBytes(6),
                         rs.getBytes(7)
-
                 );
             }
             rs.close();
@@ -121,10 +131,12 @@ public class DbConnector {
             st.setBytes(6 ,recepcna.getSalt());
             st.executeUpdate();
             st.close();
+            logger.log(Level.INFO, "Recepcna created");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Recepcna not created", e);
             return false;
         }
     }
@@ -142,9 +154,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getInt(9),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
                 );
             }
             rs.close();
@@ -172,10 +184,12 @@ public class DbConnector {
             st.setBytes(7 ,cvicenec.getSalt());
             st.executeUpdate();
             st.close();
+            logger.log(Level.INFO, "Cvicenec created");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Cvicenec not created", e);
             return false;
         }
     }
@@ -190,10 +204,12 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Trener with id "+trener_id+" was set for cvicenec with id"+cvicenec_id);
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Trener with id "+trener_id+" was not set for cvicenec with id"+cvicenec_id, e);
             return false;
         }
     }
@@ -206,10 +222,12 @@ public class DbConnector {
             st.executeUpdate();
 
             st.close();
+            logger.log(Level.INFO, "Cvicenec with id "+id+" was evidated inside");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not evidate cvicenec with id "+id+" inside", e);
             return false;
         }
     }
@@ -253,10 +271,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Cvicenec users evidated inside got from database");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not get users evidated inside", e);
             return null;
         }
     }
@@ -280,10 +300,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Regexed query succesfully executed");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Regexed query executed unseccsfullt", e);
             return null;
         }
     }
@@ -383,10 +405,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Plans associated with trener with id "+id+" got from database");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not get plans for trener with id "+id, e);
             return null;
         }
     }
@@ -407,10 +431,12 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Skupinovy plan created");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not create skupinovy plan", e);
             return false;
         }
     }
@@ -440,10 +466,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "All recenzias successfuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not get recenzias", e);
             return null;
         }
     }
@@ -475,10 +503,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "All upcoming plans successfuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not return upcoming plans", e);
             return null;
         }
 
@@ -519,10 +549,13 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Skupinove plans of user with id "+cvicenecId+" were successfuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not get skupinove plans of user with id "+cvicenecId, e);
+
             return null;
         }
 
@@ -549,10 +582,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "All cvicenecs successfuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not all cvicenecs", e);
             return null;
         }
     }
@@ -620,10 +655,13 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Individual plans for user with id" +cvicenecId+" successfuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Could not get individual plans for user with id "+cvicenecId);
+
             return null;
         }
 
@@ -637,34 +675,48 @@ public class DbConnector {
             pouzivatel = findCvicenec(email);
             if(pouzivatel != null){
                 byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                if(Arrays.equals(hash_gen, pouzivatel.getHash()))
+                if(Arrays.equals(hash_gen, pouzivatel.getHash())) {
+                    logger.log(Level.INFO, "User with id "+pouzivatel.getId()+" logged in");
                     return pouzivatel;
-                else
+                }
+                else{
+                    logger.log(Level.INFO, "Could not authenticate user");
                     return null;
+                }
             }
             else{
                 pouzivatel = findTrener(email);
                 if(pouzivatel != null){
                     byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                    if(Arrays.equals(hash_gen, pouzivatel.getHash()))
+                    if(Arrays.equals(hash_gen, pouzivatel.getHash())) {
+                        logger.log(Level.INFO, "User with id "+pouzivatel.getId()+" logged in");
                         return pouzivatel;
-                    else
+                    }
+                    else{
+                        logger.log(Level.INFO, "Could not authenticate user");
                         return null;
+                    }
                 }
                 else{
                     pouzivatel = findRecepcna(email);
                     if(pouzivatel != null){
                         byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                        if(Arrays.equals(hash_gen, pouzivatel.getHash()))
+                        if(Arrays.equals(hash_gen, pouzivatel.getHash())) {
+                            logger.log(Level.INFO, "User with id "+pouzivatel.getId()+" logged in");
                             return pouzivatel;
-                        else
+                        }
+                        else{
+                            logger.log(Level.INFO, "Could not authenticate user");
                             return null;
+                        }
                     }
                 }
             }
+            logger.log(Level.INFO, "Could not authenticate user");
             return null;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Could not log in user", e);
             System.out.println(e);
             return null;
         }
@@ -692,9 +744,11 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Uset with email "+ email+" found as type of cvicenec");
             return cvicenec;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while getting cvicenec wit email "+email);
             System.out.println(e);
             return null;
         }
@@ -721,9 +775,11 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Uset with email "+ email+" found as type of trener");
             return trener;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while getting trener wit email "+email);
             System.out.println(e);
             return null;
         }
@@ -749,9 +805,11 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Uset with email "+ email+" found as type of recepcna");
             return recepcna;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while getting recepcna wit email "+email);
             System.out.println(e);
             return null;
         }
@@ -780,9 +838,11 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Cvicenecs of trener with id "+trener_id+" successffuly returned");
             return list;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while getting cvicenecs of trener with id "+trener_id, e);
             System.out.println(e);
             return null;
         }
@@ -823,9 +883,11 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Recenzia created successfuly");
             return true;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while creating recenzia",e);
             System.out.println(e);
             return false;
         }
@@ -842,10 +904,12 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Cvicenec with id "+cvicenec_id+" added to skupinovy plan with id"+ skup_plan);
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Error while adding cvicenec with id"+ cvicenec_id+" to skupinovy plan with id "+skup_plan);
             return false;
         }
     }
@@ -868,9 +932,11 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Individualny plan for cvicenec with id "+individualnyPlan.getCvicenecId()+" created");
             return true;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while creating individualny plan for cvicenec with id "+individualnyPlan.getCvicenecId() );
             System.out.println(e);
             return false;
         }
@@ -959,9 +1025,11 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Individualny plan with id "+plan_id+" successfuly set to done");
             return true;
         }
         catch (Exception e){
+            logger.log(Level.SEVERE, "Error while setting individualny plan with id "+plan_id+" to done");
             System.out.println(e);
             return false;
         }
@@ -978,10 +1046,12 @@ public class DbConnector {
             if (rs.next()){}
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Skupinovy plan with id "+plan_id+" successfuly set to done");
             return true;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Error while setting skupinovy plan with id "+plan_id+" to done");
             return false;
         }
     }
