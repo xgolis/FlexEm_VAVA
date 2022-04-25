@@ -69,7 +69,6 @@ public class MainController {
 
         }
 
-
 //        if (email.equals("recepcna")){
 //            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Recepcna(8, "java", "je", "super", "0java0", SpravaHesla.salt(), SpravaHesla.salt()));
 //            try {
@@ -97,7 +96,7 @@ public class MainController {
 //        }
 
     }
-
+  
     @FXML
     protected boolean validateEmail(){
         String email = loginMenoField.getText();
@@ -123,7 +122,5 @@ public class MainController {
             return true;
         }
     }
-
-
 
 }
