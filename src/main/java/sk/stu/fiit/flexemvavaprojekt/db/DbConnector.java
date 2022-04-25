@@ -203,11 +203,11 @@ public class DbConnector {
         }
     }
 
-    public boolean setInside(int id){
+    public boolean setInside(int id, boolean inside){
         try {
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
-            st.setBoolean(1, true);
+            st.setBoolean(1, inside);
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
