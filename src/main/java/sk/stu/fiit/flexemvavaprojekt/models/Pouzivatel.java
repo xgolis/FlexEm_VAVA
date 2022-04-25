@@ -18,7 +18,7 @@ public abstract class Pouzivatel {
 
 
 
-    public Pouzivatel(int id, String meno, String priezvisko, String email, String telefon, byte[] salt, byte[] hash) {
+    public Pouzivatel(int id, String meno, String priezvisko, String email, String telefon, byte[] hash, byte[] salt) {
         this.id = id;
         this.meno = meno;
         this.priezvisko = priezvisko;
@@ -28,6 +28,7 @@ public abstract class Pouzivatel {
         this.hash = hash;
     }
 
+    public abstract void prihlaseniePouzivatela();
 
     public String getEmail() {
         return email;

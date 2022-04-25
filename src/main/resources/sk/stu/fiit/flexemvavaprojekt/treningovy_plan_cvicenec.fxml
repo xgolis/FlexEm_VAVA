@@ -31,10 +31,10 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TableView layoutX="461.0" layoutY="126.0" prefHeight="239.0" prefWidth="299.0">
+      <TableView fx:id="planCTabulka" layoutX="461.0" layoutY="126.0" onMouseClicked="#nastavHodnoty" prefHeight="290.0" prefWidth="299.0">
         <columns>
-          <TableColumn editable="false" prefWidth="138.39999389648438" text="%day.key" />
-          <TableColumn editable="false" prefWidth="159.0" text="%nametraining.key" />
+          <TableColumn fx:id="planCDenStlpec" editable="false" prefWidth="138.39999389648438" text="%day.key" />
+          <TableColumn fx:id="planCNazovStlpec" editable="false" prefWidth="159.0" text="%nametraining.key" />
         </columns>
       </TableView>
       <Label layoutX="458.0" layoutY="72.0" text="%trainingplan.key">
@@ -120,10 +120,5 @@
             </Button>
          </children>
       </VBox>
-      <Button layoutX="578.0" layoutY="392.0" mnemonicParsing="false" text="%choose.key">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
    </children>
 </Pane>

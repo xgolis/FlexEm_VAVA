@@ -40,7 +40,7 @@
       <TextField fx:id="recenziaRSportFIeld" editable="false" layoutX="196.0" layoutY="206.0" prefHeight="25.0" prefWidth="245.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="197.0" layoutY="231.0" text="%numberofstarsrecep.key" />
       <TextField fx:id="recenziaRHviezdyField" editable="false" layoutX="196.0" layoutY="250.0" prefHeight="25.0" prefWidth="245.0" style="-fx-background-color: #dcdbd9;" />
-      <TableView fx:id="recenziaRTabulka" layoutX="459.0" layoutY="118.0" prefHeight="294.0" prefWidth="346.0">
+      <TableView fx:id="recenziaRTabulka" layoutX="459.0" layoutY="118.0" onMouseClicked="#nastavHodnotyZTabulky" prefHeight="294.0" prefWidth="346.0">
         <columns>
           <TableColumn fx:id="recenziaRMenoStlpec" editable="false" prefWidth="75.0" text="%name.key" />
           <TableColumn fx:id="recenziaRPriezviskoStlpec" editable="false" prefWidth="75.0" text="%surname.key" />

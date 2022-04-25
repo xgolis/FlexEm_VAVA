@@ -90,6 +90,14 @@ public class TrenerRecenziaController implements Initializable {
         }
     }
 
+    @FXML
+    protected void nastavHodnotyZTabulky() {
+        Recenzia recenzia = recenziaTTabulka.getSelectionModel().getSelectedItem();
+        if (recenzia != null) {
+            Inicializator.nastavRRecenzie(recenziaTMenoField,recenziaTPriezviskoField,recenziaTSportField,recenziaTHviezdickyField,
+                    recenziaTRecenziaField,recenzia);
+        }
+    }
 
 
     @Override

@@ -115,7 +115,7 @@ public class DbConnector {
 
     public boolean createRecepcna(Recepcna recepcna){
         try {
-            String sql = "INSERT INTO treners (meno, prizvisko, email, telefon, hash, salt)\n" +
+            String sql = "INSERT INTO recepcnas (meno, prizvisko, email, telefon, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,recepcna.getMeno());
@@ -124,12 +124,7 @@ public class DbConnector {
             st.setString(4 ,recepcna.getTelefonneCislo());
             st.setBytes(5 ,recepcna.getHash());
             st.setBytes(6 ,recepcna.getSalt());
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()){
-                System.out.println("created?");
-            }
-            System.out.println("creauvidime");
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
@@ -170,7 +165,7 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt)\n" +
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,cvicenec.getMeno());
@@ -180,9 +175,7 @@ public class DbConnector {
             st.setInt(5, cvicenec.getTrener_id());
             st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
@@ -573,7 +566,48 @@ public class DbConnector {
         }
     }
 
-    public Pouzivatel login(String email, String heslo){
+    public ArrayList<IndividualnyPlan> getMyPlanCvicenec(int cvicenecId) {
+
+        try {
+            ArrayList<IndividualnyPlan> list = new ArrayList<>();
+            String sql = "SELECT ip.id, c.id, t.id, ip.datum_cas, ip.popis, ip.cvik1, ip.cvik2, ip.cvik3, ip.cvik4" +
+                    "  FROM individualny_plans ip " +
+                    "    JOIN treners t on t.id = ip.trener_id " +
+                    "    JOIN cvicenec_ind_plan cip on ip.id = cip.ind_plan_id " +
+                    "    JOIN cvicenecs c on c.id = cip.cvicenec_id " +
+                    "    WHERE ip.done = false AND c.id = ?";
+            PreparedStatement st = con.prepareStatement(sql);
+            st.setInt(1 , cvicenecId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()){
+                IndividualnyPlan individualnyPlan = new IndividualnyPlan(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getTimestamp(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getBoolean(10)
+                );
+                list.add(individualnyPlan);
+            }
+            rs.close();
+            st.close();
+            return list;
+        }
+        catch (Exception e){
+            System.out.println(e);
+            return null;
+        }
+
+    }
+
+
+
+    public Pouzivatel loginOverenie(String email, String heslo){
         try {
             Pouzivatel pouzivatel;
             pouzivatel = findCvicenec(email);
@@ -619,6 +653,7 @@ public class DbConnector {
             st.setString(1, email);
             ResultSet rs = st.executeQuery();
             Cvicenec cvicenec = null;
+//            dorobit ak nič nenajde
             if (rs.next()){
                 cvicenec = new Cvicenec(
                         rs.getInt(1),
@@ -626,9 +661,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getInt(9),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
                 );
             }
             rs.close();
