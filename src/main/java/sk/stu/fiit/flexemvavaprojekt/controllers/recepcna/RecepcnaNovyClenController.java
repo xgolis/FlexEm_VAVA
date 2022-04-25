@@ -1,18 +1,20 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.util.Callback;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RecepcnaNovyClenController implements Initializable {
@@ -26,7 +28,7 @@ public class RecepcnaNovyClenController implements Initializable {
     @FXML
     private TextField novyclenRTelefonField;
     @FXML
-    private ChoiceBox<String> novyclenRTrenerChoiceB;
+    private ComboBox<Pouzivatel> novyclenRTrenerComboB;
     @FXML
     private Label actionLabel;
 
@@ -110,8 +112,8 @@ public class RecepcnaNovyClenController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujTrenerovChoiceBox(novyclenRTrenerChoiceB);
-    }
+        Inicializator.inicializujTrenerovComboBox(novyclenRTrenerComboB);
+}
 
     @FXML
     protected boolean validateName(){
@@ -168,10 +170,29 @@ public class RecepcnaNovyClenController implements Initializable {
 
     @FXML
     protected void pridajClena(){
-        if(!validateName() || !validateSurname() || !validateEmail() ||  !validatePhoneNumber() || novyclenRTrenerChoiceB.getValue() == null){
+        if(!validateName() || !validateSurname() || !validateEmail() ||  !validatePhoneNumber() || novyclenRTrenerComboB.getValue() == null){
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("member.key"));
+
+        byte[] salt = SpravaHesla.salt();
+        String prvotneHeslo = SpravaHesla.vygenerovaneHeslo();
+        System.out.println(prvotneHeslo);
+
+        try {
+            byte[] clenovHash = SpravaHesla.hash(prvotneHeslo, salt);
+
+            Cvicenec novyClen = new Cvicenec(0, novyclenRMenoField.getText(), novyclenRPriezviskoField.getText(),
+                    novyclenREmailField.getText(), novyclenRTelefonField.getText(), novyclenRTrenerComboB.getValue().getId(),
+                    salt, clenovHash);
+
+            DbConnector.getInstance().createCvicenec(novyClen);
+            System.out.println(novyClen);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("memberadded.key"));
+
     }
 }

@@ -115,7 +115,7 @@ public class DbConnector {
 
     public boolean createRecepcna(Recepcna recepcna){
         try {
-            String sql = "INSERT INTO treners (meno, prizvisko, email, telefon, hash, salt)\n" +
+            String sql = "INSERT INTO recepcnas (meno, prizvisko, email, telefon, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,recepcna.getMeno());
@@ -124,12 +124,7 @@ public class DbConnector {
             st.setString(4 ,recepcna.getTelefonneCislo());
             st.setBytes(5 ,recepcna.getHash());
             st.setBytes(6 ,recepcna.getSalt());
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()){
-                System.out.println("created?");
-            }
-            System.out.println("creauvidime");
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
@@ -170,7 +165,7 @@ public class DbConnector {
 
     public boolean createCvicenec(Cvicenec cvicenec){
         try {
-            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt)\n" +
+            String sql = "INSERT INTO cvicenecs (meno, priezvisko, email, telefon, trener_id, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,cvicenec.getMeno());
@@ -180,9 +175,7 @@ public class DbConnector {
             st.setInt(5, cvicenec.getTrener_id());
             st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
