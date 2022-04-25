@@ -622,7 +622,7 @@ public class DbConnector {
                 pouzivatel = findTrener(email);
                 if(pouzivatel != null){
                     byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                    if(hash_gen == pouzivatel.getHash())
+                    if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                         return pouzivatel;
                     else
                         return null;
@@ -631,7 +631,7 @@ public class DbConnector {
                     pouzivatel = findRecepcna(email);
                     if(pouzivatel != null){
                         byte[] hash_gen = SpravaHesla.hash(heslo, pouzivatel.getSalt());
-                        if(hash_gen == pouzivatel.getHash())
+                        if(Arrays.equals(hash_gen, pouzivatel.getHash()))
                             return pouzivatel;
                         else
                             return null;
