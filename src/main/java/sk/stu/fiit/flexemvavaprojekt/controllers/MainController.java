@@ -56,7 +56,7 @@ public class MainController {
         String heslo = loginHesloField.getText();
 
         if(!validateEmail() || !validatePassword()){
-            actionLabel.setText("Invalid input");
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
         actionLabel.setText("");
@@ -66,7 +66,11 @@ public class MainController {
         if (pouzivatel != null) {
             PrihlasenyPouzivatel.getInstance().setPouzivatel(pouzivatel);
             PrihlasenyPouzivatel.getInstance().getPouzivatel().prihlaseniePouzivatela();
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("badpassword.key"));
 
+        }
+        else {
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("badpassword.key"));
         }
 
 //        if (email.equals("recepcna")){

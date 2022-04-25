@@ -101,7 +101,7 @@ public class Inicializator {
         sport.setText(sp.getSport());
         cas.setText(sp.getCas().toString());
         popis.setText(sp.getPopis());
-        trener.setText(Integer.toString(sp.getTrenerId()));
+        trener.setText(sp.getTrener());
 
     }
 
@@ -115,6 +115,13 @@ public class Inicializator {
         cvik4.setText(ip.getCvik4());
 
 
+    }
+
+    public static void nastavHodnotyCRecenzia(TextField miestnost, TextField trener, TextField sport,
+                                              SkupinovyPlan sp){
+        miestnost.setText(sp.getMiestnost());
+        trener.setText(sp.getTrener());
+        sport.setText(sp.getSport());
     }
 
     public static void nastavRegID(TextField regID,Cvicenec cvicenec) {
@@ -239,6 +246,23 @@ public class Inicializator {
 
     public static void nastavIzbu(TextField izbaField, Miestnost miestnost) {
         izbaField.setText(miestnost.getNazov());
+    }
+
+    public static void inicializujAbsolvovaneSkupTreningy(TableView<SkupinovyPlan> tabulka,
+                                                          TableColumn<SkupinovyPlan,String> miestnost,
+                                                          TableColumn<SkupinovyPlan,String> trener,
+                                                          TableColumn<SkupinovyPlan,String> sport) {
+        int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
+        ArrayList<SkupinovyPlan> sp = DbConnector.getInstance().getMySkupPlans(id,true);
+        ObservableList<SkupinovyPlan> lanes = FXCollections.observableArrayList();
+        lanes.addAll(sp);
+
+        miestnost.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
+        trener.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
+        sport.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        tabulka.setItems(lanes);
+
+
     }
 }
 

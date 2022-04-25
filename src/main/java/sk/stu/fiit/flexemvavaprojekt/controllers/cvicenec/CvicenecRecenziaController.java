@@ -6,9 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
@@ -25,6 +25,7 @@ public class CvicenecRecenziaController implements Initializable {
     private TextField recenziaCSportField;
     @FXML
     private TextField recenziaCTrenerField;
+
     @FXML
     private TextArea recenziaCRecenziaArea;
 
@@ -32,16 +33,16 @@ public class CvicenecRecenziaController implements Initializable {
     private Label actionLabel;
 
     @FXML
-    private TableColumn recenziaCIzbaStlpec;
+    private TableColumn<SkupinovyPlan,String> recenziaCIzbaStlpec;
 
     @FXML
-    private TableColumn recenziaCTrenerStlpec;
+    private TableColumn<SkupinovyPlan,String> recenziaCTrenerStlpec;
 
     @FXML
-    private TableColumn recenziaCSportStlpec;
+    private TableColumn<SkupinovyPlan,String> recenziaCSportStlpec;
 
     @FXML
-    private TableView<String> recenziaCTabulka;
+    private TableView<SkupinovyPlan> recenziaCTabulka;
 
     @FXML
     protected void profil() {
@@ -86,14 +87,19 @@ public class CvicenecRecenziaController implements Initializable {
 
     }
 
+    @FXML
+    protected  void nastavHodnoty(){
+        SkupinovyPlan sp = recenziaCTabulka.getSelectionModel().getSelectedItem();
+        if (sp != null) {
+            Inicializator.nastavHodnotyCRecenzia(recenziaCIzbaField,recenziaCTrenerField,recenziaCSportField,sp);
+        }
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        recenziaCIzbaField.setText("uz");
-        recenziaCTrenerField.setText("by");
-        recenziaCSportField.setText("fakt");
-        recenziaCHviezdyField.setText("trebalo");
+        Inicializator.inicializujAbsolvovaneSkupTreningy(recenziaCTabulka,recenziaCIzbaStlpec,recenziaCTrenerStlpec,
+                                                         recenziaCSportStlpec);
     }
 
     @FXML
@@ -123,11 +129,17 @@ public class CvicenecRecenziaController implements Initializable {
     }
 
     @FXML
-    protected void publish(){
+    protected void publikovat(){
         if(!validateStars() || !validateReview()){
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
+        Pouzivatel p = PrihlasenyPouzivatel.getInstance().getPouzivatel();
+        SkupinovyPlan sp = recenziaCTabulka.getSelectionModel().getSelectedItem();
+        Recenzia recenzia = new Recenzia(sp.getId(),sp.getSport(),
+                Integer.valueOf(recenziaCHviezdyField.getText()),recenziaCRecenziaArea.getText(),
+                p.getMeno(),p.getPriezvisko(),p.getId(),sp.getTrenerId());
+        DbConnector.getInstance().createRecenzia(recenzia);
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("reviewpublished.key"));
     }
 

@@ -232,10 +232,21 @@ public class DbConnector {
         }
     }
 
-    public Boolean setNewPassword(int id) {
+    public Boolean setNewPassword(int id,Pouzivatel pouzivatel) {
+        String typ;
+        if (pouzivatel instanceof  Cvicenec){
+            typ = "cvicenecs";
+        }
+        else if (pouzivatel instanceof Recepcna){
+            typ = "recepcnas";
+        }
+        else {
+            typ = "treners";
+        }
+
 
         try {
-            String sql = "UPDATE cvicenecs SET hash = ?, salt = ? WHERE id = "+id;
+            String sql = "UPDATE " + typ + " SET hash = ?, salt = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBytes(1,PrihlasenyPouzivatel.getInstance().getPouzivatel().getHash());
             st.setBytes(2,PrihlasenyPouzivatel.getInstance().getPouzivatel().getSalt());
