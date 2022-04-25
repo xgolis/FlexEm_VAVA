@@ -54,7 +54,8 @@ public class Inicializator {
                                                                 TableColumn<Pouzivatel, String> indivTMenoColumn,
                                                                 TableColumn<Pouzivatel, String> indivTPriezviskoColumn){
 
-        ArrayList<Pouzivatel> cvicenec = DbConnector.getInstance().getAllCvicenecs();
+        int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
+        ArrayList<Cvicenec> cvicenec = DbConnector.getInstance().getTrenersCvicenec(id);
         ObservableList<Pouzivatel> lanes = FXCollections.observableArrayList();
         lanes.addAll(cvicenec);
 
@@ -205,7 +206,7 @@ public class Inicializator {
         Collections.sort(plany);
 
         izbaColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
-//        nazovColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        nazovColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getNazov()));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         datumColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
         tabulka.setItems(lanes);
@@ -219,6 +220,25 @@ public class Inicializator {
         priezviskoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getPriezvisko());
         emailField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getEmail());
         telefonField.setText(Jazyk.getInstance().naformatujTelefon(PrihlasenyPouzivatel.getInstance().getPouzivatel().getTelefonneCislo()));
+    }
+
+    public static void inicializujTabulkuMiestnosti(TableView<Miestnost> tabulka,
+                                                    TableColumn<Miestnost, String> menoStlpec,
+                                                    TableColumn<Miestnost, String> kapacitaStlpec,
+                                                    TableColumn<Miestnost, String> sportStlpec) {
+
+//        ArrayList<Miestnost> miestnosts = DbConnector.getInstance().getMiestnosts();
+        ObservableList<Miestnost> lanes = FXCollections.observableArrayList();
+//        lanes.addAll(miestnosts);
+
+        menoStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getNazov()));
+        kapacitaStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getKapacita()));
+        sportStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
+        tabulka.setItems(lanes);
+    }
+
+    public static void nastavIzbu(TextField izbaField, Miestnost miestnost) {
+        izbaField.setText(miestnost.getNazov());
     }
 }
 

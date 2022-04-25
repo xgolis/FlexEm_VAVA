@@ -102,10 +102,10 @@ public class TrenerRecenziaController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujTabulkuRecenzii(recenziaTTabulka, recenziaTMenoStlpec, recenziaTPriezviskoStlpec,
-//                                                 recenziaTSportStlpec, recenziaTHvStlpec, PrihlasenyPouzivatel.getInstance().getPouzivatel().getId());
         Inicializator.inicializujTabulkuRecenzii(recenziaTTabulka, recenziaTMenoStlpec, recenziaTPriezviskoStlpec,
-                                                 recenziaTSportStlpec, recenziaTHvStlpec, 3);
+                                                 recenziaTSportStlpec, recenziaTHvStlpec, PrihlasenyPouzivatel.getInstance().getPouzivatel().getId());
+//        Inicializator.inicializujTabulkuRecenzii(recenziaTTabulka, recenziaTMenoStlpec, recenziaTPriezviskoStlpec,
+//                                                 recenziaTSportStlpec, recenziaTHvStlpec, 3);
 
     }
 }

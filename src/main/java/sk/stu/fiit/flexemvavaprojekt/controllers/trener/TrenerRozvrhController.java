@@ -77,7 +77,7 @@ public class TrenerRozvrhController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujMojRozvrh(rozvrhTTabulka, rozvrhTIzbaStlpec, rozvrhTNazovStlpec, rozvrhTSportStlpec,
-//                                           rozvrhTDatumStlpec);
+        Inicializator.inicializujMojRozvrh(rozvrhTTabulka, rozvrhTIzbaStlpec, rozvrhTNazovStlpec, rozvrhTSportStlpec,
+                                           rozvrhTDatumStlpec);
     }
 }

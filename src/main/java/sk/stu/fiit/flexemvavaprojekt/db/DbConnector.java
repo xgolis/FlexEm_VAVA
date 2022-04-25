@@ -322,11 +322,11 @@ public class DbConnector {
     public ArrayList<Plan> getMySchedule(int id){
         try {
             ArrayList<Plan> list = new ArrayList<>();
-            String sql = "select sk.id, miestnosts.miestnost, sk.trener_id, sk.sport, sk.popis, sk.datum_cas, sk.done, sk.nazov, treners.meno \n" +
-                    "from skupinovy_plans as sk\n" +
-                    "join treners on sk.trener_id = treners.id\n" +
-                    "join miestnosts on sk.miestnost_id = miestnosts.id\n" +
-                    "where trener_id = ?";
+            String sql = "select sk.id, miestnosts.miestnost, sk.trener_id, sk.sport, sk.popis, sk.datum_cas, sk.done, sk.nazov, treners.meno " +
+                    "from skupinovy_plans as sk " +
+                    "join treners on sk.trener_id = treners.id " +
+                    "join miestnosts on sk.miestnost_id = miestnosts.id " +
+                    "where sk.trener_id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
@@ -346,7 +346,7 @@ public class DbConnector {
                 list.add(plan);
             }
 
-            sql = "select * from indivudualny_plans where trener.id = ?";
+            sql = "select * from individualny_plans where trener_id = ?";
             st = con.prepareStatement(sql);
             st.setInt(1, id);
             rs = st.executeQuery();
@@ -526,7 +526,7 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
+                        rs.getInt(9),
                         rs.getBytes(7),
                         rs.getBytes(8)
                 );
@@ -749,7 +749,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where trener_id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, trener_id);
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Cvicenec cvicenec = new Cvicenec(
                         rs.getInt(1),
@@ -757,9 +757,9 @@ public class DbConnector {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getInt(6),
-                        rs.getBytes(7),
-                        rs.getBytes(8)
+                        rs.getInt(9),
+                        rs.getBytes(6),
+                        rs.getBytes(7)
                 );
                 list.add(cvicenec);
             }
@@ -837,8 +837,8 @@ public class DbConnector {
 
     public boolean createIndivPlan(IndividualnyPlan individualnyPlan){
         try {
-            String sql = "INSERT INTO individualny_plans (cvicenec_id, trener_id, datum_cas, popis, cvik1, cvik2, cvik3, cvik4, done)\n" +
-                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
+            String sql = "INSERT INTO individualny_plans (cvicenec_id, trener_id, datum_cas, popis, cvik1, cvik2, cvik3, cvik4, done, nazov)\n" +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);\n";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, individualnyPlan.getCvicenecId());
             st.setInt(2, individualnyPlan.getTrenerId());
@@ -849,9 +849,8 @@ public class DbConnector {
             st.setString(7, individualnyPlan.getCvik3());
             st.setString(8, individualnyPlan.getCvik4());
             st.setBoolean(9, false);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.setString(10, individualnyPlan.getNazov());
+            st.executeQuery();
             st.close();
             return true;
         }

@@ -6,14 +6,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
-import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Timestamp;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class TrenerInvidPlanController implements Initializable {
@@ -107,8 +108,8 @@ public class TrenerInvidPlanController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
-//        Inicializator.inicializujTabulkuTreningovyPlanCvicenci(indivTTabulka, indivTMenoCollum, indivTPriezviskoCollum);
+        Inicializator.inicializujCasChoiceBox(indivTCasChoiceB);
+        Inicializator.inicializujTabulkuTreningovyPlanCvicenci(indivTTabulka, indivTMenoCollum, indivTPriezviskoCollum);
 
     }
 
@@ -189,6 +190,17 @@ public class TrenerInvidPlanController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
+
+        Pouzivatel cvicenec = indivTTabulka.getSelectionModel().getSelectedItem();
+
+        Timestamp time = Timestamp.valueOf(indivTDatumPicker.getValue().atTime(LocalTime.parse(indivTCasChoiceB.getValue())));
+        IndividualnyPlan plan = new IndividualnyPlan(0, cvicenec.getId(), PrihlasenyPouzivatel.getInstance().getPouzivatel().getId(),
+                                                        time, "Fitness", indivTCvik1Field.getText(),
+                                                        indivTCvik2Field.getText(), indivTCvik3Field.getText(), indivTCvik4Field.getText(),
+                                                        false, indivTMenoField.getText());
+
+        DbConnector.getInstance().createIndivPlan(plan);
+
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
     }
 }

@@ -46,7 +46,7 @@
       <Label layoutX="193.0" layoutY="197.0" text="%dateandtime.key" />
       <Label layoutX="193.0" layoutY="241.0" text="%nametraining.key" />
       <TextField fx:id="skupTMenoField" layoutX="192.0" layoutY="260.0" onKeyTyped="#validateName" prefHeight="25.0" prefWidth="259.0" />
-      <TableView fx:id="tabulkaTrenerSkup" layoutX="469.0" layoutY="128.0" prefHeight="294.0" prefWidth="346.0">
+      <TableView fx:id="tabulkaTrenerSkup" layoutX="460.0" layoutY="103.0" prefHeight="140.0" prefWidth="346.0">
          <columns>
             <TableColumn fx:id="izbaPlanStlpec" editable="false" prefWidth="75.0" text="%room.key" />
             <TableColumn fx:id="trenerPlanStlpec" editable="false" prefWidth="75.0" text="%coach.key" />
@@ -54,7 +54,7 @@
             <TableColumn fx:id="sportPlanStlpec" editable="false" prefWidth="89.199951171875" text="%sport.key" />
          </columns>
       </TableView>
-      <Label layoutX="495.0" layoutY="101.0" text="%listtrainings.key">
+      <Label layoutX="495.0" layoutY="84.0" text="%listtrainings.key">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -130,5 +130,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ChoiceBox>
+      <TableView fx:id="tabulkaTrenerIzby" layoutX="460.0" layoutY="285.0" onMouseClicked="#vyplnIzbu" prefHeight="140.0" prefWidth="346.0">
+         <columns>
+            <TableColumn fx:id="izbaPlanStlpec2" editable="false" prefWidth="125.60000610351562" text="%room.key" />
+            <TableColumn fx:id="kapacitaTStlpec" editable="false" prefWidth="120.800048828125" text="%capacity.key" />
+            <TableColumn fx:id="sportPlanStlpec2" editable="false" prefWidth="99.19989013671875" text="%sport.key" />
+         </columns>
+      </TableView>
+      <Label layoutX="495.0" layoutY="264.0" text="%listrooms.key">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
