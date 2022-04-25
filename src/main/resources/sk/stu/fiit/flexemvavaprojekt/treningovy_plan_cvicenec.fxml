@@ -27,7 +27,7 @@
             </Label>
          </children>
       </HBox>
-      <Button layoutX="259.0" layoutY="392.0" mnemonicParsing="false" text="%done.key">
+      <Button layoutX="259.0" layoutY="392.0" mnemonicParsing="false" onAction="#hotovo" text="%done.key">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

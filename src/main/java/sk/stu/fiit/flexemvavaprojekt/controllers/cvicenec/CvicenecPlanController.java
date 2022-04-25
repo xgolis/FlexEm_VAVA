@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.IndividualnyPlan;
 import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -111,6 +112,13 @@ public class CvicenecPlanController implements Initializable {
             Inicializator.nastavHodnotyCPlan(trainplanCDatumField,trainplanCNazovField,trainplanCCvik1Field,trainplanCCvik2Field,
                                              trainplanCCvik3Field,trainplanCCvik4Field,ip);
         }
+    }
+
+    @FXML
+    protected  void hotovo(){
+        IndividualnyPlan ip =  planCTabulka.getSelectionModel().getSelectedItem();
+        planCTabulka.getItems().remove(ip);
+        DbConnector.getInstance().setIndPlanDone(ip.getId());
     }
 
     @Override
