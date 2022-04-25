@@ -10,8 +10,23 @@ import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 
 import java.util.ArrayList;
 
+/**
+ * Trieda slúži na filtrovanie registrovaných členov v RecepcnaClenoviaView pomocou regexu,
+ * ktorý sa vytvorí z napísaných Stringoch v TextFieldoch pre Meno, Priezvisko a RegID a následnému dynamickému
+ * vypisovaniu v Tabulke.
+ *
+ * @author Tomáš Golis
+ */
+
 public class Regex {
 
+    /**
+     * V danej Metóde sa vytvoria možné regexy z vyžadovaného textu
+     * Príklad: Použivateľ (recepčná) zadá do TextFieldu pre meno String: "Ju"
+     *          metóda z toho vytvorí regexy: "^Ju.*", "^J..*"
+     * @param text
+     * @return ArrayList<String> s možnými regexami
+     */
     public static ArrayList<String> vytvorMozneRegexy(String text){
         ArrayList<String> list = new ArrayList<>();
         list.add("^" + text + ".*");
@@ -21,7 +36,7 @@ public class Regex {
             list.add("^" + text + ".*");
         }
         else {
-
+//i = 2
             for (int i = 1; i <= dlzka; i++) {
                 String temp = text;
 
@@ -39,7 +54,11 @@ public class Regex {
         return list;
     }
 
-
+    /**
+     * Metóda aplikuje predošlú metódu na text v TextFieldoch pre meno a priezvisko,
+     * následne z nich vytvorí jednu query
+     * @return String query
+     */
     public static String vytvorQuery(TextField menoField, TextField priezviskoField, TextField regidField){
         if (menoField.getText().isEmpty() & priezviskoField.getText().isEmpty() & regidField.getText().isEmpty()) {
             return null;
@@ -94,6 +113,10 @@ public class Regex {
         return query;
     }
 
+    /**
+     * Uloží zápisy z databázy ktoré, vytvorená query vráti, a vypíše ich do tabulky
+     * @param query , tabulka a jej stlpce
+     */
     public static void regexuj(String query, TableView<Pouzivatel> tabulka, TableColumn<Pouzivatel, String> menoCollum,
                                TableColumn<Pouzivatel, String> priezviskoCollum, TableColumn<Pouzivatel, String> emailCollum,
                                TableColumn<Pouzivatel, String> telefonCollum,TableColumn<Pouzivatel, String> regidCollum) {

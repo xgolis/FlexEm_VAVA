@@ -79,5 +79,6 @@ public class TrenerRozvrhController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujMojRozvrh(rozvrhTTabulka, rozvrhTIzbaStlpec, rozvrhTNazovStlpec, rozvrhTSportStlpec,
                                            rozvrhTDatumStlpec);
+
     }
 }
