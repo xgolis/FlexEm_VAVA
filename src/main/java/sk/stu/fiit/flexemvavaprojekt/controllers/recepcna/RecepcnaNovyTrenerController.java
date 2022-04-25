@@ -4,13 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
-import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RecepcnaNovyTrenerController implements Initializable {
@@ -184,6 +185,24 @@ public class RecepcnaNovyTrenerController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
+//duplicita fix treba
+        byte[] salt = SpravaHesla.salt();
+        String prvotneHeslo = SpravaHesla.vygenerovaneHeslo();
+        System.out.println(prvotneHeslo);
+
+        try {
+            byte[] clenovHash = SpravaHesla.hash(prvotneHeslo, salt);
+
+            Trener novyClen = new Trener(0, novytrenerRMenoField.getText(), novytrenerRPriezviskoField.getText(),
+                    novytrenerREmailField.getText(), novytrenerRTelefonField.getText(), novytrenerRSportField.getText(),
+                    salt, clenovHash);
+
+            DbConnector.getInstance().createTrener(novyClen);
+            System.out.println(novyClen);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("memberadded.key"));
     }
 }

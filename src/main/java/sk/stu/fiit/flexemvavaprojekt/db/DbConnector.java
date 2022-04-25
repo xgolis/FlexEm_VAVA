@@ -60,7 +60,7 @@ public class DbConnector {
 
     public boolean createTrener(Trener trener){
         try {
-            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, odbor, hash, salt)\n" +
+            String sql = "INSERT INTO treners (meno, priezvisko, email, telefon, odbor, hash, salt) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?);";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1 ,trener.getMeno());
@@ -70,12 +70,7 @@ public class DbConnector {
             st.setString(5 ,trener.getOdbor());
             st.setBytes(6 ,trener.getHash());
             st.setBytes(7 ,trener.getSalt());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){
-                System.out.println("created?");
-            }
-            System.out.println("creauvidime");
-            rs.close();
+            st.executeUpdate();
             st.close();
             return true;
         }
