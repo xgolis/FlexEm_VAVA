@@ -5,7 +5,20 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Trieda obsahuje funckie na validáciu všetkých vstupov v programe + sql injection validácia.
+ *
+ * Validácia sql injection prevzatá z:
+ * https://github.com/rkpunjal/sql-injection-safe/blob/master/src/main/java/com/github/rkpunjal/sqlsafe/SqlSafeUtil.java
+ *
+ * @author  Ramakrishna Punjal
+ * @version 1.0.0
+ * @date   2016-08-26
+ *
+ */
+
 public class InputValidation {
+
     private static final String SQL_TYPES =
             "TABLE, TABLESPACE, PROCEDURE, FUNCTION, TRIGGER, KEY, VIEW, MATERIALIZED VIEW, LIBRARY" +
                     "DATABASE LINK, DBLINK, INDEX, CONSTRAINT, TRIGGER, USER, SCHEMA, DATABASE, PLUGGABLE DATABASE, BUCKET, " +
@@ -52,11 +65,8 @@ public class InputValidation {
     /**
      * Determines if the provided string value is SQL-Injection-safe.
      * <p>
-     * Empty value is considered safe.
-     * This is used in by the SqlInjectionSafe annotation.
-     *
-     * @param  dataString  string value that is to verified
-     * @return   'true' for safe and 'false' for unsafe
+     * @param  dataString  string na validáciu
+     * @return   'true' ak je bezpečný 'false' ak je zamietnutý
      */
     public static boolean isSqlInjectionSafe(String dataString){
         if(isEmpty(dataString)){
@@ -93,6 +103,10 @@ public class InputValidation {
         return cs == null || cs.length() == 0;
     }
 
+    /**
+     * Statické premenné obsahujúce regexy na validáciu jednotlivých vstupov
+     */
+
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
             Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
@@ -103,16 +117,11 @@ public class InputValidation {
             Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", Pattern.CASE_INSENSITIVE);
 
     private static final Pattern VALID_NAME_REGEX =
-            Pattern.compile("(?i)(^[a-z])((?![ .,'-]$)[a-z .,'-]){1,24}$", Pattern.CASE_INSENSITIVE);
+            Pattern.compile("(?i)(^[a-z\\u00C0-\\u024F])((?![ .,'-]$)[a-z\\u00C0-\\u024F .,'-]){1,24}$", Pattern.CASE_INSENSITIVE);
 
     private static final Pattern VALID_PHONE_REGEX =
             Pattern.compile("\\+(9[976]\\d|8[987530]\\d|6[987]\\d|5[90]\\d|42\\d|3[875]\\d|2[98654321]\\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\\d{1,14}$", Pattern.CASE_INSENSITIVE);
 
-    private static final Pattern VALID_STAR_REGEX =
-            Pattern.compile("[1-9]|10", Pattern.CASE_INSENSITIVE);
-
-    private static final Pattern VALID_DIGIT_REGEX =
-            Pattern.compile("\\\\d+");
 
     private static final Pattern VALID_REVIEW_REGEX =
             Pattern.compile(".{1,60}", Pattern.DOTALL);
@@ -124,7 +133,7 @@ public class InputValidation {
             Pattern.compile("^\\d{4}-\\d{2}-\\d{2}$");
 
     private static final Pattern VALID_NAME_FILTER_REGEX =
-            Pattern.compile("^[a-zA-Z]*$");
+            Pattern.compile("^[a-zA-Z\\u00C0-\\u024F]*$");
 
     private static final Pattern VALID_REGID_FILTER_REGEX =
             Pattern.compile("^[0-9]*$");
@@ -136,6 +145,13 @@ public class InputValidation {
 
     //\d{4}[\s]\d{3}[\s ]\d{3}$
 
+    /**
+     * Vzorová funkcia validácie vstupu
+     * Kontroluje sa pomocou Patternu uvedeného vyššie.
+     * Ak matcher nájde zhodu medzi patternom a emailom string je validovaný.
+     * @param emailStr Email ktorý chceme validovať
+     * @return 'true' - validný email 'false' - invalidný email
+     */
 
     public static boolean validateEmail(String emailStr) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
