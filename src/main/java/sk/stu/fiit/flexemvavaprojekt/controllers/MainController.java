@@ -50,9 +50,17 @@ public class MainController {
     }
     @FXML
     protected void login() {
-        String meno = loginMenoField.getText();
+        String email = loginMenoField.getText();
+        String heslo = loginHesloField.getText();
 
-        if (meno.equals("recepcna")){
+
+//        if (DbConnector.getInstance().loginOverenie(email,heslo) != null) {
+//            PrihlasenyPouzivatel.getInstance().setPouzivatel(DbConnector.getInstance().loginOverenie(email,heslo));
+//            PrihlasenyPouzivatel.getInstance().getPouzivatel().prihlaseniePouzivatela();
+//
+//        }
+
+        if (email.equals("recepcna")){
             PrihlasenyPouzivatel.getInstance().setPouzivatel(new Recepcna(8, "java", "je", "super", "0java0", SpravaHesla.salt(), SpravaHesla.salt()));
             try {
                 Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
@@ -61,7 +69,7 @@ public class MainController {
             }
 
         }
-        else if (meno.equals("trener")){
+        else if (email.equals("trener")){
             PrihlasenyPouzivatel.getInstance().setPouzivatel(new Trener(8, "pivo", "je", "super", "0java0", "superman", SpravaHesla.salt(),SpravaHesla.salt()));
 
             try {
