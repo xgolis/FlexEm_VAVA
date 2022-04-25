@@ -105,9 +105,7 @@ public class CvicenecProfilController implements Initializable{
         }
         byte[] salt = SpravaHesla.salt();
         String heslo = profilCHeslo2Field.getText();
-        PrihlasenyPouzivatel.getInstance().getPouzivatel().setSalt(salt);
-        PrihlasenyPouzivatel.getInstance().getPouzivatel().setHash(SpravaHesla.hash(heslo,salt));
-        DbConnector.getInstance().setNewPassword(PrihlasenyPouzivatel.getInstance().getPouzivatel().getId());
+        PrihlasenyPouzivatel.getInstance().zmenHeslo(salt,heslo);
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("passwordchanged.key"));
     }
 

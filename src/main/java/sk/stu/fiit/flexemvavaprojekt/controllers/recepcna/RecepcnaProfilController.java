@@ -9,11 +9,13 @@ import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.PrihlasenyPouzivatel;
+import sk.stu.fiit.flexemvavaprojekt.models.SpravaHesla;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RecepcnaProfilController implements Initializable {
@@ -101,7 +103,7 @@ public class RecepcnaProfilController implements Initializable {
 
 
     @FXML
-    protected void changePassword(){
+    protected void changePassword() throws NoSuchAlgorithmException {
         if(profilRHeslo1Field.getText().equals("") || profilRHeslo2Field.getText().equals("")){
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("fillallfields.key"));
             return;
@@ -110,6 +112,9 @@ public class RecepcnaProfilController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("samepassword.key"));
             return;
         }
+        byte[] salt = SpravaHesla.salt();
+        String heslo = profilRHeslo2Field.getText();
+        PrihlasenyPouzivatel.getInstance().zmenHeslo(salt,heslo);
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("passwordchanged.key"));
 
     }
