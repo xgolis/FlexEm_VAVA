@@ -60,7 +60,7 @@ public class MainController {
             PrihlasenyPouzivatel.getInstance().getPouzivatel().prihlaseniePouzivatela();
 
         }
-
+//
 //        if (email.equals("recepcna")){
 //            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Recepcna(8, "java", "je", "super", "0java0", SpravaHesla.salt(), SpravaHesla.salt()));
 //            try {
@@ -88,7 +88,5 @@ public class MainController {
 //        }
 
     }
-
-
 
 }

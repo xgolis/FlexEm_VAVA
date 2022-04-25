@@ -2,15 +2,13 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.controllers.MainController;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
+import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 
@@ -22,6 +20,21 @@ public class TrenerSkupPlanController implements Initializable {
 
     @FXML
     private ChoiceBox<String> skupTCasChoiceB;
+
+    @FXML
+    private TableColumn<SkupinovyPlan,String> datumPlanStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan,String> izbaPlanStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan,String> sportPlanStlpec;
+
+    @FXML
+    private TableColumn<SkupinovyPlan,String> trenerPlanStlpec;
+
+    @FXML
+    private TableView<SkupinovyPlan> tabulkaTrenerSkup;
 
     @FXML
     private DatePicker skupTDatumPicker;
@@ -94,6 +107,7 @@ public class TrenerSkupPlanController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Inicializator.inicializujCasChoiceBox(skupTCasChoiceB);
+        Inicializator.inicializujSkupinoveTreningy(tabulkaTrenerSkup,izbaPlanStlpec,trenerPlanStlpec,datumPlanStlpec,sportPlanStlpec);
 
     }
 

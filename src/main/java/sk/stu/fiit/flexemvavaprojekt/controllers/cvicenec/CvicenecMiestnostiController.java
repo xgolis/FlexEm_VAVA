@@ -123,6 +123,7 @@ public class CvicenecMiestnostiController implements Initializable{
         Inicializator.inicializujSkupinoveTreningy(miestnostiCTabulkaZoznamuTreningov, miestnostiCStlpecMiestnost,
                                                     miestnostiCStlpecTrener, miestnostiCStlpecDatumACas,
                                                     miestnostiCStlpecSport);
+
         Inicializator.inicializujMojeSkupinoveTreningy(miestnostiCMTabulka, miestnostiCMStlpecMmiestnost,
                                                         miestnostiCMStlpecTrener, miestnostiCMStlpecCas, miestnostiCMSlpecSport);
     }

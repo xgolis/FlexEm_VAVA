@@ -130,10 +130,10 @@ public class Inicializator {
     };
 
     public static void inicializujCCvicenia(TableView<IndividualnyPlan> tableView,TableColumn<IndividualnyPlan, String> datum,
-                                            TableColumn<IndividualnyPlan, String> nazovTreningu){
+                                            TableColumn<IndividualnyPlan, String> nazovTreningu, Boolean done){
 
         int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
-        ArrayList<IndividualnyPlan> individualnyPlans = DbConnector.getInstance().getMyPlanCvicenec(id, false);
+        ArrayList<IndividualnyPlan> individualnyPlans = DbConnector.getInstance().getMyPlanCvicenec(id, done);
         ObservableList<IndividualnyPlan> lanes = FXCollections.observableArrayList();
         lanes.addAll(individualnyPlans);
 
@@ -180,7 +180,7 @@ public class Inicializator {
                                                     TableColumn<SkupinovyPlan,String> sportColumn) {
 
         int id = PrihlasenyPouzivatel.getInstance().getPouzivatel().getId();
-        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getMyUpcomingSkupPlans(id);
+        ArrayList<SkupinovyPlan> skupinovyPlans = DbConnector.getInstance().getMySkupPlans(id, false);
         ObservableList<SkupinovyPlan> lanes = FXCollections.observableArrayList();
         lanes.addAll(skupinovyPlans);
 
