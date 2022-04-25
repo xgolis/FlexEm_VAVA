@@ -2,10 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.IndividualnyPlan;
 import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
@@ -20,6 +17,9 @@ public class CvicenecPlanController implements Initializable {
 
     @FXML
     private TextField trainplanCCvik1Field;
+
+    @FXML
+    private ToggleGroup cvicenia;
 
     @FXML
     private TableView<IndividualnyPlan> planCTabulka;
@@ -94,6 +94,15 @@ public class CvicenecPlanController implements Initializable {
 
     }
 
+    @FXML
+    protected void nastavNadchadzajuce() {
+        Inicializator.inicializujCCvicenia(planCTabulka,planCDenStlpec,planCNazovStlpec,false);
+    }
+
+    @FXML
+    protected void  nastavSplnene() {
+        Inicializator.inicializujCCvicenia(planCTabulka,planCDenStlpec,planCNazovStlpec,true);
+    }
 
     @FXML
     protected  void nastavHodnoty() {
@@ -106,6 +115,7 @@ public class CvicenecPlanController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujCCvicenia(planCTabulka,planCDenStlpec,planCNazovStlpec);
+        planCRButtonUpcoming.isSelected();
+        Inicializator.inicializujCCvicenia(planCTabulka,planCDenStlpec,planCNazovStlpec,false);
     }
 }
