@@ -87,7 +87,7 @@ public class CvicenecProfilController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujProfil(profilCMenoField, profilCPriezivskoField, profilCEmailField, profilCTelefonField);
+        Inicializator.inicializujProfil(profilCMenoField, profilCPriezivskoField, profilCEmailField, profilCTelefonField);
     }
 
     @FXML

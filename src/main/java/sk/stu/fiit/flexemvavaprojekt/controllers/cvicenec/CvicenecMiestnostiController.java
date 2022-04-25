@@ -120,11 +120,11 @@ public class CvicenecMiestnostiController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        Inicializator.inicializujSkupinoveTreningy(miestnostiCTabulkaZoznamuTreningov, miestnostiCStlpecMiestnost,
-//                                                    miestnostiCStlpecTrener, miestnostiCStlpecDatumACas,
-//                                                    miestnostiCStlpecSport);
-//        Inicializator.inicializujMojeSkupinoveTreningy(miestnostiCMTabulka, miestnostiCMStlpecMmiestnost,
-//                                                        miestnostiCMStlpecTrener, miestnostiCMStlpecCas, miestnostiCMSlpecSport);
+        Inicializator.inicializujSkupinoveTreningy(miestnostiCTabulkaZoznamuTreningov, miestnostiCStlpecMiestnost,
+                                                    miestnostiCStlpecTrener, miestnostiCStlpecDatumACas,
+                                                    miestnostiCStlpecSport);
+        Inicializator.inicializujMojeSkupinoveTreningy(miestnostiCMTabulka, miestnostiCMStlpecMmiestnost,
+                                                        miestnostiCMStlpecTrener, miestnostiCMStlpecCas, miestnostiCMSlpecSport);
     }
 
 
