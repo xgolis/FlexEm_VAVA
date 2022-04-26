@@ -8,6 +8,7 @@ import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.view.LoginView;
 import sk.stu.fiit.flexemvavaprojekt.view.View;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -16,6 +17,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Properties;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -28,6 +30,11 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        Properties props = new Properties();
+        InputStream inputStream = this.getClass().getClassLoader()
+                .getResourceAsStream("C:\\Users\\tberezny\\Documents\\2_rocnik\\letny_semester\\vava\\FlexEm_VAVA\\src\\main\\resources\\sk\\stu\\fiit\\flexemvavaprojekt\\bundle\\bundle_EN.properties");
+
+//        props.load(inputStream);
         window = stage;
         View view = new LoginView();
         view.render();

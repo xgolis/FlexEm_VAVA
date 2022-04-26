@@ -85,6 +85,17 @@ public class CvicenecProfilController implements Initializable{
     }
 
     @FXML
+    protected void miestnosti() {
+
+        try {
+            Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
+        } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec miestnosti view", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
     protected void profil() {
 
         try {
