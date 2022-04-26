@@ -197,6 +197,8 @@ public class Inicializator {
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
 
+        tableView.getSortOrder().add(casColumn);
+
 
     }
 
@@ -215,6 +217,7 @@ public class Inicializator {
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
 
+        tableView.getSortOrder().add(casColumn);
 
     }
 
@@ -280,6 +283,17 @@ public class Inicializator {
         sport.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tabulka.setItems(lanes);
 
+
+    }
+
+    public static void nastavHodnotyRPlan(TextField izbaField, TextField sportField, TextField datumField,
+                                          TextField popisField, TextField trenerField, SkupinovyPlan sp){
+
+        izbaField.setText(sp.getMiestnost());
+        sportField.setText(sp.getSport());
+        datumField.setText(sp.getCas().toString());
+        popisField.setText(sp.getPopis());
+        trenerField.setText(sp.getTrener());
 
     }
 }

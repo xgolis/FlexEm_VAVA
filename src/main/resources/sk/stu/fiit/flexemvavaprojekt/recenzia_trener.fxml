@@ -32,7 +32,7 @@
       <TextField fx:id="recenziaTPriezviskoField" editable="false" layoutX="194.0" layoutY="172.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="197.0" text="%sport.key" />
       <TextField fx:id="recenziaTSportField" editable="false" layoutX="194.0" layoutY="216.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
-      <Label layoutX="195.0" layoutY="241.0" text="%numberofstarsrecep.key" />
+      <Label layoutX="195.0" layoutY="241.0" text="%numberofstars.key" />
       <TextField fx:id="recenziaTHviezdickyField" editable="false" layoutX="194.0" layoutY="260.0" prefHeight="25.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="195.0" layoutY="285.0" text="%review.key" />
       <TextArea fx:id="recenziaTRecenziaField" editable="false" layoutX="194.0" layoutY="302.0" prefHeight="64.0" prefWidth="257.0" style="-fx-background-color: #dcdbd9;" />

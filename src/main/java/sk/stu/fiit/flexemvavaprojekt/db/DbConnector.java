@@ -216,6 +216,10 @@ public class DbConnector {
 
     public boolean setInside(int id, boolean inside){
         try {
+            if (DbConnector.getInstance().getCvicenec(id) == null) {
+                logger.log(Level.SEVERE, "Could not evidate cvicenec with id "+id+" inside");
+                return false;
+            }
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, inside);
@@ -982,9 +986,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
             st.setInt(2, plan_id);
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeQuery();
             st.close();
             logger.log(Level.INFO, "Skupinovy plan with id "+plan_id+" successfuly set to done");
             return true;
