@@ -874,7 +874,7 @@ public class DbConnector {
             st.setString(8, individualnyPlan.getCvik4());
             st.setBoolean(9, false);
             st.setString(10, individualnyPlan.getNazov());
-            st.executeQuery();
+            st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Individualny plan for cvicenec with id "+individualnyPlan.getCvicenecId()+" created");
             return true;
