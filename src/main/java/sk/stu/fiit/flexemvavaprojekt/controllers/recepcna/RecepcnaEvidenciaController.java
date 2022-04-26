@@ -7,6 +7,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
@@ -46,13 +47,20 @@ public class RecepcnaEvidenciaController implements Initializable {
             return;
         }
         if (evidenciaRRegIDField.getText().isEmpty()) {
-            evidenciaRTabulka.getItems().remove(evidenciaRTabulka.getSelectionModel().getSelectedItem());
+            Cvicenec cvicenec = evidenciaRTabulka.getSelectionModel().getSelectedItem();
+            evidenciaRTabulka.getItems().remove(cvicenec);
+            DbConnector.getInstance().setInside(cvicenec.getId(), false);
+
 
         }
         else {
             for (int i = 0; i <evidenciaRTabulka.getItems().size(); i++) {
                 if (evidenciaRTabulka.getItems().get(i).getId() == Integer.parseInt(evidenciaRRegIDField.getText()))   {
+
+                    Cvicenec cvicenec = evidenciaRTabulka.getItems().get(i);
                     evidenciaRTabulka.getItems().remove(i);
+                    DbConnector.getInstance().setInside(cvicenec.getId(), false);
+
                     actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("leaveregged.key"));
                     break;
                 }
@@ -66,7 +74,18 @@ public class RecepcnaEvidenciaController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("enterregged.key"));
+
+        int id_cvicenca = Integer.parseInt(evidenciaRRegIDField.getText());
+
+        if (DbConnector.getInstance().setInside(id_cvicenca, true)) {
+            evidenciaRTabulka.getItems().add(DbConnector.getInstance().getCvicenec(id_cvicenca));
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("enterregged.key"));
+        }
+        else {
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidid.key"));
+        }
+
+
     }
 
 

@@ -1,5 +1,6 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -65,6 +66,18 @@ public class Jazyk {
         }
 
     }
+
+    public String naformatujDatumACas(String datumACas){
+        String[] rozdelene = datumACas.split(" ");
+        LocalDate ld = LocalDate.parse(rozdelene[0]);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM yyyy");
+        String novyDatum = formatter.format(ld);
+        String novyCas = naformatujCas(rozdelene[1]);
+
+        return novyDatum + " " + novyCas;
+
+    }
+
 
     /**
      * Metoda formatuje telefonne cislo

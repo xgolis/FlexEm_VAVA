@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
 import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -62,6 +63,9 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     private TableColumn<Recenzia, String> recenziaRHvStlpec;
+
+    @FXML
+    private Label labelExport;
 
 
     @FXML
@@ -140,7 +144,7 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void sendReview(){
-        Recenzia review = new Recenzia(1, "Fitness", 9,"Fakt super, uzil som si to", "david", "priezvisko", 1, 1);
+        Recenzia recenziaO = recenziaRTabulka.getSelectionModel().getSelectedItem();
 
         try {
             DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
@@ -150,20 +154,20 @@ public class RecepcnaRecenziaController implements Initializable {
             Element recenzia = doc.createElement("Recenzia");
             doc.appendChild(recenzia);
 
-            Element miestnost = doc.createElement("Miestnost");
-            miestnost.appendChild(doc.createTextNode(Integer.toString(review.getSkupinovy_plan_id())));
-            recenzia.appendChild(miestnost);
+            Element meno = doc.createElement("MenoCvičenca");
+            meno.appendChild(doc.createTextNode(recenziaO.getMeno()));
+            recenzia.appendChild(meno);
 
             Element sport = doc.createElement("Sport");
-            sport.appendChild(doc.createTextNode(review.getSport()));
+            sport.appendChild(doc.createTextNode(recenziaO.getSport()));
             recenzia.appendChild(sport);
 
             Element pocetHviezd = doc.createElement("Hodnotenie");
-            pocetHviezd.appendChild(doc.createTextNode(String.valueOf(review.getPocetHviezd())));
+            pocetHviezd.appendChild(doc.createTextNode(recenziaRHviezdyField.getText()));
             recenzia.appendChild(pocetHviezd);
 
             Element popis = doc.createElement("PopisHodnotenia");
-            popis.appendChild(doc.createTextNode(review.getPopis()));
+            popis.appendChild(doc.createTextNode(recenziaO.getPopis()));
             recenzia.appendChild(popis);
 
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -173,11 +177,10 @@ public class RecepcnaRecenziaController implements Initializable {
             StreamResult result = new StreamResult(new File("recenzia.xml"));
             transformer.transform(source, result);
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("successfulexport.key"));
+
+        } catch (ParserConfigurationException | TransformerException e) {
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("unsuccessfulexport.key"));
             e.printStackTrace();
         }
     }
@@ -188,8 +191,9 @@ public class RecepcnaRecenziaController implements Initializable {
         Recenzia recenzia = recenziaRTabulka.getSelectionModel().getSelectedItem();
         if (recenzia != null) {
             Inicializator.nastavRRecenzie(recenziaRMenoField,recenziaRPriezviskoField,recenziaRSportFIeld,recenziaRHviezdyField,
-                                          recenziaRRecenziaArea,recenzia);
+                                          recenziaRRecenziaArea, recenzia);
         }
+        labelExport.setText("");
     }
 
     @Override

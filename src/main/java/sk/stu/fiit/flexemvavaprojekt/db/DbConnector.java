@@ -220,6 +220,10 @@ public class DbConnector {
 
     public boolean setInside(int id, boolean inside){
         try {
+            if (DbConnector.getInstance().getCvicenec(id) == null) {
+                logger.log(Level.SEVERE, "Could not evidate cvicenec with id "+id+" inside");
+                return false;
+            }
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, inside);
@@ -844,9 +848,7 @@ public class DbConnector {
             st.setString(3, recenzia.getPopis());
             st.setInt(4, recenzia.getCvicenec_id());
             Main.logger.log(Level.FINE, st.toString());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeQuery();
             st.close();
             logger.log(Level.INFO, "Recenzia created successfuly");
             return true;
@@ -895,8 +897,8 @@ public class DbConnector {
             st.setString(8, individualnyPlan.getCvik4());
             st.setBoolean(9, false);
             st.setString(10, individualnyPlan.getNazov());
-            Main.logger.log(Level.FINE, st.toString());
-            st.executeQuery();
+            st.executeUpdate();
+
             st.close();
             logger.log(Level.INFO, "Individualny plan for cvicenec with id "+individualnyPlan.getCvicenecId()+" created");
             return true;
@@ -1013,9 +1015,7 @@ public class DbConnector {
             st.setBoolean(1, true);
             st.setInt(2, plan_id);
             Main.logger.log(Level.FINE, st.toString());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Skupinovy plan with id "+plan_id+" successfuly set to done");
             return true;

@@ -205,6 +205,11 @@ public class TrenerSkupPlanController implements Initializable {
 
         DbConnector.getInstance().createSkupinovyPlan(plan);
 
+        tabulkaTrenerSkup.getItems().add(plan);
+        tabulkaTrenerSkup.getSortOrder().add(datumPlanStlpec);
+
+
+
         actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
     }
 }
