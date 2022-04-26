@@ -7,6 +7,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
+import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
 import sk.stu.fiit.flexemvavaprojekt.models.Recepcna;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -60,6 +61,9 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     private TableColumn<Recenzia, String> recenziaRHvStlpec;
+
+    @FXML
+    private Label labelExport;
 
 
     @FXML
@@ -165,11 +169,10 @@ public class RecepcnaRecenziaController implements Initializable {
             StreamResult result = new StreamResult(new File("recenzia.xml"));
             transformer.transform(source, result);
 
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("succesfulexport.key"));
+
+        } catch (ParserConfigurationException | TransformerException e) {
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("unsuccesfulexport.key"));
             e.printStackTrace();
         }
     }
@@ -177,6 +180,7 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void nastavHodnotyZTabulky() {
+        labelExport.setText("");
         Recenzia recenzia = recenziaRTabulka.getSelectionModel().getSelectedItem();
         if (recenzia != null) {
             Inicializator.nastavRRecenzie(recenziaRMenoField,recenziaRPriezviskoField,recenziaRSportFIeld,recenziaRHviezdyField,
