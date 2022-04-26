@@ -1,7 +1,5 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-
-import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 

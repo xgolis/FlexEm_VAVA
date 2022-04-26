@@ -23,7 +23,7 @@ public class Regex {
     /**
      * V danej Metóde sa vytvoria možné regexy z vyžadovaného textu
      * Príklad: Použivateľ (recepčná) zadá do TextFieldu pre meno String: "Ju"
-     *          metóda z toho vytvorí regexy: "^Ju.*", "^J..*"
+     *          metóda z toho vytvorí regexy: "^Ju.*", "^J..*", "^.u.*"
      * @param text
      * @return ArrayList<String> s možnými regexami
      */
@@ -36,7 +36,6 @@ public class Regex {
             list.add("^" + text + ".*");
         }
         else {
-//i = 2
             for (int i = 1; i <= dlzka; i++) {
                 String temp = text;
 
@@ -109,7 +108,6 @@ public class Regex {
                 + query + " union SELECT id, meno, priezvisko, email, telefon FROM cvicenecs WHERE "
                 + query + " ORDER BY meno ";
 
-        System.out.println(query);
         return query;
     }
 

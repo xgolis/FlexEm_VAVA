@@ -6,6 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Pouzivatel;
 import sk.stu.fiit.flexemvavaprojekt.models.Regex;
@@ -15,6 +16,7 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class RecepcnaClenoviaController implements Initializable {
 
@@ -51,6 +53,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -62,6 +65,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna evidencia view", e);
             throw new RuntimeException(e);
         }
 
@@ -73,6 +77,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna miestnosti view", e);
             throw new RuntimeException(e);
         }
 
@@ -85,6 +90,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNANOVYCLENVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna novy clen view", e);
             throw new RuntimeException(e);
         }
 
@@ -96,6 +102,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna recenzia view", e);
             throw new RuntimeException(e);
         }
 
@@ -107,6 +114,7 @@ public class RecepcnaClenoviaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -122,23 +130,29 @@ public class RecepcnaClenoviaController implements Initializable {
         if(!InputValidation.isSqlInjectionSafe(name) || !InputValidation.validateNameFilter(name)){
             checker = 1;
             clenoviaRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Filter for name validates unsuccessfully");
         }
         else {
             clenoviaRMenoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Filter for name validates successfully");
         }
         if(!InputValidation.isSqlInjectionSafe(surname) || !InputValidation.validateNameFilter(surname)){
             checker = 1;
             clenoviaRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Filter for surname validates unsuccessfully");
         }
         else {
             clenoviaRPriezviskoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Filter for surname validates successfully");
         }
         if(!InputValidation.isSqlInjectionSafe(regId) || !InputValidation.validateREGIDFilter(regId)){
             checker = 1;
             clenoviaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Regex filter validates unsuccessfully");
         }
         else {
             clenoviaRRegIDField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Regex filter validates unsuccessfully");
         }
         if (checker == 1) {
             return;

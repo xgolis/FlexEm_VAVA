@@ -32,6 +32,9 @@
           <TableColumn fx:id="indivTMenoCollum" editable="false" prefWidth="195.99996948242188" text="%name.key" />
           <TableColumn fx:id="indivTPriezviskoCollum" editable="false" prefWidth="168.800048828125" text="%surname.key" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Label layoutX="497.0" layoutY="71.0" text="%mytrainees.key">
          <font>

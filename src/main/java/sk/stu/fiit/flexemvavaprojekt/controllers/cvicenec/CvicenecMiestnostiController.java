@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
@@ -17,6 +18,7 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 
 public class CvicenecMiestnostiController implements Initializable{
@@ -76,6 +78,7 @@ public class CvicenecMiestnostiController implements Initializable{
         try {
             Router.goTo(RouterEnum.CVICENECRECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec recenzia view", e);
             throw new RuntimeException(e);
         }
 
@@ -89,6 +92,7 @@ public class CvicenecMiestnostiController implements Initializable{
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -100,6 +104,7 @@ public class CvicenecMiestnostiController implements Initializable{
         try {
             Router.goTo(RouterEnum.CVICENECPLANVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec plan view", e);
             throw new RuntimeException(e);
         }
 
@@ -111,10 +116,12 @@ public class CvicenecMiestnostiController implements Initializable{
         try {
             Router.goTo(RouterEnum.CVICENECPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recenzia profil view", e);
             throw new RuntimeException(e);
         }
 
     }
+
 
     @FXML
     protected  void rezervacia(){

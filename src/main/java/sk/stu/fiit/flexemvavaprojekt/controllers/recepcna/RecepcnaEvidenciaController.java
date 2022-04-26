@@ -1,23 +1,20 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers.recepcna;
 
-
-import javafx.beans.property.ReadOnlyIntegerWrapper;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
 import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class RecepcnaEvidenciaController implements Initializable {
 
@@ -50,13 +47,20 @@ public class RecepcnaEvidenciaController implements Initializable {
             return;
         }
         if (evidenciaRRegIDField.getText().isEmpty()) {
-            evidenciaRTabulka.getItems().remove(evidenciaRTabulka.getSelectionModel().getSelectedItem());
+            Cvicenec cvicenec = evidenciaRTabulka.getSelectionModel().getSelectedItem();
+            evidenciaRTabulka.getItems().remove(cvicenec);
+            DbConnector.getInstance().setInside(cvicenec.getId(), false);
+
 
         }
         else {
             for (int i = 0; i <evidenciaRTabulka.getItems().size(); i++) {
                 if (evidenciaRTabulka.getItems().get(i).getId() == Integer.parseInt(evidenciaRRegIDField.getText()))   {
+
+                    Cvicenec cvicenec = evidenciaRTabulka.getItems().get(i);
                     evidenciaRTabulka.getItems().remove(i);
+                    DbConnector.getInstance().setInside(cvicenec.getId(), false);
+
                     actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("leaveregged.key"));
                     break;
                 }
@@ -70,7 +74,18 @@ public class RecepcnaEvidenciaController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("enterregged.key"));
+
+        int id_cvicenca = Integer.parseInt(evidenciaRRegIDField.getText());
+
+        if (DbConnector.getInstance().setInside(id_cvicenca, true)) {
+            evidenciaRTabulka.getItems().add(DbConnector.getInstance().getCvicenec(id_cvicenca));
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("enterregged.key"));
+        }
+        else {
+            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidid.key"));
+        }
+
+
     }
 
 
@@ -81,6 +96,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -94,6 +110,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNANOVYCLENVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna novy clen view", e);
             throw new RuntimeException(e);
         }
 
@@ -105,6 +122,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna recenzia view", e);
             throw new RuntimeException(e);
         }
 
@@ -116,6 +134,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna clenovia view", e);
             throw new RuntimeException(e);
         }
 
@@ -127,6 +146,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna miestnosti view", e);
             throw new RuntimeException(e);
         }
 
@@ -139,6 +159,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -168,10 +189,12 @@ public class RecepcnaEvidenciaController implements Initializable {
         String regId = evidenciaRRegIDField.getText();
         if(!InputValidation.validateREGIDFilter(regId) || !InputValidation.isSqlInjectionSafe(regId)){
             evidenciaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Regex id validates unsuccessfully");
             return false;
         }
         else {
             evidenciaRRegIDField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Regex id validates unsuccessfully");
             return true;
         }
     }

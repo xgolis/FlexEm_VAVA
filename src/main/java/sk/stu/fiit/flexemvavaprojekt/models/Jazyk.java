@@ -1,16 +1,17 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Trieda Jazyk, ktorá je singleton sa využíva na lokalizáciu,preklady,formátovanie času
+ *
+ * @author jozefvlcek
+ */
 public class Jazyk {
 
     private static Jazyk single_instance = null;
@@ -20,7 +21,7 @@ public class Jazyk {
 
     private Jazyk()
     {
-       lokal = new HashMap<String,Locale>();
+       lokal = new HashMap<>();
        lokal.put("EN",new Locale("EN"));
        lokal.put("SK",new Locale("SK"));
        this.aktualnyJazyk = lokal.get("SK");
@@ -43,6 +44,11 @@ public class Jazyk {
         return single_instance;
     }
 
+    /**
+     * Metoda slúži na vrátenie slova na základe kľúču
+     * @param kluc slúží na získanie príslušného slova vo vyžiadanom jazyku
+     * @return hodnota predstavuje slovo v či už slovenskom alebo anglickom jazyku
+     */
     public String prelozeneSlovo(String kluc) {
         ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
         return (resourceBundle.getString(kluc));
@@ -61,6 +67,23 @@ public class Jazyk {
 
     }
 
+    public String naformatujDatumACas(String datumACas){
+        String[] rozdelene = datumACas.split(" ");
+        LocalDate ld = LocalDate.parse(rozdelene[0]);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM yyyy");
+        String novyDatum = formatter.format(ld);
+        String novyCas = naformatujCas(rozdelene[1]);
+
+        return novyDatum + " " + novyCas;
+
+    }
+
+
+    /**
+     * Metoda formatuje telefonne cislo
+     * @param telCislo predstavuje telefonne cislo, ktore je potrebne sformatovat
+     * @return zformatovane cislo
+     */
     public String naformatujTelefon(String telCislo) {
         String cisloBezMedzier;
         cisloBezMedzier = telCislo.replaceAll(" ", "");

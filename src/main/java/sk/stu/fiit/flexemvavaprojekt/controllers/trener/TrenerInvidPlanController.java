@@ -1,10 +1,9 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
@@ -16,6 +15,7 @@ import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class TrenerInvidPlanController implements Initializable {
 
@@ -119,11 +119,13 @@ public class TrenerInvidPlanController implements Initializable {
         String exercise = indivTCvik1Field.getText();
         if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik1Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Cvicenie 1 validates unsuccessfully");
             return false;
 
         }
         else {
             indivTCvik1Field.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Cvicenie 1 validates successfully");
             return true;
         }
     }
@@ -133,11 +135,13 @@ public class TrenerInvidPlanController implements Initializable {
         String exercise = indivTCvik2Field.getText();
         if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik2Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Cvicenie 2 validates unsuccessfully");
             return false;
 
         }
         else {
             indivTCvik2Field.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Cvicenie 2 validates successfully");
             return true;
         }
     }
@@ -147,11 +151,13 @@ public class TrenerInvidPlanController implements Initializable {
         String exercise = indivTCvik3Field.getText();
         if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik3Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Cvicenie 3 validates unsuccessfully");
             return false;
 
         }
         else {
             indivTCvik3Field.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Cvicenie 3 validates successfully");
             return true;
         }
     }
@@ -161,11 +167,13 @@ public class TrenerInvidPlanController implements Initializable {
         String exercise = indivTCvik4Field.getText();
         if(!InputValidation.validateExercise(exercise) || !InputValidation.isSqlInjectionSafe(exercise)){
             indivTCvik4Field.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Cvicenie 4 validates unsuccessfully");
             return false;
 
         }
         else {
             indivTCvik4Field.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Cvicenie 4 validates successfully");
             return true;
         }
     }
@@ -176,10 +184,12 @@ public class TrenerInvidPlanController implements Initializable {
         String name = indivTMenoField.getText();
         if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
             indivTMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Training name validates unsuccessfully");
             return false;
         }
         else {
             indivTMenoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Training validates validates successfully");
             return true;
         }
     }

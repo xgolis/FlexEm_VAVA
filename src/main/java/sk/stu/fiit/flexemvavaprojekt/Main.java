@@ -17,6 +17,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,9 +35,10 @@ public class Main extends Application {
 
     }
 
-    public static void main(String[] args){
-        logger.log(Level.INFO, "funguje?");
-        logger.log(Level.WARNING, "davaj bacha");
+    public static void main(String[] args) throws IOException {
+        FileHandler fh = new FileHandler("C:\\Users\\tberezny\\Documents\\2_rocnik\\letny_semester\\vava\\FlexEm_VAVA\\flexemLogs.log");
+        fh.setLevel(Level.FINER);
+        logger.addHandler(fh);
         DbConnector db = new DbConnector();
         launch();
     }

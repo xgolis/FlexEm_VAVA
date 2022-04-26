@@ -3,6 +3,7 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.IndividualnyPlan;
@@ -13,14 +14,12 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class CvicenecPlanController implements Initializable {
 
     @FXML
     private TextField trainplanCCvik1Field;
-
-    @FXML
-    private ToggleGroup cvicenia;
 
     @FXML
     private TableView<IndividualnyPlan> planCTabulka;
@@ -66,6 +65,7 @@ public class CvicenecPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.CVICENECPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -77,6 +77,7 @@ public class CvicenecPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec miestnosti view", e);
             throw new RuntimeException(e);
         }
     }
@@ -87,6 +88,7 @@ public class CvicenecPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 

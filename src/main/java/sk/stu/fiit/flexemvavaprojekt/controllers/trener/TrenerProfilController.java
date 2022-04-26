@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class TrenerProfilController implements Initializable {
 
@@ -45,6 +47,7 @@ public class TrenerProfilController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
     }
@@ -55,6 +58,7 @@ public class TrenerProfilController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener profil view", e);
             throw new RuntimeException(e);
         }
     }
@@ -65,6 +69,7 @@ public class TrenerProfilController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERROZVRHVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener rozvrh view", e);
             throw new RuntimeException(e);
         }
     }
@@ -75,6 +80,7 @@ public class TrenerProfilController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener individualny plan view", e);
             throw new RuntimeException(e);
         }
     }

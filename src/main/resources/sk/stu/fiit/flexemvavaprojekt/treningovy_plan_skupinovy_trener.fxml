@@ -53,6 +53,9 @@
             <TableColumn fx:id="datumPlanStlpec" editable="false" prefWidth="122.39996337890625" text="%dateandtime.key" />
             <TableColumn fx:id="sportPlanStlpec" editable="false" prefWidth="72.800048828125" text="%sport.key" />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Label layoutX="495.0" layoutY="84.0" text="%listtrainings.key">
          <font>
@@ -136,6 +139,9 @@
             <TableColumn fx:id="kapacitaTStlpec" editable="false" prefWidth="120.800048828125" text="%capacity.key" />
             <TableColumn fx:id="sportPlanStlpec2" editable="false" prefWidth="99.19989013671875" text="%sport.key" />
          </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <Label layoutX="495.0" layoutY="264.0" text="%listrooms.key">
          <font>

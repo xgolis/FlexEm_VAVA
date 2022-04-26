@@ -1,8 +1,7 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
+
 
 public class IndividualnyPlan extends Plan {
     private int cvicenecId;
