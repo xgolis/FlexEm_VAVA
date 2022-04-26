@@ -31,6 +31,9 @@
             <TableColumn fx:id="rozvrhTSportStlpec" editable="false" prefWidth="137.5999755859375" sortable="false" text="%sport.key" />
             <TableColumn fx:id="rozvrhTDatumStlpec" editable="false" prefWidth="151.20001220703125" text="%dateandtime.key" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <VBox layoutY="57.0" prefHeight="384.0" prefWidth="173.0" style="-fx-background-color: #123360;">
          <children>

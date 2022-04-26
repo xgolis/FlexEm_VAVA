@@ -111,7 +111,7 @@ public class Inicializator {
     public static void nastavHodnotyCMiestnost(TextField izba, TextField sport, TextField cas, TextField popis, TextField trener, SkupinovyPlan sp){
         izba.setText(sp.getMiestnost());
         sport.setText(sp.getSport());
-        cas.setText(sp.getCas().toString());
+        cas.setText(Jazyk.getInstance().naformatujDatumACas(sp.getCas().toString()));
         popis.setText(sp.getPopis());
         trener.setText(sp.getTrener());
 
@@ -124,7 +124,7 @@ public class Inicializator {
      */
     public static void nastavHodnotyCPlan(TextField datum, TextField nazov, TextField cvik1, TextField cvik2,
                                           TextField cvik3, TextField cvik4, IndividualnyPlan ip){
-        datum.setText(ip.getCas().toString());
+        datum.setText(Jazyk.getInstance().naformatujDatumACas(ip.getCas().toString()));
         nazov.setText(ip.getPopis());
         cvik1.setText(ip.getCvik1());
         cvik2.setText(ip.getCvik2());
@@ -162,7 +162,7 @@ public class Inicializator {
         ObservableList<IndividualnyPlan> lanes = FXCollections.observableArrayList();
         lanes.addAll(individualnyPlans);
 
-        datum.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        datum.setCellValueFactory(param -> new ReadOnlyStringWrapper(Jazyk.getInstance().naformatujDatumACas(param.getValue().getCas().toString())));
         nazovTreningu.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPopis()));
         tableView.setItems(lanes);
 
@@ -193,7 +193,7 @@ public class Inicializator {
 
         miestnostColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
         trenerColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
-        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(Jazyk.getInstance().naformatujDatumACas(param.getValue().getCas().toString())));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
 
@@ -213,7 +213,7 @@ public class Inicializator {
 
         miestnostColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
         trenerColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
-        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(Jazyk.getInstance().naformatujDatumACas(param.getValue().getCas().toString())));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
 
@@ -234,7 +234,7 @@ public class Inicializator {
         izbaColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMiestnost()));
         nazovColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getNazov()));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
-        datumColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
+        datumColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(Jazyk.getInstance().naformatujDatumACas(param.getValue().getCas().toString())));
         tabulka.setItems(lanes);
 
         tabulka.getSortOrder().add(datumColumn);
@@ -291,7 +291,7 @@ public class Inicializator {
 
         izbaField.setText(sp.getMiestnost());
         sportField.setText(sp.getSport());
-        datumField.setText(sp.getCas().toString());
+        datumField.setText(Jazyk.getInstance().naformatujDatumACas(sp.getCas().toString()));
         popisField.setText(sp.getPopis());
         trenerField.setText(sp.getTrener());
 

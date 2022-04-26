@@ -32,6 +32,9 @@
           <TableColumn fx:id="recenziaCTrenerStlpec" editable="false" prefWidth="75.0" text="%coach.key" />
             <TableColumn fx:id="recenziaCSportStlpec" editable="false" prefWidth="121.5999755859375" text="%sport.key" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <TextField fx:id="recenziaCIzbaField" editable="false" layoutX="199.0" layoutY="86.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-color: #dcdbd9;" />
       <Label layoutX="200.0" layoutY="68.0" text="%room.key" />
