@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -18,6 +19,7 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class RecepcnaEvidenciaController implements Initializable {
 
@@ -81,6 +83,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -94,6 +97,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNANOVYCLENVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna novy clen view", e);
             throw new RuntimeException(e);
         }
 
@@ -105,6 +109,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna recenzia view", e);
             throw new RuntimeException(e);
         }
 
@@ -116,6 +121,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna clenovia view", e);
             throw new RuntimeException(e);
         }
 
@@ -127,6 +133,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna miestnosti view", e);
             throw new RuntimeException(e);
         }
 
@@ -139,6 +146,7 @@ public class RecepcnaEvidenciaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -168,10 +176,12 @@ public class RecepcnaEvidenciaController implements Initializable {
         String regId = evidenciaRRegIDField.getText();
         if(!InputValidation.validateREGIDFilter(regId) || !InputValidation.isSqlInjectionSafe(regId)){
             evidenciaRRegIDField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Regex id validates unsuccessfully");
             return false;
         }
         else {
             evidenciaRRegIDField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Regex id validates unsuccessfully");
             return true;
         }
     }

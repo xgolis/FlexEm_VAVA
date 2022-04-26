@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
 import sk.stu.fiit.flexemvavaprojekt.models.Recenzia;
@@ -25,6 +26,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class RecepcnaRecenziaController implements Initializable {
 
@@ -70,6 +72,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -81,6 +84,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNANOVYCLENVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to novy clen view", e);
             throw new RuntimeException(e);
         }
 
@@ -92,6 +96,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna clenovia view", e);
             throw new RuntimeException(e);
         }
 
@@ -104,6 +109,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna miestnosti view", e);
             throw new RuntimeException(e);
         }
 
@@ -116,6 +122,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -127,6 +134,7 @@ public class RecepcnaRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna evidencia view", e);
             throw new RuntimeException(e);
         }
 

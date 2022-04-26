@@ -1,7 +1,10 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
+import sk.stu.fiit.flexemvavaprojekt.Main;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -75,6 +78,7 @@ public class InputValidation {
 
         for(Pattern pattern : validationPatterns){
             if(matches(pattern, dataString)){
+                Main.logger.log(Level.WARNING, "Validation if string"+dataString+" is not sql injection safe");
                 return false;
             }
         }

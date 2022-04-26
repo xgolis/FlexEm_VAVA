@@ -16,6 +16,7 @@ import java.net.URL;
 import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class TrenerSkupPlanController implements Initializable {
 
@@ -70,6 +71,7 @@ public class TrenerSkupPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -81,6 +83,7 @@ public class TrenerSkupPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -92,6 +95,7 @@ public class TrenerSkupPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener recenzia view", e);
             throw new RuntimeException(e);
         }
     }
@@ -102,6 +106,7 @@ public class TrenerSkupPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERROZVRHVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener rozvrh view", e);
             throw new RuntimeException(e);
         }
     }
@@ -112,6 +117,7 @@ public class TrenerSkupPlanController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to individualny plan view", e);
             throw new RuntimeException(e);
         }
     }
@@ -137,11 +143,13 @@ public class TrenerSkupPlanController implements Initializable {
         String room = skupTIzbaField.getText();
         if(!InputValidation.validateReview(room) || !InputValidation.isSqlInjectionSafe(room)){
             skupTIzbaField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Room validates unsuccessfully");
             return false;
 
         }
         else {
             skupTIzbaField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Room validates unsuccessfully");
             return true;
         }
     }
@@ -151,11 +159,13 @@ public class TrenerSkupPlanController implements Initializable {
         String sport = skupTSportField.getText();
         if(!InputValidation.validateName(sport) || !InputValidation.isSqlInjectionSafe(sport)){
             skupTSportField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Sport validates unsuccessfully");
             return false;
 
         }
         else {
             skupTSportField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Sport validates successfully");
             return true;
         }
     }
@@ -166,10 +176,12 @@ public class TrenerSkupPlanController implements Initializable {
         String name = skupTMenoField.getText();
         if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
             skupTMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Name validates unsuccessfully");
             return false;
         }
         else {
             skupTMenoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Name validates successfully");
             return true;
         }
     }

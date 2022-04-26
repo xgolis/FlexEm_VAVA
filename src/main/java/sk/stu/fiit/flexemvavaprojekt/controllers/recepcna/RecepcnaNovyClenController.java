@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.Callback;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class RecepcnaNovyClenController implements Initializable {
 
@@ -38,6 +40,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -49,6 +52,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNACLENOVIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna clenovia view", e);
             throw new RuntimeException(e);
         }
 
@@ -60,6 +64,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna miestnosti view", e);
             throw new RuntimeException(e);
         }
 
@@ -71,6 +76,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNARECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna recenzia view", e);
             throw new RuntimeException(e);
         }
 
@@ -82,6 +88,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -93,6 +100,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna evidencia view", e);
             throw new RuntimeException(e);
         }
 
@@ -104,6 +112,7 @@ public class RecepcnaNovyClenController implements Initializable {
         try {
             Router.goTo(RouterEnum.RECEPCNANOVYTRENERVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to recepcna novy trener view", e);
             throw new RuntimeException(e);
         }
 
@@ -120,10 +129,12 @@ public class RecepcnaNovyClenController implements Initializable {
         String name = novyclenRMenoField.getText();
         if(!InputValidation.validateName(name) || !InputValidation.isSqlInjectionSafe(name)){
             novyclenRMenoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Name validates unsuccessfully");
             return false;
         }
         else {
             novyclenRMenoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Name validates successfully");
             return true;
         }
     }
@@ -133,10 +144,12 @@ public class RecepcnaNovyClenController implements Initializable {
         String surname = novyclenRPriezviskoField.getText();
         if(!InputValidation.validateName(surname) || !InputValidation.isSqlInjectionSafe(surname)){
             novyclenRPriezviskoField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Name validates unsuccessfully");
             return false;
         }
         else {
             novyclenRPriezviskoField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Name validates successfully");
             return true;
         }
     }
@@ -153,10 +166,12 @@ public class RecepcnaNovyClenController implements Initializable {
         String email = novyclenREmailField.getText();
         if(!InputValidation.validateEmail(email) || !InputValidation.isSqlInjectionSafe(email)){
             novyclenREmailField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Email validates unsuccessfully");
             return false;
         }
         else {
             novyclenREmailField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Email validates successfully");
             return true;
         }
     }
@@ -166,11 +181,13 @@ public class RecepcnaNovyClenController implements Initializable {
         String phoneNumber = novyclenRTelefonField.getText();
         if(!InputValidation.validatePhone(phoneNumber) || !InputValidation.isSqlInjectionSafe(phoneNumber)){
             novyclenRTelefonField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Phone validates unsuccessfully");
             return false;
 
         }
         else {
             novyclenRTelefonField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Phone validates successfully");
             return true;
         }
     }

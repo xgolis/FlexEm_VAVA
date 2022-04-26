@@ -5,11 +5,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.util.Callback;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.logging.Level;
 
 /**
  * Trieda slúži na inicializáciu všetkych potrebných objektov z FXML. (Tabuľky, ChoiseBoxy, ComboBoxy, Fieldy...)
@@ -55,6 +57,7 @@ public class Inicializator {
 
         comboBox.getItems().addAll(list);
         comboBox.getSelectionModel().select(1);
+        Main.logger.log(Level.INFO, "Treners combo box initialized");
     }
 
     /**
@@ -74,6 +77,7 @@ public class Inicializator {
         indivTPriezviskoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
         indivTMenoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
         tabulka.setItems(lanes);
+        Main.logger.log(Level.INFO, "Table treningovy plan cvicenec initialized");
     }
 
     public static void inicializujTabulkuRecenzii(TableView<Recenzia> tabulka,
@@ -96,7 +100,7 @@ public class Inicializator {
         hvColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().pocetHviezdToString()));
 
         tabulka.setItems(lanes);
-
+        Main.logger.log(Level.INFO, "Table recenzii initialized");
     }
 
     public static void inicializujTabulkuTreningov(TableView<SkupinovyPlan> tabulka,
@@ -114,7 +118,7 @@ public class Inicializator {
         cas.setText(sp.getCas().toString());
         popis.setText(sp.getPopis());
         trener.setText(sp.getTrener());
-
+        Main.logger.log(Level.INFO, "Miestnost vlaues set");
     }
 
     /**
@@ -131,7 +135,7 @@ public class Inicializator {
         cvik3.setText(ip.getCvik3());
         cvik4.setText(ip.getCvik4());
 
-
+        Main.logger.log(Level.INFO, "Values cvicenec plan set");
     }
 
     public static void nastavHodnotyCRecenzia(TextField miestnost, TextField trener, TextField sport,
@@ -139,10 +143,12 @@ public class Inicializator {
         miestnost.setText(sp.getMiestnost());
         trener.setText(sp.getTrener());
         sport.setText(sp.getSport());
+        Main.logger.log(Level.INFO, "Values cvicenec recenzia set");
     }
 
     public static void nastavRegID(TextField regID,Cvicenec cvicenec) {
         regID.setText(Integer.toString(cvicenec.getId()));
+        Main.logger.log(Level.INFO, "Value registration number set");
     }
 
     public  static void nastavRRecenzie(TextField meno, TextField priezvisko, TextField sport, TextField hviezdy, TextArea popis,
@@ -152,6 +158,7 @@ public class Inicializator {
         sport.setText(recenzia.getSport());
         hviezdy.setText(recenzia.pocetHviezdToString());
         popis.setText(recenzia.getPopis());
+        Main.logger.log(Level.INFO, "Values recepcna recenzie set");
     };
 
     public static void inicializujCCvicenia(TableView<IndividualnyPlan> tableView,TableColumn<IndividualnyPlan, String> datum,
@@ -165,6 +172,7 @@ public class Inicializator {
         datum.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
         nazovTreningu.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPopis()));
         tableView.setItems(lanes);
+        Main.logger.log(Level.INFO, "Cvicenec cvicenia initialized");
 
     }
 
@@ -179,6 +187,7 @@ public class Inicializator {
         priezviskoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getPriezvisko()));
         menoColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getMeno()));
         tableView.setItems(lanes);
+        Main.logger.log(Level.INFO, "Cvicenecs inside initialized");
 
 
     }
@@ -196,6 +205,7 @@ public class Inicializator {
         casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
+        Main.logger.log(Level.INFO, "Skupinove treningy initialized");
 
 
     }
@@ -214,6 +224,7 @@ public class Inicializator {
         casColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getCas().toString()));
         sportColumn.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tableView.setItems(lanes);
+        Main.logger.log(Level.INFO, "Skupinove treningy cvicenec initialized");
 
 
     }
@@ -235,6 +246,7 @@ public class Inicializator {
         tabulka.setItems(lanes);
 
         tabulka.getSortOrder().add(datumColumn);
+        Main.logger.log(Level.INFO, "My plan trener initialized");
 
     }
 
@@ -245,6 +257,7 @@ public class Inicializator {
         priezviskoField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getPriezvisko());
         emailField.setText(PrihlasenyPouzivatel.getInstance().getPouzivatel().getEmail());
         telefonField.setText(Jazyk.getInstance().naformatujTelefon(PrihlasenyPouzivatel.getInstance().getPouzivatel().getTelefonneCislo()));
+        Main.logger.log(Level.INFO, "Profil initialized");
     }
 
     public static void inicializujTabulkuMiestnosti(TableView<Miestnost> tabulka,
@@ -260,10 +273,12 @@ public class Inicializator {
         kapacitaStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getKapacita()));
         sportStlpec.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tabulka.setItems(lanes);
+        Main.logger.log(Level.INFO, "Table miestnosts initialized");
     }
 
     public static void nastavIzbu(TextField izbaField, Miestnost miestnost) {
         izbaField.setText(miestnost.getNazov());
+        Main.logger.log(Level.INFO, "Miestnost name set");
     }
 
     public static void inicializujAbsolvovaneSkupTreningy(TableView<SkupinovyPlan> tabulka,
@@ -279,6 +294,7 @@ public class Inicializator {
         trener.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getTrener()));
         sport.setCellValueFactory(param -> new ReadOnlyStringWrapper(param.getValue().getSport()));
         tabulka.setItems(lanes);
+        Main.logger.log(Level.INFO, "Done skupinove plans cvicenec initialized");
 
 
     }
