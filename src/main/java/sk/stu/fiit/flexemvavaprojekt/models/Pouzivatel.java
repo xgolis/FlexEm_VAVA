@@ -1,6 +1,8 @@
 package sk.stu.fiit.flexemvavaprojekt.models;
 
-
+/**
+ * Abstraktna trieda,ktora zovšeobecnuje všetkých používatelov akými sú recepčná,tréner a cvičenec
+ */
 public abstract class Pouzivatel {
 
     protected final int id;
@@ -28,6 +30,10 @@ public abstract class Pouzivatel {
         this.hash = hash;
     }
 
+    /**
+     * abstraktna metoda, ktorú implementujú triedy cvičenec,tréner a recepčná
+     * kedže sa každý jeden z nich ocitne na inej scéne na základe ich role
+     */
     public abstract void prihlaseniePouzivatela();
 
     public String getEmail() {

@@ -11,8 +11,8 @@ import java.util.logging.Logger;
 public class DbConnector {
 
     private static DbConnector single_instance = null;
-    Connection con = null;
-    String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/pmsvldav";
+    private Connection con = null;
+    private String url = "jdbc:postgresql://manny.db.elephantsql.com:5432/pmsvldav";
 
     Logger logger = Main.logger;
 
@@ -321,52 +321,6 @@ public class DbConnector {
         }
     }
 
-//    public ArrayList<Pouzivatel> getClenovia(){
-//        try {
-//            ArrayList<Pouzivatel> list = new ArrayList<>();
-//            String sql = "select * from treners";
-//            PreparedStatement st = con.prepareStatement(sql);
-//            ResultSet rs = st.executeQuery(sql);
-//            while (rs.next()){
-//                Trener trener = new Trener(
-//                        rs.getInt(1),
-//                        rs.getString(2),
-//                        rs.getString(3),
-//                        rs.getString(4),
-//                        rs.getString(5),
-//                        rs.getString(6),
-//                        rs.getBytes(7),
-//                        rs.getBytes(8)
-//                );
-//                list.add(trener);
-//            }
-//
-//            String sql2 = "select * from cvicenecs";
-//            st = con.prepareStatement(sql2);
-//            rs = st.executeQuery(sql);
-//            while (rs.next()){
-//                Cvicenec cvicenec = new Cvicenec(
-//                        rs.getInt(1),
-//                        rs.getString(2),
-//                        rs.getString(3),
-//                        rs.getString(4),
-//                        rs.getString(5),
-//                        rs.getInt(6),
-//                        rs.getBytes(7),
-//                        rs.getBytes(8)
-//                );
-//                list.add(cvicenec);
-//            }
-//            rs.close();
-//            st.close();
-//            return list;
-//        }
-//        catch (Exception e){
-//            System.out.println(e);
-//            return null;
-//        }
-//    }
-//
     public ArrayList<Plan> getMySchedule(int id){
         try {
             ArrayList<Plan> list = new ArrayList<>();
@@ -596,7 +550,7 @@ public class DbConnector {
         }
         catch (Exception e){
             System.out.println(e);
-            logger.log(Level.SEVERE, "Could not all cvicenecs", e);
+            logger.log(Level.SEVERE, "Could not return all cvicenecs", e);
             return null;
         }
     }
@@ -753,7 +707,7 @@ public class DbConnector {
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "Uset with email "+ email+" found as type of cvicenec");
+            logger.log(Level.INFO, "User with email "+ email+" found as type of cvicenec");
             return cvicenec;
         }
         catch (Exception e){
@@ -784,7 +738,7 @@ public class DbConnector {
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "Uset with email "+ email+" found as type of trener");
+            logger.log(Level.INFO, "User with email "+ email+" found as type of trener");
             return trener;
         }
         catch (Exception e){
@@ -814,7 +768,7 @@ public class DbConnector {
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "Uset with email "+ email+" found as type of recepcna");
+            logger.log(Level.INFO, "User with email "+ email+" found as type of recepcna");
             return recepcna;
         }
         catch (Exception e){
@@ -856,28 +810,6 @@ public class DbConnector {
             return null;
         }
     }
-
-//    public boolean createSkupPlan(SkupinovyPlan skupinovyPlan){
-//        try {
-//            String sql = "INSERT INTO skupinovy_plans (miestnost_id, trener_id, sport, popis, datum_cas)\n" +
-//                    "VALUES (?, ?, ?, ?, ?);\n";
-//            PreparedStatement st = con.prepareStatement(sql);
-//            st.setString(1, skupinovyPlan.getMiestnost());
-//            st.setInt(2, skupinovyPlan.getTrenerId());
-//            st.setString(3, skupinovyPlan.getSport());
-//            st.setString(4, skupinovyPlan.getPopis());
-//            st.setTimestamp(5, skupinovyPlan.getCas());
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()){}
-//            rs.close();
-//            st.close();
-//            return true;
-//        }
-//        catch (Exception e){
-//            System.out.println(e);
-//            return false;
-//        }
-//    }
 
     public boolean createRecenzia(Recenzia recenzia){
         try {

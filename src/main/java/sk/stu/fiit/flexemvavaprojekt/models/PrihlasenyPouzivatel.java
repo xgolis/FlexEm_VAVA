@@ -4,6 +4,10 @@ import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 
 import java.security.NoSuchAlgorithmException;
 
+/**
+ *
+ * Singleton trieda, ktorá prislucha práve prihlásenému použivateľovi
+ */
 public class PrihlasenyPouzivatel{
 
     private Pouzivatel pouzivatel;
@@ -30,7 +34,6 @@ public class PrihlasenyPouzivatel{
         PrihlasenyPouzivatel.getInstance().getPouzivatel().setHash(SpravaHesla.hash(heslo,salt));
         DbConnector.getInstance().setNewPassword(PrihlasenyPouzivatel.getInstance().getPouzivatel().getId(),
                                                     PrihlasenyPouzivatel.getInstance().getPouzivatel());
-
     }
 
     public void setPouzivatel(Pouzivatel pouzivatel) {

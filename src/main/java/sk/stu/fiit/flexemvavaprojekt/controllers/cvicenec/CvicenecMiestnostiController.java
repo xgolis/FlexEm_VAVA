@@ -116,6 +116,7 @@ public class CvicenecMiestnostiController implements Initializable{
 
     }
 
+
     @FXML
     protected  void rezervacia(){
         SkupinovyPlan sp = miestnostiCTabulkaZoznamuTreningov.getSelectionModel().getSelectedItem();

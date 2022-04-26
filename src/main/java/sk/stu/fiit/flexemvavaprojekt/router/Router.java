@@ -6,6 +6,10 @@ import sk.stu.fiit.flexemvavaprojekt.view.*;
 
 import java.io.IOException;
 
+/**
+ * Trieda slúží na "prepinanie" medzi jednotlivými views
+ * @author jozefvlcek
+ */
 public class Router {
 
     public static Stage window;
