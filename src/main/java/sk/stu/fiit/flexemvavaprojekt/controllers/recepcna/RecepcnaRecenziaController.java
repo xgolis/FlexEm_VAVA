@@ -169,10 +169,10 @@ public class RecepcnaRecenziaController implements Initializable {
             StreamResult result = new StreamResult(new File("recenzia.xml"));
             transformer.transform(source, result);
 
-            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("succesfulexport.key"));
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("successfulexport.key"));
 
         } catch (ParserConfigurationException | TransformerException e) {
-            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("unsuccesfulexport.key"));
+            labelExport.setText(Jazyk.getInstance().prelozeneSlovo("unsuccessfulexport.key"));
             e.printStackTrace();
         }
     }
@@ -180,12 +180,12 @@ public class RecepcnaRecenziaController implements Initializable {
 
     @FXML
     protected void nastavHodnotyZTabulky() {
-        labelExport.setText("");
         Recenzia recenzia = recenziaRTabulka.getSelectionModel().getSelectedItem();
         if (recenzia != null) {
             Inicializator.nastavRRecenzie(recenziaRMenoField,recenziaRPriezviskoField,recenziaRSportFIeld,recenziaRHviezdyField,
                                           recenziaRRecenziaArea, recenzia);
         }
+        labelExport.setText("");
     }
 
     @Override
