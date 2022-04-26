@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-04-26T18:35:13.641493600Z</date>
-  <millis>1650998113641</millis>
-  <nanos>493600</nanos>
+  <date>2022-04-26T19:56:27.861609500Z</date>
+  <millis>1651002987861</millis>
+  <nanos>609500</nanos>
   <sequence>0</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
@@ -14,9 +14,9 @@
   <message>DBConnector initialized</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:14.863952Z</date>
-  <millis>1650998114863</millis>
-  <nanos>952000</nanos>
+  <date>2022-04-26T19:56:28.777130800Z</date>
+  <millis>1651002988777</millis>
+  <nanos>130800</nanos>
   <sequence>1</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
@@ -26,471 +26,723 @@
   <message>Database connected to application</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:18.054475800Z</date>
-  <millis>1650998118054</millis>
-  <nanos>475800</nanos>
+  <date>2022-04-26T19:56:31.827252900Z</date>
+  <millis>1651002991827</millis>
+  <nanos>252900</nanos>
   <sequence>3</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>nastavEN</method>
-  <thread>18</thread>
-  <message>Language set to english</message>
+  <method>validateEmail</method>
+  <thread>17</thread>
+  <message>Email validated unsuccessfully</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:18.057476300Z</date>
-  <millis>1650998118057</millis>
-  <nanos>476300</nanos>
+  <date>2022-04-26T19:56:35.034644800Z</date>
+  <millis>1651002995034</millis>
+  <nanos>644800</nanos>
   <sequence>4</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
+  <method>nastavEN</method>
+  <thread>17</thread>
+  <message>Language set to english</message>
+</record>
+<record>
+  <date>2022-04-26T19:56:35.037636600Z</date>
+  <millis>1651002995037</millis>
+  <nanos>636600</nanos>
+  <sequence>5</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Routing to login view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:18.284512700Z</date>
-  <millis>1650998118284</millis>
-  <nanos>512700</nanos>
-  <sequence>6</sequence>
+  <date>2022-04-26T19:56:35.219150500Z</date>
+  <millis>1651002995219</millis>
+  <nanos>150500</nanos>
+  <sequence>7</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:26.839837400Z</date>
-  <millis>1650998126839</millis>
-  <nanos>837400</nanos>
-  <sequence>7</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validateEmail</method>
-  <thread>18</thread>
-  <message>Email validated successfully</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:26.841839300Z</date>
-  <millis>1650998126841</millis>
-  <nanos>839300</nanos>
+  <date>2022-04-26T19:56:36.230994600Z</date>
+  <millis>1651002996230</millis>
+  <nanos>994600</nanos>
   <sequence>8</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validatePassword</method>
-  <thread>18</thread>
-  <message>Password validated successfully</message>
+  <method>validateEmail</method>
+  <thread>17</thread>
+  <message>Email validated unsuccessfully</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:26.842835300Z</date>
-  <millis>1650998126842</millis>
-  <nanos>835300</nanos>
+  <date>2022-04-26T19:57:59.022180600Z</date>
+  <millis>1651003079022</millis>
+  <nanos>180600</nanos>
   <sequence>9</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>&lt;init&gt;</method>
-  <thread>18</thread>
-  <message>DBConnector initialized</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:27.322635200Z</date>
-  <millis>1650998127322</millis>
-  <nanos>635200</nanos>
-  <sequence>10</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>&lt;init&gt;</method>
-  <thread>18</thread>
-  <message>Database connected to application</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:27.378926400Z</date>
-  <millis>1650998127378</millis>
-  <nanos>926400</nanos>
-  <sequence>11</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>findCvicenec</method>
-  <thread>18</thread>
-  <message>User with email elonko@gmail.com found as type of cvicenec</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:27.379884300Z</date>
-  <millis>1650998127379</millis>
-  <nanos>884300</nanos>
-  <sequence>12</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>loginOverenie</method>
-  <thread>18</thread>
-  <message>Could not authenticate user</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:27.380886300Z</date>
-  <millis>1650998127380</millis>
-  <nanos>886300</nanos>
-  <sequence>13</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>login</method>
-  <thread>18</thread>
-  <message>Could not log user in</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:33.443844800Z</date>
-  <millis>1650998133443</millis>
-  <nanos>844800</nanos>
-  <sequence>14</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
   <method>validateEmail</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Email validated successfully</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:33.443844800Z</date>
-  <millis>1650998133443</millis>
-  <nanos>844800</nanos>
-  <sequence>15</sequence>
+  <date>2022-04-26T19:57:59.024175600Z</date>
+  <millis>1651003079024</millis>
+  <nanos>175600</nanos>
+  <sequence>10</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
   <method>validatePassword</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Password validated successfully</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:33.486804800Z</date>
-  <millis>1650998133486</millis>
-  <nanos>804800</nanos>
-  <sequence>16</sequence>
+  <date>2022-04-26T19:57:59.024175600Z</date>
+  <millis>1651003079024</millis>
+  <nanos>175600</nanos>
+  <sequence>11</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>&lt;init&gt;</method>
+  <thread>17</thread>
+  <message>DBConnector initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:57:59.523958200Z</date>
+  <millis>1651003079523</millis>
+  <nanos>958200</nanos>
+  <sequence>12</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>&lt;init&gt;</method>
+  <thread>17</thread>
+  <message>Database connected to application</message>
+</record>
+<record>
+  <date>2022-04-26T19:57:59.578811300Z</date>
+  <millis>1651003079578</millis>
+  <nanos>811300</nanos>
+  <sequence>13</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
   <method>findCvicenec</method>
-  <thread>18</thread>
-  <message>User with email elonko@gmail.com found as type of cvicenec</message>
+  <thread>17</thread>
+  <message>User with email ari@gmail.com found as type of cvicenec</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:33.487799800Z</date>
-  <millis>1650998133487</millis>
-  <nanos>799800</nanos>
-  <sequence>17</sequence>
+  <date>2022-04-26T19:57:59.580805600Z</date>
+  <millis>1651003079580</millis>
+  <nanos>805600</nanos>
+  <sequence>14</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
   <method>loginOverenie</method>
-  <thread>18</thread>
-  <message>Could not authenticate user</message>
+  <thread>17</thread>
+  <message>User with id 26 logged in</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:33.489802800Z</date>
-  <millis>1650998133489</millis>
-  <nanos>802800</nanos>
-  <sequence>18</sequence>
+  <date>2022-04-26T19:57:59.581803600Z</date>
+  <millis>1651003079581</millis>
+  <nanos>803600</nanos>
+  <sequence>15</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
   <method>login</method>
-  <thread>18</thread>
-  <message>Could not log user in</message>
+  <thread>17</thread>
+  <message>User logged in succesffuly</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:40.486897400Z</date>
-  <millis>1650998140486</millis>
-  <nanos>897400</nanos>
+  <date>2022-04-26T19:57:59.581803600Z</date>
+  <millis>1651003079581</millis>
+  <nanos>803600</nanos>
+  <sequence>16</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec plan view</message>
+</record>
+<record>
+  <date>2022-04-26T19:57:59.691510500Z</date>
+  <millis>1651003079691</millis>
+  <nanos>510500</nanos>
+  <sequence>18</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMyPlanCvicenec</method>
+  <thread>17</thread>
+  <message>Individual plans for user with id26 successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:57:59.691510500Z</date>
+  <millis>1651003079691</millis>
+  <nanos>510500</nanos>
   <sequence>19</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>nastavSK</method>
-  <thread>18</thread>
-  <message>Language set to slovak</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujCCvicenia</method>
+  <thread>17</thread>
+  <message>Cvicenec cvicenia initialized</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:40.487890100Z</date>
-  <millis>1650998140487</millis>
-  <nanos>890100</nanos>
+  <date>2022-04-26T19:57:59.961787200Z</date>
+  <millis>1651003079961</millis>
+  <nanos>787200</nanos>
   <sequence>20</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
-  <message>Routing to login view</message>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:40.756966800Z</date>
-  <millis>1650998140756</millis>
-  <nanos>966800</nanos>
+  <date>2022-04-26T19:58:03.078777200Z</date>
+  <millis>1651003083078</millis>
+  <nanos>777200</nanos>
+  <sequence>21</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>nastavHodnotyCPlan</method>
+  <thread>17</thread>
+  <message>Values cvicenec plan set</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:04.817483500Z</date>
+  <millis>1651003084817</millis>
+  <nanos>483500</nanos>
   <sequence>22</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
-  <message>Rendering routed view</message>
+  <thread>17</thread>
+  <message>Routing to cvicenec miestnosti view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:48.036403900Z</date>
-  <millis>1650998148036</millis>
-  <nanos>403900</nanos>
-  <sequence>23</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validateEmail</method>
-  <thread>18</thread>
-  <message>Email validated successfully</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:48.037405400Z</date>
-  <millis>1650998148037</millis>
-  <nanos>405400</nanos>
+  <date>2022-04-26T19:58:04.909476200Z</date>
+  <millis>1651003084909</millis>
+  <nanos>476200</nanos>
   <sequence>24</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validatePassword</method>
-  <thread>18</thread>
-  <message>Password validated successfully</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getUpcomingSkupPlans</method>
+  <thread>17</thread>
+  <message>All upcoming plans successfuly returned</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:48.083983900Z</date>
-  <millis>1650998148083</millis>
-  <nanos>983900</nanos>
+  <date>2022-04-26T19:58:04.910454Z</date>
+  <millis>1651003084910</millis>
+  <nanos>454000</nanos>
   <sequence>25</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>findCvicenec</method>
-  <thread>18</thread>
-  <message>User with email elonko@gmail.com found as type of cvicenec</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujSkupinoveTreningy</method>
+  <thread>17</thread>
+  <message>Skupinove treningy initialized</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:48.084984400Z</date>
-  <millis>1650998148084</millis>
-  <nanos>984400</nanos>
+  <date>2022-04-26T19:58:04.967318400Z</date>
+  <millis>1651003084967</millis>
+  <nanos>318400</nanos>
   <sequence>26</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>loginOverenie</method>
-  <thread>18</thread>
-  <message>Could not authenticate user</message>
+  <method>getMySkupPlans</method>
+  <thread>17</thread>
+  <message>Skupinove plans of user with id 26 were successfuly returned</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:48.085984200Z</date>
-  <millis>1650998148085</millis>
-  <nanos>984200</nanos>
+  <date>2022-04-26T19:58:04.968311500Z</date>
+  <millis>1651003084968</millis>
+  <nanos>311500</nanos>
   <sequence>27</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>login</method>
-  <thread>18</thread>
-  <message>Could not log user in</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujMojeSkupinoveTreningy</method>
+  <thread>17</thread>
+  <message>Skupinove treningy cvicenec initialized</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:51.104777400Z</date>
-  <millis>1650998151104</millis>
-  <nanos>777400</nanos>
+  <date>2022-04-26T19:58:05.168775100Z</date>
+  <millis>1651003085168</millis>
+  <nanos>775100</nanos>
   <sequence>28</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>nastavEN</method>
-  <thread>18</thread>
-  <message>Language set to english</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:51.105779Z</date>
-  <millis>1650998151105</millis>
-  <nanos>779000</nanos>
+  <date>2022-04-26T19:58:07.498334Z</date>
+  <millis>1651003087498</millis>
+  <nanos>334000</nanos>
   <sequence>29</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
-  <message>Routing to login view</message>
+  <thread>17</thread>
+  <message>Routing to cvicenec recenzia view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:51.349754700Z</date>
-  <millis>1650998151349</millis>
-  <nanos>754700</nanos>
+  <date>2022-04-26T19:58:07.592081200Z</date>
+  <millis>1651003087592</millis>
+  <nanos>81200</nanos>
   <sequence>31</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMySkupPlans</method>
+  <thread>17</thread>
+  <message>Skupinove plans of user with id 26 were successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:07.593080200Z</date>
+  <millis>1651003087593</millis>
+  <nanos>80200</nanos>
+  <sequence>32</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujAbsolvovaneSkupTreningy</method>
+  <thread>17</thread>
+  <message>Done skupinove plans cvicenec initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:07.787007700Z</date>
+  <millis>1651003087787</millis>
+  <nanos>7700</nanos>
+  <sequence>33</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:35:59.929860100Z</date>
-  <millis>1650998159929</millis>
-  <nanos>860100</nanos>
-  <sequence>32</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validateEmail</method>
-  <thread>18</thread>
-  <message>Email validated successfully</message>
-</record>
-<record>
-  <date>2022-04-26T18:35:59.931862900Z</date>
-  <millis>1650998159931</millis>
-  <nanos>862900</nanos>
-  <sequence>33</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>validatePassword</method>
-  <thread>18</thread>
-  <message>Password validated successfully</message>
-</record>
-<record>
-  <date>2022-04-26T18:36:00.016657100Z</date>
-  <millis>1650998160016</millis>
-  <nanos>657100</nanos>
+  <date>2022-04-26T19:58:09.204401300Z</date>
+  <millis>1651003089204</millis>
+  <nanos>401300</nanos>
   <sequence>34</sequence>
   <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>findTrener</method>
-  <thread>18</thread>
-  <message>Uset with email janka1@gmail.com found as type of trener</message>
+  <level>WARNING</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec.CvicenecRecenziaController</class>
+  <method>validateStars</method>
+  <thread>17</thread>
+  <message>Starts validates unsuccessfully</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.059198800Z</date>
-  <millis>1650998160059</millis>
-  <nanos>198800</nanos>
+  <date>2022-04-26T19:58:10.540294500Z</date>
+  <millis>1651003090540</millis>
+  <nanos>294500</nanos>
   <sequence>35</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>findRecepcna</method>
-  <thread>18</thread>
-  <message>User with email janka1@gmail.com found as type of recepcna</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec profil view</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.059198800Z</date>
-  <millis>1650998160059</millis>
-  <nanos>198800</nanos>
-  <sequence>36</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>findRecepcna</method>
-  <thread>18</thread>
-  <message>Uset with email janka1@gmail.com found as type of recepcna</message>
-</record>
-<record>
-  <date>2022-04-26T18:36:00.061199500Z</date>
-  <millis>1650998160061</millis>
-  <nanos>199500</nanos>
+  <date>2022-04-26T19:58:10.582184200Z</date>
+  <millis>1651003090582</millis>
+  <nanos>184200</nanos>
   <sequence>37</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>loginOverenie</method>
-  <thread>18</thread>
-  <message>User with id 13 logged in</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujProfil</method>
+  <thread>17</thread>
+  <message>Profil initialized</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.062201Z</date>
-  <millis>1650998160062</millis>
-  <nanos>201000</nanos>
+  <date>2022-04-26T19:58:10.730785Z</date>
+  <millis>1651003090730</millis>
+  <nanos>785000</nanos>
   <sequence>38</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
-  <method>login</method>
-  <thread>18</thread>
-  <message>User logged in succesffuly</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.064199900Z</date>
-  <millis>1650998160064</millis>
-  <nanos>199900</nanos>
+  <date>2022-04-26T19:58:11.522864200Z</date>
+  <millis>1651003091522</millis>
+  <nanos>864200</nanos>
   <sequence>39</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
-  <message>Routing to recepcna evidencia view</message>
+  <thread>17</thread>
+  <message>Routing to login view</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.225894500Z</date>
-  <millis>1650998160225</millis>
-  <nanos>894500</nanos>
+  <date>2022-04-26T19:58:11.691961900Z</date>
+  <millis>1651003091691</millis>
+  <nanos>961900</nanos>
   <sequence>41</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
-  <method>getInside</method>
-  <thread>18</thread>
-  <message>Cvicenec users evidated inside got from database</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.227874Z</date>
-  <millis>1650998160227</millis>
-  <nanos>874000</nanos>
+  <date>2022-04-26T19:58:13.276007200Z</date>
+  <millis>1651003093276</millis>
+  <nanos>7200</nanos>
   <sequence>42</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
-  <method>inicializujCviacichCvicencov</method>
-  <thread>18</thread>
-  <message>Cvicenecs inside initialized</message>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
+  <method>nastavSK</method>
+  <thread>17</thread>
+  <message>Language set to slovak</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:00.527874200Z</date>
-  <millis>1650998160527</millis>
-  <nanos>874200</nanos>
+  <date>2022-04-26T19:58:13.276007200Z</date>
+  <millis>1651003093276</millis>
+  <nanos>7200</nanos>
   <sequence>43</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
-  <message>Rendering routed view</message>
-</record>
-<record>
-  <date>2022-04-26T18:36:01.737606400Z</date>
-  <millis>1650998161737</millis>
-  <nanos>606400</nanos>
-  <sequence>44</sequence>
-  <logger>MojLogger</logger>
-  <level>INFO</level>
-  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
-  <method>goTo</method>
-  <thread>18</thread>
+  <thread>17</thread>
   <message>Routing to login view</message>
 </record>
 <record>
-  <date>2022-04-26T18:36:01.990607Z</date>
-  <millis>1650998161990</millis>
-  <nanos>607000</nanos>
-  <sequence>46</sequence>
+  <date>2022-04-26T19:58:13.448591700Z</date>
+  <millis>1651003093448</millis>
+  <nanos>591700</nanos>
+  <sequence>45</sequence>
   <logger>MojLogger</logger>
   <level>INFO</level>
   <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
   <method>goTo</method>
-  <thread>18</thread>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:29.931829600Z</date>
+  <millis>1651003109931</millis>
+  <nanos>829600</nanos>
+  <sequence>46</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
+  <method>validateEmail</method>
+  <thread>17</thread>
+  <message>Email validated successfully</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:29.932826400Z</date>
+  <millis>1651003109932</millis>
+  <nanos>826400</nanos>
+  <sequence>47</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
+  <method>validatePassword</method>
+  <thread>17</thread>
+  <message>Password validated successfully</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.009621900Z</date>
+  <millis>1651003110009</millis>
+  <nanos>621900</nanos>
+  <sequence>48</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>findCvicenec</method>
+  <thread>17</thread>
+  <message>User with email ari@gmail.com found as type of cvicenec</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.009621900Z</date>
+  <millis>1651003110009</millis>
+  <nanos>621900</nanos>
+  <sequence>49</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>loginOverenie</method>
+  <thread>17</thread>
+  <message>User with id 26 logged in</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.010618300Z</date>
+  <millis>1651003110010</millis>
+  <nanos>618300</nanos>
+  <sequence>50</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.MainController</class>
+  <method>login</method>
+  <thread>17</thread>
+  <message>User logged in succesffuly</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.010618300Z</date>
+  <millis>1651003110010</millis>
+  <nanos>618300</nanos>
+  <sequence>51</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec plan view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.093000900Z</date>
+  <millis>1651003110093</millis>
+  <nanos>900</nanos>
+  <sequence>53</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMyPlanCvicenec</method>
+  <thread>17</thread>
+  <message>Individual plans for user with id26 successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.093000900Z</date>
+  <millis>1651003110093</millis>
+  <nanos>900</nanos>
+  <sequence>54</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujCCvicenia</method>
+  <thread>17</thread>
+  <message>Cvicenec cvicenia initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:30.262062400Z</date>
+  <millis>1651003110262</millis>
+  <nanos>62400</nanos>
+  <sequence>55</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:31.688436300Z</date>
+  <millis>1651003111688</millis>
+  <nanos>436300</nanos>
+  <sequence>56</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec recenzia view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:31.771214800Z</date>
+  <millis>1651003111771</millis>
+  <nanos>214800</nanos>
+  <sequence>58</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMySkupPlans</method>
+  <thread>17</thread>
+  <message>Skupinove plans of user with id 26 were successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:31.771214800Z</date>
+  <millis>1651003111771</millis>
+  <nanos>214800</nanos>
+  <sequence>59</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujAbsolvovaneSkupTreningy</method>
+  <thread>17</thread>
+  <message>Done skupinove plans cvicenec initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:31.924806600Z</date>
+  <millis>1651003111924</millis>
+  <nanos>806600</nanos>
+  <sequence>60</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:33.244549500Z</date>
+  <millis>1651003113244</millis>
+  <nanos>549500</nanos>
+  <sequence>61</sequence>
+  <logger>MojLogger</logger>
+  <level>WARNING</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec.CvicenecRecenziaController</class>
+  <method>validateStars</method>
+  <thread>17</thread>
+  <message>Starts validates unsuccessfully</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.066546Z</date>
+  <millis>1651003121066</millis>
+  <nanos>546000</nanos>
+  <sequence>62</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec miestnosti view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.169266500Z</date>
+  <millis>1651003121169</millis>
+  <nanos>266500</nanos>
+  <sequence>64</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getUpcomingSkupPlans</method>
+  <thread>17</thread>
+  <message>All upcoming plans successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.169266500Z</date>
+  <millis>1651003121169</millis>
+  <nanos>266500</nanos>
+  <sequence>65</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujSkupinoveTreningy</method>
+  <thread>17</thread>
+  <message>Skupinove treningy initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.219138Z</date>
+  <millis>1651003121219</millis>
+  <nanos>138000</nanos>
+  <sequence>66</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMySkupPlans</method>
+  <thread>17</thread>
+  <message>Skupinove plans of user with id 26 were successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.220130400Z</date>
+  <millis>1651003121220</millis>
+  <nanos>130400</nanos>
+  <sequence>67</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujMojeSkupinoveTreningy</method>
+  <thread>17</thread>
+  <message>Skupinove treningy cvicenec initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:41.396658600Z</date>
+  <millis>1651003121396</millis>
+  <nanos>658600</nanos>
+  <sequence>68</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Rendering routed view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:43.712990700Z</date>
+  <millis>1651003123712</millis>
+  <nanos>990700</nanos>
+  <sequence>69</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
+  <message>Routing to cvicenec plan view</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:43.795230900Z</date>
+  <millis>1651003123795</millis>
+  <nanos>230900</nanos>
+  <sequence>71</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.db.DbConnector</class>
+  <method>getMyPlanCvicenec</method>
+  <thread>17</thread>
+  <message>Individual plans for user with id26 successfuly returned</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:43.795230900Z</date>
+  <millis>1651003123795</millis>
+  <nanos>230900</nanos>
+  <sequence>72</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator</class>
+  <method>inicializujCCvicenia</method>
+  <thread>17</thread>
+  <message>Cvicenec cvicenia initialized</message>
+</record>
+<record>
+  <date>2022-04-26T19:58:43.952589Z</date>
+  <millis>1651003123952</millis>
+  <nanos>589000</nanos>
+  <sequence>73</sequence>
+  <logger>MojLogger</logger>
+  <level>INFO</level>
+  <class>sk.stu.fiit.flexemvavaprojekt.router.Router</class>
+  <method>goTo</method>
+  <thread>17</thread>
   <message>Rendering routed view</message>
 </record>
 </log>

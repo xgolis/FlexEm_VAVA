@@ -79,32 +79,6 @@ public class MainController {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("badpassword.key"));
         }
 
-//        if (email.equals("recepcna")){
-//            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Recepcna(8, "java", "je", "super", "0java0", SpravaHesla.salt(), SpravaHesla.salt()));
-//            try {
-//                Router.goTo(RouterEnum.RECEPCNAEVIDENCIAVIEW);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//
-//        }
-//        else if (email.equals("trener")){
-//            PrihlasenyPouzivatel.getInstance().setPouzivatel(new Trener(8, "pivo", "je", "super", "0java0", "superman", SpravaHesla.salt(),SpravaHesla.salt()));
-//
-//            try {
-//                Router.goTo(RouterEnum.TRENERROZVRHVIEW);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//        else {
-//            try {
-//                Router.goTo(RouterEnum.CVICENECPLANVIEW);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-
     }
   
     @FXML

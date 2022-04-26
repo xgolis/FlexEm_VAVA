@@ -9,6 +9,7 @@ import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ResourceBundle;
 
 /**
@@ -28,7 +29,7 @@ public class View  {
     public View(String fxml) throws IOException {
         this.window = Main.window;
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml));
-        fxmlLoader.setResources(ResourceBundle.getBundle("bundle", Jazyk.getInstance().getAktualnyJazyk()));
+        fxmlLoader.setResources(ResourceBundle.getBundle(Jazyk.getInstance().getAktualnyJazyk()));
         this.scene = new Scene(fxmlLoader.load(), 820, 440);
         this.window.setTitle("FlexEm");
         Image icon = new Image(getClass().getResourceAsStream("/sk/stu/fiit/flexemvavaprojekt/img/logo_bicak.png"));
