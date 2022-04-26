@@ -15,25 +15,29 @@ import java.util.ResourceBundle;
 public class Jazyk {
 
     private static Jazyk single_instance = null;
-    private final HashMap<String,Locale> lokal;
-    private Locale aktualnyJazyk;
+    private final HashMap<String,String> lokalString;
+    private String aktualnyJazyk;
 
+    /**
+    * Jar nevedel rozpoznaŤ aké properties ma použiť pomocou Locale objektu (stupstením v IDEE to šlo
+     * ako po masle) preto je to používam String pathy namiesto objektov :C
+     */
 
     private Jazyk()
     {
-       lokal = new HashMap<>();
-       lokal.put("EN",new Locale("EN"));
-       lokal.put("SK",new Locale("SK"));
-       this.aktualnyJazyk = lokal.get("SK");
+       lokalString = new HashMap<>();
+       lokalString.put("EN", "bundle_EN");
+       lokalString.put("SK", "bundle_SK");
+       this.aktualnyJazyk = lokalString.get("SK");
     }
 
 
-    public Locale getAktualnyJazyk() {
+    public String getAktualnyJazyk() {
         return this.aktualnyJazyk;
     }
 
     public void setAktualnyJazyk(String kluc) {
-        this.aktualnyJazyk = lokal.get(kluc);
+        this.aktualnyJazyk = lokalString.get(kluc);
     }
 
     public static Jazyk getInstance()
@@ -50,7 +54,7 @@ public class Jazyk {
      * @return hodnota predstavuje slovo v či už slovenskom alebo anglickom jazyku
      */
     public String prelozeneSlovo(String kluc) {
-        ResourceBundle  resourceBundle = ResourceBundle.getBundle("bundle",aktualnyJazyk);
+        ResourceBundle  resourceBundle = ResourceBundle.getBundle(aktualnyJazyk);
         return (resourceBundle.getString(kluc));
     }
 
@@ -58,7 +62,7 @@ public class Jazyk {
 
         LocalTime casCas = LocalTime.parse(cas);
 
-        if (aktualnyJazyk  == lokal.get("EN")) {
+        if (aktualnyJazyk.equals(lokalString.get("EN"))) {
             return (casCas.format(DateTimeFormatter.ofPattern("hh:mm a")));
         }
         else {

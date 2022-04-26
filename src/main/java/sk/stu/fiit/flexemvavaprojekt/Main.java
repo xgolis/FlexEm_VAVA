@@ -32,7 +32,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         Properties props = new Properties();
         InputStream inputStream = this.getClass().getClassLoader()
-                .getResourceAsStream("C:\\Users\\tberezny\\Documents\\2_rocnik\\letny_semester\\vava\\FlexEm_VAVA\\src\\main\\resources\\sk\\stu\\fiit\\flexemvavaprojekt\\bundle\\bundle_EN.properties");
+                .getResourceAsStream("bundle_EN.properties");
 
 //        props.load(inputStream);
         window = stage;
@@ -43,7 +43,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws IOException {
-        FileHandler fh = new FileHandler("C:\\Users\\tberezny\\Documents\\2_rocnik\\letny_semester\\vava\\FlexEm_VAVA\\flexemLogs.log");
+        FileHandler fh = new FileHandler("flexemLogs.log");
         fh.setLevel(Level.FINER);
         logger.addHandler(fh);
         DbConnector db = new DbConnector();
