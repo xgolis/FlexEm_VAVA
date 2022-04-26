@@ -108,7 +108,6 @@ public class Regex {
                 + query + " union SELECT id, meno, priezvisko, email, telefon FROM cvicenecs WHERE "
                 + query + " ORDER BY meno ";
 
-        System.out.println(query);
         return query;
     }
 
