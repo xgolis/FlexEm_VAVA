@@ -79,6 +79,7 @@ public class DbConnector {
             st.setString(5 ,trener.getOdbor());
             st.setBytes(6 ,trener.getHash());
             st.setBytes(7 ,trener.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Trener created");
@@ -129,6 +130,7 @@ public class DbConnector {
             st.setString(4 ,recepcna.getTelefonneCislo());
             st.setBytes(5 ,recepcna.getHash());
             st.setBytes(6 ,recepcna.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Recepcna created");
@@ -182,6 +184,7 @@ public class DbConnector {
             st.setInt(5, cvicenec.getTrener_id());
             st.setBytes(6 ,cvicenec.getHash());
             st.setBytes(7 ,cvicenec.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Cvicenec created");
@@ -200,6 +203,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, trener_id);
             st.setInt(2, cvicenec_id);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -223,6 +227,7 @@ public class DbConnector {
             String sql = "UPDATE cvicenecs SET inside = ? WHERE id = "+id;
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, inside);
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
 
             st.close();
@@ -254,6 +259,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setBytes(1,PrihlasenyPouzivatel.getInstance().getPouzivatel().getHash());
             st.setBytes(2,PrihlasenyPouzivatel.getInstance().getPouzivatel().getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
             st.close();
             return true;
@@ -269,6 +275,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where inside = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Cvicenec cvicenec = new Cvicenec(
@@ -300,6 +307,7 @@ public class DbConnector {
         try {
             ArrayList<Pouzivatel> list = new ArrayList<>();
             PreparedStatement st = con.prepareStatement(query);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Pouzivatel pouzivatel = new Recepcna(
@@ -335,6 +343,7 @@ public class DbConnector {
                     "where sk.trener_id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, id);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Plan plan = new SkupinovyPlan(
@@ -355,6 +364,7 @@ public class DbConnector {
             sql = "select * from individualny_plans where trener_id = ?";
             st = con.prepareStatement(sql);
             st.setInt(1, id);
+            Main.logger.log(Level.FINE, st.toString());
             rs = st.executeQuery();
             while (rs.next()){
                 Plan plan = new IndividualnyPlan(
@@ -396,6 +406,7 @@ public class DbConnector {
             st.setTimestamp(5 , skupinovyPlan.getCas());
             st.setBoolean(6, false);
             st.setString(7, skupinovyPlan.getNazov());
+            Main.logger.log(Level.FINE, st.toString());
             st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Skupinovy plan created");
@@ -416,6 +427,7 @@ public class DbConnector {
                     "join skupinovy_plans on recenzias.skupinovy_plan_id = skupinovy_plans.id\n" +
                     "join treners on skupinovy_plans.trener_id = treners.id " + dodatocneQuery;
             PreparedStatement st = con.prepareStatement(sql);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Recenzia recenzia = new Recenzia(
@@ -452,6 +464,7 @@ public class DbConnector {
                     "JOIN treners t on t.id = sp.trener_id\n" +
                     "WHERE sp.done is not true";
             PreparedStatement st = con.prepareStatement(sql);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
@@ -498,6 +511,7 @@ public class DbConnector {
                     "WHERE sp.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 SkupinovyPlan skupinovyPlan = new SkupinovyPlan(
@@ -533,6 +547,7 @@ public class DbConnector {
             ArrayList<Pouzivatel> list = new ArrayList<>();
             String sql = "select * from cvicenecs";
             PreparedStatement st = con.prepareStatement(sql);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Pouzivatel cvicenec = new Cvicenec(
@@ -564,6 +579,7 @@ public class DbConnector {
             ArrayList<Pouzivatel> list = new ArrayList<>();
             String sql = "select * from treners";
             PreparedStatement st = con.prepareStatement(sql);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Pouzivatel trener = new Trener(
@@ -603,6 +619,7 @@ public class DbConnector {
                     "WHERE ip.done is "+not_query+" true AND c.id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1 , cvicenecId);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 IndividualnyPlan individualnyPlan = new IndividualnyPlan(
@@ -694,6 +711,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where email = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, email);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             Cvicenec cvicenec = null;
 //            dorobit ak nič nenajde
@@ -708,10 +726,10 @@ public class DbConnector {
                         rs.getBytes(6),
                         rs.getBytes(7)
                 );
+                logger.log(Level.INFO, "User with email "+ email+" found as type of cvicenec");
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "User with email "+ email+" found as type of cvicenec");
             return cvicenec;
         }
         catch (Exception e){
@@ -726,6 +744,7 @@ public class DbConnector {
             String sql = "select * from treners where email = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1,email);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             Trener trener = null;
             if (rs.next()){
@@ -739,10 +758,11 @@ public class DbConnector {
                         rs.getBytes(7),
                         rs.getBytes(8)
                 );
+                logger.log(Level.INFO, "User with email "+ email+" found as type of trener");
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "User with email "+ email+" found as type of trener");
+            logger.log(Level.INFO, "Uset with email "+ email+" found as type of trener");
             return trener;
         }
         catch (Exception e){
@@ -757,6 +777,7 @@ public class DbConnector {
             String sql = "select * from recepcnas where email = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setString(1, email);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             Recepcna recepcna = null;
             if (rs.next()){
@@ -769,10 +790,11 @@ public class DbConnector {
                         rs.getBytes(6),
                         rs.getBytes(7)
                 );
+                logger.log(Level.INFO, "User with email "+ email+" found as type of recepcna");
             }
             rs.close();
             st.close();
-            logger.log(Level.INFO, "User with email "+ email+" found as type of recepcna");
+            logger.log(Level.INFO, "Uset with email "+ email+" found as type of recepcna");
             return recepcna;
         }
         catch (Exception e){
@@ -789,6 +811,7 @@ public class DbConnector {
             String sql = "select * from cvicenecs where trener_id = ?";
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, trener_id);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Cvicenec cvicenec = new Cvicenec(
@@ -824,9 +847,8 @@ public class DbConnector {
             st.setInt(2, recenzia.getPocetHviezd());
             st.setString(3, recenzia.getPopis());
             st.setInt(4, recenzia.getCvicenec_id());
-            ResultSet rs = st.executeQuery();
-            if (rs.next()){}
-            rs.close();
+            Main.logger.log(Level.FINE, st.toString());
+            st.executeQuery();
             st.close();
             logger.log(Level.INFO, "Recenzia created successfuly");
             return true;
@@ -845,6 +867,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setInt(1, cvicenec_id);
             st.setInt(2, skup_plan);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -875,6 +898,7 @@ public class DbConnector {
             st.setBoolean(9, false);
             st.setString(10, individualnyPlan.getNazov());
             st.executeUpdate();
+
             st.close();
             logger.log(Level.INFO, "Individualny plan for cvicenec with id "+individualnyPlan.getCvicenecId()+" created");
             return true;
@@ -898,6 +922,7 @@ public class DbConnector {
             st.setString(4, cvicenec.getTelefonneCislo());
             st.setBytes(5, cvicenec.getHash());
             st.setBytes(6, cvicenec.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -922,6 +947,7 @@ public class DbConnector {
             st.setString(4, trener.getTelefonneCislo());
             st.setBytes(5, trener.getHash());
             st.setBytes(6, trener.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -946,6 +972,7 @@ public class DbConnector {
             st.setString(4, recepcna.getTelefonneCislo());
             st.setBytes(5, recepcna.getHash());
             st.setBytes(6, recepcna.getSalt());
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -965,6 +992,7 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
             st.setInt(2, plan_id);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             if (rs.next()){}
             rs.close();
@@ -986,7 +1014,8 @@ public class DbConnector {
             PreparedStatement st = con.prepareStatement(sql);
             st.setBoolean(1, true);
             st.setInt(2, plan_id);
-            st.executeQuery();
+            Main.logger.log(Level.FINE, st.toString());
+            st.executeUpdate();
             st.close();
             logger.log(Level.INFO, "Skupinovy plan with id "+plan_id+" successfuly set to done");
             return true;
@@ -1003,6 +1032,7 @@ public class DbConnector {
             ArrayList<Miestnost> list = new ArrayList<>();
             String sql = "select * from miestnosts;";
             PreparedStatement st = con.prepareStatement(sql);
+            Main.logger.log(Level.FINE, st.toString());
             ResultSet rs = st.executeQuery();
             while (rs.next()){
                 Miestnost miestnost = new Miestnost(
@@ -1015,10 +1045,12 @@ public class DbConnector {
             }
             rs.close();
             st.close();
+            logger.log(Level.INFO, "Miestnosti succesffuly returned");
             return list;
         }
         catch (Exception e){
             System.out.println(e);
+            logger.log(Level.SEVERE, "Error while getting miestnosts", e);
             return null;
         }
     }

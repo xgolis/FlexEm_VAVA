@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.models.Plan;
 import sk.stu.fiit.flexemvavaprojekt.router.Router;
@@ -12,6 +13,7 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class TrenerRozvrhController implements Initializable {
 
@@ -37,6 +39,7 @@ public class TrenerRozvrhController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -48,6 +51,7 @@ public class TrenerRozvrhController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -59,6 +63,7 @@ public class TrenerRozvrhController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERRECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener recenzia view", e);
             throw new RuntimeException(e);
         }
     }
@@ -70,6 +75,7 @@ public class TrenerRozvrhController implements Initializable {
         try {
             Router.goTo(RouterEnum.TRENERINDIVIDUALNYVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to trener individualny plan view", e);
             throw new RuntimeException(e);
         }
     }

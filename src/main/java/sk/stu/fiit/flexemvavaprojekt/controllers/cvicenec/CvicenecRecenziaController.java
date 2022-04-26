@@ -3,6 +3,8 @@ package sk.stu.fiit.flexemvavaprojekt.controllers.cvicenec;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.*;
@@ -11,6 +13,7 @@ import sk.stu.fiit.flexemvavaprojekt.router.RouterEnum;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 public class CvicenecRecenziaController implements Initializable {
 
@@ -47,6 +50,7 @@ public class CvicenecRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.CVICENECPROFILVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec profil view", e);
             throw new RuntimeException(e);
         }
 
@@ -58,6 +62,7 @@ public class CvicenecRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec miestnosti view", e);
             throw new RuntimeException(e);
         }
     }
@@ -68,6 +73,7 @@ public class CvicenecRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -79,6 +85,7 @@ public class CvicenecRecenziaController implements Initializable {
         try {
             Router.goTo(RouterEnum.CVICENECPLANVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec plan view", e);
             throw new RuntimeException(e);
         }
 
@@ -104,10 +111,12 @@ public class CvicenecRecenziaController implements Initializable {
         String stars = recenziaCHviezdyField.getText();
         if(!InputValidation.validateStars(stars) || !InputValidation.isSqlInjectionSafe(stars)){
             recenziaCHviezdyField.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Starts validates unsuccessfully");
             return false;
         }
         else {
             recenziaCHviezdyField.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Phone validates successfully");
             return true;
         }
     }
@@ -117,10 +126,12 @@ public class CvicenecRecenziaController implements Initializable {
         String review = recenziaCRecenziaArea.getText();
         if(!InputValidation.validateReview(review) || !InputValidation.isSqlInjectionSafe(review)){
             recenziaCRecenziaArea.setStyle("-fx-text-box-border: red ; -fx-focus-color: red ;");
+            Main.logger.log(Level.WARNING, "Review validates unsuccessfully");
             return false;
         }
         else {
             recenziaCRecenziaArea.setStyle("-fx-border-width: 0px");
+            Main.logger.log(Level.INFO, "Phone validates successfully");
             return true;
         }
     }

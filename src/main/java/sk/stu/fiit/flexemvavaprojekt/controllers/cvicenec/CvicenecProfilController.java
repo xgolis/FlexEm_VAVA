@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import sk.stu.fiit.flexemvavaprojekt.Main;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
 import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
 import sk.stu.fiit.flexemvavaprojekt.models.Cvicenec;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
 
 
 public class CvicenecProfilController implements Initializable{
@@ -50,20 +52,12 @@ public class CvicenecProfilController implements Initializable{
         try {
             Router.goTo(RouterEnum.CVICENECRECENZIAVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec recenzia view", e);
             throw new RuntimeException(e);
         }
 
     }
 
-    @FXML
-    protected void miestnosti() {
-
-        try {
-            Router.goTo(RouterEnum.CVICENECMIESTNOSTIVIEW);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 
     @FXML
@@ -72,6 +66,7 @@ public class CvicenecProfilController implements Initializable{
         try {
             Router.goTo(RouterEnum.LOGINVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to login view", e);
             throw new RuntimeException(e);
         }
 
@@ -83,6 +78,19 @@ public class CvicenecProfilController implements Initializable{
         try {
             Router.goTo(RouterEnum.CVICENECPLANVIEW);
         } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec plan view", e);
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @FXML
+    protected void profil() {
+
+        try {
+            Router.goTo(RouterEnum.CVICENECPROFILVIEW);
+        } catch (IOException e) {
+            Main.logger.log(Level.WARNING, "Could not route to cvicenec profil view", e);
             throw new RuntimeException(e);
         }
 
