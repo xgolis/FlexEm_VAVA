@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import sk.stu.fiit.flexemvavaprojekt.controllers.Inicializator;
+import sk.stu.fiit.flexemvavaprojekt.db.DbConnector;
+import sk.stu.fiit.flexemvavaprojekt.models.IndividualnyPlan;
 import sk.stu.fiit.flexemvavaprojekt.models.InputValidation;
 import sk.stu.fiit.flexemvavaprojekt.models.Jazyk;
 import sk.stu.fiit.flexemvavaprojekt.models.SkupinovyPlan;
@@ -32,9 +34,6 @@ public class    RecepcnaMiestnostiController implements Initializable {
     private TableView<SkupinovyPlan> miestnostiRTabulka;
 
     @FXML
-    private DatePicker miestnostiRDateTimePicker;
-
-    @FXML
     private TextField miestnostiRIzbaField;
 
     @FXML
@@ -44,10 +43,10 @@ public class    RecepcnaMiestnostiController implements Initializable {
     private TextField miestnostiRSportField;
 
     @FXML
-    private ChoiceBox<String> miestnostiRTrenerChoiceB;
+    private TextField miestnostiRDateTimeField;
 
     @FXML
-    private ChoiceBox<String> miestnostiRCasChoiceB;
+    private TextField miestnostiRTrenerField;
     @FXML
     private Label actionLabel;
 
@@ -118,11 +117,27 @@ public class    RecepcnaMiestnostiController implements Initializable {
 
     }
 
+    @FXML
+    public void oznacTrening(){
+        SkupinovyPlan sp = miestnostiRTabulka.getSelectionModel().getSelectedItem();
+        if (sp != null) {
+            Inicializator.nastavHodnotyRPlan(miestnostiRIzbaField, miestnostiRSportField, miestnostiRDateTimeField,
+                                             miestnostiRPopisField, miestnostiRTrenerField, sp);
+        }
+    }
+
+    @FXML
+    public void dokonciTrening(){
+        SkupinovyPlan sp = miestnostiRTabulka.getSelectionModel().getSelectedItem();
+
+        DbConnector.getInstance().setSkupPlanDone(sp.getId());
+        miestnostiRTabulka.getItems().remove(sp);
+
+        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingdone.key"));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Inicializator.inicializujCasChoiceBox(miestnostiRCasChoiceB);
-//        Inicializator.inicializujTrenerovComboBox(miestnostiRTrenerChoiceB);
         Inicializator.inicializujSkupinoveTreningy(miestnostiRTabulka, miestnostRStlpec, trenerRStlpec, datumRStlpec,
                                                         sportRStlpec);
     }
@@ -171,12 +186,4 @@ public class    RecepcnaMiestnostiController implements Initializable {
         }
     }
 
-    @FXML
-    protected void addTraining(){
-        if(!validateRoom() || !validateSport() || !validateDesc() || miestnostiRTrenerChoiceB.getValue() == null || miestnostiRCasChoiceB.getValue() == null){
-            actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
-            return;
-        }
-        actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("trainingadded.key"));
-    }
 }
