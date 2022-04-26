@@ -2,7 +2,7 @@ package sk.stu.fiit.flexemvavaprojekt.models;
 
 public class Miestnost {
 
-    int id;
+    private final int id;
     private final String kapacita;
 
     private final String nazov;

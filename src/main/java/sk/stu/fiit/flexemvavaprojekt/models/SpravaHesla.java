@@ -3,6 +3,10 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Random;
 
+/**
+ * Trieda slúži na vygenerovanie hesla,saltu a hashovanie hesla
+ * @author jozefvlcek
+ */
 public class SpravaHesla {
 
 
@@ -15,6 +19,7 @@ public class SpravaHesla {
 
     }
 
+
     public static byte[] hash(String heslo,byte[] salt) throws NoSuchAlgorithmException {
         MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
         messageDigest.update(salt);
@@ -23,6 +28,10 @@ public class SpravaHesla {
 
     }
 
+    /**
+     *
+     * @return Metoda vygeneruje heslo, ktoré sa skladá z veľkých a malých písmen a čísel fixnej dĺžky
+     */
     public static String vygenerovaneHeslo() {
         Random rand = new Random();
         String znaky = "abcdefghijklmnopqrstuvwxyz0123456789";
