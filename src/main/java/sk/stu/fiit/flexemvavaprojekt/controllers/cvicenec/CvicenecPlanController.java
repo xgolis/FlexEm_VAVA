@@ -22,9 +22,6 @@ public class CvicenecPlanController implements Initializable {
     private TextField trainplanCCvik1Field;
 
     @FXML
-    private ToggleGroup cvicenia;
-
-    @FXML
     private TableView<IndividualnyPlan> planCTabulka;
 
     @FXML

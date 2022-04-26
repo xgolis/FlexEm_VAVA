@@ -1,7 +1,5 @@
 package sk.stu.fiit.flexemvavaprojekt.controllers.trener;
 
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;

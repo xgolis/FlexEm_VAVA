@@ -30,8 +30,6 @@ import java.util.logging.Level;
 
 public class RecepcnaRecenziaController implements Initializable {
 
-    private Recenzia review;
-
     @FXML
     private TextField recenziaRHviezdyField;
 

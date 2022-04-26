@@ -204,7 +204,6 @@ public class RecepcnaNovyTrenerController implements Initializable {
             actionLabel.setText(Jazyk.getInstance().prelozeneSlovo("invalidinput.key"));
             return;
         }
-//duplicita fix treba
         byte[] salt = SpravaHesla.salt();
         String prvotneHeslo = SpravaHesla.vygenerovaneHeslo();
         System.out.println(prvotneHeslo);
